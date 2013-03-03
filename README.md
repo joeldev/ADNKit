@@ -6,3 +6,22 @@ ADNKit is a Objective-C framework for building App.net iOS and OS X applications
 * 100% ADN API support
 * Useful convenience methods and objects
 * AFNetworking as the single and only external dependency
+
+# Current State
+ADNKit is very much a work in progress right now, and 100% of the ADN API has not yet been reached.
+
+# Getting Started
+### Installation
+ADNKit makes use of submodules for its dependencies. After cloning the repo, make sure to run `git submodule update --init --recursive` from the top level before trying to build the code. There is also a Releases folder containing stable binary releases.
+
+### Your First App.net App
+(very easy tutorial showing how brilliantly easy auth is, and also showing how to get the current user, fetch the user's stream, and make a post)
+
+# Dependencies
+ADNKit uses the following dependencies:
+* AFNetworking
+
+The following built-in frameworks are used:
+* Core Location
+* SystemConfiguration
+* MobileCoreServices (iOS only)
