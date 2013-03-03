@@ -12,7 +12,10 @@
 
 @interface ADNClient ()
 
+@property (strong) AFHTTPClient *webAuthClient;
+
 - (NSString *)scopeStringForAuthScopes:(ADNAuthScope)scopes;
+- (void)webAuthDidCompleteSuccessfully:(BOOL)wasSuccessful error:(NSError *)error;
 
 @end
 
@@ -23,7 +26,7 @@
     static ADNClient *sharedADNClient = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        sharedADNClient = [[ADNClient alloc] initWithBaseURL:[NSURL URLWithString:@"https://alpha-api.app.net/stream/0/"]];
+        sharedADNClient = [[ADNClient alloc] initWithBaseURL:[NSURL URLWithString:@"https://alpha-api.app.net/stream/0"]];
     });
     
     return sharedADNClient;
@@ -35,9 +38,26 @@
 		self.parameterEncoding = AFJSONParameterEncoding;
 		[self setDefaultHeader:@"Accept" value:@"application/json"];
 		[self registerHTTPOperationClass:[ADNJSONRequestOperation class]];
+		[self addObserver:self forKeyPath:@"accessToken" options:NSKeyValueObservingOptionNew context:nil];
 	}
     
     return self;
+}
+
+
+- (void)dealloc {
+	[self removeObserver:self forKeyPath:@"accessToken"];
+}
+
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+	if ([keyPath isEqualToString:@"accessToken"]) {
+		if (self.accessToken) {
+			[self setDefaultHeader:@"Authorization" value:[@"Bearer " stringByAppendingString:self.accessToken]];
+		} else {
+			[self setDefaultHeader:@"Authorization" value:nil];
+		}
+	}
 }
 
 
@@ -53,7 +73,7 @@
 }
 
 
-- (NSURLRequest *)webAuthRequestForClientID:(NSString *)clientID redirectURI:(NSString *)redirectURI responseType:(ADNWebAuthResponseType)responseType authScopes:(ADNAuthScope)authScopes state:(NSString *)state appStoreCompliant:(BOOL)shouldBeAppStoreCompliant {
+- (NSURLRequest *)webAuthRequestForClientID:(NSString *)clientID redirectURI:(NSString *)redirectURI authScopes:(ADNAuthScope)authScopes state:(NSString *)state appStoreCompliant:(BOOL)shouldBeAppStoreCompliant {
 	// http://developers.app.net/docs/authentication/flows/web/
 	
 	NSMutableString *URLString = [NSMutableString stringWithFormat:@"https://account.app.net/oauth/authenticate?client_id=%@&response_type=code", clientID];
@@ -76,6 +96,42 @@
 	
 	NSURL *URL = [NSURL URLWithString:URLString];
 	return [NSURLRequest requestWithURL:URL cachePolicy:NSURLCacheStorageNotAllowed timeoutInterval:60];
+}
+
+
+- (void)authenticateWebAuthAccessCode:(NSString *)accessCode forClientID:(NSString *)clientID clientSecret:(NSString *)clientSecret {
+	self.webAuthClient = [AFHTTPClient clientWithBaseURL:[NSURL URLWithString:@"https://account.app.net/oauth"]];
+	self.webAuthClient.parameterEncoding = AFFormURLParameterEncoding;
+	[self.webAuthClient registerHTTPOperationClass:[AFJSONRequestOperation class]];
+	
+	NSDictionary *parameters = @{@"client_id": clientID, @"client_secret:": clientSecret, @"grant_type": @"authorization_code", @"redirect_uri": @"foo://bar", @"code": accessCode};
+	
+	[self.webAuthClient postPath:@"/access_token" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+		NSDictionary *responseDictionary = (NSDictionary *)responseObject;
+		if (responseDictionary[@"access_token"]) {
+			self.accessToken = responseDictionary[@"access_token"];
+			[self webAuthDidCompleteSuccessfully:YES error:nil];
+		} else {
+			// TODO: create an error saying that we didn't get access_token back
+			[self webAuthDidCompleteSuccessfully:NO error:nil];
+		}
+	} failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+		[self webAuthDidCompleteSuccessfully:NO error:error];
+	}];
+}
+
+
+#pragma mark -
+#pragma mark Internal API
+
+- (void)webAuthDidCompleteSuccessfully:(BOOL)wasSuccessful error:(NSError *)error {
+	if (self.webAuthCompletionHandler) {
+		self.webAuthCompletionHandler(wasSuccessful, error);
+		self.webAuthCompletionHandler = nil;
+	}
+	if (self.webAuthClient) {
+		self.webAuthClient = nil;
+	}
 }
 
 

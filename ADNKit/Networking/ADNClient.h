@@ -29,9 +29,12 @@ typedef NS_ENUM(NSUInteger, ADNAuthScope) {
 // username/password authentication
 - (void)authenticateUsername:(NSString *)username password:(NSString *)password clientID:(NSString *)clientID passwordGrantSecret:(NSString *)passwordGrantSecret authScopes:(ADNAuthScope)authScopes completionHandler:(void (^)(BOOL success, NSError *error))completionHander;
 
-// web-style authentication meant to be shown in a webview
+// web-style authentication. call this method first, and then load the resulting URLRequest is a webview
 - (NSURLRequest *)webAuthRequestForClientID:(NSString *)clientID redirectURI:(NSString *)redirectURI authScopes:(ADNAuthScope)authScopes state:(NSString *)state appStoreCompliant:(BOOL)shouldBeAppStoreCompliant;
+// once you have an access code, call this method to finish web auth
+- (void)authenticateWebAuthAccessCode:(NSString *)accessCode forClientID:(NSString *)clientID clientSecret:(NSString *)clientSecret;
 
 @property (strong) NSString *accessToken;
+@property (copy) void (^webAuthCompletionHandler)(BOOL success, NSError *error);
 
 @end

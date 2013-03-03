@@ -23,9 +23,7 @@
 		5DC3726316E3AE1500190862 /* AFJSONRequestOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC3724D16E3AE1500190862 /* AFJSONRequestOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DC3726416E3AE1500190862 /* AFJSONRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3724E16E3AE1500190862 /* AFJSONRequestOperation.m */; };
 		5DC3726516E3AE1500190862 /* AFJSONRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3724E16E3AE1500190862 /* AFJSONRequestOperation.m */; };
-		5DC3726616E3AE1500190862 /* AFNetworkActivityIndicatorManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC3724F16E3AE1500190862 /* AFNetworkActivityIndicatorManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DC3726716E3AE1500190862 /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3725016E3AE1500190862 /* AFNetworkActivityIndicatorManager.m */; };
-		5DC3726816E3AE1500190862 /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3725016E3AE1500190862 /* AFNetworkActivityIndicatorManager.m */; };
 		5DC3726916E3AE1500190862 /* AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC3725116E3AE1500190862 /* AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DC3726A16E3AE1500190862 /* AFPropertyListRequestOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC3725216E3AE1500190862 /* AFPropertyListRequestOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DC3726B16E3AE1500190862 /* AFPropertyListRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3725316E3AE1500190862 /* AFPropertyListRequestOperation.m */; };
@@ -220,8 +218,6 @@
 				5DC3724C16E3AE1500190862 /* AFImageRequestOperation.m */,
 				5DC3724D16E3AE1500190862 /* AFJSONRequestOperation.h */,
 				5DC3724E16E3AE1500190862 /* AFJSONRequestOperation.m */,
-				5DC3724F16E3AE1500190862 /* AFNetworkActivityIndicatorManager.h */,
-				5DC3725016E3AE1500190862 /* AFNetworkActivityIndicatorManager.m */,
 				5DC3725216E3AE1500190862 /* AFPropertyListRequestOperation.h */,
 				5DC3725316E3AE1500190862 /* AFPropertyListRequestOperation.m */,
 				5DC3725416E3AE1500190862 /* AFURLConnectionOperation.h */,
@@ -230,6 +226,8 @@
 				5DC3725716E3AE1500190862 /* AFXMLRequestOperation.m */,
 				5DC3725816E3AE1500190862 /* UIImageView+AFNetworking.h */,
 				5DC3725916E3AE1500190862 /* UIImageView+AFNetworking.m */,
+				5DC3724F16E3AE1500190862 /* AFNetworkActivityIndicatorManager.h */,
+				5DC3725016E3AE1500190862 /* AFNetworkActivityIndicatorManager.m */,
 			);
 			name = AFNetworking;
 			path = External/AFNetworking/AFNetworking;
@@ -293,7 +291,6 @@
 				5DC3725D16E3AE1500190862 /* AFHTTPRequestOperation.h in Headers */,
 				5DC3726016E3AE1500190862 /* AFImageRequestOperation.h in Headers */,
 				5DC3726316E3AE1500190862 /* AFJSONRequestOperation.h in Headers */,
-				5DC3726616E3AE1500190862 /* AFNetworkActivityIndicatorManager.h in Headers */,
 				5DC3726916E3AE1500190862 /* AFNetworking.h in Headers */,
 				5DC3726A16E3AE1500190862 /* AFPropertyListRequestOperation.h in Headers */,
 				5DC3726D16E3AE1500190862 /* AFURLConnectionOperation.h in Headers */,
@@ -410,7 +407,6 @@
 				5DC3725F16E3AE1500190862 /* AFHTTPRequestOperation.m in Sources */,
 				5DC3726216E3AE1500190862 /* AFImageRequestOperation.m in Sources */,
 				5DC3726516E3AE1500190862 /* AFJSONRequestOperation.m in Sources */,
-				5DC3726816E3AE1500190862 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				5DC3726C16E3AE1500190862 /* AFPropertyListRequestOperation.m in Sources */,
 				5DC3726F16E3AE1500190862 /* AFURLConnectionOperation.m in Sources */,
 				5DC3727216E3AE1500190862 /* AFXMLRequestOperation.m in Sources */,
