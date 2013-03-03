@@ -3,7 +3,7 @@ ADNKit
 
 ADNKit is a Objective-C framework for building App.net iOS and OS X applications. The guiding design principles are:
 * Simple and easy to understand API
-* Very quick to get started and past App.net Auth
+* Very quick to get started and passed App.net Auth
 * 100% ADN API support
 * Useful convenience methods and objects
 * AFNetworking should be the only dependency
