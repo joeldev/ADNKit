@@ -1,12 +1,11 @@
 ADNKit
 ======
 
-ADNKit is a Objective-C framework for building App.net iOS and OS X applications. The guiding design principles are:
+ADNKit is a brand new Objective-C framework for building App.net iOS and OS X applications. The guiding design principles are:
 * Simple and easy to understand API
-* Very quick to get started and passed App.net Auth
+* As much heavylifting as possible is done for you
 * 100% ADN API support
-* Useful convenience methods and objects
-* AFNetworking should be the only dependency
+* No dependencies other than AFNetworking
 
 # Current State
 ADNKit is very much a work in progress right now, and 100% of the ADN API has not yet been reached.
@@ -56,7 +55,7 @@ id handler = ^(BOOL success, NSError *error) {
 						     completionHandler:handler];
 ```
 
-Once the completion block is called with a successful response, you are completely good to go and can start using the rest of the API calls.
+Once the completion block is called with a successful response, you are completely good to go and can start using the rest of the API calls. You don't even need to set the accessToken on the shared ADNClient, that happens automatically.
 
 ##### OAuth Authentication
 
@@ -110,6 +109,8 @@ Once the user authorizes the application, your redirectURI will get called and p
 }
 
 ```
+
+Once your web auth completion block is called, you are ready to go. No need to set the accessToken, that is handled automatically.
 
 # Dependencies
 ADNKit uses the following dependencies:

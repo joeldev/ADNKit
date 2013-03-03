@@ -12,10 +12,12 @@
 
 @interface ADNClient ()
 
-@property (strong) AFHTTPClient *webAuthClient;
+@property (strong) AFHTTPClient *authHTTPClient;
 
+- (void)initializeHTTPAuthClient;
 - (NSString *)scopeStringForAuthScopes:(ADNAuthScope)scopes;
-- (void)webAuthDidCompleteSuccessfully:(BOOL)wasSuccessful error:(NSError *)error;
+- (void)HTTPAuthDidCompleteSuccessfully:(BOOL)wasSuccessful error:(NSError *)error handler:(void (^)(BOOL successful, NSError *error))handler;
+- (void)authenticateWithParameters:(NSDictionary *)params handler:(void (^)(BOOL successful, NSError *error))handler;
 
 @end
 
@@ -65,11 +67,10 @@
 #pragma mark Auth
 
 - (void)authenticateUsername:(NSString *)username password:(NSString *)password clientID:(NSString *)clientID passwordGrantSecret:(NSString *)passwordGrantSecret authScopes:(ADNAuthScope)authScopes completionHandler:(void (^)(BOOL success, NSError *error))completionHander {
-#warning TODO
 	// http://developers.app.net/docs/authentication/flows/password/
-	if (completionHander) {
-		completionHander(NO, nil);
-	}
+	
+	NSDictionary *parameters = @{@"client_id": clientID, @"password_grant_secret": passwordGrantSecret, @"grant_type": @"password", @"username": username, @"psasword": password, @"scope": [self scopeStringForAuthScopes:authScopes]};
+	[self authenticateWithParameters:parameters handler:completionHander];
 }
 
 
@@ -100,37 +101,49 @@
 
 
 - (void)authenticateWebAuthAccessCode:(NSString *)accessCode forClientID:(NSString *)clientID clientSecret:(NSString *)clientSecret {
-	self.webAuthClient = [AFHTTPClient clientWithBaseURL:[NSURL URLWithString:@"https://account.app.net/oauth"]];
-	self.webAuthClient.parameterEncoding = AFFormURLParameterEncoding;
-	[self.webAuthClient registerHTTPOperationClass:[AFJSONRequestOperation class]];
-	
+	// http://developers.app.net/docs/authentication/flows/web/
 	NSDictionary *parameters = @{@"client_id": clientID, @"client_secret:": clientSecret, @"grant_type": @"authorization_code", @"redirect_uri": @"foo://bar", @"code": accessCode};
-	
-	[self.webAuthClient postPath:@"/access_token" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-		NSDictionary *responseDictionary = (NSDictionary *)responseObject;
-		if (responseDictionary[@"access_token"]) {
-			self.accessToken = responseDictionary[@"access_token"];
-			[self webAuthDidCompleteSuccessfully:YES error:nil];
-		} else {
-			// TODO: create an error saying that we didn't get access_token back
-			[self webAuthDidCompleteSuccessfully:NO error:nil];
-		}
-	} failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-		[self webAuthDidCompleteSuccessfully:NO error:error];
-	}];
+	[self authenticateWithParameters:parameters handler:self.webAuthCompletionHandler];
 }
 
 
 #pragma mark -
 #pragma mark Internal API
 
-- (void)webAuthDidCompleteSuccessfully:(BOOL)wasSuccessful error:(NSError *)error {
-	if (self.webAuthCompletionHandler) {
-		self.webAuthCompletionHandler(wasSuccessful, error);
-		self.webAuthCompletionHandler = nil;
+- (void)initializeHTTPAuthClient {
+	self.authHTTPClient = [AFHTTPClient clientWithBaseURL:[NSURL URLWithString:@"https://account.app.net/oauth"]];
+	self.authHTTPClient.parameterEncoding = AFFormURLParameterEncoding;
+	[self.authHTTPClient registerHTTPOperationClass:[AFJSONRequestOperation class]];
+}
+
+
+- (void)authenticateWithParameters:(NSDictionary *)params handler:(void (^)(BOOL successful, NSError *error))handler {
+	[self initializeHTTPAuthClient];
+	
+	[self.authHTTPClient postPath:@"/access_token" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+		NSDictionary *responseDictionary = (NSDictionary *)responseObject;
+		if (responseDictionary[@"access_token"]) {
+			self.accessToken = responseDictionary[@"access_token"];
+			[self HTTPAuthDidCompleteSuccessfully:YES error:nil handler:handler];
+		} else {
+			// TODO: create an error saying that we didn't get access_token back
+			[self HTTPAuthDidCompleteSuccessfully:NO error:nil handler:handler];
+		}
+	} failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+		[self HTTPAuthDidCompleteSuccessfully:NO error:error handler:handler];
+	}];
+}
+
+
+- (void)HTTPAuthDidCompleteSuccessfully:(BOOL)wasSuccessful error:(NSError *)error handler:(void (^)(BOOL successful, NSError *error))handler {
+	if (handler) {
+		handler(wasSuccessful, error);
 	}
-	if (self.webAuthClient) {
-		self.webAuthClient = nil;
+	if (self.authHTTPClient) {
+		self.authHTTPClient = nil;
+	}
+	if (self.webAuthCompletionHandler) {
+		self.webAuthCompletionHandler = nil;
 	}
 }
 
