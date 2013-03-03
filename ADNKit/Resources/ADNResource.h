@@ -1,13 +1,16 @@
 //
-//  ADNKit_OSX.h
-//  ADNKit-OSX
+//  ADNResource.h
+//  ADNKit
 //
-//  Created by Joel Levin on 2/28/13.
+//  Created by Joel Levin on 3/3/13.
 //  Copyright (c) 2013 Afterwork Studios. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-@interface ADNKit_OSX : NSObject
+
+@interface ADNResource : NSObject
+
+
 
 @end

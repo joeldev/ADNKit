@@ -9,36 +9,52 @@
 /* Begin PBXBuildFile section */
 		5DC370DD16E0805E00190862 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DC370DC16E0805E00190862 /* Foundation.framework */; };
 		5DC370E216E0805E00190862 /* ADNKit.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5DC370E116E0805E00190862 /* ADNKit.h */; };
-		5DC370E416E0805E00190862 /* ADNKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC370E316E0805E00190862 /* ADNKit.m */; };
 		5DC3710916E0808C00190862 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DC370F016E0807000190862 /* Cocoa.framework */; };
 		5DC3710F16E0808C00190862 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5DC3710D16E0808C00190862 /* InfoPlist.strings */; };
-		5DC3711316E0808C00190862 /* ADNKit_OSX.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3711216E0808C00190862 /* ADNKit_OSX.m */; };
-		5DC3725A16E3AE1500190862 /* AFHTTPClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC3724716E3AE1500190862 /* AFHTTPClient.h */; };
+		5DC3725A16E3AE1500190862 /* AFHTTPClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC3724716E3AE1500190862 /* AFHTTPClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DC3725B16E3AE1500190862 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3724816E3AE1500190862 /* AFHTTPClient.m */; };
 		5DC3725C16E3AE1500190862 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3724816E3AE1500190862 /* AFHTTPClient.m */; };
-		5DC3725D16E3AE1500190862 /* AFHTTPRequestOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC3724916E3AE1500190862 /* AFHTTPRequestOperation.h */; };
+		5DC3725D16E3AE1500190862 /* AFHTTPRequestOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC3724916E3AE1500190862 /* AFHTTPRequestOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DC3725E16E3AE1500190862 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3724A16E3AE1500190862 /* AFHTTPRequestOperation.m */; };
 		5DC3725F16E3AE1500190862 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3724A16E3AE1500190862 /* AFHTTPRequestOperation.m */; };
-		5DC3726016E3AE1500190862 /* AFImageRequestOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC3724B16E3AE1500190862 /* AFImageRequestOperation.h */; };
+		5DC3726016E3AE1500190862 /* AFImageRequestOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC3724B16E3AE1500190862 /* AFImageRequestOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DC3726116E3AE1500190862 /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3724C16E3AE1500190862 /* AFImageRequestOperation.m */; };
 		5DC3726216E3AE1500190862 /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3724C16E3AE1500190862 /* AFImageRequestOperation.m */; };
-		5DC3726316E3AE1500190862 /* AFJSONRequestOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC3724D16E3AE1500190862 /* AFJSONRequestOperation.h */; };
+		5DC3726316E3AE1500190862 /* AFJSONRequestOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC3724D16E3AE1500190862 /* AFJSONRequestOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DC3726416E3AE1500190862 /* AFJSONRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3724E16E3AE1500190862 /* AFJSONRequestOperation.m */; };
 		5DC3726516E3AE1500190862 /* AFJSONRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3724E16E3AE1500190862 /* AFJSONRequestOperation.m */; };
-		5DC3726616E3AE1500190862 /* AFNetworkActivityIndicatorManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC3724F16E3AE1500190862 /* AFNetworkActivityIndicatorManager.h */; };
+		5DC3726616E3AE1500190862 /* AFNetworkActivityIndicatorManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC3724F16E3AE1500190862 /* AFNetworkActivityIndicatorManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DC3726716E3AE1500190862 /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3725016E3AE1500190862 /* AFNetworkActivityIndicatorManager.m */; };
 		5DC3726816E3AE1500190862 /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3725016E3AE1500190862 /* AFNetworkActivityIndicatorManager.m */; };
-		5DC3726916E3AE1500190862 /* AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC3725116E3AE1500190862 /* AFNetworking.h */; };
-		5DC3726A16E3AE1500190862 /* AFPropertyListRequestOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC3725216E3AE1500190862 /* AFPropertyListRequestOperation.h */; };
+		5DC3726916E3AE1500190862 /* AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC3725116E3AE1500190862 /* AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5DC3726A16E3AE1500190862 /* AFPropertyListRequestOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC3725216E3AE1500190862 /* AFPropertyListRequestOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DC3726B16E3AE1500190862 /* AFPropertyListRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3725316E3AE1500190862 /* AFPropertyListRequestOperation.m */; };
 		5DC3726C16E3AE1500190862 /* AFPropertyListRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3725316E3AE1500190862 /* AFPropertyListRequestOperation.m */; };
-		5DC3726D16E3AE1500190862 /* AFURLConnectionOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC3725416E3AE1500190862 /* AFURLConnectionOperation.h */; };
+		5DC3726D16E3AE1500190862 /* AFURLConnectionOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC3725416E3AE1500190862 /* AFURLConnectionOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DC3726E16E3AE1500190862 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3725516E3AE1500190862 /* AFURLConnectionOperation.m */; };
 		5DC3726F16E3AE1500190862 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3725516E3AE1500190862 /* AFURLConnectionOperation.m */; };
-		5DC3727016E3AE1500190862 /* AFXMLRequestOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC3725616E3AE1500190862 /* AFXMLRequestOperation.h */; };
+		5DC3727016E3AE1500190862 /* AFXMLRequestOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC3725616E3AE1500190862 /* AFXMLRequestOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DC3727116E3AE1500190862 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3725716E3AE1500190862 /* AFXMLRequestOperation.m */; };
 		5DC3727216E3AE1500190862 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3725716E3AE1500190862 /* AFXMLRequestOperation.m */; };
 		5DC3727416E3AE1500190862 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3725916E3AE1500190862 /* UIImageView+AFNetworking.m */; };
+		5DC3727716E3AF3800190862 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DC3727616E3AF3800190862 /* CoreLocation.framework */; };
+		5DC3727916E3AF4000190862 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DC3727816E3AF4000190862 /* SystemConfiguration.framework */; };
+		5DC3727B16E3AF4400190862 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DC3727A16E3AF4400190862 /* MobileCoreServices.framework */; };
+		5DC3727E16E3AF6900190862 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DC3727D16E3AF6900190862 /* UIKit.framework */; };
+		5DC3728116E3AF8900190862 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DC3728016E3AF8800190862 /* CoreLocation.framework */; };
+		5DC3728316E3AF8E00190862 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DC3728216E3AF8E00190862 /* SystemConfiguration.framework */; };
+		5DC3728A16E3B10800190862 /* ADNResource.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC3728816E3B10800190862 /* ADNResource.h */; };
+		5DC3728B16E3B10800190862 /* ADNResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3728916E3B10800190862 /* ADNResource.m */; };
+		5DC3728C16E3B10800190862 /* ADNResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3728916E3B10800190862 /* ADNResource.m */; };
+		5DC3729016E3B2E200190862 /* ADNClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC3728E16E3B2E200190862 /* ADNClient.h */; };
+		5DC3729116E3B2E200190862 /* ADNClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3728F16E3B2E200190862 /* ADNClient.m */; };
+		5DC3729216E3B2E200190862 /* ADNClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3728F16E3B2E200190862 /* ADNClient.m */; };
+		5DC3729816E3B4D300190862 /* ADNJSONRequestOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC3729616E3B4D300190862 /* ADNJSONRequestOperation.h */; };
+		5DC3729916E3B4D300190862 /* ADNJSONRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3729716E3B4D300190862 /* ADNJSONRequestOperation.m */; };
+		5DC3729A16E3B4D300190862 /* ADNJSONRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3729716E3B4D300190862 /* ADNJSONRequestOperation.m */; };
+		5DC3729D16E3B66700190862 /* ADNResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC3729B16E3B66700190862 /* ADNResponse.h */; };
+		5DC3729E16E3B66700190862 /* ADNResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3729C16E3B66700190862 /* ADNResponse.m */; };
+		5DC3729F16E3B66700190862 /* ADNResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3729C16E3B66700190862 /* ADNResponse.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -58,18 +74,14 @@
 		5DC370D916E0805E00190862 /* libADNKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libADNKit.a; path = "libADNKit-iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DC370DC16E0805E00190862 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5DC370E016E0805E00190862 /* ADNKit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ADNKit-Prefix.pch"; sourceTree = "<group>"; };
-		5DC370E116E0805E00190862 /* ADNKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ADNKit.h; sourceTree = "<group>"; };
-		5DC370E316E0805E00190862 /* ADNKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ADNKit.m; sourceTree = "<group>"; };
+		5DC370E116E0805E00190862 /* ADNKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ADNKit.h; path = ADNKit/ADNKit.h; sourceTree = "<group>"; };
 		5DC370F016E0807000190862 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
 		5DC370F316E0807000190862 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		5DC370F416E0807000190862 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		5DC370F516E0807000190862 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		5DC3710816E0808C00190862 /* ADNKit-OSX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "ADNKit-OSX.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5DC3710816E0808C00190862 /* ADNKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ADNKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DC3710C16E0808C00190862 /* ADNKit-OSX-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ADNKit-OSX-Info.plist"; sourceTree = "<group>"; };
 		5DC3710E16E0808C00190862 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		5DC3711016E0808C00190862 /* ADNKit-OSX-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ADNKit-OSX-Prefix.pch"; sourceTree = "<group>"; };
-		5DC3711116E0808C00190862 /* ADNKit_OSX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ADNKit_OSX.h; sourceTree = "<group>"; };
-		5DC3711216E0808C00190862 /* ADNKit_OSX.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ADNKit_OSX.m; sourceTree = "<group>"; };
 		5DC3724716E3AE1500190862 /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
 		5DC3724816E3AE1500190862 /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
 		5DC3724916E3AE1500190862 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -89,6 +101,20 @@
 		5DC3725716E3AE1500190862 /* AFXMLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFXMLRequestOperation.m; sourceTree = "<group>"; };
 		5DC3725816E3AE1500190862 /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		5DC3725916E3AE1500190862 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
+		5DC3727616E3AF3800190862 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		5DC3727816E3AF4000190862 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		5DC3727A16E3AF4400190862 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		5DC3727D16E3AF6900190862 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		5DC3728016E3AF8800190862 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/CoreLocation.framework; sourceTree = DEVELOPER_DIR; };
+		5DC3728216E3AF8E00190862 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
+		5DC3728816E3B10800190862 /* ADNResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADNResource.h; sourceTree = "<group>"; };
+		5DC3728916E3B10800190862 /* ADNResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADNResource.m; sourceTree = "<group>"; };
+		5DC3728E16E3B2E200190862 /* ADNClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADNClient.h; sourceTree = "<group>"; };
+		5DC3728F16E3B2E200190862 /* ADNClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADNClient.m; sourceTree = "<group>"; };
+		5DC3729616E3B4D300190862 /* ADNJSONRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADNJSONRequestOperation.h; sourceTree = "<group>"; };
+		5DC3729716E3B4D300190862 /* ADNJSONRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADNJSONRequestOperation.m; sourceTree = "<group>"; };
+		5DC3729B16E3B66700190862 /* ADNResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADNResponse.h; sourceTree = "<group>"; };
+		5DC3729C16E3B66700190862 /* ADNResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADNResponse.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +122,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DC3727E16E3AF6900190862 /* UIKit.framework in Frameworks */,
+				5DC3727B16E3AF4400190862 /* MobileCoreServices.framework in Frameworks */,
+				5DC3727916E3AF4000190862 /* SystemConfiguration.framework in Frameworks */,
+				5DC3727716E3AF3800190862 /* CoreLocation.framework in Frameworks */,
 				5DC370DD16E0805E00190862 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -104,6 +134,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DC3728316E3AF8E00190862 /* SystemConfiguration.framework in Frameworks */,
+				5DC3728116E3AF8900190862 /* CoreLocation.framework in Frameworks */,
 				5DC3710916E0808C00190862 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -114,6 +146,7 @@
 		5DC370D016E0805E00190862 = {
 			isa = PBXGroup;
 			children = (
+				5DC370E116E0805E00190862 /* ADNKit.h */,
 				5DC370DE16E0805E00190862 /* ADNKit */,
 				5DC3710A16E0808C00190862 /* ADNKit-OSX */,
 				5DC3724616E3AE1500190862 /* AFNetworking */,
@@ -126,7 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				5DC370D916E0805E00190862 /* libADNKit.a */,
-				5DC3710816E0808C00190862 /* ADNKit-OSX.framework */,
+				5DC3710816E0808C00190862 /* ADNKit.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -134,9 +167,8 @@
 		5DC370DB16E0805E00190862 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5DC370DC16E0805E00190862 /* Foundation.framework */,
-				5DC370F016E0807000190862 /* Cocoa.framework */,
-				5DC370F216E0807000190862 /* Other Frameworks */,
+				5DC3727C16E3AF6100190862 /* iOS */,
+				5DC3727F16E3AF7A00190862 /* OS X */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -144,8 +176,8 @@
 		5DC370DE16E0805E00190862 /* ADNKit */ = {
 			isa = PBXGroup;
 			children = (
-				5DC370E116E0805E00190862 /* ADNKit.h */,
-				5DC370E316E0805E00190862 /* ADNKit.m */,
+				5DC3728716E3B0FC00190862 /* Resources */,
+				5DC3728D16E3B2CB00190862 /* Networking */,
 				5DC370DF16E0805E00190862 /* Supporting Files */,
 			);
 			path = ADNKit;
@@ -159,21 +191,9 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		5DC370F216E0807000190862 /* Other Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				5DC370F316E0807000190862 /* AppKit.framework */,
-				5DC370F416E0807000190862 /* CoreData.framework */,
-				5DC370F516E0807000190862 /* Foundation.framework */,
-			);
-			name = "Other Frameworks";
-			sourceTree = "<group>";
-		};
 		5DC3710A16E0808C00190862 /* ADNKit-OSX */ = {
 			isa = PBXGroup;
 			children = (
-				5DC3711116E0808C00190862 /* ADNKit_OSX.h */,
-				5DC3711216E0808C00190862 /* ADNKit_OSX.m */,
 				5DC3710B16E0808C00190862 /* Supporting Files */,
 			);
 			path = "ADNKit-OSX";
@@ -184,7 +204,6 @@
 			children = (
 				5DC3710C16E0808C00190862 /* ADNKit-OSX-Info.plist */,
 				5DC3710D16E0808C00190862 /* InfoPlist.strings */,
-				5DC3711016E0808C00190862 /* ADNKit-OSX-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -192,6 +211,7 @@
 		5DC3724616E3AE1500190862 /* AFNetworking */ = {
 			isa = PBXGroup;
 			children = (
+				5DC3725116E3AE1500190862 /* AFNetworking.h */,
 				5DC3724716E3AE1500190862 /* AFHTTPClient.h */,
 				5DC3724816E3AE1500190862 /* AFHTTPClient.m */,
 				5DC3724916E3AE1500190862 /* AFHTTPRequestOperation.h */,
@@ -202,7 +222,6 @@
 				5DC3724E16E3AE1500190862 /* AFJSONRequestOperation.m */,
 				5DC3724F16E3AE1500190862 /* AFNetworkActivityIndicatorManager.h */,
 				5DC3725016E3AE1500190862 /* AFNetworkActivityIndicatorManager.m */,
-				5DC3725116E3AE1500190862 /* AFNetworking.h */,
 				5DC3725216E3AE1500190862 /* AFPropertyListRequestOperation.h */,
 				5DC3725316E3AE1500190862 /* AFPropertyListRequestOperation.m */,
 				5DC3725416E3AE1500190862 /* AFURLConnectionOperation.h */,
@@ -214,6 +233,53 @@
 			);
 			name = AFNetworking;
 			path = External/AFNetworking/AFNetworking;
+			sourceTree = "<group>";
+		};
+		5DC3727C16E3AF6100190862 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				5DC3727D16E3AF6900190862 /* UIKit.framework */,
+				5DC3727A16E3AF4400190862 /* MobileCoreServices.framework */,
+				5DC3727816E3AF4000190862 /* SystemConfiguration.framework */,
+				5DC3727616E3AF3800190862 /* CoreLocation.framework */,
+				5DC370DC16E0805E00190862 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		5DC3727F16E3AF7A00190862 /* OS X */ = {
+			isa = PBXGroup;
+			children = (
+				5DC370F016E0807000190862 /* Cocoa.framework */,
+				5DC370F316E0807000190862 /* AppKit.framework */,
+				5DC370F416E0807000190862 /* CoreData.framework */,
+				5DC370F516E0807000190862 /* Foundation.framework */,
+				5DC3728216E3AF8E00190862 /* SystemConfiguration.framework */,
+				5DC3728016E3AF8800190862 /* CoreLocation.framework */,
+			);
+			name = "OS X";
+			sourceTree = "<group>";
+		};
+		5DC3728716E3B0FC00190862 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5DC3728816E3B10800190862 /* ADNResource.h */,
+				5DC3728916E3B10800190862 /* ADNResource.m */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		5DC3728D16E3B2CB00190862 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				5DC3728E16E3B2E200190862 /* ADNClient.h */,
+				5DC3728F16E3B2E200190862 /* ADNClient.m */,
+				5DC3729616E3B4D300190862 /* ADNJSONRequestOperation.h */,
+				5DC3729716E3B4D300190862 /* ADNJSONRequestOperation.m */,
+				5DC3729B16E3B66700190862 /* ADNResponse.h */,
+				5DC3729C16E3B66700190862 /* ADNResponse.m */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,6 +298,10 @@
 				5DC3726A16E3AE1500190862 /* AFPropertyListRequestOperation.h in Headers */,
 				5DC3726D16E3AE1500190862 /* AFURLConnectionOperation.h in Headers */,
 				5DC3727016E3AE1500190862 /* AFXMLRequestOperation.h in Headers */,
+				5DC3728A16E3B10800190862 /* ADNResource.h in Headers */,
+				5DC3729016E3B2E200190862 /* ADNClient.h in Headers */,
+				5DC3729816E3B4D300190862 /* ADNJSONRequestOperation.h in Headers */,
+				5DC3729D16E3B66700190862 /* ADNResponse.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,7 +340,7 @@
 			);
 			name = "ADNKit-OSX";
 			productName = "ADNKit-OSX";
-			productReference = 5DC3710816E0808C00190862 /* ADNKit-OSX.framework */;
+			productReference = 5DC3710816E0808C00190862 /* ADNKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -316,7 +386,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5DC370E416E0805E00190862 /* ADNKit.m in Sources */,
 				5DC3725B16E3AE1500190862 /* AFHTTPClient.m in Sources */,
 				5DC3725E16E3AE1500190862 /* AFHTTPRequestOperation.m in Sources */,
 				5DC3726116E3AE1500190862 /* AFImageRequestOperation.m in Sources */,
@@ -326,6 +395,10 @@
 				5DC3726E16E3AE1500190862 /* AFURLConnectionOperation.m in Sources */,
 				5DC3727116E3AE1500190862 /* AFXMLRequestOperation.m in Sources */,
 				5DC3727416E3AE1500190862 /* UIImageView+AFNetworking.m in Sources */,
+				5DC3728B16E3B10800190862 /* ADNResource.m in Sources */,
+				5DC3729116E3B2E200190862 /* ADNClient.m in Sources */,
+				5DC3729916E3B4D300190862 /* ADNJSONRequestOperation.m in Sources */,
+				5DC3729E16E3B66700190862 /* ADNResponse.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,7 +406,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5DC3711316E0808C00190862 /* ADNKit_OSX.m in Sources */,
 				5DC3725C16E3AE1500190862 /* AFHTTPClient.m in Sources */,
 				5DC3725F16E3AE1500190862 /* AFHTTPRequestOperation.m in Sources */,
 				5DC3726216E3AE1500190862 /* AFImageRequestOperation.m in Sources */,
@@ -342,6 +414,10 @@
 				5DC3726C16E3AE1500190862 /* AFPropertyListRequestOperation.m in Sources */,
 				5DC3726F16E3AE1500190862 /* AFURLConnectionOperation.m in Sources */,
 				5DC3727216E3AE1500190862 /* AFXMLRequestOperation.m in Sources */,
+				5DC3728C16E3B10800190862 /* ADNResource.m in Sources */,
+				5DC3729216E3B2E200190862 /* ADNClient.m in Sources */,
+				5DC3729A16E3B4D300190862 /* ADNJSONRequestOperation.m in Sources */,
+				5DC3729F16E3B66700190862 /* ADNResponse.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,11 +526,12 @@
 				FRAMEWORK_VERSION = A;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ADNKit-OSX/ADNKit-OSX-Prefix.pch";
+				GCC_PREFIX_HEADER = "ADNKit/ADNKit-Prefix.pch";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				INFOPLIST_FILE = "ADNKit-OSX/ADNKit-OSX-Info.plist";
+				INSTALL_PATH = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ADNKit;
 				SDKROOT = macosx;
 				WRAPPER_EXTENSION = framework;
 			};
@@ -475,11 +552,12 @@
 				FRAMEWORK_VERSION = A;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ADNKit-OSX/ADNKit-OSX-Prefix.pch";
+				GCC_PREFIX_HEADER = "ADNKit/ADNKit-Prefix.pch";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				INFOPLIST_FILE = "ADNKit-OSX/ADNKit-OSX-Info.plist";
+				INSTALL_PATH = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ADNKit;
 				SDKROOT = macosx;
 				WRAPPER_EXTENSION = framework;
 			};

@@ -28,3 +28,6 @@ The following built-in frameworks are used:
 * Core Location
 * SystemConfiguration
 * MobileCoreServices (iOS only)
+
+# License
+(decide on BSD or MIT)

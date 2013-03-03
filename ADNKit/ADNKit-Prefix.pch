@@ -4,4 +4,10 @@
 
 #ifdef __OBJC__
 	#import <Foundation/Foundation.h>
+	#import <SystemConfiguration/SystemConfiguration.h>
+	#import "AFNetworking.h"
+#endif
+
+#ifdef __IPHONE_OS_VERSION_MIN_REQUIRED
+	#import <MobileCoreServices/MobileCoreServices.h>
 #endif
