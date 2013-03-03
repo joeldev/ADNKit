@@ -56,9 +56,7 @@
 - (NSURLRequest *)webAuthRequestForClientID:(NSString *)clientID redirectURI:(NSString *)redirectURI responseType:(ADNWebAuthResponseType)responseType authScopes:(ADNAuthScope)authScopes state:(NSString *)state appStoreCompliant:(BOOL)shouldBeAppStoreCompliant {
 	// http://developers.app.net/docs/authentication/flows/web/
 	
-	NSArray *responseTypeStrings = @[@"token", @"code"];
-	
-	NSMutableString *URLString = [NSMutableString stringWithFormat:@"https://account.app.net/oauth/authenticate?client_id=%@&response_type=%@", clientID, responseTypeStrings[responseType]];
+	NSMutableString *URLString = [NSMutableString stringWithFormat:@"https://account.app.net/oauth/authenticate?client_id=%@&response_type=code", clientID];
 	
 	if (authScopes) {
 		[URLString appendFormat:@"&scope=%@", [self scopeStringForAuthScopes:authScopes]];

@@ -64,7 +64,6 @@ ADNAuthScope requestedScopes = ADNAuthScopeBasic | ADNAuthScopeStream | ADNAuthS
 
 NSURLRequest *request = [[ADNClient sharedClient] webAuthRequestForClientID:@"xxxxxx"
 														        redirectURI:@"myapp://auth"
-													           responseType:ADNWebAuthResponseTypeToken
 													             authScopes:requestedScopes
 													                  state:nil
 												          appStoreCompliant:YES];

@@ -7,11 +7,6 @@
 //
 
 
-typedef NS_ENUM(NSUInteger, ADNWebAuthResponseType) {
-	ADNWebAuthResponseTypeToken = 0,
-	ADNWebAuthResponseTypeCode
-};
-
 typedef NS_ENUM(NSUInteger, ADNAuthScope) {
     ADNAuthScopeNone            = 0,
     ADNAuthScopeBasic           = (1 << 0), // see basic information about this user
@@ -35,7 +30,7 @@ typedef NS_ENUM(NSUInteger, ADNAuthScope) {
 - (void)authenticateUsername:(NSString *)username password:(NSString *)password clientID:(NSString *)clientID passwordGrantSecret:(NSString *)passwordGrantSecret authScopes:(ADNAuthScope)authScopes completionHandler:(void (^)(BOOL success, NSError *error))completionHander;
 
 // web-style authentication meant to be shown in a webview
-- (NSURLRequest *)webAuthRequestForClientID:(NSString *)clientID redirectURI:(NSString *)redirectURI responseType:(ADNWebAuthResponseType)responseType authScopes:(ADNAuthScope)authScopes state:(NSString *)state appStoreCompliant:(BOOL)shouldBeAppStoreCompliant;
+- (NSURLRequest *)webAuthRequestForClientID:(NSString *)clientID redirectURI:(NSString *)redirectURI authScopes:(ADNAuthScope)authScopes state:(NSString *)state appStoreCompliant:(BOOL)shouldBeAppStoreCompliant;
 
 @property (strong) NSString *accessToken;
 
