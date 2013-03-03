@@ -8,11 +8,11 @@
 
 
 typedef NS_ENUM(NSUInteger, ADNWebAuthResponseType) {
-	ADNWebAuthResponseTypeToken,
+	ADNWebAuthResponseTypeToken = 0,
 	ADNWebAuthResponseTypeCode
 };
 
-typedef NS_ENUM(NSUInteger, ADNAuthScopes) {
+typedef NS_ENUM(NSUInteger, ADNAuthScope) {
     ADNAuthScopeNone            = 0,
     ADNAuthScopeBasic           = (1 << 0), // see basic information about this user
     ADNAuthScopeStream          = (1 << 1), // read this user’s stream
@@ -31,11 +31,11 @@ typedef NS_ENUM(NSUInteger, ADNAuthScopes) {
 
 + (instancetype)sharedClient;
 
-// web-style authentication meant to be shown in a webview
-- (NSURL *)webAuthURLForClientID:(NSString *)clientID redirectURI:(NSString *)redirectURI responseType:(ADNWebAuthResponseType)responseType authScopes:(ADNAuthScopes)authScopes state:(NSString *)state appStoreCompliant:(BOOL)shouldBeAppStoreCompliant;
-
 // username/password authentication
-- (void)authenticateUsername:(NSString *)username password:(NSString *)password clientID:(NSString *)clientID passwordGrantSecret:(NSString *)passwordGrantSecret authScopes:(ADNAuthScopes)authScopes completionHandler:(void (^)(BOOL success, NSError *error))completionHander;
+- (void)authenticateUsername:(NSString *)username password:(NSString *)password clientID:(NSString *)clientID passwordGrantSecret:(NSString *)passwordGrantSecret authScopes:(ADNAuthScope)authScopes completionHandler:(void (^)(BOOL success, NSError *error))completionHander;
+
+// web-style authentication meant to be shown in a webview
+- (NSURLRequest *)webAuthRequestForClientID:(NSString *)clientID redirectURI:(NSString *)redirectURI responseType:(ADNWebAuthResponseType)responseType authScopes:(ADNAuthScope)authScopes state:(NSString *)state appStoreCompliant:(BOOL)shouldBeAppStoreCompliant;
 
 @property (strong) NSString *accessToken;
 
