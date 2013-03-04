@@ -16,16 +16,6 @@
 }
 
 
-+ (NSString *)NSStringFrom__NSCFString:(NSString *)string {
-	return string;
-}
-
-
-+ (id)JSONObjectFromNSString:(NSString *)string {
-	return string;
-}
-
-
 + (id)JSONObjectFromNSURL:(NSURL *)URL {
 	return [URL absoluteString];
 }
