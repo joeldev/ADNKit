@@ -22,6 +22,8 @@ static dispatch_once_t propertiesMapOnceToken;
 @property (strong) NSString *name;
 @property (assign) Class objectType;
 @property (strong) NSString *primitiveTypeName;
+@property (assign) BOOL isModelObject;
+@property (assign) BOOL isCollection;
 
 - (id)initWithName:(NSString *)name attributesString:(NSString *)attributesString;
 
@@ -43,7 +45,17 @@ static dispatch_once_t propertiesMapOnceToken;
 		if ([scanner scanString:@"@\"" intoString:&propertyType]) {
 			// this is a class
 			[scanner scanCharactersFromSet:[NSCharacterSet alphanumericCharacterSet] intoString:&propertyType];
-			self.objectType = NSClassFromString(propertyType);
+			
+			// convert things like __NSCFString to NSString, and __NSCFDictionary to NSDictionary
+			if ([propertyType hasPrefix:@"__NSCF"]) {
+				NSString *publicClassType = [NSString stringWithFormat:@"NS%@", [propertyType substringFromIndex:[@"__NSCF" length]]];
+				Class publicClass = NSClassFromString(publicClassType);
+				self.objectType = publicClass ?: NSClassFromString(propertyType);
+			} else {
+				self.objectType = NSClassFromString(propertyType);
+			}
+			
+			self.isModelObject = [self.objectType isSubclassOfClass:[ADNResource class]];
 		} else {
 			// primitive
 			[scanner scanUpToCharactersFromSet:[NSCharacterSet characterSetWithCharactersInString:@","] intoString:&propertyType];
@@ -126,8 +138,6 @@ static dispatch_once_t propertiesMapOnceToken;
 
 
 - (void)updateObjectFromJSONDictionary:(NSDictionary *)JSONDictionary {
-	NSString *className = NSStringFromClass([self class]);
-	
 	for (NSString *JSONKey in JSONDictionary) {
 		// first, see if there's a mapped key to use here
 		NSString *localKey = [[self class] keyMapping][JSONKey] ?: JSONKey;
@@ -136,9 +146,9 @@ static dispatch_once_t propertiesMapOnceToken;
 		id value = JSONDictionary[JSONKey];
 		
 		// look up info about the local property
-		ADNResourceProperty *property = propertiesMap[className][localKey];
+		ADNResourceProperty *property = propertiesMap[NSStringFromClass([self class])][localKey];
 		if (property) {
-			if (![[value class] isKindOfClass:property.objectType]) {
+			if ([value class] != property.objectType) {
 				SEL transformSelector = NSSelectorFromString([NSString stringWithFormat:@"%@From%@", property.objectType, [value class]]);
 				if ([ADNValueTransformations respondsToSelector:transformSelector]) {
 					value = [ADNValueTransformations performSelector:transformSelector];
@@ -154,8 +164,35 @@ static dispatch_once_t propertiesMapOnceToken;
 
 
 - (NSDictionary *)JSONDictionary {
-	// TODO
-	return nil;
+	NSMutableDictionary *JSONDictionary = [NSMutableDictionary dictionary];
+	NSDictionary *propertiesForClass = propertiesMap[NSStringFromClass([self class])];
+	
+	for (NSString *localKey in propertiesForClass) {
+		ADNResourceProperty *property = propertiesForClass[localKey];
+		
+		// figure out the JSON key
+		NSString *remoteKey = [[self class] inverseKeyMapping][localKey] ?: localKey;
+		
+		// grab the value and transform it if necessary
+		id value = [self valueForKey:localKey];
+		
+		// if the property is a model object, convert it to a JSON dictionary
+		if (property.isModelObject) {
+			value = [(ADNResource *)value JSONDictionary];
+		} else {
+			// otherwise, see if it needs to be transformed in order to be JSON compatible
+			SEL transformSelector = NSSelectorFromString([NSString stringWithFormat:@"JSONObjectFrom%@", NSStringFromClass([value class])]);
+			if ([ADNValueTransformations respondsToSelector:transformSelector]) {
+				value = [ADNValueTransformations performSelector:transformSelector];
+			}
+		}
+		
+		if (value) {
+			JSONDictionary[remoteKey] = value;
+		}
+	}
+	
+	return JSONDictionary;
 }
 
 
