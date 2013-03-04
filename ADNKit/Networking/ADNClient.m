@@ -8,6 +8,8 @@
 
 #import "ADNClient.h"
 #import "ADNJSONRequestOperation.h"
+#import "ADNResource.h"
+#import "ADNResponse.h"
 
 
 @interface ADNClient ()
@@ -65,7 +67,7 @@
 
 
 #pragma mark -
-#pragma mark Auth
+#pragma mark Authentication
 
 - (void)authenticateUsername:(NSString *)username password:(NSString *)password clientID:(NSString *)clientID passwordGrantSecret:(NSString *)passwordGrantSecret authScopes:(ADNAuthScope)authScopes completionHandler:(void (^)(BOOL success, NSError *error))completionHander {
 	// http://developers.app.net/docs/authentication/flows/password/
@@ -105,6 +107,53 @@
 	// http://developers.app.net/docs/authentication/flows/web/
 	NSDictionary *parameters = @{@"client_id": clientID, @"client_secret": clientSecret, @"grant_type": @"authorization_code", @"redirect_uri": self.webAuthRedirectURI, @"code": accessCode};
 	[self authenticateWithParameters:parameters handler:self.webAuthCompletionHandler];
+}
+
+
+#pragma mark -
+#pragma mark App.net API implementation convenience methods
+
+- (AFNetworkingSuccessBlock)successHandlerForResourceClass:(Class)resourceClass clientHandler:(ADNClientCompletionBlock)handler {
+	return ^(AFHTTPRequestOperation *operation, id responseObject) {
+		ADNResponse *response = responseObject;
+		id finalObject = nil;
+		NSError *error = nil;
+		
+		if ([resourceClass isSubclassOfClass:[ADNResource class]]) {
+			finalObject = [resourceClass objectFromJSONDictionary:response.data];
+		}
+		
+		if (handler) {
+			handler(finalObject, error);
+		}
+	};
+}
+
+
+- (AFNetworkingFailureBlock)successHandlerForCollectionOfResourceClass:(Class)resourceClass clientHandler:(ADNClientCompletionBlock)handler {
+	return ^(AFHTTPRequestOperation *operation, id responseObject) {
+		// TODO: refactor this to not be copied and pasted because that makes me sad
+		ADNResponse *response = responseObject;
+		id finalObject = nil;
+		NSError *error = nil;
+		
+		if ([resourceClass isSubclassOfClass:[ADNResource class]]) {
+			finalObject = [resourceClass objectsFromJSONDictionaries:response.data];
+		}
+		
+		if (handler) {
+			handler(finalObject, error);
+		}
+	};
+}
+
+
+- (AFNetworkingFailureBlock)failureHandlerForClientHandler:(ADNClientCompletionBlock)handler {
+	return ^(AFHTTPRequestOperation *operation, NSError *error) {
+		if (handler) {
+			handler(nil, error);
+		}
+	};
 }
 
 

@@ -11,8 +11,12 @@
 
 @interface ADNValueTransformations : NSObject
 
+// forward transformations
 + (NSURL *)NSURLFromNSString:(NSString *)string;
++ (NSString *)NSStringFrom__NSCFString:(NSString *)string;
 
+// reverse transformations
++ (id)JSONObjectFromNSString:(NSString *)string;
 + (id)JSONObjectFromNSURL:(NSURL *)URL;
 
 @end

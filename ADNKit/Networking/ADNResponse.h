@@ -14,6 +14,8 @@ static NSString *const kADNResponseKey = @"ADNResponse";
 
 @interface ADNResponse : NSObject
 
+@property (readonly, strong) id data;
+
 - (id)initWithResponseObject:(id)responseObject;
 
 @end
