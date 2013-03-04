@@ -11,6 +11,13 @@
 
 @interface ADNResource : NSObject
 
++ (NSDictionary *)keyMapping;
 
++ (instancetype)objectFromJSONDictionary:(NSDictionary *)dictionary;
++ (NSArray *)objectsFromJSONDictionaries:(NSArray *)dictionaries;
+
+- (id)initWithJSONDictionary:(NSDictionary *)JSONDictionay;
+- (void)updateObjectFromJSONDictionary:(NSDictionary *)JSONDictionary;
+- (NSDictionary *)JSONDictionary;
 
 @end

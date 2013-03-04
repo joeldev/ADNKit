@@ -53,6 +53,12 @@
 		5DC3729D16E3B66700190862 /* ADNResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC3729B16E3B66700190862 /* ADNResponse.h */; };
 		5DC3729E16E3B66700190862 /* ADNResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3729C16E3B66700190862 /* ADNResponse.m */; };
 		5DC3729F16E3B66700190862 /* ADNResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3729C16E3B66700190862 /* ADNResponse.m */; };
+		5DC372A316E448ED00190862 /* NSArray+ADNAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC372A116E448ED00190862 /* NSArray+ADNAdditions.h */; };
+		5DC372A416E448ED00190862 /* NSArray+ADNAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC372A216E448ED00190862 /* NSArray+ADNAdditions.m */; };
+		5DC372A516E448ED00190862 /* NSArray+ADNAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC372A216E448ED00190862 /* NSArray+ADNAdditions.m */; };
+		5DC372A816E44AE500190862 /* ADNValueTransformations.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC372A616E44AE500190862 /* ADNValueTransformations.h */; };
+		5DC372A916E44AE500190862 /* ADNValueTransformations.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC372A716E44AE500190862 /* ADNValueTransformations.m */; };
+		5DC372AA16E44AE500190862 /* ADNValueTransformations.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC372A716E44AE500190862 /* ADNValueTransformations.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -113,6 +119,10 @@
 		5DC3729716E3B4D300190862 /* ADNJSONRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADNJSONRequestOperation.m; sourceTree = "<group>"; };
 		5DC3729B16E3B66700190862 /* ADNResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADNResponse.h; sourceTree = "<group>"; };
 		5DC3729C16E3B66700190862 /* ADNResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADNResponse.m; sourceTree = "<group>"; };
+		5DC372A116E448ED00190862 /* NSArray+ADNAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+ADNAdditions.h"; sourceTree = "<group>"; };
+		5DC372A216E448ED00190862 /* NSArray+ADNAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+ADNAdditions.m"; sourceTree = "<group>"; };
+		5DC372A616E44AE500190862 /* ADNValueTransformations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADNValueTransformations.h; sourceTree = "<group>"; };
+		5DC372A716E44AE500190862 /* ADNValueTransformations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADNValueTransformations.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +186,7 @@
 			children = (
 				5DC3728716E3B0FC00190862 /* Resources */,
 				5DC3728D16E3B2CB00190862 /* Networking */,
+				5DC372A016E448A900190862 /* Categories */,
 				5DC370DF16E0805E00190862 /* Supporting Files */,
 			);
 			path = ADNKit;
@@ -263,6 +274,8 @@
 			children = (
 				5DC3728816E3B10800190862 /* ADNResource.h */,
 				5DC3728916E3B10800190862 /* ADNResource.m */,
+				5DC372A616E44AE500190862 /* ADNValueTransformations.h */,
+				5DC372A716E44AE500190862 /* ADNValueTransformations.m */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -278,6 +291,15 @@
 				5DC3729C16E3B66700190862 /* ADNResponse.m */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		5DC372A016E448A900190862 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				5DC372A116E448ED00190862 /* NSArray+ADNAdditions.h */,
+				5DC372A216E448ED00190862 /* NSArray+ADNAdditions.m */,
+			);
+			path = Categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -299,6 +321,8 @@
 				5DC3729016E3B2E200190862 /* ADNClient.h in Headers */,
 				5DC3729816E3B4D300190862 /* ADNJSONRequestOperation.h in Headers */,
 				5DC3729D16E3B66700190862 /* ADNResponse.h in Headers */,
+				5DC372A316E448ED00190862 /* NSArray+ADNAdditions.h in Headers */,
+				5DC372A816E44AE500190862 /* ADNValueTransformations.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,6 +420,8 @@
 				5DC3729116E3B2E200190862 /* ADNClient.m in Sources */,
 				5DC3729916E3B4D300190862 /* ADNJSONRequestOperation.m in Sources */,
 				5DC3729E16E3B66700190862 /* ADNResponse.m in Sources */,
+				5DC372A416E448ED00190862 /* NSArray+ADNAdditions.m in Sources */,
+				5DC372A916E44AE500190862 /* ADNValueTransformations.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,6 +440,8 @@
 				5DC3729216E3B2E200190862 /* ADNClient.m in Sources */,
 				5DC3729A16E3B4D300190862 /* ADNJSONRequestOperation.m in Sources */,
 				5DC3729F16E3B66700190862 /* ADNResponse.m in Sources */,
+				5DC372A516E448ED00190862 /* NSArray+ADNAdditions.m in Sources */,
+				5DC372AA16E44AE500190862 /* ADNValueTransformations.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

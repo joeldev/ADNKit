@@ -13,6 +13,7 @@
 @interface ADNClient ()
 
 @property (strong) AFHTTPClient *authHTTPClient;
+@property (strong) NSString *webAuthRedirectURI;
 
 - (void)initializeHTTPAuthClient;
 - (NSString *)scopeStringForAuthScopes:(ADNAuthScope)scopes;
@@ -28,7 +29,7 @@
     static ADNClient *sharedADNClient = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        sharedADNClient = [[ADNClient alloc] initWithBaseURL:[NSURL URLWithString:@"https://alpha-api.app.net/stream/0"]];
+        sharedADNClient = [[ADNClient alloc] initWithBaseURL:[NSURL URLWithString:@"https://alpha-api.app.net/stream/0/"]];
     });
     
     return sharedADNClient;
@@ -76,7 +77,7 @@
 
 - (NSURLRequest *)webAuthRequestForClientID:(NSString *)clientID redirectURI:(NSString *)redirectURI authScopes:(ADNAuthScope)authScopes state:(NSString *)state appStoreCompliant:(BOOL)shouldBeAppStoreCompliant {
 	// http://developers.app.net/docs/authentication/flows/web/
-	
+	self.webAuthRedirectURI = redirectURI;
 	NSMutableString *URLString = [NSMutableString stringWithFormat:@"https://account.app.net/oauth/authenticate?client_id=%@&response_type=code", clientID];
 	
 	if (authScopes) {
@@ -102,7 +103,7 @@
 
 - (void)authenticateWebAuthAccessCode:(NSString *)accessCode forClientID:(NSString *)clientID clientSecret:(NSString *)clientSecret {
 	// http://developers.app.net/docs/authentication/flows/web/
-	NSDictionary *parameters = @{@"client_id": clientID, @"client_secret:": clientSecret, @"grant_type": @"authorization_code", @"redirect_uri": @"foo://bar", @"code": accessCode};
+	NSDictionary *parameters = @{@"client_id": clientID, @"client_secret": clientSecret, @"grant_type": @"authorization_code", @"redirect_uri": self.webAuthRedirectURI, @"code": accessCode};
 	[self authenticateWithParameters:parameters handler:self.webAuthCompletionHandler];
 }
 
@@ -119,9 +120,9 @@
 
 - (void)authenticateWithParameters:(NSDictionary *)params handler:(void (^)(BOOL successful, NSError *error))handler {
 	[self initializeHTTPAuthClient];
-	
-	[self.authHTTPClient postPath:@"/access_token" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-		NSDictionary *responseDictionary = (NSDictionary *)responseObject;
+	NSLog(@"%@", params);
+	[self.authHTTPClient postPath:@"access_token" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+		NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
 		if (responseDictionary[@"access_token"]) {
 			self.accessToken = responseDictionary[@"access_token"];
 			[self HTTPAuthDidCompleteSuccessfully:YES error:nil handler:handler];
@@ -139,12 +140,10 @@
 	if (handler) {
 		handler(wasSuccessful, error);
 	}
-	if (self.authHTTPClient) {
-		self.authHTTPClient = nil;
-	}
-	if (self.webAuthCompletionHandler) {
-		self.webAuthCompletionHandler = nil;
-	}
+	
+	self.authHTTPClient = nil;
+	self.webAuthCompletionHandler = nil;
+	self.webAuthRedirectURI = nil;
 }
 
 
