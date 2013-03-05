@@ -68,7 +68,7 @@
 // GET /stream/0/users/[user_id]/avatar
 // http://developers.app.net/docs/resources/user/profile/#retrieve-a-users-avatar-image
 
-- (void)fetchCurrentUserAvatarWithCompletionBlock:(ADNClientCompletionBlock)completionBlock {
+- (void)fetchAvatarImageURLForUserWithID:(NSString *)userID completion:(ADNClientCompletionBlock)completionHandler {
 	#warning missing API call
 }
 
@@ -76,20 +76,15 @@
 // POST /stream/0/users/me/avatar
 // http://developers.app.net/docs/resources/user/profile/#update-a-users-avatar-image
 
-- (void)updateCurrentUserAvatarWithImageData:(NSData *)imageData completion:(ADNClientCompletionBlock)completionHandler {
+- (void)updateCurrentUserAvatarWithImageData:(NSData *)imageData mimeType:(NSString *)mimeType completion:(ADNClientCompletionBlock)completionHandler {
 	#warning missing API call
-}
-
-
-- (void)updateCurrentUserAvatarWithImageAtURL:(NSURL *)URL completion:(ADNClientCompletionBlock)completionHandler {
-	[self updateCurrentUserAvatarWithImageData:[NSData dataWithContentsOfURL:URL] completion:completionHandler];
 }
 
 
 // GET /stream/0/users/[user_id]/cover
 // http://developers.app.net/docs/resources/user/profile/#retrieve-a-users-cover-image
 
-- (void)fetchCurrentUserCoverImageWithCompletionBlock:(ADNClientCompletionBlock)completionBlock {
+- (void)fetchCoverImageURLForUserWithID:(NSString *)userID completion:(ADNClientCompletionBlock)completionHandler {
 	#warning missing API call
 }
 
