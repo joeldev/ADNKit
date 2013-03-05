@@ -82,7 +82,7 @@
 - (void)authenticateUsername:(NSString *)username password:(NSString *)password clientID:(NSString *)clientID passwordGrantSecret:(NSString *)passwordGrantSecret authScopes:(ADNAuthScope)authScopes completionHandler:(void (^)(BOOL success, NSError *error))completionHander {
 	// http://developers.app.net/docs/authentication/flows/password/
 	
-	NSDictionary *parameters = @{@"client_id": clientID, @"password_grant_secret": passwordGrantSecret, @"grant_type": @"password", @"username": username, @"psasword": password, @"scope": [self scopeStringForAuthScopes:authScopes]};
+	NSDictionary *parameters = @{@"client_id": clientID, @"password_grant_secret": passwordGrantSecret, @"grant_type": @"password", @"username": username, @"password": password, @"scope": [self scopeStringForAuthScopes:authScopes]};
 	[self authenticateWithParameters:parameters handler:completionHander];
 }
 
