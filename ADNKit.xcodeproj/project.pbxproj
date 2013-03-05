@@ -119,6 +119,12 @@
 		5DC3731616E665CE00190862 /* ADNEntities.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A2C2C16E5477B00DAE393 /* ADNEntities.h */; };
 		5DC3731716E665D100190862 /* ADNEntities.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C2D16E5477B00DAE393 /* ADNEntities.m */; };
 		5DC3731816E665D200190862 /* ADNEntities.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C2D16E5477B00DAE393 /* ADNEntities.m */; };
+		5DC3731B16E6661500190862 /* ADNClient+ADNPost.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC3731916E6661500190862 /* ADNClient+ADNPost.h */; };
+		5DC3731C16E6661500190862 /* ADNClient+ADNPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3731A16E6661500190862 /* ADNClient+ADNPost.m */; };
+		5DC3731D16E6661500190862 /* ADNClient+ADNPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3731A16E6661500190862 /* ADNClient+ADNPost.m */; };
+		5DC3732016E6661D00190862 /* ADNClient+ADNFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC3731E16E6661D00190862 /* ADNClient+ADNFile.h */; };
+		5DC3732116E6661D00190862 /* ADNClient+ADNFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3731F16E6661D00190862 /* ADNClient+ADNFile.m */; };
+		5DC3732216E6661D00190862 /* ADNClient+ADNFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3731F16E6661D00190862 /* ADNClient+ADNFile.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -223,6 +229,10 @@
 		5DC3730C16E5CDD700190862 /* ADNUserDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADNUserDescription.m; sourceTree = "<group>"; };
 		5DC3731116E65BDA00190862 /* ADNObjectSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADNObjectSource.h; sourceTree = "<group>"; };
 		5DC3731216E65BDC00190862 /* ADNObjectSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADNObjectSource.m; sourceTree = "<group>"; };
+		5DC3731916E6661500190862 /* ADNClient+ADNPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ADNClient+ADNPost.h"; sourceTree = "<group>"; };
+		5DC3731A16E6661500190862 /* ADNClient+ADNPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ADNClient+ADNPost.m"; sourceTree = "<group>"; };
+		5DC3731E16E6661D00190862 /* ADNClient+ADNFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ADNClient+ADNFile.h"; sourceTree = "<group>"; };
+		5DC3731F16E6661D00190862 /* ADNClient+ADNFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ADNClient+ADNFile.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -446,6 +456,10 @@
 			children = (
 				5DC372F516E4752000190862 /* ADNClient+ADNUser.h */,
 				5DC372F616E4752000190862 /* ADNClient+ADNUser.m */,
+				5DC3731916E6661500190862 /* ADNClient+ADNPost.h */,
+				5DC3731A16E6661500190862 /* ADNClient+ADNPost.m */,
+				5DC3731E16E6661D00190862 /* ADNClient+ADNFile.h */,
+				5DC3731F16E6661D00190862 /* ADNClient+ADNFile.m */,
 			);
 			path = "API Calls";
 			sourceTree = "<group>";
@@ -491,6 +505,8 @@
 				5DC3730D16E5CDDB00190862 /* ADNUserDescription.h in Headers */,
 				5DC3731316E65BDD00190862 /* ADNObjectSource.h in Headers */,
 				5DC3731616E665CE00190862 /* ADNEntities.h in Headers */,
+				5DC3731B16E6661500190862 /* ADNClient+ADNPost.h in Headers */,
+				5DC3732016E6661D00190862 /* ADNClient+ADNFile.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -610,6 +626,8 @@
 				5DC3730E16E5CDDB00190862 /* ADNUserDescription.m in Sources */,
 				5DC3731416E65BDD00190862 /* ADNObjectSource.m in Sources */,
 				5DC3731816E665D200190862 /* ADNEntities.m in Sources */,
+				5DC3731C16E6661500190862 /* ADNClient+ADNPost.m in Sources */,
+				5DC3732116E6661D00190862 /* ADNClient+ADNFile.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -650,6 +668,8 @@
 				5DC3730F16E5CDDB00190862 /* ADNUserDescription.m in Sources */,
 				5DC3731516E65BDD00190862 /* ADNObjectSource.m in Sources */,
 				5DC3731716E665D100190862 /* ADNEntities.m in Sources */,
+				5DC3731D16E6661500190862 /* ADNClient+ADNPost.m in Sources */,
+				5DC3732216E6661D00190862 /* ADNClient+ADNFile.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
