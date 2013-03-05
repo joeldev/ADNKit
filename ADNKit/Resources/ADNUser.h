@@ -9,6 +9,10 @@
 #import "ADNAnnotatableResource.h"
 
 
+// Descriptions for User fields:
+// http://developers.app.net/docs/resources/user/#user-fields
+
+
 @class ADNUserCounts, ADNUserDescription, ADNImage;
 
 @interface ADNUser : ADNAnnotatableResource

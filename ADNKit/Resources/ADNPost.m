@@ -7,7 +7,27 @@
 //
 
 #import "ADNPost.h"
+#import "NSDictionary+ADNAdditions.h"
+
 
 @implementation ADNPost
+
++ (NSDictionary *)keyMapping {
+	return [[super keyMapping] adn_dictionaryByAppendingDictionary:@{
+			@"id": @"postID",
+			@"created_at": @"createdAt",
+			@"reply_to": @"repliedToPostID",
+			@"canonical_url": @"canonicalURL",
+			@"thread_id": @"threadID",
+			@"num_replies": @"repliesCount",
+			@"num_stars": @"starsCount",
+			@"num_reposts": @"repostsCount",
+			@"is_deleted": @"isDeleted",
+			@"machine_only": @"isMachineOnly",
+			@"you_starred": @"isStarredByCurrentUser",
+			@"starred_by": @"starredByUsers",
+			@"you_reposted": @"repostedByCurrentUser",
+			@"repost_of": @"repostedPost"}];
+}
 
 @end
