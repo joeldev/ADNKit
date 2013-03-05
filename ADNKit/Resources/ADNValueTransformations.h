@@ -11,15 +11,17 @@
 
 @interface ADNValueTransformations : NSObject
 
++ (instancetype)transformations;
+
 // forward transformations
-+ (NSURL *)NSURLFromNSString:(NSString *)string;
-+ (NSDate *)NSDateFromNSString:(NSString *)string;
+- (NSURL *)NSURLFromNSString:(NSString *)string;
+- (NSDate *)NSDateFromNSString:(NSString *)string;
 
 // reverse transformations
-+ (id)JSONObjectFromNSURL:(NSURL *)URL;
-+ (id)JSONObjectFromNSDate:(NSDate *)date;
+- (id)JSONObjectFromNSURL:(NSURL *)URL;
+- (id)JSONObjectFromNSDate:(NSDate *)date;
 
 // misc
-+ (NSDateFormatter *)dateFormatter;
+- (NSDateFormatter *)dateFormatter;
 
 @end

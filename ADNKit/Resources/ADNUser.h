@@ -24,9 +24,9 @@
 @property (strong) NSString *type;
 @property (strong) NSDate *createdAt;
 @property (strong) ADNUserCounts *counts;
-// TODO: follows_you
-// TODO: you_follow
-// TODO: you_muted
-// TODO: you_can_subscribe
+@property (assign) BOOL followsYou;
+@property (assign) BOOL youFollow;
+@property (assign) BOOL youMuted;
+@property (assign) BOOL youCanSubscribe;
 
 @end

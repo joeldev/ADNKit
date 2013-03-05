@@ -22,7 +22,7 @@
 @implementation ADNClient (ADNUser)
 
 - (NSString *)endpointPathForUserID:(NSString *)userID endpoint:(NSString *)endpoint {
-	return [NSString stringWithFormat:@"users/%@%@%@", userID, endpoint != nil ? @"/" : @"", endpoint];
+	return [NSString stringWithFormat:@"users/%@%@%@", userID, endpoint != nil ? @"/" : @"", endpoint ?: @""];
 }
 
 

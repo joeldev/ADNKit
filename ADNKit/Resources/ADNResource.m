@@ -46,14 +46,7 @@ static dispatch_once_t propertiesMapOnceToken;
 			// this is a class
 			[scanner scanCharactersFromSet:[NSCharacterSet alphanumericCharacterSet] intoString:&propertyType];
 			
-			// convert things like __NSCFString to NSString, and __NSCFDictionary to NSDictionary
-			if ([propertyType hasPrefix:@"__NSCF"]) {
-				NSString *publicClassType = [NSString stringWithFormat:@"NS%@", [propertyType substringFromIndex:[@"__NSCF" length]]];
-				Class publicClass = NSClassFromString(publicClassType);
-				self.objectType = publicClass ?: NSClassFromString(propertyType);
-			} else {
-				self.objectType = NSClassFromString(propertyType);
-			}
+			self.objectType = NSClassFromString(propertyType);
 			
 			self.isModelObject = [self.objectType isSubclassOfClass:[ADNResource class]];
 			if (self.objectType == [NSArray class]) {
@@ -156,11 +149,22 @@ static dispatch_once_t propertiesMapOnceToken;
 		
 		// next, pull out the value and class of the value
 		id value = JSONDictionary[JSONKey];
+		Class valueClass = [value class];
+		NSString *valueClassString = NSStringFromClass(valueClass);
+		
+		// convert things like __NSCFString to NSString, and __NSCFDictionary to NSDictionary
+		if ([valueClassString hasPrefix:@"__NSCF"]) {
+			NSString *publicClassType = [NSString stringWithFormat:@"NS%@", [valueClassString substringFromIndex:[@"__NSCF" length]]];
+			Class publicClass = NSClassFromString(publicClassType);
+			if (publicClass) {
+				valueClass = publicClass;
+			}
+		}
 		
 		// look up info about the local property
 		ADNResourceProperty *property = propertiesMap[NSStringFromClass([self class])][localKey];
 		if (property) {
-			if ([value class] != property.objectType) {
+			if (valueClass != property.objectType) {
 				if (property.isCollection && [value isKindOfClass:[NSArray class]]) {
 					// property is a collection, so unpack the collection
 					value = [property.objectType objectsFromJSONDictionaries:value];
@@ -169,11 +173,15 @@ static dispatch_once_t propertiesMapOnceToken;
 					value = [property.objectType objectFromJSONDictionary:value];
 				} else {
 					// see if there's an existing transformation that we can run
-					SEL transformSelector = NSSelectorFromString([NSString stringWithFormat:@"%@From%@", property.objectType, [value class]]);
-					if ([ADNValueTransformations respondsToSelector:transformSelector]) {
-						value = [ADNValueTransformations performSelector:transformSelector];
+					SEL transformSelector = NSSelectorFromString([NSString stringWithFormat:@"%@From%@:", property.objectType, valueClass]);
+					if ([[ADNValueTransformations transformations] respondsToSelector:transformSelector]) {
+						#pragma clang diagnostic push
+						#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+						NSLog(@"performing transformation %@", NSStringFromSelector(transformSelector));
+						value = [[ADNValueTransformations transformations] performSelector:transformSelector withObject:value];
+						#pragma clang diagnostic pop
 					} else {
-						NSLog(@"could not find a method to convert %@ of class %@ to class %@ (%@)", value, [value class], property.objectType, NSStringFromSelector(transformSelector));
+						NSLog(@"could not find a method to convert %@ of class %@ to class %@ (%@)", value, valueClass, property.objectType, NSStringFromSelector(transformSelector));
 					}
 				}	
 			}
@@ -206,9 +214,12 @@ static dispatch_once_t propertiesMapOnceToken;
 			}];
 		} else {
 			// otherwise, see if it needs to be transformed in order to be JSON compatible
-			SEL transformSelector = NSSelectorFromString([NSString stringWithFormat:@"JSONObjectFrom%@", NSStringFromClass([value class])]);
-			if ([ADNValueTransformations respondsToSelector:transformSelector]) {
-				value = [ADNValueTransformations performSelector:transformSelector];
+			SEL transformSelector = NSSelectorFromString([NSString stringWithFormat:@"JSONObjectFrom%@:", NSStringFromClass([value class])]);
+			if ([[ADNValueTransformations transformations] respondsToSelector:transformSelector]) {
+				#pragma clang diagnostic push
+				#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+				value = [[ADNValueTransformations transformations] performSelector:transformSelector withObject:value];
+				#pragma clang diagnostic pop
 			}
 		}
 		

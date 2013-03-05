@@ -11,7 +11,17 @@
 
 @implementation ADNValueTransformations
 
-+ (NSDateFormatter *)dateFormatter {
++ (instancetype)transformations {
+	static ADNValueTransformations *transformations = nil;
+	static dispatch_once_t onceToken;
+	dispatch_once(&onceToken, ^{
+		transformations = [[ADNValueTransformations alloc] init];
+	});
+	return transformations;
+}
+
+
+- (NSDateFormatter *)dateFormatter {
 	static NSDateFormatter *sharedDateFormatter = nil;
 	static dispatch_once_t onceToken;
 	dispatch_once(&onceToken, ^{
@@ -23,22 +33,22 @@
 }
 
 
-+ (NSURL *)NSURLFromNSString:(NSString *)string {
+- (NSURL *)NSURLFromNSString:(NSString *)string {
 	return [NSURL URLWithString:string];
 }
 
 
-+ (NSDate *)NSDateFromNSString:(NSString *)string {
+- (NSDate *)NSDateFromNSString:(NSString *)string {
 	return [[self dateFormatter] dateFromString:string];
 }
 
 
-+ (id)JSONObjectFromNSURL:(NSURL *)URL {
+- (id)JSONObjectFromNSURL:(NSURL *)URL {
 	return [URL absoluteString];
 }
 
 
-+ (id)JSONObjectFromNSDate:(NSDate *)date {
+- (id)JSONObjectFromNSDate:(NSDate *)date {
 	return [[self dateFormatter] stringFromDate:date];
 }
 
