@@ -11,4 +11,6 @@
 
 @interface ADNPost : ADNAnnotatableResource
 
+@property (strong) NSString *postID;
+
 @end

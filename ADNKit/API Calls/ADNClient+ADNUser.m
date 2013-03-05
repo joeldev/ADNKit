@@ -8,6 +8,7 @@
 
 #import "ADNClient+ADNUser.h"
 #import "ADNUser.h"
+#import "ADNPost.h"
 
 
 @interface ADNClient (ADNUserPrivate)
@@ -49,7 +50,7 @@
 
 
 // PUT /stream/0/users/me
-// TODO: link
+// http://developers.app.net/docs/resources/user/profile/#update-a-user
 
 - (void)updateCurrentUser:(ADNUser *)user fullName:(NSString *)fullName descriptionText:(NSString *)descriptionText completion:(ADNClientCompletionBlock)completionHandler {
 	[self updateCurrentUserName:fullName locale:user.locale timezone:user.timezone descriptionText:descriptionText completion:completionHandler];
@@ -65,7 +66,7 @@
 
 
 // GET /stream/0/users/[user_id]/avatar
-// TODO: link
+// http://developers.app.net/docs/resources/user/profile/#retrieve-a-users-avatar-image
 
 - (void)fetchCurrentUserAvatarWithCompletionBlock:(ADNClientCompletionBlock)completionBlock {
 	#warning missing API call
@@ -73,7 +74,7 @@
 
 
 // POST /stream/0/users/me/avatar
-// TODO: link
+// http://developers.app.net/docs/resources/user/profile/#update-a-users-avatar-image
 
 - (void)updateCurrentUserAvatarWithImageData:(NSData *)imageData completion:(ADNClientCompletionBlock)completionHandler {
 	#warning missing API call
@@ -81,12 +82,12 @@
 
 
 - (void)updateCurrentUserAvatarWithImageAtURL:(NSURL *)URL completion:(ADNClientCompletionBlock)completionHandler {
-	#warning missing API call
+	[self updateCurrentUserAvatarWithImageData:[NSData dataWithContentsOfURL:URL] completion:completionHandler];
 }
 
 
 // GET /stream/0/users/[user_id]/cover
-// TODO: link
+// http://developers.app.net/docs/resources/user/profile/#retrieve-a-users-cover-image
 
 - (void)fetchCurrentUserCoverImageWithCompletionBlock:(ADNClientCompletionBlock)completionBlock {
 	#warning missing API call
@@ -94,174 +95,216 @@
 
 
 // POST /stream/0/users/[user_id]/follow
-// TODO: link
+// http://developers.app.net/docs/resources/user/following/#follow-a-user
 
 - (void)followUser:(ADNUser *)user completion:(ADNClientCompletionBlock)completionHandler {
-	#warning missing API call
+	[self followUserWithID:user.userID completion:completionHandler];
 }
 
 
 - (void)followUserWithID:(NSString *)userID completion:(ADNClientCompletionBlock)completionHandler {
-	#warning missing API call
+	[self postPath:[self endpointPathForUserID:userID endpoint:@"follow"]
+		parameters:nil
+		   success:[self successHandlerForResourceClass:[ADNUser class] clientHandler:completionHandler]
+		   failure:[self failureHandlerForClientHandler:completionHandler]];
 }
 
 
 // DELETE /stream/0/users/[user_id]/follow
-// TODO: link
+// http://developers.app.net/docs/resources/user/following/#unfollow-a-user
 
 - (void)unfollowUser:(ADNUser *)user completion:(ADNClientCompletionBlock)completionHandler {
-	#warning missing API call
+	[self unfollowUserWithID:user.userID completion:completionHandler];
 }
 
 
 - (void)unfollowUserWithID:(NSString *)userID completion:(ADNClientCompletionBlock)completionHandler {
-	#warning missing API call
+	[self deletePath:[self endpointPathForUserID:userID endpoint:@"follow"]
+		  parameters:nil
+			 success:[self successHandlerForResourceClass:[ADNUser class] clientHandler:completionHandler]
+			 failure:[self failureHandlerForClientHandler:completionHandler]];
 }
 
 
 // POST /stream/0/users/[user_id]/mute
-// TODO: link
+// http://developers.app.net/docs/resources/user/muting/#mute-a-user
 
 - (void)muteUser:(ADNUser *)user completion:(ADNClientCompletionBlock)completionHandler {
-	#warning missing API call
+	[self muteUserWithID:user.userID completion:completionHandler];
 }
 
 
 - (void)muteUserWithID:(NSString *)userID completion:(ADNClientCompletionBlock)completionHandler {
-	#warning missing API call
+	[self postPath:[self endpointPathForUserID:userID endpoint:@"mute"]
+		parameters:nil
+		   success:[self successHandlerForResourceClass:[ADNUser class] clientHandler:completionHandler]
+		   failure:[self failureHandlerForClientHandler:completionHandler]];
 }
 
 
 // DELETE /stream/0/users/[user_id]/mute
-// TODO: link
+// http://developers.app.net/docs/resources/user/muting/#unmute-a-user
 
 - (void)unmuteUser:(ADNUser *)user completion:(ADNClientCompletionBlock)completionHandler {
-	#warning missing API call
+	[self unmuteUserWithID:user.userID completion:completionHandler];
 }
 
 
 - (void)unmuteUserWithID:(NSString *)userID completion:(ADNClientCompletionBlock)completionHandler {
-	#warning missing API call
+	[self deletePath:[self endpointPathForUserID:userID endpoint:@"mute"]
+		  parameters:nil
+			 success:[self successHandlerForResourceClass:[ADNUser class] clientHandler:completionHandler]
+			 failure:[self failureHandlerForClientHandler:completionHandler]];
 }
 
 
 // GET /stream/0/users
-// TODO: link
+// http://developers.app.net/docs/resources/user/lookup/#retrieve-multiple-users
 
 - (void)fetchUsersWithIDs:(NSArray *)userIDs completion:(ADNClientCompletionBlock)completionHandler {
-	#warning missing API call
+	[self getPath:@"users"
+	   parameters:@{@"ids": [userIDs componentsJoinedByString:@","]}
+		  success:[self successHandlerForCollectionOfResourceClass:[ADNUser class] clientHandler:completionHandler]
+		  failure:[self failureHandlerForClientHandler:completionHandler]];
 }
 
 
 // GET /stream/0/users/search
-// TODO: link
+// http://developers.app.net/docs/resources/user/lookup/#search-for-users
 
 - (void)searchForUsersWithQuery:(NSString *)query completion:(ADNClientCompletionBlock)completionHandler {
-	#warning missing API call
+	[self getPath:@"users/search"
+	   parameters:@{@"q": query}
+		  success:[self successHandlerForCollectionOfResourceClass:[ADNUser class] clientHandler:completionHandler]
+		  failure:[self failureHandlerForClientHandler:completionHandler]];
 }
 
 
 // GET /stream/0/users/[user_id]/following
-// TODO: link
+// http://developers.app.net/docs/resources/user/following/#list-users-a-user-is-following
 
 - (void)fetchUsersUserFollowing:(ADNUser *)user completion:(ADNClientCompletionBlock)completionHandler {
-	#warning missing API call
+	[self fetchUsersUserWithIDFollowing:user.userID completion:completionHandler];
 }
 
 
 - (void)fetchUsersUserWithIDFollowing:(NSString *)userID completion:(ADNClientCompletionBlock)completionHandler {
-	#warning missing API call
+	[self getPath:[self endpointPathForUserID:userID endpoint:@"following"]
+	   parameters:nil
+		  success:[self successHandlerForCollectionOfResourceClass:[ADNUser class] clientHandler:completionHandler]
+		  failure:[self failureHandlerForClientHandler:completionHandler]];
 }
 
 
 // GET /stream/0/users/[user_id]/followers
-// TODO: link
+// http://developers.app.net/docs/resources/user/following/#list-users-following-a-user
 
 - (void)fetchUsersFollowingUser:(ADNUser *)user completion:(ADNClientCompletionBlock)completionHandler {
-	#warning missing API call
+	[self fetchUsersFollowingUserWithID:user.userID completion:completionHandler];
 }
 
 
 - (void)fetchUsersFollowingUserWithID:(NSString *)userID completion:(ADNClientCompletionBlock)completionHandler {
-	#warning missing API call
+	[self getPath:[self endpointPathForUserID:userID endpoint:@"followers"]
+	   parameters:nil
+		  success:[self successHandlerForCollectionOfResourceClass:[ADNUser class] clientHandler:completionHandler]
+		  failure:[self failureHandlerForClientHandler:completionHandler]];
 }
 
 
 // GET /stream/0/users/[user_id]/following/ids
-// TODO: link
+// http://developers.app.net/docs/resources/user/following/#list-user-ids-a-user-is-following
 
 - (void)fetchUserIDsUserFollowing:(ADNUser *)user completion:(ADNClientCompletionBlock)completionHandler {
-	#warning missing API call
+	[self fetchUserIDsUserWithIDFollowing:user.userID completion:completionHandler];
 }
 
 
 - (void)fetchUserIDsUserWithIDFollowing:(NSString *)userID completion:(ADNClientCompletionBlock)completionHandler {
-	#warning missing API call
+	[self getPath:[self endpointPathForUserID:userID endpoint:@"following/ids"]
+	   parameters:nil
+		  success:[self successHandlerForCollectionOfResourceClass:[ADNUser class] clientHandler:completionHandler]
+		  failure:[self failureHandlerForClientHandler:completionHandler]];
 }
 
 
 // GET /stream/0/users/[user_id]/followers/ids
-// TODO: link
+// http://developers.app.net/docs/resources/user/following/#list-user-ids-following-a-user
 
 - (void)fetchUserIDsFollowingUser:(ADNUser *)user completion:(ADNClientCompletionBlock)completionHandler {
-	#warning missing API call
+	[self fetchUserIDsFollowingUserWithID:user.userID completion:completionHandler];
 }
 
 
 - (void)fetchUserIDsFollowingUserWithID:(NSString *)userID completion:(ADNClientCompletionBlock)completionHandler {
-	#warning missing API call
+	[self getPath:[self endpointPathForUserID:userID endpoint:@"followers/ids"]
+	   parameters:nil
+		  success:[self successHandlerForCollectionOfResourceClass:[ADNUser class] clientHandler:completionHandler]
+		  failure:[self failureHandlerForClientHandler:completionHandler]];
 }
 
 
 // GET /stream/0/users/[user_id]/muted
-// TODO: link
+// http://developers.app.net/docs/resources/user/muting/#list-muted-users
 
 - (void)fetchMutedUsersForUser:(ADNUser *)user completion:(ADNClientCompletionBlock)completionHandler {
-	#warning missing API call
+	[self fetchMutedUsersForUserWithID:user.userID completion:completionHandler];
 }
 
 
 - (void)fetchMutedUsersForUserWithID:(NSString *)userID completion:(ADNClientCompletionBlock)completionHandler {
-	#warning missing API call
+	[self getPath:[self endpointPathForUserID:userID endpoint:completionHandler]
+	   parameters:nil
+		  success:[self successHandlerForCollectionOfResourceClass:[ADNUser class] clientHandler:completionHandler]
+		  failure:[self failureHandlerForClientHandler:completionHandler]];
 }
 
 
-// GET /stream/0/users/muted/ids
-// TODO: link
+// GET /stream/0/users/[user_id]/muted
+// http://developers.app.net/docs/resources/user/muting/#retrieve-muted-user-ids-for-multiple-users
 
 - (void)fetchMutedUserIDsForUsers:(NSArray *)users completion:(ADNClientCompletionBlock)completionHandler {
-	#warning missing API call
+	[self fetchMutedUserIDsForUserIDs:[users valueForKeyPath:@"userID"] completion:completionHandler];
 }
 
 
 - (void)fetchMutedUserIDsForUserIDs:(NSArray *)userIDs completion:(ADNClientCompletionBlock)completionHandler {
-	#warning missing API call
+	[self getPath:@"muted/ids"
+	   parameters:@{@"ids": [userIDs componentsJoinedByString:@","]}
+		  success:[self successHandlerForCollectionOfResourceClass:[ADNUser class] clientHandler:completionHandler]
+		  failure:[self failureHandlerForClientHandler:completionHandler]];
 }
 
 
 // GET /stream/0/posts/[post_id]/reposters
-// TODO: link
+// http://developers.app.net/docs/resources/user/post-interactions/#list-users-who-have-reposted-a-post
 
 - (void)fetchUsersRepostedForPost:(ADNPost *)post completion:(ADNClientCompletionBlock)completionHandler {
-	#warning missing API call
+	[self fetchUsersRepostedForPostWithID:post.postID completion:completionHandler];
 }
 
 
 - (void)fetchUsersRepostedForPostWithID:(NSString *)postID completion:(ADNClientCompletionBlock)completionHandler {
-	#warning missing API call
+	[self getPath:[NSString stringWithFormat:@"posts/%@/reposters", postID]
+	   parameters:nil
+		  success:[self successHandlerForCollectionOfResourceClass:[ADNUser class] clientHandler:completionHandler]
+		  failure:[self failureHandlerForClientHandler:completionHandler]];
 }
 
 
 // GET /stream/0/posts/[post_id]/stars
-// TODO: link
+// http://developers.app.net/docs/resources/user/post-interactions/#list-users-who-have-starred-a-post
 
 - (void)fetchUsersStarredForPost:(ADNPost *)post completion:(ADNClientCompletionBlock)completionHandler {
-	#warning missing API call
+	[self fetchUsersStarredForPostWithID:post.postID completion:completionHandler];
 }
 
 
 - (void)fetchUsersStarredForPostWithID:(NSString *)postID completion:(ADNClientCompletionBlock)completionHandler {
-	#warning missing API call
+	[self getPath:[NSString stringWithFormat:@"posts/%@/stars", postID]
+	   parameters:nil
+		  success:[self successHandlerForCollectionOfResourceClass:[ADNUser class] clientHandler:completionHandler]
+		  failure:[self failureHandlerForClientHandler:completionHandler]];
 }
 
 
