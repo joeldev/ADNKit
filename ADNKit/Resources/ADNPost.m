@@ -7,6 +7,7 @@
 //
 
 #import "ADNPost.h"
+#import "ADNUser.h"
 #import "NSDictionary+ADNAdditions.h"
 
 
@@ -29,5 +30,16 @@
 			@"you_reposted": @"repostedByCurrentUser",
 			@"repost_of": @"repostedPost"}];
 }
+
+
++ (Class)starredByUsersCollectionObjectClass {
+	return [ADNUser class];
+}
+
+
++ (Class)repostersCollectionObjectClass {
+	return [ADNUser class];
+}
+
 
 @end
