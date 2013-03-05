@@ -6,8 +6,9 @@
 //  Copyright (c) 2013 Afterwork Studios. All rights reserved.
 //
 
-#import "ADNResource.h"
+#import "ADNAnnotatableResource.h"
 
-@interface ADNFile : ADNResource
+
+@interface ADNFile : ADNAnnotatableResource
 
 @end

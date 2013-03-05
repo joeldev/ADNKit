@@ -16,33 +16,45 @@
 		252A2C0116E5464700DAE393 /* ADNMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A2BFF16E5464700DAE393 /* ADNMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		252A2C0216E5464700DAE393 /* ADNMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C0016E5464700DAE393 /* ADNMessage.m */; };
 		252A2C0316E5464700DAE393 /* ADNMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C0016E5464700DAE393 /* ADNMessage.m */; };
-		252A2C0616E5465A00DAE393 /* ADNFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A2C0416E5465A00DAE393 /* ADNFile.h */; };
+		252A2C0616E5465A00DAE393 /* ADNFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A2C0416E5465A00DAE393 /* ADNFile.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		252A2C0716E5465A00DAE393 /* ADNFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C0516E5465A00DAE393 /* ADNFile.m */; };
 		252A2C0816E5465A00DAE393 /* ADNFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C0516E5465A00DAE393 /* ADNFile.m */; };
-		252A2C0B16E5466A00DAE393 /* ADNStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A2C0916E5466A00DAE393 /* ADNStream.h */; };
+		252A2C0B16E5466A00DAE393 /* ADNStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A2C0916E5466A00DAE393 /* ADNStream.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		252A2C0C16E5466A00DAE393 /* ADNStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C0A16E5466A00DAE393 /* ADNStream.m */; };
 		252A2C0D16E5466A00DAE393 /* ADNStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C0A16E5466A00DAE393 /* ADNStream.m */; };
-		252A2C1016E5467400DAE393 /* ADNFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A2C0E16E5467300DAE393 /* ADNFilter.h */; };
+		252A2C1016E5467400DAE393 /* ADNFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A2C0E16E5467300DAE393 /* ADNFilter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		252A2C1116E5467400DAE393 /* ADNFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C0F16E5467400DAE393 /* ADNFilter.m */; };
 		252A2C1216E5467400DAE393 /* ADNFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C0F16E5467400DAE393 /* ADNFilter.m */; };
-		252A2C1516E5467B00DAE393 /* ADNInteraction.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A2C1316E5467B00DAE393 /* ADNInteraction.h */; };
+		252A2C1516E5467B00DAE393 /* ADNInteraction.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A2C1316E5467B00DAE393 /* ADNInteraction.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		252A2C1616E5467B00DAE393 /* ADNInteraction.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C1416E5467B00DAE393 /* ADNInteraction.m */; };
 		252A2C1716E5467B00DAE393 /* ADNInteraction.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C1416E5467B00DAE393 /* ADNInteraction.m */; };
-		252A2C1A16E5468700DAE393 /* ADNStreamMarker.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A2C1816E5468700DAE393 /* ADNStreamMarker.h */; };
+		252A2C1A16E5468700DAE393 /* ADNStreamMarker.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A2C1816E5468700DAE393 /* ADNStreamMarker.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		252A2C1B16E5468700DAE393 /* ADNStreamMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C1916E5468700DAE393 /* ADNStreamMarker.m */; };
 		252A2C1C16E5468700DAE393 /* ADNStreamMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C1916E5468700DAE393 /* ADNStreamMarker.m */; };
-		252A2C1F16E546F900DAE393 /* ADNPlace.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A2C1D16E546F900DAE393 /* ADNPlace.h */; };
+		252A2C1F16E546F900DAE393 /* ADNPlace.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A2C1D16E546F900DAE393 /* ADNPlace.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		252A2C2016E546F900DAE393 /* ADNPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C1E16E546F900DAE393 /* ADNPlace.m */; };
 		252A2C2116E546F900DAE393 /* ADNPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C1E16E546F900DAE393 /* ADNPlace.m */; };
-		252A2C2416E5472400DAE393 /* ADNExploreStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A2C2216E5472400DAE393 /* ADNExploreStream.h */; };
+		252A2C2416E5472400DAE393 /* ADNExploreStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A2C2216E5472400DAE393 /* ADNExploreStream.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		252A2C2516E5472400DAE393 /* ADNExploreStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C2316E5472400DAE393 /* ADNExploreStream.m */; };
 		252A2C2616E5472400DAE393 /* ADNExploreStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C2316E5472400DAE393 /* ADNExploreStream.m */; };
-		252A2C2916E5473D00DAE393 /* ADNAnnotation.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A2C2716E5473D00DAE393 /* ADNAnnotation.h */; };
+		252A2C2916E5473D00DAE393 /* ADNAnnotation.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A2C2716E5473D00DAE393 /* ADNAnnotation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		252A2C2A16E5473D00DAE393 /* ADNAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C2816E5473D00DAE393 /* ADNAnnotation.m */; };
 		252A2C2B16E5473D00DAE393 /* ADNAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C2816E5473D00DAE393 /* ADNAnnotation.m */; };
-		252A2C2E16E5477B00DAE393 /* ADNEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A2C2C16E5477B00DAE393 /* ADNEntity.h */; };
+		252A2C2E16E5477B00DAE393 /* ADNEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A2C2C16E5477B00DAE393 /* ADNEntity.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		252A2C2F16E5477B00DAE393 /* ADNEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C2D16E5477B00DAE393 /* ADNEntity.m */; };
 		252A2C3016E5477B00DAE393 /* ADNEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C2D16E5477B00DAE393 /* ADNEntity.m */; };
+		252A2C3316E5489400DAE393 /* ADNAnnotatableResource.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A2C3116E5489300DAE393 /* ADNAnnotatableResource.h */; };
+		252A2C3416E5489400DAE393 /* ADNAnnotatableResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C3216E5489300DAE393 /* ADNAnnotatableResource.m */; };
+		252A2C3516E5489400DAE393 /* ADNAnnotatableResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C3216E5489300DAE393 /* ADNAnnotatableResource.m */; };
+		252A2C3816E55ACD00DAE393 /* ADNImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A2C3616E55ACD00DAE393 /* ADNImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		252A2C3916E55ACD00DAE393 /* ADNImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C3716E55ACD00DAE393 /* ADNImage.m */; };
+		252A2C3A16E55ACD00DAE393 /* ADNImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C3716E55ACD00DAE393 /* ADNImage.m */; };
+		252A2C3D16E55B5200DAE393 /* ADNUserCounts.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A2C3B16E55B5100DAE393 /* ADNUserCounts.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		252A2C3E16E55B5200DAE393 /* ADNUserCounts.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C3C16E55B5200DAE393 /* ADNUserCounts.m */; };
+		252A2C3F16E55B5200DAE393 /* ADNUserCounts.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C3C16E55B5200DAE393 /* ADNUserCounts.m */; };
+		252A2C4516E5624700DAE393 /* ADNClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A2C4316E5624700DAE393 /* ADNClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		252A2C4616E5624700DAE393 /* ADNClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C4416E5624700DAE393 /* ADNClient.m */; };
+		252A2C4716E5624700DAE393 /* ADNClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C4416E5624700DAE393 /* ADNClient.m */; };
 		5DC370DD16E0805E00190862 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DC370DC16E0805E00190862 /* Foundation.framework */; };
 		5DC370E216E0805E00190862 /* ADNKit.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5DC370E116E0805E00190862 /* ADNKit.h */; };
 		5DC3710916E0808C00190862 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DC370F016E0807000190862 /* Cocoa.framework */; };
@@ -80,9 +92,6 @@
 		5DC3728A16E3B10800190862 /* ADNResource.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC3728816E3B10800190862 /* ADNResource.h */; };
 		5DC3728B16E3B10800190862 /* ADNResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3728916E3B10800190862 /* ADNResource.m */; };
 		5DC3728C16E3B10800190862 /* ADNResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3728916E3B10800190862 /* ADNResource.m */; };
-		5DC3729016E3B2E200190862 /* ADNClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC3728E16E3B2E200190862 /* ADNClient.h */; };
-		5DC3729116E3B2E200190862 /* ADNClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3728F16E3B2E200190862 /* ADNClient.m */; };
-		5DC3729216E3B2E200190862 /* ADNClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3728F16E3B2E200190862 /* ADNClient.m */; };
 		5DC3729816E3B4D300190862 /* ADNJSONRequestOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC3729616E3B4D300190862 /* ADNJSONRequestOperation.h */; };
 		5DC3729916E3B4D300190862 /* ADNJSONRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3729716E3B4D300190862 /* ADNJSONRequestOperation.m */; };
 		5DC3729A16E3B4D300190862 /* ADNJSONRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3729716E3B4D300190862 /* ADNJSONRequestOperation.m */; };
@@ -144,6 +153,14 @@
 		252A2C2816E5473D00DAE393 /* ADNAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADNAnnotation.m; sourceTree = "<group>"; };
 		252A2C2C16E5477B00DAE393 /* ADNEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADNEntity.h; sourceTree = "<group>"; };
 		252A2C2D16E5477B00DAE393 /* ADNEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADNEntity.m; sourceTree = "<group>"; };
+		252A2C3116E5489300DAE393 /* ADNAnnotatableResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADNAnnotatableResource.h; sourceTree = "<group>"; };
+		252A2C3216E5489300DAE393 /* ADNAnnotatableResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADNAnnotatableResource.m; sourceTree = "<group>"; };
+		252A2C3616E55ACD00DAE393 /* ADNImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADNImage.h; sourceTree = "<group>"; };
+		252A2C3716E55ACD00DAE393 /* ADNImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADNImage.m; sourceTree = "<group>"; };
+		252A2C3B16E55B5100DAE393 /* ADNUserCounts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADNUserCounts.h; sourceTree = "<group>"; };
+		252A2C3C16E55B5200DAE393 /* ADNUserCounts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADNUserCounts.m; sourceTree = "<group>"; };
+		252A2C4316E5624700DAE393 /* ADNClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADNClient.h; sourceTree = "<group>"; };
+		252A2C4416E5624700DAE393 /* ADNClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADNClient.m; sourceTree = "<group>"; };
 		5DC370D916E0805E00190862 /* libADNKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libADNKit.a; path = "libADNKit-iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DC370DC16E0805E00190862 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5DC370E016E0805E00190862 /* ADNKit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ADNKit-Prefix.pch"; sourceTree = "<group>"; };
@@ -182,8 +199,6 @@
 		5DC3728216E3AF8E00190862 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
 		5DC3728816E3B10800190862 /* ADNResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADNResource.h; sourceTree = "<group>"; };
 		5DC3728916E3B10800190862 /* ADNResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADNResource.m; sourceTree = "<group>"; };
-		5DC3728E16E3B2E200190862 /* ADNClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADNClient.h; sourceTree = "<group>"; };
-		5DC3728F16E3B2E200190862 /* ADNClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADNClient.m; sourceTree = "<group>"; };
 		5DC3729616E3B4D300190862 /* ADNJSONRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADNJSONRequestOperation.h; sourceTree = "<group>"; };
 		5DC3729716E3B4D300190862 /* ADNJSONRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADNJSONRequestOperation.m; sourceTree = "<group>"; };
 		5DC3729B16E3B66700190862 /* ADNResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADNResponse.h; sourceTree = "<group>"; };
@@ -259,6 +274,8 @@
 		5DC370DE16E0805E00190862 /* ADNKit */ = {
 			isa = PBXGroup;
 			children = (
+				252A2C4316E5624700DAE393 /* ADNClient.h */,
+				252A2C4416E5624700DAE393 /* ADNClient.m */,
 				5DC3728716E3B0FC00190862 /* Resources */,
 				5DC372F416E4750800190862 /* API Calls */,
 				5DC3728D16E3B2CB00190862 /* Networking */,
@@ -352,8 +369,12 @@
 				5DC372A716E44AE500190862 /* ADNValueTransformations.m */,
 				5DC3728816E3B10800190862 /* ADNResource.h */,
 				5DC3728916E3B10800190862 /* ADNResource.m */,
+				252A2C3116E5489300DAE393 /* ADNAnnotatableResource.h */,
+				252A2C3216E5489300DAE393 /* ADNAnnotatableResource.m */,
 				5DC372FA16E4758F00190862 /* ADNUser.h */,
 				5DC372FB16E4759000190862 /* ADNUser.m */,
+				252A2C3B16E55B5100DAE393 /* ADNUserCounts.h */,
+				252A2C3C16E55B5200DAE393 /* ADNUserCounts.m */,
 				252A2BF516E545F100DAE393 /* ADNPost.h */,
 				252A2BF616E545F100DAE393 /* ADNPost.m */,
 				252A2BFA16E5462D00DAE393 /* ADNChannel.h */,
@@ -378,6 +399,8 @@
 				252A2C2816E5473D00DAE393 /* ADNAnnotation.m */,
 				252A2C2C16E5477B00DAE393 /* ADNEntity.h */,
 				252A2C2D16E5477B00DAE393 /* ADNEntity.m */,
+				252A2C3616E55ACD00DAE393 /* ADNImage.h */,
+				252A2C3716E55ACD00DAE393 /* ADNImage.m */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -385,8 +408,6 @@
 		5DC3728D16E3B2CB00190862 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				5DC3728E16E3B2E200190862 /* ADNClient.h */,
-				5DC3728F16E3B2E200190862 /* ADNClient.m */,
 				5DC3729616E3B4D300190862 /* ADNJSONRequestOperation.h */,
 				5DC3729716E3B4D300190862 /* ADNJSONRequestOperation.m */,
 				5DC3729B16E3B66700190862 /* ADNResponse.h */,
@@ -431,7 +452,6 @@
 				5DC3726D16E3AE1500190862 /* AFURLConnectionOperation.h in Headers */,
 				5DC3727016E3AE1500190862 /* AFXMLRequestOperation.h in Headers */,
 				5DC3728A16E3B10800190862 /* ADNResource.h in Headers */,
-				5DC3729016E3B2E200190862 /* ADNClient.h in Headers */,
 				5DC3729816E3B4D300190862 /* ADNJSONRequestOperation.h in Headers */,
 				5DC3729D16E3B66700190862 /* ADNResponse.h in Headers */,
 				5DC372A316E448ED00190862 /* NSArray+ADNAdditions.h in Headers */,
@@ -451,6 +471,10 @@
 				252A2C2416E5472400DAE393 /* ADNExploreStream.h in Headers */,
 				252A2C2916E5473D00DAE393 /* ADNAnnotation.h in Headers */,
 				252A2C2E16E5477B00DAE393 /* ADNEntity.h in Headers */,
+				252A2C3316E5489400DAE393 /* ADNAnnotatableResource.h in Headers */,
+				252A2C3816E55ACD00DAE393 /* ADNImage.h in Headers */,
+				252A2C3D16E55B5200DAE393 /* ADNUserCounts.h in Headers */,
+				252A2C4516E5624700DAE393 /* ADNClient.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -545,7 +569,6 @@
 				5DC3727116E3AE1500190862 /* AFXMLRequestOperation.m in Sources */,
 				5DC3727416E3AE1500190862 /* UIImageView+AFNetworking.m in Sources */,
 				5DC3728B16E3B10800190862 /* ADNResource.m in Sources */,
-				5DC3729116E3B2E200190862 /* ADNClient.m in Sources */,
 				5DC3729916E3B4D300190862 /* ADNJSONRequestOperation.m in Sources */,
 				5DC3729E16E3B66700190862 /* ADNResponse.m in Sources */,
 				5DC372A416E448ED00190862 /* NSArray+ADNAdditions.m in Sources */,
@@ -565,6 +588,10 @@
 				252A2C2516E5472400DAE393 /* ADNExploreStream.m in Sources */,
 				252A2C2A16E5473D00DAE393 /* ADNAnnotation.m in Sources */,
 				252A2C2F16E5477B00DAE393 /* ADNEntity.m in Sources */,
+				252A2C3416E5489400DAE393 /* ADNAnnotatableResource.m in Sources */,
+				252A2C3916E55ACD00DAE393 /* ADNImage.m in Sources */,
+				252A2C3E16E55B5200DAE393 /* ADNUserCounts.m in Sources */,
+				252A2C4616E5624700DAE393 /* ADNClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -580,7 +607,6 @@
 				5DC3726F16E3AE1500190862 /* AFURLConnectionOperation.m in Sources */,
 				5DC3727216E3AE1500190862 /* AFXMLRequestOperation.m in Sources */,
 				5DC3728C16E3B10800190862 /* ADNResource.m in Sources */,
-				5DC3729216E3B2E200190862 /* ADNClient.m in Sources */,
 				5DC3729A16E3B4D300190862 /* ADNJSONRequestOperation.m in Sources */,
 				5DC3729F16E3B66700190862 /* ADNResponse.m in Sources */,
 				5DC372A516E448ED00190862 /* NSArray+ADNAdditions.m in Sources */,
@@ -600,6 +626,10 @@
 				252A2C2616E5472400DAE393 /* ADNExploreStream.m in Sources */,
 				252A2C2B16E5473D00DAE393 /* ADNAnnotation.m in Sources */,
 				252A2C3016E5477B00DAE393 /* ADNEntity.m in Sources */,
+				252A2C3516E5489400DAE393 /* ADNAnnotatableResource.m in Sources */,
+				252A2C3A16E55ACD00DAE393 /* ADNImage.m in Sources */,
+				252A2C3F16E55B5200DAE393 /* ADNUserCounts.m in Sources */,
+				252A2C4716E5624700DAE393 /* ADNClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

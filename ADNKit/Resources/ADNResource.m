@@ -25,14 +25,14 @@ static dispatch_once_t propertiesMapOnceToken;
 @property (assign) BOOL isModelObject;
 @property (assign) BOOL isCollection;
 
-- (id)initWithName:(NSString *)name attributesString:(NSString *)attributesString;
+- (id)initWithName:(NSString *)name attributesString:(NSString *)attributesString forParentClass:(Class)parentClass;
 
 @end
 
 
 @implementation ADNResourceProperty
 
-- (id)initWithName:(NSString *)name attributesString:(NSString *)attributesString {
+- (id)initWithName:(NSString *)name attributesString:(NSString *)attributesString forParentClass:(Class)parentClass {
 	if ((self = [super init])) {
 		self.name = name;
 		
@@ -56,6 +56,18 @@ static dispatch_once_t propertiesMapOnceToken;
 			}
 			
 			self.isModelObject = [self.objectType isSubclassOfClass:[ADNResource class]];
+			if (self.objectType == [NSArray class]) {
+				SEL collectionObjectClass = NSSelectorFromString([NSString stringWithFormat:@"%@CollectionObjectClass", self.name]);
+				if ([parentClass respondsToSelector:collectionObjectClass]) {
+					#pragma clang diagnostic push
+					#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+					self.objectType = [parentClass performSelector:collectionObjectClass];
+					#pragma clang diagnostic pop
+					
+					// this is only marked as a collection if its a collection of model objects
+					self.isCollection = [self.objectType isSubclassOfClass:[ADNResource class]];
+				}
+			}
 		} else {
 			// primitive
 			[scanner scanUpToCharactersFromSet:[NSCharacterSet characterSetWithCharactersInString:@","] intoString:&propertyType];
@@ -89,7 +101,7 @@ static dispatch_once_t propertiesMapOnceToken;
 	objc_property_t *propertiesList = class_copyPropertyList([self class], &propertyCount);
 	for (unsigned int i = 0; i < propertyCount; i++) {
 		objc_property_t property = propertiesList[i];
-		ADNResourceProperty *propertyObject = [[ADNResourceProperty alloc] initWithName:[NSString stringWithUTF8String:property_getName(property)] attributesString:[NSString stringWithUTF8String:property_getAttributes(property)]];
+		ADNResourceProperty *propertyObject = [[ADNResourceProperty alloc] initWithName:[NSString stringWithUTF8String:property_getName(property)] attributesString:[NSString stringWithUTF8String:property_getAttributes(property)] forParentClass:[self class]];
 		propertiesForClass[propertyObject.name] = propertyObject;
 	}
 	
@@ -149,12 +161,21 @@ static dispatch_once_t propertiesMapOnceToken;
 		ADNResourceProperty *property = propertiesMap[NSStringFromClass([self class])][localKey];
 		if (property) {
 			if ([value class] != property.objectType) {
-				SEL transformSelector = NSSelectorFromString([NSString stringWithFormat:@"%@From%@", property.objectType, [value class]]);
-				if ([ADNValueTransformations respondsToSelector:transformSelector]) {
-					value = [ADNValueTransformations performSelector:transformSelector];
+				if (property.isCollection && [value isKindOfClass:[NSArray class]]) {
+					// property is a collection, so unpack the collection
+					value = [property.objectType objectsFromJSONDictionaries:value];
+				} else if (property.isModelObject && [value isKindOfClass:[NSDictionary class]]) {
+					// property is an ADNResource, unpack it
+					value = [property.objectType objectFromJSONDictionary:value];
 				} else {
-					NSLog(@"could not find a method to convert %@ of class %@ to class %@ (%@)", value, [value class], property.objectType, NSStringFromSelector(transformSelector));
-				}
+					// see if there's an existing transformation that we can run
+					SEL transformSelector = NSSelectorFromString([NSString stringWithFormat:@"%@From%@", property.objectType, [value class]]);
+					if ([ADNValueTransformations respondsToSelector:transformSelector]) {
+						value = [ADNValueTransformations performSelector:transformSelector];
+					} else {
+						NSLog(@"could not find a method to convert %@ of class %@ to class %@ (%@)", value, [value class], property.objectType, NSStringFromSelector(transformSelector));
+					}
+				}	
 			}
 			
 			[self setValue:value forKey:localKey];
@@ -179,6 +200,10 @@ static dispatch_once_t propertiesMapOnceToken;
 		// if the property is a model object, convert it to a JSON dictionary
 		if (property.isModelObject) {
 			value = [(ADNResource *)value JSONDictionary];
+		} else if (property.isCollection) {
+			value = [(NSArray *)value adn_map:^id(ADNResource *resource) {
+				return [resource JSONDictionary];
+			}];
 		} else {
 			// otherwise, see if it needs to be transformed in order to be JSON compatible
 			SEL transformSelector = NSSelectorFromString([NSString stringWithFormat:@"JSONObjectFrom%@", NSStringFromClass([value class])]);

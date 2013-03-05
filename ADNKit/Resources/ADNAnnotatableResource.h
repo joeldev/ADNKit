@@ -1,5 +1,5 @@
 //
-//  ADNAnnotation.h
+//  ADNAnnotatableResource.h
 //  ADNKit
 //
 //  Created by Levin, Joel A on 3/4/13.
@@ -9,9 +9,8 @@
 #import "ADNResource.h"
 
 
-@interface ADNAnnotation : ADNResource
+@interface ADNAnnotatableResource : ADNResource
 
-@property (strong) NSString *type;
-@property (strong) NSDictionary *value;
+@property (strong) NSArray *annotations;
 
 @end

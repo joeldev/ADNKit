@@ -54,6 +54,7 @@ typedef void (^ADNClientCompletionBlock)(id responseObject, NSError *error);
 #pragma mark Properties
 
 @property (strong) NSString *accessToken;
+@property (assign) BOOL shouldRequestAnnotations;
 @property (copy) void (^webAuthCompletionHandler)(BOOL success, NSError *error);
 
 @end

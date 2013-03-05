@@ -13,8 +13,13 @@
 
 // forward transformations
 + (NSURL *)NSURLFromNSString:(NSString *)string;
++ (NSDate *)NSDateFromNSString:(NSString *)string;
 
 // reverse transformations
 + (id)JSONObjectFromNSURL:(NSURL *)URL;
++ (id)JSONObjectFromNSDate:(NSDate *)date;
+
+// misc
++ (NSDateFormatter *)dateFormatter;
 
 @end

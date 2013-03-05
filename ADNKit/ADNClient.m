@@ -43,6 +43,7 @@
 		self.parameterEncoding = AFJSONParameterEncoding;
 		[self setDefaultHeader:@"Accept" value:@"application/json"];
 		[self registerHTTPOperationClass:[ADNJSONRequestOperation class]];
+		
 		[self addObserver:self forKeyPath:@"accessToken" options:NSKeyValueObservingOptionNew context:nil];
 	}
     
@@ -63,6 +64,15 @@
 			[self setDefaultHeader:@"Authorization" value:nil];
 		}
 	}
+}
+
+
+- (NSMutableURLRequest *)requestWithMethod:(NSString *)method path:(NSString *)path parameters:(NSDictionary *)parameters {
+	NSMutableDictionary *mutableParameters = [parameters mutableCopy];
+	if (self.shouldRequestAnnotations) {
+		mutableParameters[@"include_annotations"] = @(1);
+	}
+	return [super requestWithMethod:method path:path parameters:mutableParameters];
 }
 
 

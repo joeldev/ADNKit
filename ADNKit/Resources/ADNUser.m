@@ -13,7 +13,7 @@
 @implementation ADNUser
 
 + (NSDictionary *)keyMapping {
-	return [[super keyMapping] adn_dictionaryByAppendingDictionary:@{@"id" : @"userID"}];
+	return [[super keyMapping] adn_dictionaryByAppendingDictionary:@{@"id" : @"userID", @"created_at": @"createdAt", @"avatar_image": @"avatarImage", @"cover_image": @"coverImage"}];
 }
 
 @end
