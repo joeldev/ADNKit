@@ -6,11 +6,11 @@
 //  Copyright (c) 2013 Afterwork Studios. All rights reserved.
 //
 
-#import "ADNPostSource.h"
+#import "ADNObjectSource.h"
 #import "NSDictionary+ADNAdditions.h"
 
 
-@implementation ADNPostSource
+@implementation ADNObjectSource
 
 + (NSDictionary *)keyMapping {
 	return [[super keyMapping] adn_dictionaryByAppendingDictionary:@{@"client_id": @"clientID"}];

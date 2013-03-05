@@ -9,7 +9,7 @@
 #import "ADNResource.h"
 
 
-@interface ADNPostSource : ADNResource
+@interface ADNObjectSource : ADNResource
 
 @property (strong) NSString *name;
 @property (strong) NSString *link;

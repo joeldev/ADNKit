@@ -9,6 +9,28 @@
 #import "ADNAnnotatableResource.h"
 
 
+@class ADNUser, ADNObjectSource;
+
 @interface ADNFile : ADNAnnotatableResource
+
+@property (strong) NSString *fileID;
+@property (strong) NSString *kind;
+@property (strong) NSString *mimeType;
+@property (strong) NSString *name;
+@property (assign) BOOL isComplete;
+@property (assign) BOOL isPublic;
+@property (strong) NSString *sha1ContentHash;
+@property (strong) NSDate *createdAt;
+@property (assign) NSUInteger sizeBytes;
+@property (assign) NSUInteger sizeBytesIncludingDerivedFiles;
+// TODO: @property (strong) NSDictionary *derivedFiles;
+@property (strong) NSURL *URL;
+@property (strong) NSDate *URLExpireDate;
+@property (strong) NSURL *permanentURL;
+@property (strong) NSString *fileToken;
+@property (strong) NSString *readOnlyFileToken;
+@property (strong) NSString *type;
+@property (strong) ADNUser *user;
+@property (strong) ADNObjectSource *source;
 
 @end
