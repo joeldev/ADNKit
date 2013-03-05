@@ -69,7 +69,18 @@
 // http://developers.app.net/docs/resources/user/profile/#retrieve-a-users-avatar-image
 
 - (void)fetchAvatarImageURLForUserWithID:(NSString *)userID completion:(ADNClientCompletionBlock)completionHandler {
-	#warning missing API call
+	NSURLRequest *URLRequest = [self requestWithMethod:@"HEAD" path:[self endpointPathForUserID:userID endpoint:@"avatar"] parameters:nil];
+	AFHTTPRequestOperation *requestOperation = [[AFHTTPRequestOperation alloc] initWithRequest:URLRequest];
+	[requestOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+		if (completionHandler) {
+			completionHandler([operation.response URL], nil);
+		}
+	} failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+		if (completionHandler) {
+			completionHandler(nil, error);
+		}
+	}];
+	[self enqueueHTTPRequestOperation:requestOperation];
 }
 
 
@@ -77,7 +88,13 @@
 // http://developers.app.net/docs/resources/user/profile/#update-a-users-avatar-image
 
 - (void)updateCurrentUserAvatarWithImageData:(NSData *)imageData mimeType:(NSString *)mimeType completion:(ADNClientCompletionBlock)completionHandler {
-	#warning missing API call
+	NSURLRequest *URLRequest = [self multipartFormRequestWithMethod:@"POST" path:[self endpointPathForUserID:@"me" endpoint:@"avatar"] parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+		[formData appendPartWithFileData:imageData name:@"avatar" fileName:@"avatar" mimeType:mimeType];
+	}];
+	AFHTTPRequestOperation *requestOperation = [self HTTPRequestOperationWithRequest:URLRequest
+																			 success:[self successHandlerForResourceClass:[ADNUser class] clientHandler:completionHandler]
+																			 failure:[self failureHandlerForClientHandler:completionHandler]];
+	[self enqueueHTTPRequestOperation:requestOperation];
 }
 
 
@@ -85,7 +102,18 @@
 // http://developers.app.net/docs/resources/user/profile/#retrieve-a-users-cover-image
 
 - (void)fetchCoverImageURLForUserWithID:(NSString *)userID completion:(ADNClientCompletionBlock)completionHandler {
-	#warning missing API call
+	NSURLRequest *URLRequest = [self requestWithMethod:@"HEAD" path:[self endpointPathForUserID:userID endpoint:@"cover"] parameters:nil];
+	AFHTTPRequestOperation *requestOperation = [[AFHTTPRequestOperation alloc] initWithRequest:URLRequest];
+	[requestOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+		if (completionHandler) {
+			completionHandler([operation.response URL], nil);
+		}
+	} failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+		if (completionHandler) {
+			completionHandler(nil, error);
+		}
+	}];
+	[self enqueueHTTPRequestOperation:requestOperation];
 }
 
 
