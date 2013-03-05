@@ -9,14 +9,14 @@
 #import "ADNAnnotatableResource.h"
 
 
-@class ADNUserCounts, ADNImage;
+@class ADNUserCounts, ADNUserDescription, ADNImage;
 
 @interface ADNUser : ADNAnnotatableResource
 
 @property (strong) NSString *userID;
 @property (strong) NSString *username;
 @property (strong) NSString *name;
-// TODO: description
+@property (strong) ADNUserDescription *bio;
 @property (strong) NSString *timezone;
 @property (strong) NSString *locale;
 @property (strong) ADNImage *avatarImage;
@@ -24,9 +24,9 @@
 @property (strong) NSString *type;
 @property (strong) NSDate *createdAt;
 @property (strong) ADNUserCounts *counts;
-@property (assign) BOOL followsYou;
-@property (assign) BOOL youFollow;
-@property (assign) BOOL youMuted;
-@property (assign) BOOL youCanSubscribe;
+@property (assign) BOOL followsCurrentUser;
+@property (assign) BOOL currentUserFollows;
+@property (assign) BOOL currentUserMuted;
+@property (assign) BOOL currentUserCanSubscribe;
 
 @end

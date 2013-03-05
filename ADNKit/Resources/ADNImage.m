@@ -18,7 +18,7 @@
 
 
 - (CGSize)size {
-	return CGSizeMake([self.width doubleValue], [self.height doubleValue]);
+	return CGSizeMake(self.width, self.height);
 }
 
 

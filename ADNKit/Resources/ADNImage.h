@@ -11,8 +11,8 @@
 
 @interface ADNImage : ADNResource
 
-@property (strong) NSNumber *width;
-@property (strong) NSNumber *height;
+@property (assign) NSUInteger width;
+@property (assign) NSUInteger height;
 @property (strong) NSURL *URL;
 @property (assign) BOOL isDefault;
 
