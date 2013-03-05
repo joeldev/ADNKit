@@ -24,4 +24,10 @@
 			@"you_can_subscribe": @"youCanSubscribe"}];
 }
 
+
+- (NSString *)description {
+	return [NSString stringWithFormat:@"<%@ %p> - %@ (@%@)", NSStringFromClass([self class]), self, self.name, self.username];
+}
+
+
 @end

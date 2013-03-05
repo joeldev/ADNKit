@@ -164,7 +164,7 @@ static dispatch_once_t propertiesMapOnceToken;
 		// look up info about the local property
 		ADNResourceProperty *property = propertiesMap[NSStringFromClass([self class])][localKey];
 		if (property) {
-			if (valueClass != property.objectType) {
+			if (valueClass != property.objectType && !property.primitiveTypeName) {
 				if (property.isCollection && [value isKindOfClass:[NSArray class]]) {
 					// property is a collection, so unpack the collection
 					value = [property.objectType objectsFromJSONDictionaries:value];
@@ -177,13 +177,12 @@ static dispatch_once_t propertiesMapOnceToken;
 					if ([[ADNValueTransformations transformations] respondsToSelector:transformSelector]) {
 						#pragma clang diagnostic push
 						#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-						NSLog(@"performing transformation %@", NSStringFromSelector(transformSelector));
 						value = [[ADNValueTransformations transformations] performSelector:transformSelector withObject:value];
 						#pragma clang diagnostic pop
 					} else {
 						NSLog(@"could not find a method to convert %@ of class %@ to class %@ (%@)", value, valueClass, property.objectType, NSStringFromSelector(transformSelector));
 					}
-				}	
+				}
 			}
 			
 			[self setValue:value forKey:localKey];

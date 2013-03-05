@@ -11,9 +11,9 @@
 
 @interface ADNUserCounts : ADNResource
 
-@property (strong) NSNumber *following;
-@property (strong) NSNumber *followers;
-@property (strong) NSNumber *posts;
-@property (strong) NSNumber *stars;
+@property (assign) NSUInteger following;
+@property (assign) NSUInteger followers;
+@property (assign) NSUInteger posts;
+@property (assign) NSUInteger stars;
 
 @end
