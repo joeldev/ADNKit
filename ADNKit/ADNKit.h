@@ -8,12 +8,17 @@
 
 #import "ADNClient.h"
 #import "ADNClient+ADNUser.h"
+#import "ADNClient+ADNPost.h"
+#import "ADNClient+ADNPostStreams.h"
+#import "ADNClient+ADNFile.h"
 
 #import "ADNResource.h"
 #import "ADNAnnotatableResource.h"
 #import "ADNUser.h"
 #import "ADNUserCounts.h"
+#import "ADNUserDescription.h"
 #import "ADNPost.h"
+#import "ADNObjectSource.h"
 #import "ADNChannel.h"
 #import "ADNMessage.h"
 #import "ADNFile.h"
@@ -24,7 +29,7 @@
 #import "ADNPlace.h"
 #import "ADNExploreStream.h"
 #import "ADNAnnotation.h"
-#import "ADNEntity.h"
+#import "ADNEntities.h"
 #import "ADNImage.h"
 
 #import "ADNValueTransformations.h"
