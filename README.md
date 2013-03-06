@@ -13,8 +13,8 @@ ADNKit is very much a work in progress right now, and 100% of the ADN API has no
 
 | Resource  | Support|
 | --------- | ------:|
-| User      | Full   |
-| Post      | Full   |
+| User      | Full ![check](https://github.com/joeldev/ADNKit/raw/master/Images/greencheck.png)   |
+| Post      | Full ![check](https://github.com/joeldev/ADNKit/raw/master/Images/greencheck.png)   |
 | Channel   | None   |
 | Message   | None   |
 | File      | None   |
