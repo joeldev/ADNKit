@@ -77,7 +77,7 @@
 
 - (void)createPostWithText:(NSString *)text inReplyToPostWithID:(NSString *)postID completion:(ADNClientCompletionBlock)completionHandler {
 	[self postPath:@"posts"
-		parameters:@{@"text": text, @"reply_to": postID}
+		parameters:(postID ? @{@"text": text, @"reply_to": postID} : @{@"text": text})
 		   success:[self successHandlerForResourceClass:[ADNPost class] clientHandler:completionHandler]
 		   failure:[self failureHandlerForClientHandler:completionHandler]];
 }
