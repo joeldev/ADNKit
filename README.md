@@ -6,8 +6,20 @@ ADNKit is a brand new Objective-C framework for building App.net iOS and OS X ap
 * 100% ADN API support
 * No dependencies other than AFNetworking
 
+It's also important to note that many parts of core architecture in this framework is based on [Matt Rubin](https://github.com/mattrubin)'s fantastic architectural work in his [AppDotNet](https://github.com/mattrubin/AppDotNet) project. My hat's off to him for designing a truly excellent framework architecture and open sourcing it!
+
 # Current State
-ADNKit is very much a work in progress right now, and 100% of the ADN API has not yet been reached.
+ADNKit is very much a work in progress right now, and 100% of the ADN API has not yet been reached. Here is a quick overview of what Resource API groups are supported.
+
+| Resource  | Support|
+| --------- | ------:|
+| User      | Full   |
+| Post      | Full   |
+| Channel   | None   |
+| Message   | None   |
+| File      | None   |
+| Stream    | None   |
+| Filter    | None   |
 
 # Getting Started
 ### Installation
