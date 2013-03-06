@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 Afterwork Studios. All rights reserved.
 //
 
+#import "ADNClient.h"
+
 
 @interface ADNClient (ADNFile)
 
