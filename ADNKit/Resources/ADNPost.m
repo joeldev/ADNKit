@@ -42,4 +42,9 @@
 }
 
 
+- (NSString *)description {
+	return [NSString stringWithFormat:@"<%@ %p> - @%@: %@", NSStringFromClass([self class]), self, self.user.username, self.text];
+}
+
+
 @end
