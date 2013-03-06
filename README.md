@@ -13,11 +13,11 @@ ADNKit is very much a work in progress right now, and 100% of the ADN API has no
 
 | Resource  | Support|
 | --------- | ------:|
-| User      | ![check](https://github.com/joeldev/ADNKit/raw/master/Images/greencheck.png) Full   |
-| Post      | ![check](https://github.com/joeldev/ADNKit/raw/master/Images/greencheck.png) Full   |
+| User      | ![check](https://github.com/joeldev/ADNKit/raw/master/Images/greencheck.png) Full |
+| Post      | ![check](https://github.com/joeldev/ADNKit/raw/master/Images/greencheck.png) Full |
 | Channel   | None   |
 | Message   | None   |
-| File      | None   |
+| File      | ![check](https://github.com/joeldev/ADNKit/raw/master/Images/greencheck.png) Full |
 | Stream    | None   |
 | Filter    | None   |
 
@@ -121,7 +121,7 @@ Once the user authorizes the application, your redirectURI will get called and p
 
 ```
 
-Once your web auth completion block is called, you are ready to go. No need to set the accessToken, that is handled automatically.
+Once your web auth completion block is called (which was set up in the previous block code), you are ready to go. No need to set the accessToken, that is handled automatically.
 
 # Dependencies
 ADNKit uses the following dependencies:
