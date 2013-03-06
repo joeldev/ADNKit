@@ -1,5 +1,4 @@
-ADNKit
-======
+![logo](https://github.com/joeldev/ADNKit/raw/master/Images/adnkit.png)
 
 ADNKit is a brand new Objective-C framework for building App.net iOS and OS X applications. The guiding design principles are:
 * Simple and easy to understand API
