@@ -7,7 +7,18 @@
 //
 
 #import "ADNStreamMarker.h"
+#import "NSDictionary+ADNAdditions.h"
+
 
 @implementation ADNStreamMarker
+
++ (NSDictionary *)keyMapping {
+	return [[super keyMapping] adn_dictionaryByAppendingDictionary:@{
+			@"version": @"identifier",
+			@"id": @"topPostID",
+			@"last_read_id": @"lastReadPostID",
+			@"name": @"streamName",
+			@"updated_at": @"updatedAt"}];
+}
 
 @end
