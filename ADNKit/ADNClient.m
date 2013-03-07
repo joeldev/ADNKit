@@ -68,7 +68,7 @@
 
 
 - (NSMutableURLRequest *)requestWithMethod:(NSString *)method path:(NSString *)path parameters:(NSDictionary *)parameters {
-	NSMutableDictionary *mutableParameters = [parameters mutableCopy];
+	NSMutableDictionary *mutableParameters = parameters ? [parameters mutableCopy] : [NSMutableDictionary dictionary];
 	if (self.shouldRequestAnnotations) {
 		mutableParameters[@"include_annotations"] = @(1);
 	}

@@ -11,4 +11,11 @@
 
 @implementation ADNAnnotation
 
++ (instancetype)annotationWithType:(NSString *)type value:(NSDictionary *)value {
+	ADNAnnotation *annotation = [[ADNAnnotation alloc] init];
+	annotation.type = type;
+	annotation.value = value;
+	return annotation;
+}
+
 @end

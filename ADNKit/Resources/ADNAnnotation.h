@@ -14,4 +14,6 @@
 @property (strong) NSString *type;
 @property (strong) NSDictionary *value;
 
++ (instancetype)annotationWithType:(NSString *)type value:(NSDictionary *)value;
+
 @end

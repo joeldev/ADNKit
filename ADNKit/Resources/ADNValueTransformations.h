@@ -14,6 +14,7 @@
 + (instancetype)transformations;
 
 // forward transformations
+- (NSString *)NSStringFromNSConstantString:(NSString *)string;
 - (NSURL *)NSURLFromNSString:(NSString *)string;
 - (NSDate *)NSDateFromNSString:(NSString *)string;
 

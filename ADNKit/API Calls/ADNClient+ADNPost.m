@@ -65,6 +65,14 @@
 
 // http://developers.app.net/docs/resources/post/lifecycle/#create-a-post
 
+- (void)createPost:(ADNPost *)post completion:(ADNClientCompletionBlock)completionHandler {
+	[self postPath:@"posts"
+		parameters:[post JSONDictionary]
+		   success:[self successHandlerForResourceClass:[ADNPost class] clientHandler:completionHandler]
+		   failure:[self failureHandlerForClientHandler:completionHandler]];
+}
+
+
 - (void)createPostWithText:(NSString *)text completion:(ADNClientCompletionBlock)completionHandler {
 	[self createPostWithText:text inReplyToPostWithID:nil completion:completionHandler];
 }

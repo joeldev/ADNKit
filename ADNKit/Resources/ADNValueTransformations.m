@@ -33,6 +33,11 @@
 }
 
 
+- (NSString *)NSStringFromNSConstantString:(NSString *)string {
+	return string;
+}
+
+
 - (NSURL *)NSURLFromNSString:(NSString *)string {
 	return [NSURL URLWithString:string];
 }

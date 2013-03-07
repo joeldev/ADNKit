@@ -22,6 +22,7 @@
 - (void)fetchPostsStarredByUser:(ADNUser *)user completion:(ADNClientCompletionBlock)completionHandler;
 - (void)fetchPostsStarredByUserWithID:(NSString *)userID completion:(ADNClientCompletionBlock)completionHandler;
 
+- (void)createPost:(ADNPost *)post completion:(ADNClientCompletionBlock)completionHandler;
 - (void)createPostWithText:(NSString *)text completion:(ADNClientCompletionBlock)completionHandler;
 - (void)createPostWithText:(NSString *)text inReplyToPost:(ADNPost *)post completion:(ADNClientCompletionBlock)completionHandler;
 - (void)createPostWithText:(NSString *)text inReplyToPostWithID:(NSString *)postID completion:(ADNClientCompletionBlock)completionHandler;
