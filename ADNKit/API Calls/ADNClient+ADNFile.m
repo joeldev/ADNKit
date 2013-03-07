@@ -67,27 +67,31 @@
 
 // http://developers.app.net/docs/resources/file/lifecycle/#create-a-file
 
-- (void)createFile:(ADNFile *)file completion:(ADNClientCompletionBlock)completionHandler {
-	[self postPath:@"files"
-		parameters:[file JSONDictionary]
-		   success:[self successHandlerForResourceClass:[ADNFile class] clientHandler:completionHandler]
-		   failure:[self failureHandlerForClientHandler:completionHandler]];
+- (void)createFile:(ADNFile *)file withData:(NSData *)fileData completion:(ADNClientCompletionBlock)completionHandler {
+	if (!fileData) {
+		[self postPath:@"files"
+			parameters:[file JSONDictionary]
+			   success:[self successHandlerForResourceClass:[ADNFile class] clientHandler:completionHandler]
+			   failure:[self failureHandlerForClientHandler:completionHandler]];
+	} else {
+		[self createFileWithData:fileData mimeType:file.mimeType filename:file.name fileURL:nil metadata:[file JSONDictionary] completion:completionHandler];
+	}
 }
 
 
 - (void)createFileWithData:(NSData *)fileData mimeType:(NSString *)mimeType filename:(NSString *)filename metadata:(NSDictionary *)metadata completion:(ADNClientCompletionBlock)completionHandler {
-	[self createFileWithData:fileData mimeType:mimeType filename:filename fileURL:nil parameters:nil metadata:metadata completion:completionHandler];
+	[self createFileWithData:fileData mimeType:mimeType filename:filename fileURL:nil metadata:metadata completion:completionHandler];
 }
 
 
 - (void)createFileWithContentsOfURL:(NSURL *)fileURL metadata:(NSDictionary *)metadata completion:(ADNClientCompletionBlock)completionHandler {
-	[self createFileWithData:nil mimeType:nil filename:nil fileURL:fileURL parameters:nil metadata:metadata completion:completionHandler];
+	[self createFileWithData:nil mimeType:nil filename:nil fileURL:fileURL metadata:metadata completion:completionHandler];
 }
 
 
-- (void)createFileWithData:(NSData *)fileData mimeType:(NSString *)mimeType filename:(NSString *)filename fileURL:(NSURL *)fileURL parameters:(NSDictionary *)parameters metadata:(NSDictionary *)metadata completion:(ADNClientCompletionBlock)completionHandler {
+- (void)createFileWithData:(NSData *)fileData mimeType:(NSString *)mimeType filename:(NSString *)filename fileURL:(NSURL *)fileURL metadata:(NSDictionary *)metadata completion:(ADNClientCompletionBlock)completionHandler {
 	__block NSError *multipartEncodeError = nil;
-	NSMutableURLRequest *request = [self multipartFormRequestWithMethod:@"POST" path:@"files" parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+	NSMutableURLRequest *request = [self multipartFormRequestWithMethod:@"POST" path:@"files" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
 		if (fileURL) {
 			[formData appendPartWithFileURL:fileURL name:@"content" error:&multipartEncodeError];
 		} else {

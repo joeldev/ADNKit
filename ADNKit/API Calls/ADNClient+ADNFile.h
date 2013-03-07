@@ -19,7 +19,7 @@
 - (void)fetchContentsOfFile:(ADNFile *)file completion:(ADNClientCompletionBlock)completionHandler;
 - (void)fetchContentsOfFileWithID:(NSString *)fileID completion:(ADNClientCompletionBlock)completionHandler;
 
-- (void)createFile:(ADNFile *)file completion:(ADNClientCompletionBlock)completionHandler;
+- (void)createFile:(ADNFile *)file withData:(NSData *)fileData completion:(ADNClientCompletionBlock)completionHandler;
 - (void)createFileWithData:(NSData *)fileData mimeType:(NSString *)mimeType filename:(NSString *)filename metadata:(NSDictionary *)metadata completion:(ADNClientCompletionBlock)completionHandler;
 - (void)createFileWithContentsOfURL:(NSURL *)fileURL metadata:(NSDictionary *)metadata completion:(ADNClientCompletionBlock)completionHandler;
 
