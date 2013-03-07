@@ -27,7 +27,7 @@
 			@"machine_only": @"isMachineOnly",
 			@"you_starred": @"isStarredByCurrentUser",
 			@"starred_by": @"starredByUsers",
-			@"you_reposted": @"repostedByCurrentUser",
+			@"you_reposted": @"isRepostedByCurrentUser",
 			@"repost_of": @"repostedPost"}];
 }
 

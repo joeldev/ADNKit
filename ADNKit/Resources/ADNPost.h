@@ -34,7 +34,7 @@
 @property (assign) BOOL isMachineOnly;
 @property (assign) BOOL isStarredByCurrentUser;
 @property (strong) NSArray *starredByUsers;
-@property (assign) BOOL repostedByCurrentUser;
+@property (assign) BOOL isRepostedByCurrentUser;
 @property (strong) NSArray *reposters;
 @property (strong) ADNPost *repostedPost;
 
