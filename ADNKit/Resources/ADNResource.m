@@ -21,7 +21,7 @@ static dispatch_once_t propertiesMapOnceToken;
 
 @property (strong) NSString *name;
 @property (assign) Class objectType;
-@property (strong) NSString *primitiveTypeName;
+@property (assign) BOOL isPrimitive;
 @property (assign) BOOL isModelObject;
 @property (assign) BOOL isCollection;
 
@@ -63,8 +63,7 @@ static dispatch_once_t propertiesMapOnceToken;
 			}
 		} else {
 			// primitive
-			[scanner scanUpToCharactersFromSet:[NSCharacterSet characterSetWithCharactersInString:@","] intoString:&propertyType];
-			self.primitiveTypeName = propertyType;
+			self.isPrimitive = YES;
 		}
 	}
 	return self;
@@ -164,7 +163,7 @@ static dispatch_once_t propertiesMapOnceToken;
 		// look up info about the local property
 		ADNResourceProperty *property = propertiesMap[NSStringFromClass([self class])][localKey];
 		if (property) {
-			if (valueClass != property.objectType && !property.primitiveTypeName) {
+			if (valueClass != property.objectType && !property.isPrimitive) {
 				if (property.isCollection && [value isKindOfClass:[NSArray class]]) {
 					// property is a collection, so unpack the collection
 					value = [property.objectType objectsFromJSONDictionaries:value];
