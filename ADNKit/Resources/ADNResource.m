@@ -76,12 +76,16 @@ static dispatch_once_t propertiesMapOnceToken;
 
 + (NSDictionary *)inverseKeyMapping;
 
+- (void)updateObjectFromJSONDictionary:(NSDictionary *)JSONDictionary forClass:(Class)class;
+- (NSDictionary *)JSONDictionaryForClass:(Class)class;
+
 @end
 
 
 @implementation ADNResource
 
 + (void)initialize {
+	[super initialize];
 	dispatch_once(&propertiesMapOnceToken, ^{
 		propertiesMap = [[NSMutableDictionary alloc] init];
 	});
@@ -142,9 +146,14 @@ static dispatch_once_t propertiesMapOnceToken;
 
 
 - (void)updateObjectFromJSONDictionary:(NSDictionary *)JSONDictionary {
+	[self updateObjectFromJSONDictionary:JSONDictionary forClass:[self class]];
+}
+
+
+- (void)updateObjectFromJSONDictionary:(NSDictionary *)JSONDictionary forClass:(Class)class {
 	for (NSString *JSONKey in JSONDictionary) {
 		// first, see if there's a mapped key to use here
-		NSString *localKey = [[self class] keyMapping][JSONKey] ?: JSONKey;
+		NSString *localKey = [class keyMapping][JSONKey] ?: JSONKey;
 		
 		// next, pull out the value and class of the value
 		id value = JSONDictionary[JSONKey];
@@ -161,7 +170,18 @@ static dispatch_once_t propertiesMapOnceToken;
 		}
 		
 		// look up info about the local property
-		ADNResourceProperty *property = propertiesMap[NSStringFromClass([self class])][localKey];
+		ADNResourceProperty *property = propertiesMap[NSStringFromClass(class)][localKey];
+		
+		// if we couldn't find the property, walk up until we either do or run out of superclasses
+		Class superclass = class_getSuperclass(class);
+		while (!property) {
+			if (![superclass isSubclassOfClass:[ADNResource class]]) {
+				break;
+			}
+			property = propertiesMap[NSStringFromClass(superclass)][localKey];
+			superclass = class_getSuperclass(superclass);
+		}
+		
 		if (property) {
 			if (valueClass != property.objectType && !property.isPrimitive) {
 				if (property.isCollection && [value isKindOfClass:[NSArray class]]) {
@@ -191,14 +211,19 @@ static dispatch_once_t propertiesMapOnceToken;
 
 
 - (NSDictionary *)JSONDictionary {
+	return [self JSONDictionaryForClass:[self class]];
+}
+
+
+- (NSDictionary *)JSONDictionaryForClass:(Class)class {
 	NSMutableDictionary *JSONDictionary = [NSMutableDictionary dictionary];
-	NSDictionary *propertiesForClass = propertiesMap[NSStringFromClass([self class])];
+	NSDictionary *propertiesForClass = propertiesMap[NSStringFromClass(class)];
 	
 	for (NSString *localKey in propertiesForClass) {
 		ADNResourceProperty *property = propertiesForClass[localKey];
 		
 		// figure out the JSON key
-		NSString *remoteKey = [[self class] inverseKeyMapping][localKey] ?: localKey;
+		NSString *remoteKey = [class inverseKeyMapping][localKey] ?: localKey;
 		
 		// grab the value and transform it if necessary
 		id value = [self valueForKey:localKey];
@@ -224,6 +249,12 @@ static dispatch_once_t propertiesMapOnceToken;
 		if (value) {
 			JSONDictionary[remoteKey] = value;
 		}
+	}
+	
+	// if we have properties for the superclass, add those in too (which will walk the tree up until we hit ADNResource and won't go higher
+	Class superclass = class_getSuperclass(class);
+	if (propertiesMap[NSStringFromClass(superclass)]) {
+		[JSONDictionary addEntriesFromDictionary:[self JSONDictionaryForClass:superclass]];
 	}
 	
 	return JSONDictionary;
