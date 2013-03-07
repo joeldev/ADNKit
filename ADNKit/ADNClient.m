@@ -179,7 +179,6 @@
 
 - (void)authenticateWithParameters:(NSDictionary *)params handler:(void (^)(BOOL successful, NSError *error))handler {
 	[self initializeHTTPAuthClient];
-	NSLog(@"%@", params);
 	[self.authHTTPClient postPath:@"access_token" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
 		NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
 		if (responseDictionary[@"access_token"]) {
