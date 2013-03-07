@@ -7,7 +7,15 @@
 //
 
 #import "ADNStream.h"
+#import "NSDictionary+ADNAdditions.h"
+
 
 @implementation ADNStream
+
++ (NSDictionary *)keyMapping {
+	return [[super keyMapping] adn_dictionaryByAppendingDictionary:@{
+			@"id": @"streamID",
+			@"object_types": @"objectTypes"}];
+}
 
 @end

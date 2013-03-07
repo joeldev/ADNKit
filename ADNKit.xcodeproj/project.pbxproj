@@ -134,6 +134,9 @@
 		5DF6EF7516E8FAE60018D445 /* ADNACL.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DF6EF7316E8FAE50018D445 /* ADNACL.h */; };
 		5DF6EF7616E8FAE60018D445 /* ADNACL.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6EF7416E8FAE50018D445 /* ADNACL.m */; };
 		5DF6EF7716E8FAE60018D445 /* ADNACL.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6EF7416E8FAE50018D445 /* ADNACL.m */; };
+		5DF6EF8316E90BFB0018D445 /* ADNFilterClause.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DF6EF8116E90BFB0018D445 /* ADNFilterClause.h */; };
+		5DF6EF8416E90BFB0018D445 /* ADNFilterClause.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6EF8216E90BFB0018D445 /* ADNFilterClause.m */; };
+		5DF6EF8516E90BFB0018D445 /* ADNFilterClause.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6EF8216E90BFB0018D445 /* ADNFilterClause.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -248,6 +251,8 @@
 		5DF6EF6F16E8F80B0018D445 /* ADNChannelCounts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADNChannelCounts.m; sourceTree = "<group>"; };
 		5DF6EF7316E8FAE50018D445 /* ADNACL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADNACL.h; sourceTree = "<group>"; };
 		5DF6EF7416E8FAE50018D445 /* ADNACL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADNACL.m; sourceTree = "<group>"; };
+		5DF6EF8116E90BFB0018D445 /* ADNFilterClause.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADNFilterClause.h; sourceTree = "<group>"; };
+		5DF6EF8216E90BFB0018D445 /* ADNFilterClause.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADNFilterClause.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -530,6 +535,8 @@
 			children = (
 				252A2C0E16E5467300DAE393 /* ADNFilter.h */,
 				252A2C0F16E5467400DAE393 /* ADNFilter.m */,
+				5DF6EF8116E90BFB0018D445 /* ADNFilterClause.h */,
+				5DF6EF8216E90BFB0018D445 /* ADNFilterClause.m */,
 			);
 			name = Filter;
 			sourceTree = "<group>";
@@ -603,6 +610,7 @@
 				252A2C5C16E7117700DAE393 /* ADNClient+ADNPostStreams.h in Headers */,
 				5DF6EF7016E8F80C0018D445 /* ADNChannelCounts.h in Headers */,
 				5DF6EF7516E8FAE60018D445 /* ADNACL.h in Headers */,
+				5DF6EF8316E90BFB0018D445 /* ADNFilterClause.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -727,6 +735,7 @@
 				252A2C5D16E7117700DAE393 /* ADNClient+ADNPostStreams.m in Sources */,
 				5DF6EF7116E8F80C0018D445 /* ADNChannelCounts.m in Sources */,
 				5DF6EF7616E8FAE60018D445 /* ADNACL.m in Sources */,
+				5DF6EF8416E90BFB0018D445 /* ADNFilterClause.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -772,6 +781,7 @@
 				252A2C5E16E7117700DAE393 /* ADNClient+ADNPostStreams.m in Sources */,
 				5DF6EF7216E8F80C0018D445 /* ADNChannelCounts.m in Sources */,
 				5DF6EF7716E8FAE60018D445 /* ADNACL.m in Sources */,
+				5DF6EF8516E90BFB0018D445 /* ADNFilterClause.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
