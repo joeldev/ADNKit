@@ -85,7 +85,6 @@ static dispatch_once_t propertiesMapOnceToken;
 @implementation ADNResource
 
 + (void)initialize {
-	[super initialize];
 	dispatch_once(&propertiesMapOnceToken, ^{
 		propertiesMap = [[NSMutableDictionary alloc] init];
 	});
