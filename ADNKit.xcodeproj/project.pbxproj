@@ -402,48 +402,15 @@
 			children = (
 				5DC372A616E44AE500190862 /* ADNValueTransformations.h */,
 				5DC372A716E44AE500190862 /* ADNValueTransformations.m */,
-				5DC3728816E3B10800190862 /* ADNResource.h */,
-				5DC3728916E3B10800190862 /* ADNResource.m */,
-				252A2C3116E5489300DAE393 /* ADNAnnotatableResource.h */,
-				252A2C3216E5489300DAE393 /* ADNAnnotatableResource.m */,
-				5DC372FA16E4758F00190862 /* ADNUser.h */,
-				5DC372FB16E4759000190862 /* ADNUser.m */,
-				252A2C3B16E55B5100DAE393 /* ADNUserCounts.h */,
-				252A2C3C16E55B5200DAE393 /* ADNUserCounts.m */,
-				5DC3730B16E5CDD600190862 /* ADNUserDescription.h */,
-				5DC3730C16E5CDD700190862 /* ADNUserDescription.m */,
-				252A2BF516E545F100DAE393 /* ADNPost.h */,
-				252A2BF616E545F100DAE393 /* ADNPost.m */,
-				5DC3731116E65BDA00190862 /* ADNObjectSource.h */,
-				5DC3731216E65BDC00190862 /* ADNObjectSource.m */,
-				252A2BFA16E5462D00DAE393 /* ADNChannel.h */,
-				252A2BFB16E5462D00DAE393 /* ADNChannel.m */,
-				5DF6EF6E16E8F80B0018D445 /* ADNChannelCounts.h */,
-				5DF6EF6F16E8F80B0018D445 /* ADNChannelCounts.m */,
-				5DF6EF7316E8FAE50018D445 /* ADNACL.h */,
-				5DF6EF7416E8FAE50018D445 /* ADNACL.m */,
-				252A2BFF16E5464700DAE393 /* ADNMessage.h */,
-				252A2C0016E5464700DAE393 /* ADNMessage.m */,
-				252A2C0416E5465A00DAE393 /* ADNFile.h */,
-				252A2C0516E5465A00DAE393 /* ADNFile.m */,
-				252A2C0916E5466A00DAE393 /* ADNStream.h */,
-				252A2C0A16E5466A00DAE393 /* ADNStream.m */,
-				252A2C0E16E5467300DAE393 /* ADNFilter.h */,
-				252A2C0F16E5467400DAE393 /* ADNFilter.m */,
-				252A2C1316E5467B00DAE393 /* ADNInteraction.h */,
-				252A2C1416E5467B00DAE393 /* ADNInteraction.m */,
-				252A2C1816E5468700DAE393 /* ADNStreamMarker.h */,
-				252A2C1916E5468700DAE393 /* ADNStreamMarker.m */,
-				252A2C1D16E546F900DAE393 /* ADNPlace.h */,
-				252A2C1E16E546F900DAE393 /* ADNPlace.m */,
-				252A2C2216E5472400DAE393 /* ADNExploreStream.h */,
-				252A2C2316E5472400DAE393 /* ADNExploreStream.m */,
-				252A2C2716E5473D00DAE393 /* ADNAnnotation.h */,
-				252A2C2816E5473D00DAE393 /* ADNAnnotation.m */,
-				252A2C2C16E5477B00DAE393 /* ADNEntities.h */,
-				252A2C2D16E5477B00DAE393 /* ADNEntities.m */,
-				252A2C3616E55ACD00DAE393 /* ADNImage.h */,
-				252A2C3716E55ACD00DAE393 /* ADNImage.m */,
+				5DF6EF7A16E8FE470018D445 /* Abstract */,
+				5DF6EF7816E8FE2B0018D445 /* User */,
+				5DF6EF7B16E8FE6F0018D445 /* Post */,
+				5DF6EF7916E8FE3C0018D445 /* Channel */,
+				5DF6EF7C16E8FE800018D445 /* Message */,
+				5DF6EF7D16E8FE860018D445 /* File */,
+				5DF6EF7E16E8FE8F0018D445 /* Stream */,
+				5DF6EF7F16E8FE950018D445 /* Filter */,
+				5DF6EF8016E8FEAE0018D445 /* Misc */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -483,6 +450,111 @@
 				5DC3731F16E6661D00190862 /* ADNClient+ADNFile.m */,
 			);
 			path = "API Calls";
+			sourceTree = "<group>";
+		};
+		5DF6EF7816E8FE2B0018D445 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				5DC372FA16E4758F00190862 /* ADNUser.h */,
+				5DC372FB16E4759000190862 /* ADNUser.m */,
+				252A2C3B16E55B5100DAE393 /* ADNUserCounts.h */,
+				252A2C3C16E55B5200DAE393 /* ADNUserCounts.m */,
+				5DC3730B16E5CDD600190862 /* ADNUserDescription.h */,
+				5DC3730C16E5CDD700190862 /* ADNUserDescription.m */,
+			);
+			name = User;
+			sourceTree = "<group>";
+		};
+		5DF6EF7916E8FE3C0018D445 /* Channel */ = {
+			isa = PBXGroup;
+			children = (
+				252A2BFA16E5462D00DAE393 /* ADNChannel.h */,
+				252A2BFB16E5462D00DAE393 /* ADNChannel.m */,
+				5DF6EF6E16E8F80B0018D445 /* ADNChannelCounts.h */,
+				5DF6EF6F16E8F80B0018D445 /* ADNChannelCounts.m */,
+				5DF6EF7316E8FAE50018D445 /* ADNACL.h */,
+				5DF6EF7416E8FAE50018D445 /* ADNACL.m */,
+			);
+			name = Channel;
+			sourceTree = "<group>";
+		};
+		5DF6EF7A16E8FE470018D445 /* Abstract */ = {
+			isa = PBXGroup;
+			children = (
+				5DC3728816E3B10800190862 /* ADNResource.h */,
+				5DC3728916E3B10800190862 /* ADNResource.m */,
+				252A2C3116E5489300DAE393 /* ADNAnnotatableResource.h */,
+				252A2C3216E5489300DAE393 /* ADNAnnotatableResource.m */,
+			);
+			name = Abstract;
+			sourceTree = "<group>";
+		};
+		5DF6EF7B16E8FE6F0018D445 /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				252A2BF516E545F100DAE393 /* ADNPost.h */,
+				252A2BF616E545F100DAE393 /* ADNPost.m */,
+			);
+			name = Post;
+			sourceTree = "<group>";
+		};
+		5DF6EF7C16E8FE800018D445 /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				252A2BFF16E5464700DAE393 /* ADNMessage.h */,
+				252A2C0016E5464700DAE393 /* ADNMessage.m */,
+			);
+			name = Message;
+			sourceTree = "<group>";
+		};
+		5DF6EF7D16E8FE860018D445 /* File */ = {
+			isa = PBXGroup;
+			children = (
+				252A2C0416E5465A00DAE393 /* ADNFile.h */,
+				252A2C0516E5465A00DAE393 /* ADNFile.m */,
+			);
+			name = File;
+			sourceTree = "<group>";
+		};
+		5DF6EF7E16E8FE8F0018D445 /* Stream */ = {
+			isa = PBXGroup;
+			children = (
+				252A2C0916E5466A00DAE393 /* ADNStream.h */,
+				252A2C0A16E5466A00DAE393 /* ADNStream.m */,
+			);
+			name = Stream;
+			sourceTree = "<group>";
+		};
+		5DF6EF7F16E8FE950018D445 /* Filter */ = {
+			isa = PBXGroup;
+			children = (
+				252A2C0E16E5467300DAE393 /* ADNFilter.h */,
+				252A2C0F16E5467400DAE393 /* ADNFilter.m */,
+			);
+			name = Filter;
+			sourceTree = "<group>";
+		};
+		5DF6EF8016E8FEAE0018D445 /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				5DC3731116E65BDA00190862 /* ADNObjectSource.h */,
+				5DC3731216E65BDC00190862 /* ADNObjectSource.m */,
+				252A2C1316E5467B00DAE393 /* ADNInteraction.h */,
+				252A2C1416E5467B00DAE393 /* ADNInteraction.m */,
+				252A2C1816E5468700DAE393 /* ADNStreamMarker.h */,
+				252A2C1916E5468700DAE393 /* ADNStreamMarker.m */,
+				252A2C1D16E546F900DAE393 /* ADNPlace.h */,
+				252A2C1E16E546F900DAE393 /* ADNPlace.m */,
+				252A2C2216E5472400DAE393 /* ADNExploreStream.h */,
+				252A2C2316E5472400DAE393 /* ADNExploreStream.m */,
+				252A2C2716E5473D00DAE393 /* ADNAnnotation.h */,
+				252A2C2816E5473D00DAE393 /* ADNAnnotation.m */,
+				252A2C2C16E5477B00DAE393 /* ADNEntities.h */,
+				252A2C2D16E5477B00DAE393 /* ADNEntities.m */,
+				252A2C3616E55ACD00DAE393 /* ADNImage.h */,
+				252A2C3716E55ACD00DAE393 /* ADNImage.m */,
+			);
+			name = Misc;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
