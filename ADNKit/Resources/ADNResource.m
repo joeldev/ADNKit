@@ -124,6 +124,16 @@ static dispatch_once_t propertiesMapOnceToken;
 }
 
 
++ (NSString *)JSONKeyForLocalKey:(NSString *)localKey {
+	return [[self class] inverseKeyMapping][localKey] ?: localKey;
+}
+
+
++ (NSString *)localKeyForJSONKey:(NSString *)JSONKey {
+	return [[self class] JSONToLocalKeyMapping][JSONKey] ?: JSONKey;
+}
+
+
 + (instancetype)objectFromJSONDictionary:(NSDictionary *)dictionary {
 	return [[[self class] alloc] initWithJSONDictionary:dictionary];
 }

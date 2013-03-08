@@ -11,6 +11,13 @@
 #import "NSArray+ADNAdditions.h"
 
 
+@interface ADNFile ()
+
+- (NSDictionary *)fileAnnotationValueWithWrapper:(BOOL)includeWrapper;
+
+@end
+
+
 @implementation ADNFile
 
 + (NSDictionary *)JSONToLocalKeyMapping {
@@ -33,13 +40,19 @@
 
 + (NSDictionary *)fileListAnnotationValueForFiles:(NSArray *)files {
 	return @{kADNFileListAnnotationKey: [files adn_map:^id(ADNFile *file) {
-		return [file fileAnnotationValue];
+		return [file fileAnnotationValueWithWrapper:NO];
 	}]};
 }
 
 
 - (NSDictionary *)fileAnnotationValue {
-	return @{kADNFileAnnotationKey: @{@"file_id": self.fileID, @"format": @"url", @"file_token": self.fileToken}};
+	return [self fileAnnotationValueWithWrapper:YES];
+}
+
+
+- (NSDictionary *)fileAnnotationValueWithWrapper:(BOOL)includeWrapper {
+	NSDictionary *value = @{[[self class] JSONKeyForLocalKey:@"fileID"]: self.fileID, [[self class] JSONKeyForLocalKey:@"format"]: @"url", [[self class] JSONKeyForLocalKey:@"fileToken"]: self.fileToken};
+	return (includeWrapper ? @{kADNFileAnnotationKey: value} : value);
 }
 
 
