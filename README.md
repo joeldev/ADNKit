@@ -1,10 +1,10 @@
 ![logo](https://github.com/joeldev/ADNKit/raw/master/Images/adnkit.png)
 
 ADNKit is a brand new Objective-C framework for building App.net iOS and OS X applications. The guiding design principles are:
-* Simple and easy to understand API
+* Simple and easy to understand API, designed for making things happen quickly
 * As much heavylifting as possible is done for you
-* 100% ADN API support
-* No dependencies other than AFNetworking
+* 100% App.net API support
+* No external dependencies other than AFNetworking
 
 It's also important to note that many parts of core architecture in this framework is based on [Matt Rubin](https://github.com/mattrubin)'s fantastic architectural work in his [AppDotNet](https://github.com/mattrubin/AppDotNet) project. My hat's off to him for designing a truly excellent framework architecture and open sourcing it!
 
@@ -22,6 +22,8 @@ ADNKit is very much a work in progress right now, and 100% of the ADN API has no
 | Place		| ![check](https://github.com/joeldev/ADNKit/raw/master/Images/greencheck.png) Full |
 
 # Getting Started
+Please see [the wiki](https://github.com/joeldev/ADNKit/wiki) for full documentation.
+
 ### Installation
 ADNKit makes use of submodules for its dependencies. After cloning the repo, make sure to run `git submodule update --init --recursive` from the top level before trying to build the code. There is also a Releases folder containing stable binary releases.
 
@@ -122,6 +124,10 @@ Once the user authorizes the application, your redirectURI will get called and p
 ```
 
 Once your web auth completion block is called (which was set up in the previous block code), you are ready to go. No need to set the accessToken, that is handled automatically.
+
+# Documentation
+
+Documentation is currently being kept [on the wiki](https://github.com/joeldev/ADNKit/wiki).
 
 # Dependencies
 ADNKit uses the following dependencies:
