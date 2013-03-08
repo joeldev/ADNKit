@@ -16,7 +16,8 @@
 + (NSDictionary *)keyMapping {
 	return [[super keyMapping] adn_dictionaryByAppendingDictionary:@{
 			@"factual_id": @"factualID",
-			@"address": @"addressExtended",
+            @"address": @"address",
+            @"addressExtended": @"addressExtended",
 			@"admin_region": @"adminRegion",
 			@"post_town": @"postTown",
 			@"po_box": @"poBox",
