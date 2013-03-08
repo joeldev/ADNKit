@@ -25,7 +25,7 @@
 
 
 - (BOOL)isPrivateMessageChannel {
-	return self.isCurrentUserSubscribed && !self.readers.canAnyUser && !self.readers.isPublic && !self.writers.canAnyUser && !self.writers.isPublic;
+	return [self.type isEqualToString:@"net.app.core.pm"];
 }
 
 
