@@ -119,7 +119,7 @@
 		5DC3731316E65BDD00190862 /* ADNObjectSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC3731116E65BDA00190862 /* ADNObjectSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DC3731416E65BDD00190862 /* ADNObjectSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3731216E65BDC00190862 /* ADNObjectSource.m */; };
 		5DC3731516E65BDD00190862 /* ADNObjectSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3731216E65BDC00190862 /* ADNObjectSource.m */; };
-		5DC3731616E665CE00190862 /* ADNEntities.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A2C2C16E5477B00DAE393 /* ADNEntities.h */; };
+		5DC3731616E665CE00190862 /* ADNEntities.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A2C2C16E5477B00DAE393 /* ADNEntities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DC3731716E665D100190862 /* ADNEntities.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C2D16E5477B00DAE393 /* ADNEntities.m */; };
 		5DC3731816E665D200190862 /* ADNEntities.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C2D16E5477B00DAE393 /* ADNEntities.m */; };
 		5DC3731B16E6661500190862 /* ADNClient+ADNPost.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC3731916E6661500190862 /* ADNClient+ADNPost.h */; };
@@ -152,16 +152,16 @@
 		5DF6F04616E9A9AF0018D445 /* ADNClient+ADNStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DF6F04416E9A9AF0018D445 /* ADNClient+ADNStream.h */; };
 		5DF6F04716E9A9AF0018D445 /* ADNClient+ADNStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F04516E9A9AF0018D445 /* ADNClient+ADNStream.m */; };
 		5DF6F04816E9A9AF0018D445 /* ADNClient+ADNStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F04516E9A9AF0018D445 /* ADNClient+ADNStream.m */; };
-		5DF6F08316EA4AC90018D445 /* ADNEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DF6F08116EA4AC90018D445 /* ADNEntity.h */; };
+		5DF6F08316EA4AC90018D445 /* ADNEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DF6F08116EA4AC90018D445 /* ADNEntity.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DF6F08416EA4AC90018D445 /* ADNEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F08216EA4AC90018D445 /* ADNEntity.m */; };
 		5DF6F08516EA4AC90018D445 /* ADNEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F08216EA4AC90018D445 /* ADNEntity.m */; };
-		5DF6F08816EA4D860018D445 /* ADNMentionEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DF6F08616EA4D850018D445 /* ADNMentionEntity.h */; };
+		5DF6F08816EA4D860018D445 /* ADNMentionEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DF6F08616EA4D850018D445 /* ADNMentionEntity.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DF6F08916EA4D860018D445 /* ADNMentionEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F08716EA4D850018D445 /* ADNMentionEntity.m */; };
 		5DF6F08A16EA4D860018D445 /* ADNMentionEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F08716EA4D850018D445 /* ADNMentionEntity.m */; };
-		5DF6F08D16EA4DFD0018D445 /* ADNHashtagEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DF6F08B16EA4DFC0018D445 /* ADNHashtagEntity.h */; };
+		5DF6F08D16EA4DFD0018D445 /* ADNHashtagEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DF6F08B16EA4DFC0018D445 /* ADNHashtagEntity.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DF6F08E16EA4DFD0018D445 /* ADNHashtagEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F08C16EA4DFD0018D445 /* ADNHashtagEntity.m */; };
 		5DF6F08F16EA4DFD0018D445 /* ADNHashtagEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F08C16EA4DFD0018D445 /* ADNHashtagEntity.m */; };
-		5DF6F09216EA4E0D0018D445 /* ADNLinkEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DF6F09016EA4E0C0018D445 /* ADNLinkEntity.h */; };
+		5DF6F09216EA4E0D0018D445 /* ADNLinkEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DF6F09016EA4E0C0018D445 /* ADNLinkEntity.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DF6F09316EA4E0D0018D445 /* ADNLinkEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F09116EA4E0C0018D445 /* ADNLinkEntity.m */; };
 		5DF6F09416EA4E0D0018D445 /* ADNLinkEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F09116EA4E0C0018D445 /* ADNLinkEntity.m */; };
 /* End PBXBuildFile section */

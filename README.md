@@ -15,11 +15,11 @@ ADNKit is very much a work in progress right now, and 100% of the ADN API has no
 | --------- | ------:|
 | User      | ![check](https://github.com/joeldev/ADNKit/raw/master/Images/greencheck.png) Full |
 | Post      | ![check](https://github.com/joeldev/ADNKit/raw/master/Images/greencheck.png) Full |
-| Channel   | None   |
+| Channel   | ![check](https://github.com/joeldev/ADNKit/raw/master/Images/greencheck.png) Full |
 | Message   | None   |
 | File      | ![check](https://github.com/joeldev/ADNKit/raw/master/Images/greencheck.png) Full |
 | Stream    | None   |
-| Filter    | None   |
+| Place		| ![check](https://github.com/joeldev/ADNKit/raw/master/Images/greencheck.png) Full |
 
 # Getting Started
 ### Installation

@@ -23,19 +23,27 @@
 #import "ADNChannelCounts.h"
 #import "ADNACL.h"
 
+#import "ADNPlace.h"
+#import "ADNPlaceCategory.h"
+
 #import "ADNPost.h"
 #import "ADNMessage.h"
 #import "ADNFile.h"
 #import "ADNStream.h"
 #import "ADNFilter.h"
+#import "ADNFilterClause.h"
+
+#import "ADNEntities.h"
+#import "ADNEntity.h"
+#import "ADNMentionEntity.h"
+#import "ADNHashtagEntity.h"
+#import "ADNLinkEntity.h"
 
 #import "ADNObjectSource.h"
 #import "ADNInteraction.h"
 #import "ADNStreamMarker.h"
-#import "ADNPlace.h"
 #import "ADNExploreStream.h"
 #import "ADNAnnotation.h"
-#import "ADNEntities.h"
 #import "ADNImage.h"
 
 #import "ADNValueTransformations.h"
