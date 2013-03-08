@@ -164,6 +164,9 @@
 		5DF6F09216EA4E0D0018D445 /* ADNLinkEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DF6F09016EA4E0C0018D445 /* ADNLinkEntity.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DF6F09316EA4E0D0018D445 /* ADNLinkEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F09116EA4E0C0018D445 /* ADNLinkEntity.m */; };
 		5DF6F09416EA4E0D0018D445 /* ADNLinkEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F09116EA4E0C0018D445 /* ADNLinkEntity.m */; };
+		5DF6F09816EA70550018D445 /* ADNClient+ADNHandlerBlocks.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DF6F09616EA70540018D445 /* ADNClient+ADNHandlerBlocks.h */; };
+		5DF6F09916EA70550018D445 /* ADNClient+ADNHandlerBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F09716EA70550018D445 /* ADNClient+ADNHandlerBlocks.m */; };
+		5DF6F09A16EA70550018D445 /* ADNClient+ADNHandlerBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F09716EA70550018D445 /* ADNClient+ADNHandlerBlocks.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -298,6 +301,8 @@
 		5DF6F08C16EA4DFD0018D445 /* ADNHashtagEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADNHashtagEntity.m; sourceTree = "<group>"; };
 		5DF6F09016EA4E0C0018D445 /* ADNLinkEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADNLinkEntity.h; sourceTree = "<group>"; };
 		5DF6F09116EA4E0C0018D445 /* ADNLinkEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADNLinkEntity.m; sourceTree = "<group>"; };
+		5DF6F09616EA70540018D445 /* ADNClient+ADNHandlerBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ADNClient+ADNHandlerBlocks.h"; sourceTree = "<group>"; };
+		5DF6F09716EA70550018D445 /* ADNClient+ADNHandlerBlocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ADNClient+ADNHandlerBlocks.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -474,6 +479,8 @@
 				5DC3729716E3B4D300190862 /* ADNJSONRequestOperation.m */,
 				5DC3729B16E3B66700190862 /* ADNResponse.h */,
 				5DC3729C16E3B66700190862 /* ADNResponse.m */,
+				5DF6F09616EA70540018D445 /* ADNClient+ADNHandlerBlocks.h */,
+				5DF6F09716EA70550018D445 /* ADNClient+ADNHandlerBlocks.m */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -699,6 +706,7 @@
 				5DF6F08816EA4D860018D445 /* ADNMentionEntity.h in Headers */,
 				5DF6F08D16EA4DFD0018D445 /* ADNHashtagEntity.h in Headers */,
 				5DF6F09216EA4E0D0018D445 /* ADNLinkEntity.h in Headers */,
+				5DF6F09816EA70550018D445 /* ADNClient+ADNHandlerBlocks.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -833,6 +841,7 @@
 				5DF6F08916EA4D860018D445 /* ADNMentionEntity.m in Sources */,
 				5DF6F08E16EA4DFD0018D445 /* ADNHashtagEntity.m in Sources */,
 				5DF6F09316EA4E0D0018D445 /* ADNLinkEntity.m in Sources */,
+				5DF6F09916EA70550018D445 /* ADNClient+ADNHandlerBlocks.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -888,6 +897,7 @@
 				5DF6F08A16EA4D860018D445 /* ADNMentionEntity.m in Sources */,
 				5DF6F08F16EA4DFD0018D445 /* ADNHashtagEntity.m in Sources */,
 				5DF6F09416EA4E0D0018D445 /* ADNLinkEntity.m in Sources */,
+				5DF6F09A16EA70550018D445 /* ADNClient+ADNHandlerBlocks.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

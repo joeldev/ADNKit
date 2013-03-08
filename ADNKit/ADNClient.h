@@ -23,14 +23,14 @@ typedef NS_ENUM(NSUInteger, ADNAuthScope) {
     ADNAuthScopeExport          = (1 << 9), // bulk export all of this user’s App.net data
 };
 
-typedef void (^AFNetworkingSuccessBlock)(AFHTTPRequestOperation *operation, id responseObject);
-typedef void (^AFNetworkingFailureBlock)(AFHTTPRequestOperation *operation, NSError *error);
-typedef void (^ADNClientCompletionBlock)(id responseObject, NSError *error);
-
 
 @interface ADNClient : AFHTTPClient
 
 + (instancetype)sharedClient;
+
+@property (strong) NSString *accessToken; // access token acquired by auth or persisted across launches and set directly
+@property (assign) BOOL shouldRequestAnnotations; // when yes, annotations will be fetched regardless of the object type
+@property (copy) void (^webAuthCompletionHandler)(BOOL success, NSError *error); // set as completion block for oauth authentication
 
 #pragma mark -
 #pragma mark Authentication
@@ -49,20 +49,5 @@ typedef void (^ADNClientCompletionBlock)(id responseObject, NSError *error);
 // to conform to the requirements of username/password auth, it is required to show the user what permissions they are authorizing for you by signing in.
 // this method returns full descriptions for the given scopes that can be placed in the UI
 + (NSArray *)scopeDescriptionsForScope:(ADNAuthScope)scope;
-
-#pragma mark -
-#pragma mark App.net API implementation convenience methods
-
-- (AFNetworkingSuccessBlock)successHandlerForResourceClass:(Class)resourceClass clientHandler:(ADNClientCompletionBlock)handler;
-- (AFNetworkingSuccessBlock)successHandlerForCollectionOfResourceClass:(Class)resourceClass clientHandler:(ADNClientCompletionBlock)handler;
-- (AFNetworkingSuccessBlock)successHandlerForPrimitiveResponseWithClientHandler:(ADNClientCompletionBlock)handler;
-- (AFNetworkingFailureBlock)failureHandlerForClientHandler:(ADNClientCompletionBlock)handler;
-
-#pragma mark -
-#pragma mark Properties
-
-@property (strong) NSString *accessToken;
-@property (assign) BOOL shouldRequestAnnotations;
-@property (copy) void (^webAuthCompletionHandler)(BOOL success, NSError *error);
 
 @end

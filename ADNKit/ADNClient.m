@@ -8,8 +8,6 @@
 
 #import "ADNClient.h"
 #import "ADNJSONRequestOperation.h"
-#import "ADNResource.h"
-#import "ADNResponse.h"
 
 
 @interface ADNClient ()
@@ -166,62 +164,6 @@
 	}
 	
 	return scopeDescriptions;
-}
-
-
-#pragma mark -
-#pragma mark App.net API implementation convenience methods
-
-- (AFNetworkingSuccessBlock)successHandlerForResourceClass:(Class)resourceClass clientHandler:(ADNClientCompletionBlock)handler {
-	return ^(AFHTTPRequestOperation *operation, id responseObject) {
-		ADNResponse *response = responseObject;
-		id finalObject = nil;
-		NSError *error = nil;
-		
-		if ([resourceClass isSubclassOfClass:[ADNResource class]]) {
-			finalObject = [resourceClass objectFromJSONDictionary:response.data];
-		}
-		
-		if (handler) {
-			handler(finalObject, error);
-		}
-	};
-}
-
-
-- (AFNetworkingSuccessBlock)successHandlerForCollectionOfResourceClass:(Class)resourceClass clientHandler:(ADNClientCompletionBlock)handler {
-	return ^(AFHTTPRequestOperation *operation, id responseObject) {
-		// TODO: refactor this to not be copied and pasted because that makes me sad
-		ADNResponse *response = responseObject;
-		id finalObject = nil;
-		NSError *error = nil;
-		
-		if ([resourceClass isSubclassOfClass:[ADNResource class]]) {
-			finalObject = [resourceClass objectsFromJSONDictionaries:response.data];
-		}
-		
-		if (handler) {
-			handler(finalObject, error);
-		}
-	};
-}
-
-
-- (AFNetworkingSuccessBlock)successHandlerForPrimitiveResponseWithClientHandler:(ADNClientCompletionBlock)handler {
-	return ^(AFHTTPRequestOperation *operation, id responseObject) {
-		if (handler) {
-			handler(((ADNResponse *)responseObject).data, nil);
-		}
-	};
-}
-
-
-- (AFNetworkingFailureBlock)failureHandlerForClientHandler:(ADNClientCompletionBlock)handler {
-	return ^(AFHTTPRequestOperation *operation, NSError *error) {
-		if (handler) {
-			handler(nil, error);
-		}
-	};
 }
 
 
