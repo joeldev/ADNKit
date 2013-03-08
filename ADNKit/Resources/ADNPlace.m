@@ -31,7 +31,7 @@
 
 
 - (NSDictionary *)placeAnnotationValue {
-	return @{kADNPlaceAnnotationKey: self.factualID};
+	return @{kADNPlaceAnnotationKey: @{@"factual_id": self.factualID}};
 }
 
 
