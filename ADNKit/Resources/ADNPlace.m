@@ -17,7 +17,7 @@
 	return [[super keyMapping] adn_dictionaryByAppendingDictionary:@{
 			@"factual_id": @"factualID",
             @"address": @"address",
-            @"addressExtended": @"addressExtended",
+            @"address_extended": @"addressExtended",
 			@"admin_region": @"adminRegion",
 			@"post_town": @"postTown",
 			@"po_box": @"poBox",
