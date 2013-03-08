@@ -11,6 +11,10 @@
 #import "ADNClient+ADNPost.h"
 #import "ADNClient+ADNPostStreams.h"
 #import "ADNClient+ADNFile.h"
+#import "ADNClient+ADNPlace.h"
+#import "ADNClient+ADNChannel.h"
+#import "ADNClient+ADNMessage.h"
+#import "ADNClient+ADNStream.h"
 
 #import "ADNResource.h"
 #import "ADNAnnotatableResource.h"
