@@ -16,6 +16,7 @@
 	return [[super JSONToLocalKeyMapping] adn_dictionaryByAppendingDictionary:@{
 			@"id": @"messageID",
 			@"channel_id": @"channelID",
+			@"destinations": @"destinationUserIDs",
 			@"created_at": @"createdAt",
 			@"reply_to": @"inReplyToMessageID",
 			@"thread_id": @"threadID",

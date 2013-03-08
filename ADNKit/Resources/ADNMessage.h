@@ -15,6 +15,7 @@
 
 @property (strong) NSString *messageID;
 @property (strong) NSString *channelID;
+@property (strong) NSArray *destinationUserIDs;
 @property (strong) ADNUser *user;
 @property (strong) NSDate *createdAt;
 @property (strong) NSString *text;
