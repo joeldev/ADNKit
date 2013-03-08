@@ -12,5 +12,6 @@
 @interface NSArray (ADNAdditions)
 
 - (NSArray *)adn_map:(id (^)(id object))mapBlock;
+- (NSArray *)adn_filter:(BOOL (^)(id object))filterBlock;
 
 @end

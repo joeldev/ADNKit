@@ -24,4 +24,19 @@
 	return results;
 }
 
+
+- (NSArray *)adn_filter:(BOOL (^)(id object))filterBlock {
+	if (!filterBlock) return self;
+	NSMutableArray *results = [NSMutableArray array];
+	
+	for (id object in self) {
+		if (filterBlock(object)) {
+			[results addObject:object];
+		}
+	}
+	
+	return results;
+}
+
+
 @end
