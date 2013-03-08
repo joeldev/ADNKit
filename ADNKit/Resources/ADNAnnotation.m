@@ -24,4 +24,14 @@
 }
 
 
+- (ADNResource *)resourceOfClass:(Class)resourceClass forValueKeyPath:(NSString *)keyPath {
+	ADNResource *resource = nil;
+	id resourceValue = [self.value valueForKeyPath:keyPath];
+	if ([resourceValue isKindOfClass:[NSDictionary class]]) {
+		resource = [resourceClass objectFromJSONDictionary:resourceValue];
+	}
+	return resource;
+}
+
+
 @end
