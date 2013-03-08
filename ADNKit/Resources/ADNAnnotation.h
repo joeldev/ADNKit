@@ -16,6 +16,7 @@
 
 + (instancetype)annotationWithType:(NSString *)type value:(NSDictionary *)value;
 
+- (ADNResource *)resourceOfClassForValue:(Class)resourceClass;
 - (ADNResource *)resourceOfClass:(Class)resourceClass forValueKeyPath:(NSString *)keyPath;
 
 @end

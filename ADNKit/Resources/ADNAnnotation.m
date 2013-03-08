@@ -9,6 +9,13 @@
 #import "ADNAnnotation.h"
 
 
+@interface ADNAnnotation ()
+
+- (ADNResource *)resourceOfClass:(Class)resourceClass forValue:(id)resourceValue;
+
+@end
+
+
 @implementation ADNAnnotation
 
 + (instancetype)annotationWithType:(NSString *)type value:(NSDictionary *)value {
@@ -24,10 +31,19 @@
 }
 
 
+- (ADNResource *)resourceOfClassForValue:(Class)resourceClass {
+	return [self resourceOfClass:resourceClass forValue:self.value];
+}
+
+
 - (ADNResource *)resourceOfClass:(Class)resourceClass forValueKeyPath:(NSString *)keyPath {
+	return [self resourceOfClass:resourceClass forValue:[self.value valueForKeyPath:keyPath]];
+}
+
+
+- (ADNResource *)resourceOfClass:(Class)resourceClass forValue:(id)resourceValue {
 	ADNResource *resource = nil;
-	id resourceValue = [self.value valueForKeyPath:keyPath];
-	if ([resourceValue isKindOfClass:[NSDictionary class]]) {
+	if ([resourceValue isKindOfClass:[NSDictionary class]] && [resourceClass isSubclassOfClass:[ADNResource class]]) {
 		resource = [resourceClass objectFromJSONDictionary:resourceValue];
 	}
 	return resource;
