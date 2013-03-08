@@ -9,6 +9,10 @@
 #import "ADNAnnotatableResource.h"
 
 
+static NSString *const kADNFileAnnotationKey = @"+net.app.core.file";
+static NSString *const kADNFileListAnnotationKey = @"+net.app.core.file_list";
+
+
 @class ADNUser, ADNObjectSource;
 
 @interface ADNFile : ADNAnnotatableResource

@@ -9,6 +9,9 @@
 #import "ADNResource.h"
 
 
+static NSString *const kADNPlaceAnnotationKey = @"+net.app.core.place";
+
+
 @interface ADNPlace : ADNResource
 
 @property (strong) NSString *factualID;

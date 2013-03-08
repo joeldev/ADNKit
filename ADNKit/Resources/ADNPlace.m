@@ -11,9 +11,6 @@
 #import "NSDictionary+ADNAdditions.h"
 
 
-static NSString *const kADNPlaceAnnotationKey = @"+net.app.core.place";
-
-
 @implementation ADNPlace
 
 + (NSDictionary *)keyMapping {

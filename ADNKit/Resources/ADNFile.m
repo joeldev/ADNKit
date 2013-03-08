@@ -11,10 +11,6 @@
 #import "NSArray+ADNAdditions.h"
 
 
-static NSString *const kADNFileAnnotationKey = @"+net.app.core.file";
-static NSString *const kADNFileListAnnotationKey = @"+net.app.core.file_list";
-
-
 @implementation ADNFile
 
 + (NSDictionary *)keyMapping {
