@@ -7,7 +7,27 @@
 //
 
 #import "ADNPlace.h"
+#import "ADNPlaceCategory.h"
+#import "NSDictionary+ADNAdditions.h"
+
 
 @implementation ADNPlace
+
++ (NSDictionary *)keyMapping {
+	return [[super keyMapping] adn_dictionaryByAppendingDictionary:@{
+			@"factual_id": @"factualID",
+			@"address": @"addressExtended",
+			@"admin_region": @"adminRegion",
+			@"post_town": @"postTown",
+			@"po_box": @"poBox",
+			@"country_code": @"countryCode",
+			@"is_open": @"isOpen"}];
+}
+
+
++ (Class)categoriesCollectionObjectClass {
+	return [ADNPlaceCategory class];
+}
+
 
 @end
