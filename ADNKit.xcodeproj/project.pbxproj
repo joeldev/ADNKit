@@ -167,6 +167,8 @@
 		5DF6F09816EA70550018D445 /* ADNClient+ADNHandlerBlocks.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DF6F09616EA70540018D445 /* ADNClient+ADNHandlerBlocks.h */; };
 		5DF6F09916EA70550018D445 /* ADNClient+ADNHandlerBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F09716EA70550018D445 /* ADNClient+ADNHandlerBlocks.m */; };
 		5DF6F09A16EA70550018D445 /* ADNClient+ADNHandlerBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F09716EA70550018D445 /* ADNClient+ADNHandlerBlocks.m */; };
+		5DF6F0A016EA7B410018D445 /* ANKUsernamePasswordAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F09E16EA7B410018D445 /* ANKUsernamePasswordAuthViewController.m */; };
+		5DF6F0A416EA7B6B0018D445 /* ANKOAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F0A316EA7B6A0018D445 /* ANKOAuthViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -303,6 +305,10 @@
 		5DF6F09116EA4E0C0018D445 /* ADNLinkEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADNLinkEntity.m; sourceTree = "<group>"; };
 		5DF6F09616EA70540018D445 /* ADNClient+ADNHandlerBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ADNClient+ADNHandlerBlocks.h"; sourceTree = "<group>"; };
 		5DF6F09716EA70550018D445 /* ADNClient+ADNHandlerBlocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ADNClient+ADNHandlerBlocks.m"; sourceTree = "<group>"; };
+		5DF6F09D16EA7B410018D445 /* ANKUsernamePasswordAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKUsernamePasswordAuthViewController.h; sourceTree = "<group>"; };
+		5DF6F09E16EA7B410018D445 /* ANKUsernamePasswordAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANKUsernamePasswordAuthViewController.m; sourceTree = "<group>"; };
+		5DF6F0A216EA7B6A0018D445 /* ANKOAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKOAuthViewController.h; sourceTree = "<group>"; };
+		5DF6F0A316EA7B6A0018D445 /* ANKOAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANKOAuthViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -369,6 +375,7 @@
 				5DC3728716E3B0FC00190862 /* Resources */,
 				5DC372F416E4750800190862 /* API Calls */,
 				5DC3728D16E3B2CB00190862 /* Networking */,
+				5DF6F09C16EA7A260018D445 /* UI */,
 				5DC372A016E448A900190862 /* Categories */,
 				5DC370DF16E0805E00190862 /* Supporting Files */,
 			);
@@ -650,6 +657,17 @@
 			name = Entities;
 			sourceTree = "<group>";
 		};
+		5DF6F09C16EA7A260018D445 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				5DF6F09D16EA7B410018D445 /* ANKUsernamePasswordAuthViewController.h */,
+				5DF6F09E16EA7B410018D445 /* ANKUsernamePasswordAuthViewController.m */,
+				5DF6F0A216EA7B6A0018D445 /* ANKOAuthViewController.h */,
+				5DF6F0A316EA7B6A0018D445 /* ANKOAuthViewController.m */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -842,6 +860,8 @@
 				5DF6F08E16EA4DFD0018D445 /* ADNHashtagEntity.m in Sources */,
 				5DF6F09316EA4E0D0018D445 /* ADNLinkEntity.m in Sources */,
 				5DF6F09916EA70550018D445 /* ADNClient+ADNHandlerBlocks.m in Sources */,
+				5DF6F0A016EA7B410018D445 /* ANKUsernamePasswordAuthViewController.m in Sources */,
+				5DF6F0A416EA7B6B0018D445 /* ANKOAuthViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
