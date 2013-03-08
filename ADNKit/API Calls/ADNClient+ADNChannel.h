@@ -14,6 +14,7 @@
 @interface ADNClient (ADNChannel)
 
 - (void)fetchCurrentUserSubscribedChannelsWithCompletion:(ADNClientCompletionBlock)completionHandler;
+- (void)fetchCurrentUserPrivateMessageChannelsWithCompletion:(ADNClientCompletionBlock)completionHandler;
 - (void)fetchCurrentUserCreatedChannelsWithCompletion:(ADNClientCompletionBlock)completionHandler;
 - (void)fetchUnreadPMChannelsCountWithCompletion:(ADNClientCompletionBlock)completionHandler;
 

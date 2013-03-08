@@ -24,6 +24,13 @@
 }
 
 
+- (void)fetchCurrentUserPrivateMessageChannelsWithCompletion:(ADNClientCompletionBlock)completionHandler {
+	[self getPath:@"channels" parameters:nil success:[self successHandlerForCollectionOfResourceClass:[ADNChannel class] clientHandler:completionHandler filterBlock:^BOOL(id object) {
+		return [(ADNChannel *)object isPrivateMessageChannel];
+	}] failure:[self failureHandlerForClientHandler:completionHandler]];
+}
+
+
 // http://developers.app.net/docs/resources/channel/lookup/#retrieve-my-channels
 
 - (void)fetchCurrentUserCreatedChannelsWithCompletion:(ADNClientCompletionBlock)completionHandler {

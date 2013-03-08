@@ -26,4 +26,6 @@
 @property (assign) BOOL isEditableByCurrentUser;
 @property (assign) BOOL hasUnreadMessages;
 
+- (BOOL)isPrivateMessageChannel;
+
 @end

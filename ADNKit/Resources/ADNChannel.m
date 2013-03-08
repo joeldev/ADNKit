@@ -7,6 +7,7 @@
 //
 
 #import "ADNChannel.h"
+#import "ADNACL.h"
 #import "NSDictionary+ADNAdditions.h"
 
 
@@ -21,5 +22,11 @@
 			@"recent_message_id": @"latestMessageID",
 			@"recent_message": @"latestMessage"}];
 }
+
+
+- (BOOL)isPrivateMessageChannel {
+	return self.isCurrentUserSubscribed && !self.readers.canAnyUser && !self.readers.isPublic && !self.writers.canAnyUser && !self.writers.isPublic;
+}
+
 
 @end
