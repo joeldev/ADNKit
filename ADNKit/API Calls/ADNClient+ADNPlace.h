@@ -11,6 +11,9 @@
 
 @interface ADNClient (ADNPlace)
 
+- (void)fetchPlaceWithFactualID:(NSString *)factualID completion:(ADNClientCompletionBlock)completionHandler;
 
+// parameters contains keys located in ADNPlace.h
+- (void)searchForPlacesWithParameters:(NSDictionary *)params completion:(ADNClientCompletionBlock)completionHandler;
 
 @end
