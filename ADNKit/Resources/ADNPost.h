@@ -13,7 +13,7 @@
 // http://developers.app.net/docs/resources/post/#post-fields
 
 
-@class ADNUser, ADNObjectSource;
+@class ADNUser, ADNObjectSource, ADNEntities;
 
 @interface ADNPost : ADNAnnotatableResource
 
@@ -22,7 +22,7 @@
 @property (strong) NSDate *createdAt;
 @property (strong) NSString *text;
 @property (strong) NSString *html;
-// TODO: entities
+@property (strong) ADNEntities *entities;
 @property (strong) ADNObjectSource *source;
 @property (strong) NSString *repliedToPostID;
 @property (strong) NSURL *canonicalURL;

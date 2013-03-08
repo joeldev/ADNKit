@@ -9,10 +9,12 @@
 #import "ADNResource.h"
 
 
+@class ADNEntities;
+
 @interface ADNUserDescription : ADNResource
 
 @property (strong) NSString *text;
 @property (strong) NSString *html;
-// TODO: entities
+@property (strong) ADNEntities *entities;
 
 @end

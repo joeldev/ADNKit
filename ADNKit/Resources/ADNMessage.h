@@ -9,7 +9,7 @@
 #import "ADNAnnotatableResource.h"
 
 
-@class ADNUser, ADNObjectSource;
+@class ADNUser, ADNObjectSource, ADNEntities;
 
 @interface ADNMessage : ADNAnnotatableResource
 
@@ -19,7 +19,7 @@
 @property (strong) NSDate *createdAt;
 @property (strong) NSString *text;
 @property (strong) NSString *html;
-// TODO: entities
+@property (strong) ADNEntities *entities;
 @property (strong) ADNObjectSource *source;
 @property (strong) NSString *inReplyToMessageID;
 @property (strong) NSString *threadID;
