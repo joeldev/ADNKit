@@ -7,7 +7,26 @@
 //
 
 #import "ADNEntities.h"
+#import "ADNMentionEntity.h"
+#import "ADNHashtagEntity.h"
+#import "ADNLinkEntity.h"
+
 
 @implementation ADNEntities
+
++ (Class)mentionsCollectionObjectClass {
+	return [ADNMentionEntity class];
+}
+
+
++ (Class)hashtagsCollectionObjectClass {
+	return [ADNHashtagEntity class];
+}
+
+
++ (Class)linksCollectionObjectClass {
+	return [ADNLinkEntity class];
+}
+
 
 @end

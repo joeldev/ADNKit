@@ -8,6 +8,11 @@
 
 #import "ADNResource.h"
 
+
 @interface ADNEntities : ADNResource
+
+@property (strong) NSArray *mentions;
+@property (strong) NSArray *hashtags;
+@property (strong) NSArray *links;
 
 @end
