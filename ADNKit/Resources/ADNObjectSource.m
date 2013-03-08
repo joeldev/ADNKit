@@ -12,8 +12,8 @@
 
 @implementation ADNObjectSource
 
-+ (NSDictionary *)keyMapping {
-	return [[super keyMapping] adn_dictionaryByAppendingDictionary:@{@"client_id": @"clientID"}];
++ (NSDictionary *)JSONToLocalKeyMapping {
+	return [[super JSONToLocalKeyMapping] adn_dictionaryByAppendingDictionary:@{@"client_id": @"clientID"}];
 }
 
 @end

@@ -12,8 +12,8 @@
 
 @implementation ADNImage
 
-+ (NSDictionary *)keyMapping {
-	return [[super keyMapping] adn_dictionaryByAppendingDictionary:@{@"url": @"URL", @"is_default": @"isDefault"}];
++ (NSDictionary *)JSONToLocalKeyMapping {
+	return [[super JSONToLocalKeyMapping] adn_dictionaryByAppendingDictionary:@{@"url": @"URL", @"is_default": @"isDefault"}];
 }
 
 

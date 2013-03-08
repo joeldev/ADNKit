@@ -13,8 +13,8 @@
 
 @implementation ADNFilter
 
-+ (NSDictionary *)keyMapping {
-	return [[super keyMapping] adn_dictionaryByAppendingDictionary:@{@"id": @"filterID", @"match_policy": @"matchPolicyString"}];
++ (NSDictionary *)JSONToLocalKeyMapping {
+	return [[super JSONToLocalKeyMapping] adn_dictionaryByAppendingDictionary:@{@"id": @"filterID", @"match_policy": @"matchPolicyString"}];
 }
 
 

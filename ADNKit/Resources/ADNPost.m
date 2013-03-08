@@ -13,8 +13,8 @@
 
 @implementation ADNPost
 
-+ (NSDictionary *)keyMapping {
-	return [[super keyMapping] adn_dictionaryByAppendingDictionary:@{
++ (NSDictionary *)JSONToLocalKeyMapping {
+	return [[super JSONToLocalKeyMapping] adn_dictionaryByAppendingDictionary:@{
 			@"id": @"postID",
 			@"created_at": @"createdAt",
 			@"reply_to": @"repliedToPostID",

@@ -12,8 +12,8 @@
 
 @implementation ADNMessage
 
-+ (NSDictionary *)keyMapping {
-	return [[super keyMapping] adn_dictionaryByAppendingDictionary:@{
++ (NSDictionary *)JSONToLocalKeyMapping {
+	return [[super JSONToLocalKeyMapping] adn_dictionaryByAppendingDictionary:@{
 			@"id": @"messageID",
 			@"channel_id": @"channelID",
 			@"created_at": @"createdAt",

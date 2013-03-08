@@ -11,7 +11,7 @@
 
 @interface ADNResource : NSObject
 
-+ (NSDictionary *)keyMapping;
++ (NSDictionary *)JSONToLocalKeyMapping;
 
 + (instancetype)objectFromJSONDictionary:(NSDictionary *)dictionary;
 + (NSArray *)objectsFromJSONDictionaries:(NSArray *)dictionaries;

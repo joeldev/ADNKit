@@ -13,8 +13,8 @@
 
 @implementation ADNFile
 
-+ (NSDictionary *)keyMapping {
-	return [[super keyMapping] adn_dictionaryByAppendingDictionary:@{
++ (NSDictionary *)JSONToLocalKeyMapping {
+	return [[super JSONToLocalKeyMapping] adn_dictionaryByAppendingDictionary:@{
 			@"id": @"fileID",
 			@"mime_type": @"mimeType",
 			@"complete": @"isComplete",

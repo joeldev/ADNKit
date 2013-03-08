@@ -12,8 +12,8 @@
 
 @implementation ADNStreamMarker
 
-+ (NSDictionary *)keyMapping {
-	return [[super keyMapping] adn_dictionaryByAppendingDictionary:@{
++ (NSDictionary *)JSONToLocalKeyMapping {
+	return [[super JSONToLocalKeyMapping] adn_dictionaryByAppendingDictionary:@{
 			@"version": @"identifier",
 			@"id": @"topPostID",
 			@"last_read_id": @"lastReadPostID",

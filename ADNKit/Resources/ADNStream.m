@@ -12,8 +12,8 @@
 
 @implementation ADNStream
 
-+ (NSDictionary *)keyMapping {
-	return [[super keyMapping] adn_dictionaryByAppendingDictionary:@{
++ (NSDictionary *)JSONToLocalKeyMapping {
+	return [[super JSONToLocalKeyMapping] adn_dictionaryByAppendingDictionary:@{
 			@"id": @"streamID",
 			@"object_types": @"objectTypes"}];
 }

@@ -12,8 +12,8 @@
 
 @implementation ADNChannelCounts
 
-+ (NSDictionary *)keyMapping {
-	return [[super keyMapping] adn_dictionaryByAppendingDictionary:@{@"messages": @"messagesCount"}];
++ (NSDictionary *)JSONToLocalKeyMapping {
+	return [[super JSONToLocalKeyMapping] adn_dictionaryByAppendingDictionary:@{@"messages": @"messagesCount"}];
 }
 
 @end

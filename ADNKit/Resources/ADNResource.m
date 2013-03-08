@@ -104,7 +104,7 @@ static dispatch_once_t propertiesMapOnceToken;
 }
 
 
-+ (NSDictionary *)keyMapping {
++ (NSDictionary *)JSONToLocalKeyMapping {
 	return @{};
 }
 
@@ -114,7 +114,7 @@ static dispatch_once_t propertiesMapOnceToken;
 	static dispatch_once_t onceToken;
 	dispatch_once(&onceToken, ^{
 		inverseKeyMap = [[NSMutableDictionary alloc] init];
-		NSDictionary *regularKeyMapping = [self keyMapping];
+		NSDictionary *regularKeyMapping = [self JSONToLocalKeyMapping];
 		for (NSString *serverKey in regularKeyMapping) {
 			NSString *localKey = regularKeyMapping[serverKey];
 			inverseKeyMap[localKey] = serverKey;
@@ -152,7 +152,7 @@ static dispatch_once_t propertiesMapOnceToken;
 - (void)updateObjectFromJSONDictionary:(NSDictionary *)JSONDictionary forClass:(Class)class {
 	for (NSString *JSONKey in JSONDictionary) {
 		// first, see if there's a mapped key to use here
-		NSString *localKey = [class keyMapping][JSONKey] ?: JSONKey;
+		NSString *localKey = [class JSONToLocalKeyMapping][JSONKey] ?: JSONKey;
 		
 		// next, pull out the value and class of the value
 		id value = JSONDictionary[JSONKey];

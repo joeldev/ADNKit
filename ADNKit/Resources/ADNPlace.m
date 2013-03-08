@@ -13,8 +13,8 @@
 
 @implementation ADNPlace
 
-+ (NSDictionary *)keyMapping {
-	return [[super keyMapping] adn_dictionaryByAppendingDictionary:@{
++ (NSDictionary *)JSONToLocalKeyMapping {
+	return [[super JSONToLocalKeyMapping] adn_dictionaryByAppendingDictionary:@{
 			@"factual_id": @"factualID",
             @"address_extended": @"addressExtended",
 			@"admin_region": @"adminRegion",

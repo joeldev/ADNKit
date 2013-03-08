@@ -12,8 +12,8 @@
 
 @implementation ADNACL
 
-+ (NSDictionary *)keyMapping {
-	return [[super keyMapping] adn_dictionaryByAppendingDictionary:@{
++ (NSDictionary *)JSONToLocalKeyMapping {
+	return [[super JSONToLocalKeyMapping] adn_dictionaryByAppendingDictionary:@{
 			@"user_ids": @"userIDs",
 			@"any_user": @"canAnyUser",
 			@"you": @"canCurrentUser",

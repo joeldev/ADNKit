@@ -12,8 +12,8 @@
 
 @implementation ADNFilterClause
 
-+ (NSDictionary *)keyMapping {
-	return [[super keyMapping] adn_dictionaryByAppendingDictionary:@{@"object_type": @"objectType"}];
++ (NSDictionary *)JSONToLocalKeyMapping {
+	return [[super JSONToLocalKeyMapping] adn_dictionaryByAppendingDictionary:@{@"object_type": @"objectType"}];
 }
 
 

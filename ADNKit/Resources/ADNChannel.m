@@ -12,8 +12,8 @@
 
 @implementation ADNChannel
 
-+ (NSDictionary *)keyMapping {
-	return [[super keyMapping] adn_dictionaryByAppendingDictionary:@{
++ (NSDictionary *)JSONToLocalKeyMapping {
+	return [[super JSONToLocalKeyMapping] adn_dictionaryByAppendingDictionary:@{
 			@"id": @"channelID",
 			@"you_subscribed": @"isCurrentUserSubscribed",
 			@"you_can_edit": @"isEditableByCurrentUser",
