@@ -47,7 +47,8 @@ typedef void (^ADNClientCompletionBlock)(id responseObject, NSError *error);
 #pragma mark App.net API implementation convenience methods
 
 - (AFNetworkingSuccessBlock)successHandlerForResourceClass:(Class)resourceClass clientHandler:(ADNClientCompletionBlock)handler;
-- (AFNetworkingFailureBlock)successHandlerForCollectionOfResourceClass:(Class)resourceClass clientHandler:(ADNClientCompletionBlock)handler;
+- (AFNetworkingSuccessBlock)successHandlerForCollectionOfResourceClass:(Class)resourceClass clientHandler:(ADNClientCompletionBlock)handler;
+- (AFNetworkingSuccessBlock)successHandlerForPrimitiveResponseWithClientHandler:(ADNClientCompletionBlock)handler;
 - (AFNetworkingFailureBlock)failureHandlerForClientHandler:(ADNClientCompletionBlock)handler;
 
 #pragma mark -

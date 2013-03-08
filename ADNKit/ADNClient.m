@@ -140,7 +140,7 @@
 }
 
 
-- (AFNetworkingFailureBlock)successHandlerForCollectionOfResourceClass:(Class)resourceClass clientHandler:(ADNClientCompletionBlock)handler {
+- (AFNetworkingSuccessBlock)successHandlerForCollectionOfResourceClass:(Class)resourceClass clientHandler:(ADNClientCompletionBlock)handler {
 	return ^(AFHTTPRequestOperation *operation, id responseObject) {
 		// TODO: refactor this to not be copied and pasted because that makes me sad
 		ADNResponse *response = responseObject;
@@ -153,6 +153,15 @@
 		
 		if (handler) {
 			handler(finalObject, error);
+		}
+	};
+}
+
+
+- (AFNetworkingSuccessBlock)successHandlerForPrimitiveResponseWithClientHandler:(ADNClientCompletionBlock)handler {
+	return ^(AFHTTPRequestOperation *operation, id responseObject) {
+		if (handler) {
+			handler(((ADNResponse *)responseObject).data, nil);
 		}
 	};
 }

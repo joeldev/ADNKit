@@ -246,7 +246,7 @@
 - (void)fetchUserIDsUserWithIDFollowing:(NSString *)userID completion:(ADNClientCompletionBlock)completionHandler {
 	[self getPath:[self endpointPathForUserID:userID endpoint:@"following/ids"]
 	   parameters:nil
-		  success:[self successHandlerForCollectionOfResourceClass:[ADNUser class] clientHandler:completionHandler]
+		  success:[self successHandlerForPrimitiveResponseWithClientHandler:completionHandler]
 		  failure:[self failureHandlerForClientHandler:completionHandler]];
 }
 
@@ -262,7 +262,7 @@
 - (void)fetchUserIDsFollowingUserWithID:(NSString *)userID completion:(ADNClientCompletionBlock)completionHandler {
 	[self getPath:[self endpointPathForUserID:userID endpoint:@"followers/ids"]
 	   parameters:nil
-		  success:[self successHandlerForCollectionOfResourceClass:[ADNUser class] clientHandler:completionHandler]
+		  success:[self successHandlerForPrimitiveResponseWithClientHandler:completionHandler]
 		  failure:[self failureHandlerForClientHandler:completionHandler]];
 }
 
@@ -294,7 +294,7 @@
 - (void)fetchMutedUserIDsForUserIDs:(NSArray *)userIDs completion:(ADNClientCompletionBlock)completionHandler {
 	[self getPath:@"muted/ids"
 	   parameters:@{@"ids": [userIDs componentsJoinedByString:@","]}
-		  success:[self successHandlerForCollectionOfResourceClass:[ADNUser class] clientHandler:completionHandler]
+		  success:[self successHandlerForPrimitiveResponseWithClientHandler:completionHandler]
 		  failure:[self failureHandlerForClientHandler:completionHandler]];
 }
 
