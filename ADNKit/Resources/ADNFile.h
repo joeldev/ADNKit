@@ -33,4 +33,7 @@
 @property (strong) ADNUser *user;
 @property (strong) ADNObjectSource *source;
 
++ (NSDictionary *)fileListAnnotationValueForFiles:(NSArray *)files;
+- (NSDictionary *)fileAnnotationValue;
+
 @end

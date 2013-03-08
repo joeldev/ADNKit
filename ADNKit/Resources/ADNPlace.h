@@ -30,4 +30,6 @@
 @property (strong) NSURL *website;
 @property (strong) NSArray *categories;
 
+- (NSDictionary *)placeAnnotationValue;
+
 @end

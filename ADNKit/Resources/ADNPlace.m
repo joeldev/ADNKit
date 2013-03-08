@@ -11,6 +11,9 @@
 #import "NSDictionary+ADNAdditions.h"
 
 
+static NSString *const kADNPlaceAnnotationKey = @"+net.app.core.place";
+
+
 @implementation ADNPlace
 
 + (NSDictionary *)keyMapping {
@@ -27,6 +30,11 @@
 
 + (Class)categoriesCollectionObjectClass {
 	return [ADNPlaceCategory class];
+}
+
+
+- (NSDictionary *)placeAnnotationValue {
+	return @{kADNPlaceAnnotationKey: self.factualID};
 }
 
 

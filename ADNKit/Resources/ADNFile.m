@@ -8,6 +8,11 @@
 
 #import "ADNFile.h"
 #import "NSDictionary+ADNAdditions.h"
+#import "NSArray+ADNAdditions.h"
+
+
+static NSString *const kADNFileAnnotationKey = @"+net.app.core.file";
+static NSString *const kADNFileListAnnotationKey = @"+net.app.core.file_list";
 
 
 @implementation ADNFile
@@ -28,5 +33,18 @@
 			@"file_token": @"fileToken",
 			@"file_token_read": @"readOnlyFileToken"}];
 }
+
+
++ (NSDictionary *)fileListAnnotationValueForFiles:(NSArray *)files {
+	return @{kADNFileListAnnotationKey: [files adn_map:^id(ADNFile *file) {
+		return [file fileAnnotationValue];
+	}]};
+}
+
+
+- (NSDictionary *)fileAnnotationValue {
+	return @{kADNFileAnnotationKey: @{@"file_id": self.fileID, @"format": @"url", @"file_token": self.fileToken}};
+}
+
 
 @end
