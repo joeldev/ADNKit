@@ -12,7 +12,7 @@
 @implementation ANKStreamMarker
 
 + (NSDictionary *)JSONToLocalKeyMapping {
-	return [[super JSONToLocalKeyMapping] adn_dictionaryByAppendingDictionary:@{
+	return [[super JSONToLocalKeyMapping] ank_dictionaryByAppendingDictionary:@{
 			@"version": @"identifier",
 			@"id": @"topPostID",
 			@"last_read_id": @"lastReadPostID",

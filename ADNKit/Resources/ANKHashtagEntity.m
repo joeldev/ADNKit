@@ -12,7 +12,7 @@
 @implementation ANKHashtagEntity
 
 + (NSDictionary *)JSONToLocalKeyMapping {
-	return [[super JSONToLocalKeyMapping] adn_dictionaryByAppendingDictionary:@{@"name": @"hashtag"}];
+	return [[super JSONToLocalKeyMapping] ank_dictionaryByAppendingDictionary:@{@"name": @"hashtag"}];
 }
 
 @end

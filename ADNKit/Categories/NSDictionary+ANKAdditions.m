@@ -11,7 +11,7 @@
 
 @implementation NSDictionary (ANKAdditions)
 
-- (NSDictionary *)adn_dictionaryByAppendingDictionary:(NSDictionary *)otherDictionary {
+- (NSDictionary *)ank_dictionaryByAppendingDictionary:(NSDictionary *)otherDictionary {
 	NSMutableDictionary *mutableSelf = [self mutableCopy];
 	[mutableSelf addEntriesFromDictionary:otherDictionary];
 	return mutableSelf;

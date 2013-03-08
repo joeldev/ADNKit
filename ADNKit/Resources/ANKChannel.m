@@ -13,7 +13,7 @@
 @implementation ANKChannel
 
 + (NSDictionary *)JSONToLocalKeyMapping {
-	return [[super JSONToLocalKeyMapping] adn_dictionaryByAppendingDictionary:@{
+	return [[super JSONToLocalKeyMapping] ank_dictionaryByAppendingDictionary:@{
 			@"id": @"channelID",
 			@"you_subscribed": @"isCurrentUserSubscribed",
 			@"you_can_edit": @"isEditableByCurrentUser",

@@ -12,7 +12,7 @@
 @implementation ANKMentionEntity
 
 + (NSDictionary *)JSONToLocalKeyMapping {
-	return [[super JSONToLocalKeyMapping] adn_dictionaryByAppendingDictionary:@{@"name": @"username", @"id": @"userID"}];
+	return [[super JSONToLocalKeyMapping] ank_dictionaryByAppendingDictionary:@{@"name": @"username", @"id": @"userID"}];
 }
 
 @end

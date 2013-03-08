@@ -13,7 +13,7 @@
 @implementation ANKFilter
 
 + (NSDictionary *)JSONToLocalKeyMapping {
-	return [[super JSONToLocalKeyMapping] adn_dictionaryByAppendingDictionary:@{@"id": @"filterID", @"match_policy": @"matchPolicyString"}];
+	return [[super JSONToLocalKeyMapping] ank_dictionaryByAppendingDictionary:@{@"id": @"filterID", @"match_policy": @"matchPolicyString"}];
 }
 
 

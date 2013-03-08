@@ -12,7 +12,7 @@
 @implementation ANKChannelCounts
 
 + (NSDictionary *)JSONToLocalKeyMapping {
-	return [[super JSONToLocalKeyMapping] adn_dictionaryByAppendingDictionary:@{@"messages": @"messagesCount"}];
+	return [[super JSONToLocalKeyMapping] ank_dictionaryByAppendingDictionary:@{@"messages": @"messagesCount"}];
 }
 
 @end

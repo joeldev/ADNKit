@@ -13,7 +13,7 @@
 @implementation ANKPost
 
 + (NSDictionary *)JSONToLocalKeyMapping {
-	return [[super JSONToLocalKeyMapping] adn_dictionaryByAppendingDictionary:@{
+	return [[super JSONToLocalKeyMapping] ank_dictionaryByAppendingDictionary:@{
 			@"id": @"postID",
 			@"created_at": @"createdAt",
 			@"reply_to": @"repliedToPostID",

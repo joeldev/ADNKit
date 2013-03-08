@@ -12,7 +12,7 @@
 @implementation ANKLinkEntity
 
 + (NSDictionary *)JSONToLocalKeyMapping {
-	return [[super JSONToLocalKeyMapping] adn_dictionaryByAppendingDictionary:@{@"url": @"URL", @"amended_len": @"amendedLength"}];
+	return [[super JSONToLocalKeyMapping] ank_dictionaryByAppendingDictionary:@{@"url": @"URL", @"amended_len": @"amendedLength"}];
 }
 
 

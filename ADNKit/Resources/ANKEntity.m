@@ -12,7 +12,7 @@
 @implementation ANKEntity
 
 + (NSDictionary *)JSONToLocalKeyMapping {
-	return [[super JSONToLocalKeyMapping] adn_dictionaryByAppendingDictionary:@{@"pos": @"position", @"len": @"length"}];
+	return [[super JSONToLocalKeyMapping] ank_dictionaryByAppendingDictionary:@{@"pos": @"position", @"len": @"length"}];
 }
 
 

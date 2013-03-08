@@ -12,7 +12,7 @@
 @implementation ANKObjectSource
 
 + (NSDictionary *)JSONToLocalKeyMapping {
-	return [[super JSONToLocalKeyMapping] adn_dictionaryByAppendingDictionary:@{@"client_id": @"clientID"}];
+	return [[super JSONToLocalKeyMapping] ank_dictionaryByAppendingDictionary:@{@"client_id": @"clientID"}];
 }
 
 @end

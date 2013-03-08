@@ -12,7 +12,7 @@
 @implementation ANKACL
 
 + (NSDictionary *)JSONToLocalKeyMapping {
-	return [[super JSONToLocalKeyMapping] adn_dictionaryByAppendingDictionary:@{
+	return [[super JSONToLocalKeyMapping] ank_dictionaryByAppendingDictionary:@{
 			@"user_ids": @"userIDs",
 			@"any_user": @"canAnyUser",
 			@"you": @"canCurrentUser",

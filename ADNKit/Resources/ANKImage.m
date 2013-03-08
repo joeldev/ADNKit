@@ -12,7 +12,7 @@
 @implementation ANKImage
 
 + (NSDictionary *)JSONToLocalKeyMapping {
-	return [[super JSONToLocalKeyMapping] adn_dictionaryByAppendingDictionary:@{@"url": @"URL", @"is_default": @"isDefault"}];
+	return [[super JSONToLocalKeyMapping] ank_dictionaryByAppendingDictionary:@{@"url": @"URL", @"is_default": @"isDefault"}];
 }
 
 

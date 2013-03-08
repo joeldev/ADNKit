@@ -8,6 +8,12 @@
 
 #import "ANKResource.h"
 
+
 @interface ANKExploreStream : ANKResource
+
+@property (strong) NSString *slug;
+@property (strong) NSString *title;
+@property (strong) NSString *description;
+@property (strong) NSURL *URL;
 
 @end

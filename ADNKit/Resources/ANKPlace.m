@@ -13,7 +13,7 @@
 @implementation ANKPlace
 
 + (NSDictionary *)JSONToLocalKeyMapping {
-	return [[super JSONToLocalKeyMapping] adn_dictionaryByAppendingDictionary:@{
+	return [[super JSONToLocalKeyMapping] ank_dictionaryByAppendingDictionary:@{
 			@"factual_id": @"factualID",
             @"address_extended": @"addressExtended",
 			@"admin_region": @"adminRegion",

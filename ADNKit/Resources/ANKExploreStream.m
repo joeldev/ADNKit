@@ -8,6 +8,11 @@
 
 #import "ANKExploreStream.h"
 
+
 @implementation ANKExploreStream
+
++ (NSDictionary *)JSONToLocalKeyMapping {
+	//return [[super JSONToLocalKeyMapping] ]
+}
 
 @end

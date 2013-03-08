@@ -12,7 +12,7 @@
 @implementation ANKFilterClause
 
 + (NSDictionary *)JSONToLocalKeyMapping {
-	return [[super JSONToLocalKeyMapping] adn_dictionaryByAppendingDictionary:@{@"object_type": @"objectType"}];
+	return [[super JSONToLocalKeyMapping] ank_dictionaryByAppendingDictionary:@{@"object_type": @"objectType"}];
 }
 
 

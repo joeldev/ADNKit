@@ -19,7 +19,7 @@
 @implementation ANKFile
 
 + (NSDictionary *)JSONToLocalKeyMapping {
-	return [[super JSONToLocalKeyMapping] adn_dictionaryByAppendingDictionary:@{
+	return [[super JSONToLocalKeyMapping] ank_dictionaryByAppendingDictionary:@{
 			@"id": @"fileID",
 			@"mime_type": @"mimeType",
 			@"complete": @"isComplete",
