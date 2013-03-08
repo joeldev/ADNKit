@@ -18,7 +18,6 @@
 @property (strong) NSString *webAuthRedirectURI;
 
 - (void)initializeHTTPAuthClient;
-- (NSString *)scopeStringForAuthScopes:(ADNAuthScope)scopes;
 - (void)HTTPAuthDidCompleteSuccessfully:(BOOL)wasSuccessful error:(NSError *)error handler:(void (^)(BOOL successful, NSError *error))handler;
 - (void)authenticateWithParameters:(NSDictionary *)params handler:(void (^)(BOOL successful, NSError *error))handler;
 
@@ -82,7 +81,7 @@
 - (void)authenticateUsername:(NSString *)username password:(NSString *)password clientID:(NSString *)clientID passwordGrantSecret:(NSString *)passwordGrantSecret authScopes:(ADNAuthScope)authScopes completionHandler:(void (^)(BOOL success, NSError *error))completionHander {
 	// http://developers.app.net/docs/authentication/flows/password/
 	
-	NSDictionary *parameters = @{@"client_id": clientID, @"password_grant_secret": passwordGrantSecret, @"grant_type": @"password", @"username": username, @"password": password, @"scope": [self scopeStringForAuthScopes:authScopes]};
+	NSDictionary *parameters = @{@"client_id": clientID, @"password_grant_secret": passwordGrantSecret, @"grant_type": @"password", @"username": username, @"password": password, @"scope": [[self class] scopeStringForAuthScopes:authScopes]};
 	[self authenticateWithParameters:parameters handler:completionHander];
 }
 
@@ -93,7 +92,7 @@
 	NSMutableString *URLString = [NSMutableString stringWithFormat:@"https://account.app.net/oauth/authenticate?client_id=%@&response_type=code", clientID];
 	
 	if (authScopes) {
-		[URLString appendFormat:@"&scope=%@", [self scopeStringForAuthScopes:authScopes]];
+		[URLString appendFormat:@"&scope=%@", [[self class] scopeStringForAuthScopes:authScopes]];
 	}
 	
 	if (redirectURI) {
@@ -117,6 +116,56 @@
 	// http://developers.app.net/docs/authentication/flows/web/
 	NSDictionary *parameters = @{@"client_id": clientID, @"client_secret": clientSecret, @"grant_type": @"authorization_code", @"redirect_uri": self.webAuthRedirectURI, @"code": accessCode};
 	[self authenticateWithParameters:parameters handler:self.webAuthCompletionHandler];
+}
+
+
++ (NSString *)scopeStringForAuthScopes:(ADNAuthScope)scopes {
+	if (scopes == ADNAuthScopeNone) return nil;
+    
+    NSMutableArray *scopeValues = [NSMutableArray array];
+    
+    if ((scopes & ADNAuthScopeBasic) == ADNAuthScopeBasic)						[scopeValues addObject:@"basic"];
+	if ((scopes & ADNAuthScopeStream) == ADNAuthScopeStream)					[scopeValues addObject:@"stream"];
+	if ((scopes & ADNAuthScopeEmail) == ADNAuthScopeEmail)						[scopeValues addObject:@"email"];
+	if ((scopes & ADNAuthScopeWritePost) == ADNAuthScopeWritePost)				[scopeValues addObject:@"write_post"];
+	if ((scopes & ADNAuthScopeFollow) == ADNAuthScopeFollow)					[scopeValues addObject:@"follow"];
+	if ((scopes & ADNAuthScopePublicMessages) == ADNAuthScopePublicMessages)	[scopeValues addObject:@"public_messages"];
+	if ((scopes & ADNAuthScopeMessages) == ADNAuthScopeMessages)				[scopeValues addObject:@"messages"];
+	if ((scopes & ADNAuthScopeUpdateProfile) == ADNAuthScopeUpdateProfile)		[scopeValues addObject:@"update_profile"];
+	if ((scopes & ADNAuthScopeExport) == ADNAuthScopeExport)					[scopeValues addObject:@"export"];
+	if ((scopes & ADNAuthScopeFiles) == ADNAuthScopeFiles)						[scopeValues addObject:@"files"];
+    
+    return [scopeValues componentsJoinedByString:@","];
+}
+
+
++ (NSArray *)scopeDescriptionsForScope:(ADNAuthScope)scope {
+	NSMutableArray *scopeDescriptions = [NSMutableArray array];
+	
+	static NSDictionary *scopeDescriptionMap = nil;
+	static dispatch_once_t onceToken;
+	dispatch_once(&onceToken, ^{
+		NSMutableDictionary *mapping = [[NSMutableDictionary alloc] init];
+		mapping[@"basic"] = @"See basic information about you";
+		mapping[@"stream"] = @"Read your stream";
+		mapping[@"email"] = @"Access your email address";
+		mapping[@"write_post"] = @"Create posts for you";
+		mapping[@"follow"] = @"Add or remove follows (or mutes) for you";
+		mapping[@"public_messages"] = @"Send and receive public messages for you";
+		mapping[@"messages"] = @"Send and receive private and public messages for you";
+		mapping[@"update_profile"] = @"Update your profile information";
+		mapping[@"export"] = @"Bulk export all of your App.net data";
+		mapping[@"files"] = @"Manage your files for you";
+		
+		scopeDescriptionMap = mapping;
+	});
+	
+	NSArray *scopeKeys = [[self scopeStringForAuthScopes:scope] componentsSeparatedByString:@","];
+	for (NSString *scopeKey in scopeKeys) {
+		[scopeDescriptions addObject:scopeDescriptionMap[scopeKey]];
+	}
+	
+	return scopeDescriptions;
 }
 
 
@@ -179,6 +228,7 @@
 #pragma mark -
 #pragma mark Internal API
 
+
 - (void)initializeHTTPAuthClient {
 	self.authHTTPClient = [AFHTTPClient clientWithBaseURL:[NSURL URLWithString:@"https://account.app.net/oauth"]];
 	self.authHTTPClient.parameterEncoding = AFFormURLParameterEncoding;
@@ -211,26 +261,6 @@
 	self.authHTTPClient = nil;
 	self.webAuthCompletionHandler = nil;
 	self.webAuthRedirectURI = nil;
-}
-
-
-- (NSString *)scopeStringForAuthScopes:(ADNAuthScope)scopes {
-	if (scopes == ADNAuthScopeNone) return nil;
-    
-    NSMutableArray *scopeValues = [NSMutableArray array];
-    
-    if ((scopes & ADNAuthScopeBasic) == ADNAuthScopeBasic)						[scopeValues addObject:@"basic"];
-	if ((scopes & ADNAuthScopeStream) == ADNAuthScopeStream)					[scopeValues addObject:@"stream"];
-	if ((scopes & ADNAuthScopeEmail) == ADNAuthScopeEmail)						[scopeValues addObject:@"email"];
-	if ((scopes & ADNAuthScopeWritePost) == ADNAuthScopeWritePost)				[scopeValues addObject:@"write_post"];
-	if ((scopes & ADNAuthScopeFollow) == ADNAuthScopeFollow)					[scopeValues addObject:@"follow"];
-	if ((scopes & ADNAuthScopePublicMessages) == ADNAuthScopePublicMessages)	[scopeValues addObject:@"public_messages"];
-	if ((scopes & ADNAuthScopeMessages) == ADNAuthScopeMessages)				[scopeValues addObject:@"messages"];
-	if ((scopes & ADNAuthScopeUpdateProfile) == ADNAuthScopeUpdateProfile)		[scopeValues addObject:@"update_profile"];
-	if ((scopes & ADNAuthScopeExport) == ADNAuthScopeExport)					[scopeValues addObject:@"export"];
-	if ((scopes & ADNAuthScopeFiles) == ADNAuthScopeFiles)						[scopeValues addObject:@"files"];
-    
-    return [scopeValues componentsJoinedByString:@","];
 }
 
 

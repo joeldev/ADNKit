@@ -43,6 +43,13 @@ typedef void (^ADNClientCompletionBlock)(id responseObject, NSError *error);
 // once you have an access code, call this method to finish web auth
 - (void)authenticateWebAuthAccessCode:(NSString *)accessCode forClientID:(NSString *)clientID clientSecret:(NSString *)clientSecret;
 
+// returns the auth scope string expected by the server for the given scopes
++ (NSString *)scopeStringForAuthScopes:(ADNAuthScope)scopes;
+
+// to conform to the requirements of username/password auth, it is required to show the user what permissions they are authorizing for you by signing in.
+// this method returns full descriptions for the given scopes that can be placed in the UI
++ (NSArray *)scopeDescriptionsForScope:(ADNAuthScope)scope;
+
 #pragma mark -
 #pragma mark App.net API implementation convenience methods
 
