@@ -1,0 +1,19 @@
+//
+//  ADNEntity.h
+//  ADNKit
+//
+//  Created by Joel Levin on 3/8/13.
+//  Copyright (c) 2013 Afterwork Studios. All rights reserved.
+//
+
+#import "ANKResource.h"
+
+
+@interface ANKEntity : ANKResource
+
+@property (assign) NSUInteger position;
+@property (assign) NSUInteger length;
+
+- (NSRange)range;
+
+@end

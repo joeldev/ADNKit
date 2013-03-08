@@ -7,54 +7,51 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		252A2BF716E545F100DAE393 /* ADNPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2BF616E545F100DAE393 /* ADNPost.m */; };
-		252A2BF816E545F400DAE393 /* ADNPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2BF616E545F100DAE393 /* ADNPost.m */; };
-		252A2BF916E545FC00DAE393 /* ADNPost.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A2BF516E545F100DAE393 /* ADNPost.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		252A2BFC16E5462D00DAE393 /* ADNChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2BFB16E5462D00DAE393 /* ADNChannel.m */; };
-		252A2BFD16E5463100DAE393 /* ADNChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2BFB16E5462D00DAE393 /* ADNChannel.m */; };
-		252A2BFE16E5463400DAE393 /* ADNChannel.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A2BFA16E5462D00DAE393 /* ADNChannel.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		252A2C0116E5464700DAE393 /* ADNMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A2BFF16E5464700DAE393 /* ADNMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		252A2C0216E5464700DAE393 /* ADNMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C0016E5464700DAE393 /* ADNMessage.m */; };
-		252A2C0316E5464700DAE393 /* ADNMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C0016E5464700DAE393 /* ADNMessage.m */; };
-		252A2C0616E5465A00DAE393 /* ADNFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A2C0416E5465A00DAE393 /* ADNFile.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		252A2C0716E5465A00DAE393 /* ADNFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C0516E5465A00DAE393 /* ADNFile.m */; };
-		252A2C0816E5465A00DAE393 /* ADNFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C0516E5465A00DAE393 /* ADNFile.m */; };
-		252A2C0B16E5466A00DAE393 /* ADNStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A2C0916E5466A00DAE393 /* ADNStream.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		252A2C0C16E5466A00DAE393 /* ADNStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C0A16E5466A00DAE393 /* ADNStream.m */; };
-		252A2C0D16E5466A00DAE393 /* ADNStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C0A16E5466A00DAE393 /* ADNStream.m */; };
-		252A2C1016E5467400DAE393 /* ADNFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A2C0E16E5467300DAE393 /* ADNFilter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		252A2C1116E5467400DAE393 /* ADNFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C0F16E5467400DAE393 /* ADNFilter.m */; };
-		252A2C1216E5467400DAE393 /* ADNFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C0F16E5467400DAE393 /* ADNFilter.m */; };
-		252A2C1516E5467B00DAE393 /* ADNInteraction.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A2C1316E5467B00DAE393 /* ADNInteraction.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		252A2C1616E5467B00DAE393 /* ADNInteraction.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C1416E5467B00DAE393 /* ADNInteraction.m */; };
-		252A2C1716E5467B00DAE393 /* ADNInteraction.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C1416E5467B00DAE393 /* ADNInteraction.m */; };
-		252A2C1A16E5468700DAE393 /* ADNStreamMarker.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A2C1816E5468700DAE393 /* ADNStreamMarker.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		252A2C1B16E5468700DAE393 /* ADNStreamMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C1916E5468700DAE393 /* ADNStreamMarker.m */; };
-		252A2C1C16E5468700DAE393 /* ADNStreamMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C1916E5468700DAE393 /* ADNStreamMarker.m */; };
-		252A2C1F16E546F900DAE393 /* ADNPlace.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A2C1D16E546F900DAE393 /* ADNPlace.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		252A2C2016E546F900DAE393 /* ADNPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C1E16E546F900DAE393 /* ADNPlace.m */; };
-		252A2C2116E546F900DAE393 /* ADNPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C1E16E546F900DAE393 /* ADNPlace.m */; };
-		252A2C2416E5472400DAE393 /* ADNExploreStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A2C2216E5472400DAE393 /* ADNExploreStream.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		252A2C2516E5472400DAE393 /* ADNExploreStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C2316E5472400DAE393 /* ADNExploreStream.m */; };
-		252A2C2616E5472400DAE393 /* ADNExploreStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C2316E5472400DAE393 /* ADNExploreStream.m */; };
-		252A2C2916E5473D00DAE393 /* ADNAnnotation.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A2C2716E5473D00DAE393 /* ADNAnnotation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		252A2C2A16E5473D00DAE393 /* ADNAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C2816E5473D00DAE393 /* ADNAnnotation.m */; };
-		252A2C2B16E5473D00DAE393 /* ADNAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C2816E5473D00DAE393 /* ADNAnnotation.m */; };
-		252A2C3316E5489400DAE393 /* ADNAnnotatableResource.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A2C3116E5489300DAE393 /* ADNAnnotatableResource.h */; };
-		252A2C3416E5489400DAE393 /* ADNAnnotatableResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C3216E5489300DAE393 /* ADNAnnotatableResource.m */; };
-		252A2C3516E5489400DAE393 /* ADNAnnotatableResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C3216E5489300DAE393 /* ADNAnnotatableResource.m */; };
-		252A2C3816E55ACD00DAE393 /* ADNImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A2C3616E55ACD00DAE393 /* ADNImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		252A2C3916E55ACD00DAE393 /* ADNImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C3716E55ACD00DAE393 /* ADNImage.m */; };
-		252A2C3A16E55ACD00DAE393 /* ADNImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C3716E55ACD00DAE393 /* ADNImage.m */; };
-		252A2C3D16E55B5200DAE393 /* ADNUserCounts.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A2C3B16E55B5100DAE393 /* ADNUserCounts.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		252A2C3E16E55B5200DAE393 /* ADNUserCounts.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C3C16E55B5200DAE393 /* ADNUserCounts.m */; };
-		252A2C3F16E55B5200DAE393 /* ADNUserCounts.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C3C16E55B5200DAE393 /* ADNUserCounts.m */; };
-		252A2C4516E5624700DAE393 /* ADNClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A2C4316E5624700DAE393 /* ADNClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		252A2C4616E5624700DAE393 /* ADNClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C4416E5624700DAE393 /* ADNClient.m */; };
-		252A2C4716E5624700DAE393 /* ADNClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C4416E5624700DAE393 /* ADNClient.m */; };
-		252A2C5C16E7117700DAE393 /* ADNClient+ADNPostStreams.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A2C5A16E7117700DAE393 /* ADNClient+ADNPostStreams.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		252A2C5D16E7117700DAE393 /* ADNClient+ADNPostStreams.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C5B16E7117700DAE393 /* ADNClient+ADNPostStreams.m */; };
-		252A2C5E16E7117700DAE393 /* ADNClient+ADNPostStreams.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C5B16E7117700DAE393 /* ADNClient+ADNPostStreams.m */; };
+		252A2BF716E545F100DAE393 /* ANKPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2BF616E545F100DAE393 /* ANKPost.m */; };
+		252A2BF816E545F400DAE393 /* ANKPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2BF616E545F100DAE393 /* ANKPost.m */; };
+		252A2BF916E545FC00DAE393 /* ANKPost.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A2BF516E545F100DAE393 /* ANKPost.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		252A2BFC16E5462D00DAE393 /* ANKChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2BFB16E5462D00DAE393 /* ANKChannel.m */; };
+		252A2BFD16E5463100DAE393 /* ANKChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2BFB16E5462D00DAE393 /* ANKChannel.m */; };
+		252A2BFE16E5463400DAE393 /* ANKChannel.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A2BFA16E5462D00DAE393 /* ANKChannel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		252A2C0116E5464700DAE393 /* ANKMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A2BFF16E5464700DAE393 /* ANKMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		252A2C0216E5464700DAE393 /* ANKMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C0016E5464700DAE393 /* ANKMessage.m */; };
+		252A2C0316E5464700DAE393 /* ANKMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C0016E5464700DAE393 /* ANKMessage.m */; };
+		252A2C0616E5465A00DAE393 /* ANKFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A2C0416E5465A00DAE393 /* ANKFile.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		252A2C0716E5465A00DAE393 /* ANKFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C0516E5465A00DAE393 /* ANKFile.m */; };
+		252A2C0816E5465A00DAE393 /* ANKFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C0516E5465A00DAE393 /* ANKFile.m */; };
+		252A2C0B16E5466A00DAE393 /* ANKStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A2C0916E5466A00DAE393 /* ANKStream.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		252A2C0C16E5466A00DAE393 /* ANKStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C0A16E5466A00DAE393 /* ANKStream.m */; };
+		252A2C0D16E5466A00DAE393 /* ANKStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C0A16E5466A00DAE393 /* ANKStream.m */; };
+		252A2C1016E5467400DAE393 /* ANKFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A2C0E16E5467300DAE393 /* ANKFilter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		252A2C1116E5467400DAE393 /* ANKFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C0F16E5467400DAE393 /* ANKFilter.m */; };
+		252A2C1216E5467400DAE393 /* ANKFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C0F16E5467400DAE393 /* ANKFilter.m */; };
+		252A2C1516E5467B00DAE393 /* ANKInteraction.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A2C1316E5467B00DAE393 /* ANKInteraction.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		252A2C1616E5467B00DAE393 /* ANKInteraction.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C1416E5467B00DAE393 /* ANKInteraction.m */; };
+		252A2C1716E5467B00DAE393 /* ANKInteraction.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C1416E5467B00DAE393 /* ANKInteraction.m */; };
+		252A2C1A16E5468700DAE393 /* ANKStreamMarker.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A2C1816E5468700DAE393 /* ANKStreamMarker.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		252A2C1B16E5468700DAE393 /* ANKStreamMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C1916E5468700DAE393 /* ANKStreamMarker.m */; };
+		252A2C1C16E5468700DAE393 /* ANKStreamMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C1916E5468700DAE393 /* ANKStreamMarker.m */; };
+		252A2C1F16E546F900DAE393 /* ANKPlace.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A2C1D16E546F900DAE393 /* ANKPlace.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		252A2C2016E546F900DAE393 /* ANKPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C1E16E546F900DAE393 /* ANKPlace.m */; };
+		252A2C2116E546F900DAE393 /* ANKPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C1E16E546F900DAE393 /* ANKPlace.m */; };
+		252A2C2416E5472400DAE393 /* ANKExploreStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A2C2216E5472400DAE393 /* ANKExploreStream.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		252A2C2516E5472400DAE393 /* ANKExploreStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C2316E5472400DAE393 /* ANKExploreStream.m */; };
+		252A2C2616E5472400DAE393 /* ANKExploreStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C2316E5472400DAE393 /* ANKExploreStream.m */; };
+		252A2C2916E5473D00DAE393 /* ANKAnnotation.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A2C2716E5473D00DAE393 /* ANKAnnotation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		252A2C2A16E5473D00DAE393 /* ANKAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C2816E5473D00DAE393 /* ANKAnnotation.m */; };
+		252A2C2B16E5473D00DAE393 /* ANKAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C2816E5473D00DAE393 /* ANKAnnotation.m */; };
+		252A2C3316E5489400DAE393 /* ANKAnnotatableResource.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A2C3116E5489300DAE393 /* ANKAnnotatableResource.h */; };
+		252A2C3416E5489400DAE393 /* ANKAnnotatableResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C3216E5489300DAE393 /* ANKAnnotatableResource.m */; };
+		252A2C3516E5489400DAE393 /* ANKAnnotatableResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C3216E5489300DAE393 /* ANKAnnotatableResource.m */; };
+		252A2C3816E55ACD00DAE393 /* ANKImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A2C3616E55ACD00DAE393 /* ANKImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		252A2C3916E55ACD00DAE393 /* ANKImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C3716E55ACD00DAE393 /* ANKImage.m */; };
+		252A2C3A16E55ACD00DAE393 /* ANKImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C3716E55ACD00DAE393 /* ANKImage.m */; };
+		252A2C3D16E55B5200DAE393 /* ANKUserCounts.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A2C3B16E55B5100DAE393 /* ANKUserCounts.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		252A2C3E16E55B5200DAE393 /* ANKUserCounts.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C3C16E55B5200DAE393 /* ANKUserCounts.m */; };
+		252A2C3F16E55B5200DAE393 /* ANKUserCounts.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C3C16E55B5200DAE393 /* ANKUserCounts.m */; };
+		252A2C4516E5624700DAE393 /* ANKClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A2C4316E5624700DAE393 /* ANKClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		252A2C4616E5624700DAE393 /* ANKClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C4416E5624700DAE393 /* ANKClient.m */; };
+		252A2C4716E5624700DAE393 /* ANKClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C4416E5624700DAE393 /* ANKClient.m */; };
 		5DC370DD16E0805E00190862 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DC370DC16E0805E00190862 /* Foundation.framework */; };
 		5DC370E216E0805E00190862 /* ADNKit.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5DC370E116E0805E00190862 /* ADNKit.h */; };
 		5DC3710916E0808C00190862 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DC370F016E0807000190862 /* Cocoa.framework */; };
@@ -89,86 +86,89 @@
 		5DC3727E16E3AF6900190862 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DC3727D16E3AF6900190862 /* UIKit.framework */; };
 		5DC3728116E3AF8900190862 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DC3728016E3AF8800190862 /* CoreLocation.framework */; };
 		5DC3728316E3AF8E00190862 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DC3728216E3AF8E00190862 /* SystemConfiguration.framework */; };
-		5DC3728A16E3B10800190862 /* ADNResource.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC3728816E3B10800190862 /* ADNResource.h */; };
-		5DC3728B16E3B10800190862 /* ADNResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3728916E3B10800190862 /* ADNResource.m */; };
-		5DC3728C16E3B10800190862 /* ADNResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3728916E3B10800190862 /* ADNResource.m */; };
-		5DC3729816E3B4D300190862 /* ADNJSONRequestOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC3729616E3B4D300190862 /* ADNJSONRequestOperation.h */; };
-		5DC3729916E3B4D300190862 /* ADNJSONRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3729716E3B4D300190862 /* ADNJSONRequestOperation.m */; };
-		5DC3729A16E3B4D300190862 /* ADNJSONRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3729716E3B4D300190862 /* ADNJSONRequestOperation.m */; };
-		5DC3729D16E3B66700190862 /* ADNResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC3729B16E3B66700190862 /* ADNResponse.h */; };
-		5DC3729E16E3B66700190862 /* ADNResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3729C16E3B66700190862 /* ADNResponse.m */; };
-		5DC3729F16E3B66700190862 /* ADNResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3729C16E3B66700190862 /* ADNResponse.m */; };
-		5DC372A316E448ED00190862 /* NSArray+ADNAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC372A116E448ED00190862 /* NSArray+ADNAdditions.h */; };
-		5DC372A416E448ED00190862 /* NSArray+ADNAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC372A216E448ED00190862 /* NSArray+ADNAdditions.m */; };
-		5DC372A516E448ED00190862 /* NSArray+ADNAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC372A216E448ED00190862 /* NSArray+ADNAdditions.m */; };
-		5DC372A816E44AE500190862 /* ADNValueTransformations.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC372A616E44AE500190862 /* ADNValueTransformations.h */; };
-		5DC372A916E44AE500190862 /* ADNValueTransformations.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC372A716E44AE500190862 /* ADNValueTransformations.m */; };
-		5DC372AA16E44AE500190862 /* ADNValueTransformations.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC372A716E44AE500190862 /* ADNValueTransformations.m */; };
-		5DC372F716E4752000190862 /* ADNClient+ADNUser.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC372F516E4752000190862 /* ADNClient+ADNUser.h */; };
-		5DC372F816E4752000190862 /* ADNClient+ADNUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC372F616E4752000190862 /* ADNClient+ADNUser.m */; };
-		5DC372F916E4752000190862 /* ADNClient+ADNUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC372F616E4752000190862 /* ADNClient+ADNUser.m */; };
-		5DC372FC16E4759000190862 /* ADNUser.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC372FA16E4758F00190862 /* ADNUser.h */; };
-		5DC372FD16E4759000190862 /* ADNUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC372FB16E4759000190862 /* ADNUser.m */; };
-		5DC372FE16E4759000190862 /* ADNUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC372FB16E4759000190862 /* ADNUser.m */; };
-		5DC3730116E4822A00190862 /* NSDictionary+ADNAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC372FF16E4822A00190862 /* NSDictionary+ADNAdditions.h */; };
-		5DC3730216E4822A00190862 /* NSDictionary+ADNAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3730016E4822A00190862 /* NSDictionary+ADNAdditions.m */; };
-		5DC3730316E4822A00190862 /* NSDictionary+ADNAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3730016E4822A00190862 /* NSDictionary+ADNAdditions.m */; };
-		5DC3730D16E5CDDB00190862 /* ADNUserDescription.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC3730B16E5CDD600190862 /* ADNUserDescription.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5DC3730E16E5CDDB00190862 /* ADNUserDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3730C16E5CDD700190862 /* ADNUserDescription.m */; };
-		5DC3730F16E5CDDB00190862 /* ADNUserDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3730C16E5CDD700190862 /* ADNUserDescription.m */; };
-		5DC3731316E65BDD00190862 /* ADNObjectSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC3731116E65BDA00190862 /* ADNObjectSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5DC3731416E65BDD00190862 /* ADNObjectSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3731216E65BDC00190862 /* ADNObjectSource.m */; };
-		5DC3731516E65BDD00190862 /* ADNObjectSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3731216E65BDC00190862 /* ADNObjectSource.m */; };
-		5DC3731616E665CE00190862 /* ADNEntities.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A2C2C16E5477B00DAE393 /* ADNEntities.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5DC3731716E665D100190862 /* ADNEntities.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C2D16E5477B00DAE393 /* ADNEntities.m */; };
-		5DC3731816E665D200190862 /* ADNEntities.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C2D16E5477B00DAE393 /* ADNEntities.m */; };
-		5DC3731B16E6661500190862 /* ADNClient+ADNPost.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC3731916E6661500190862 /* ADNClient+ADNPost.h */; };
-		5DC3731C16E6661500190862 /* ADNClient+ADNPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3731A16E6661500190862 /* ADNClient+ADNPost.m */; };
-		5DC3731D16E6661500190862 /* ADNClient+ADNPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3731A16E6661500190862 /* ADNClient+ADNPost.m */; };
-		5DC3732016E6661D00190862 /* ADNClient+ADNFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC3731E16E6661D00190862 /* ADNClient+ADNFile.h */; };
-		5DC3732116E6661D00190862 /* ADNClient+ADNFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3731F16E6661D00190862 /* ADNClient+ADNFile.m */; };
-		5DC3732216E6661D00190862 /* ADNClient+ADNFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3731F16E6661D00190862 /* ADNClient+ADNFile.m */; };
-		5DF6EF7016E8F80C0018D445 /* ADNChannelCounts.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DF6EF6E16E8F80B0018D445 /* ADNChannelCounts.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5DF6EF7116E8F80C0018D445 /* ADNChannelCounts.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6EF6F16E8F80B0018D445 /* ADNChannelCounts.m */; };
-		5DF6EF7216E8F80C0018D445 /* ADNChannelCounts.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6EF6F16E8F80B0018D445 /* ADNChannelCounts.m */; };
-		5DF6EF7516E8FAE60018D445 /* ADNACL.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DF6EF7316E8FAE50018D445 /* ADNACL.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5DF6EF7616E8FAE60018D445 /* ADNACL.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6EF7416E8FAE50018D445 /* ADNACL.m */; };
-		5DF6EF7716E8FAE60018D445 /* ADNACL.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6EF7416E8FAE50018D445 /* ADNACL.m */; };
-		5DF6EF8316E90BFB0018D445 /* ADNFilterClause.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DF6EF8116E90BFB0018D445 /* ADNFilterClause.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5DF6EF8416E90BFB0018D445 /* ADNFilterClause.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6EF8216E90BFB0018D445 /* ADNFilterClause.m */; };
-		5DF6EF8516E90BFB0018D445 /* ADNFilterClause.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6EF8216E90BFB0018D445 /* ADNFilterClause.m */; };
-		5DF6F03016E9A6D70018D445 /* ADNPlaceCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DF6F02E16E9A6D70018D445 /* ADNPlaceCategory.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5DF6F03116E9A6D70018D445 /* ADNPlaceCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F02F16E9A6D70018D445 /* ADNPlaceCategory.m */; };
-		5DF6F03216E9A6D70018D445 /* ADNPlaceCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F02F16E9A6D70018D445 /* ADNPlaceCategory.m */; };
-		5DF6F03716E9A97C0018D445 /* ADNClient+ADNPlace.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DF6F03516E9A97C0018D445 /* ADNClient+ADNPlace.h */; };
-		5DF6F03816E9A97C0018D445 /* ADNClient+ADNPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F03616E9A97C0018D445 /* ADNClient+ADNPlace.m */; };
-		5DF6F03916E9A97C0018D445 /* ADNClient+ADNPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F03616E9A97C0018D445 /* ADNClient+ADNPlace.m */; };
-		5DF6F03C16E9A9970018D445 /* ADNClient+ADNChannel.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DF6F03A16E9A9970018D445 /* ADNClient+ADNChannel.h */; };
-		5DF6F03D16E9A9970018D445 /* ADNClient+ADNChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F03B16E9A9970018D445 /* ADNClient+ADNChannel.m */; };
-		5DF6F03E16E9A9970018D445 /* ADNClient+ADNChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F03B16E9A9970018D445 /* ADNClient+ADNChannel.m */; };
-		5DF6F04116E9A9A20018D445 /* ADNClient+ADNMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DF6F03F16E9A9A20018D445 /* ADNClient+ADNMessage.h */; };
-		5DF6F04216E9A9A20018D445 /* ADNClient+ADNMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F04016E9A9A20018D445 /* ADNClient+ADNMessage.m */; };
-		5DF6F04316E9A9A20018D445 /* ADNClient+ADNMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F04016E9A9A20018D445 /* ADNClient+ADNMessage.m */; };
-		5DF6F04616E9A9AF0018D445 /* ADNClient+ADNStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DF6F04416E9A9AF0018D445 /* ADNClient+ADNStream.h */; };
-		5DF6F04716E9A9AF0018D445 /* ADNClient+ADNStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F04516E9A9AF0018D445 /* ADNClient+ADNStream.m */; };
-		5DF6F04816E9A9AF0018D445 /* ADNClient+ADNStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F04516E9A9AF0018D445 /* ADNClient+ADNStream.m */; };
-		5DF6F08316EA4AC90018D445 /* ADNEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DF6F08116EA4AC90018D445 /* ADNEntity.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5DF6F08416EA4AC90018D445 /* ADNEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F08216EA4AC90018D445 /* ADNEntity.m */; };
-		5DF6F08516EA4AC90018D445 /* ADNEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F08216EA4AC90018D445 /* ADNEntity.m */; };
-		5DF6F08816EA4D860018D445 /* ADNMentionEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DF6F08616EA4D850018D445 /* ADNMentionEntity.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5DF6F08916EA4D860018D445 /* ADNMentionEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F08716EA4D850018D445 /* ADNMentionEntity.m */; };
-		5DF6F08A16EA4D860018D445 /* ADNMentionEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F08716EA4D850018D445 /* ADNMentionEntity.m */; };
-		5DF6F08D16EA4DFD0018D445 /* ADNHashtagEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DF6F08B16EA4DFC0018D445 /* ADNHashtagEntity.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5DF6F08E16EA4DFD0018D445 /* ADNHashtagEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F08C16EA4DFD0018D445 /* ADNHashtagEntity.m */; };
-		5DF6F08F16EA4DFD0018D445 /* ADNHashtagEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F08C16EA4DFD0018D445 /* ADNHashtagEntity.m */; };
-		5DF6F09216EA4E0D0018D445 /* ADNLinkEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DF6F09016EA4E0C0018D445 /* ADNLinkEntity.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5DF6F09316EA4E0D0018D445 /* ADNLinkEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F09116EA4E0C0018D445 /* ADNLinkEntity.m */; };
-		5DF6F09416EA4E0D0018D445 /* ADNLinkEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F09116EA4E0C0018D445 /* ADNLinkEntity.m */; };
-		5DF6F09816EA70550018D445 /* ADNClient+ADNHandlerBlocks.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DF6F09616EA70540018D445 /* ADNClient+ADNHandlerBlocks.h */; };
-		5DF6F09916EA70550018D445 /* ADNClient+ADNHandlerBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F09716EA70550018D445 /* ADNClient+ADNHandlerBlocks.m */; };
-		5DF6F09A16EA70550018D445 /* ADNClient+ADNHandlerBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F09716EA70550018D445 /* ADNClient+ADNHandlerBlocks.m */; };
+		5DC3728A16E3B10800190862 /* ANKResource.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC3728816E3B10800190862 /* ANKResource.h */; };
+		5DC3728B16E3B10800190862 /* ANKResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3728916E3B10800190862 /* ANKResource.m */; };
+		5DC3728C16E3B10800190862 /* ANKResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3728916E3B10800190862 /* ANKResource.m */; };
+		5DC3729816E3B4D300190862 /* ANKJSONRequestOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC3729616E3B4D300190862 /* ANKJSONRequestOperation.h */; };
+		5DC3729916E3B4D300190862 /* ANKJSONRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3729716E3B4D300190862 /* ANKJSONRequestOperation.m */; };
+		5DC3729A16E3B4D300190862 /* ANKJSONRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3729716E3B4D300190862 /* ANKJSONRequestOperation.m */; };
+		5DC3729D16E3B66700190862 /* ANKAPIResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC3729B16E3B66700190862 /* ANKAPIResponse.h */; };
+		5DC372A316E448ED00190862 /* NSArray+ANKAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC372A116E448ED00190862 /* NSArray+ANKAdditions.h */; };
+		5DC372A416E448ED00190862 /* NSArray+ANKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC372A216E448ED00190862 /* NSArray+ANKAdditions.m */; };
+		5DC372A516E448ED00190862 /* NSArray+ANKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC372A216E448ED00190862 /* NSArray+ANKAdditions.m */; };
+		5DC372A816E44AE500190862 /* ANKValueTransformations.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC372A616E44AE500190862 /* ANKValueTransformations.h */; };
+		5DC372A916E44AE500190862 /* ANKValueTransformations.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC372A716E44AE500190862 /* ANKValueTransformations.m */; };
+		5DC372AA16E44AE500190862 /* ANKValueTransformations.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC372A716E44AE500190862 /* ANKValueTransformations.m */; };
+		5DC372F716E4752000190862 /* ANKClient+ANKUser.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC372F516E4752000190862 /* ANKClient+ANKUser.h */; };
+		5DC372F816E4752000190862 /* ANKClient+ANKUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC372F616E4752000190862 /* ANKClient+ANKUser.m */; };
+		5DC372F916E4752000190862 /* ANKClient+ANKUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC372F616E4752000190862 /* ANKClient+ANKUser.m */; };
+		5DC372FC16E4759000190862 /* ANKUser.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC372FA16E4758F00190862 /* ANKUser.h */; };
+		5DC372FD16E4759000190862 /* ANKUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC372FB16E4759000190862 /* ANKUser.m */; };
+		5DC372FE16E4759000190862 /* ANKUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC372FB16E4759000190862 /* ANKUser.m */; };
+		5DC3730116E4822A00190862 /* NSDictionary+ANKAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC372FF16E4822A00190862 /* NSDictionary+ANKAdditions.h */; };
+		5DC3730216E4822A00190862 /* NSDictionary+ANKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3730016E4822A00190862 /* NSDictionary+ANKAdditions.m */; };
+		5DC3730316E4822A00190862 /* NSDictionary+ANKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3730016E4822A00190862 /* NSDictionary+ANKAdditions.m */; };
+		5DC3730D16E5CDDB00190862 /* ANKUserDescription.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC3730B16E5CDD600190862 /* ANKUserDescription.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5DC3730E16E5CDDB00190862 /* ANKUserDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3730C16E5CDD700190862 /* ANKUserDescription.m */; };
+		5DC3730F16E5CDDB00190862 /* ANKUserDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3730C16E5CDD700190862 /* ANKUserDescription.m */; };
+		5DC3731316E65BDD00190862 /* ANKObjectSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC3731116E65BDA00190862 /* ANKObjectSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5DC3731416E65BDD00190862 /* ANKObjectSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3731216E65BDC00190862 /* ANKObjectSource.m */; };
+		5DC3731516E65BDD00190862 /* ANKObjectSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3731216E65BDC00190862 /* ANKObjectSource.m */; };
+		5DC3731616E665CE00190862 /* ANKEntities.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A2C2C16E5477B00DAE393 /* ANKEntities.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5DC3731716E665D100190862 /* ANKEntities.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C2D16E5477B00DAE393 /* ANKEntities.m */; };
+		5DC3731816E665D200190862 /* ANKEntities.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C2D16E5477B00DAE393 /* ANKEntities.m */; };
+		5DC3731D16E6661500190862 /* ANKClient+ANKPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3731A16E6661500190862 /* ANKClient+ANKPost.m */; };
+		5DC3732016E6661D00190862 /* ANKClient+ANKFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC3731E16E6661D00190862 /* ANKClient+ANKFile.h */; };
+		5DC3732116E6661D00190862 /* ANKClient+ANKFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3731F16E6661D00190862 /* ANKClient+ANKFile.m */; };
+		5DC3732216E6661D00190862 /* ANKClient+ANKFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3731F16E6661D00190862 /* ANKClient+ANKFile.m */; };
+		5DF6EF7016E8F80C0018D445 /* ANKChannelCounts.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DF6EF6E16E8F80B0018D445 /* ANKChannelCounts.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5DF6EF7116E8F80C0018D445 /* ANKChannelCounts.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6EF6F16E8F80B0018D445 /* ANKChannelCounts.m */; };
+		5DF6EF7216E8F80C0018D445 /* ANKChannelCounts.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6EF6F16E8F80B0018D445 /* ANKChannelCounts.m */; };
+		5DF6EF7516E8FAE60018D445 /* ANKACL.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DF6EF7316E8FAE50018D445 /* ANKACL.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5DF6EF7616E8FAE60018D445 /* ANKACL.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6EF7416E8FAE50018D445 /* ANKACL.m */; };
+		5DF6EF7716E8FAE60018D445 /* ANKACL.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6EF7416E8FAE50018D445 /* ANKACL.m */; };
+		5DF6EF8316E90BFB0018D445 /* ANKFilterClause.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DF6EF8116E90BFB0018D445 /* ANKFilterClause.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5DF6EF8416E90BFB0018D445 /* ANKFilterClause.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6EF8216E90BFB0018D445 /* ANKFilterClause.m */; };
+		5DF6EF8516E90BFB0018D445 /* ANKFilterClause.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6EF8216E90BFB0018D445 /* ANKFilterClause.m */; };
+		5DF6F03016E9A6D70018D445 /* ANKPlaceCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DF6F02E16E9A6D70018D445 /* ANKPlaceCategory.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5DF6F03116E9A6D70018D445 /* ANKPlaceCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F02F16E9A6D70018D445 /* ANKPlaceCategory.m */; };
+		5DF6F03216E9A6D70018D445 /* ANKPlaceCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F02F16E9A6D70018D445 /* ANKPlaceCategory.m */; };
+		5DF6F03716E9A97C0018D445 /* ANKClient+ANKPlace.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DF6F03516E9A97C0018D445 /* ANKClient+ANKPlace.h */; };
+		5DF6F03816E9A97C0018D445 /* ANKClient+ANKPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F03616E9A97C0018D445 /* ANKClient+ANKPlace.m */; };
+		5DF6F03916E9A97C0018D445 /* ANKClient+ANKPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F03616E9A97C0018D445 /* ANKClient+ANKPlace.m */; };
+		5DF6F03C16E9A9970018D445 /* ANKClient+ANKChannel.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DF6F03A16E9A9970018D445 /* ANKClient+ANKChannel.h */; };
+		5DF6F03D16E9A9970018D445 /* ANKClient+ANKChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F03B16E9A9970018D445 /* ANKClient+ANKChannel.m */; };
+		5DF6F03E16E9A9970018D445 /* ANKClient+ANKChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F03B16E9A9970018D445 /* ANKClient+ANKChannel.m */; };
+		5DF6F04116E9A9A20018D445 /* ANKClient+ANKMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DF6F03F16E9A9A20018D445 /* ANKClient+ANKMessage.h */; };
+		5DF6F04216E9A9A20018D445 /* ANKClient+ANKMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F04016E9A9A20018D445 /* ANKClient+ANKMessage.m */; };
+		5DF6F04316E9A9A20018D445 /* ANKClient+ANKMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F04016E9A9A20018D445 /* ANKClient+ANKMessage.m */; };
+		5DF6F04616E9A9AF0018D445 /* ANKClient+ANKStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DF6F04416E9A9AF0018D445 /* ANKClient+ANKStream.h */; };
+		5DF6F04716E9A9AF0018D445 /* ANKClient+ANKStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F04516E9A9AF0018D445 /* ANKClient+ANKStream.m */; };
+		5DF6F04816E9A9AF0018D445 /* ANKClient+ANKStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F04516E9A9AF0018D445 /* ANKClient+ANKStream.m */; };
+		5DF6F08316EA4AC90018D445 /* ANKEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DF6F08116EA4AC90018D445 /* ANKEntity.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5DF6F08416EA4AC90018D445 /* ANKEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F08216EA4AC90018D445 /* ANKEntity.m */; };
+		5DF6F08516EA4AC90018D445 /* ANKEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F08216EA4AC90018D445 /* ANKEntity.m */; };
+		5DF6F08816EA4D860018D445 /* ANKMentionEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DF6F08616EA4D850018D445 /* ANKMentionEntity.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5DF6F08916EA4D860018D445 /* ANKMentionEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F08716EA4D850018D445 /* ANKMentionEntity.m */; };
+		5DF6F08A16EA4D860018D445 /* ANKMentionEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F08716EA4D850018D445 /* ANKMentionEntity.m */; };
+		5DF6F08D16EA4DFD0018D445 /* ANKHashtagEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DF6F08B16EA4DFC0018D445 /* ANKHashtagEntity.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5DF6F08E16EA4DFD0018D445 /* ANKHashtagEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F08C16EA4DFD0018D445 /* ANKHashtagEntity.m */; };
+		5DF6F08F16EA4DFD0018D445 /* ANKHashtagEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F08C16EA4DFD0018D445 /* ANKHashtagEntity.m */; };
+		5DF6F09216EA4E0D0018D445 /* ANKLinkEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DF6F09016EA4E0C0018D445 /* ANKLinkEntity.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5DF6F09316EA4E0D0018D445 /* ANKLinkEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F09116EA4E0C0018D445 /* ANKLinkEntity.m */; };
+		5DF6F09416EA4E0D0018D445 /* ANKLinkEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F09116EA4E0C0018D445 /* ANKLinkEntity.m */; };
+		5DF6F09816EA70550018D445 /* ANKClient+ANKHandlerBlocks.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DF6F09616EA70540018D445 /* ANKClient+ANKHandlerBlocks.h */; };
+		5DF6F09916EA70550018D445 /* ANKClient+ANKHandlerBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F09716EA70550018D445 /* ANKClient+ANKHandlerBlocks.m */; };
+		5DF6F09A16EA70550018D445 /* ANKClient+ANKHandlerBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F09716EA70550018D445 /* ANKClient+ANKHandlerBlocks.m */; };
 		5DF6F0A016EA7B410018D445 /* ANKUsernamePasswordAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F09E16EA7B410018D445 /* ANKUsernamePasswordAuthViewController.m */; };
 		5DF6F0A416EA7B6B0018D445 /* ANKOAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F0A316EA7B6A0018D445 /* ANKOAuthViewController.m */; };
+		5DF6F0A516EA861E0018D445 /* ANKClient+ANKPost.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC3731916E6661500190862 /* ANKClient+ANKPost.h */; };
+		5DF6F0A616EA86260018D445 /* ANKClient+ANKPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3731A16E6661500190862 /* ANKClient+ANKPost.m */; };
+		5DF6F0A816EA86610018D445 /* ANKClient+ANKPostStreams.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A2C5A16E7117700DAE393 /* ANKClient+ANKPostStreams.h */; };
+		5DF6F0A916EA86650018D445 /* ANKClient+ANKPostStreams.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C5B16E7117700DAE393 /* ANKClient+ANKPostStreams.m */; };
+		5DF6F0AA16EA86650018D445 /* ANKClient+ANKPostStreams.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C5B16E7117700DAE393 /* ANKClient+ANKPostStreams.m */; };
+		5DF6F0AB16EA8A9C0018D445 /* ANKAPIResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3729C16E3B66700190862 /* ANKAPIResponse.m */; };
+		5DF6F0AC16EA8A9D0018D445 /* ANKAPIResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3729C16E3B66700190862 /* ANKAPIResponse.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -185,40 +185,40 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		252A2BF516E545F100DAE393 /* ADNPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADNPost.h; sourceTree = "<group>"; };
-		252A2BF616E545F100DAE393 /* ADNPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADNPost.m; sourceTree = "<group>"; };
-		252A2BFA16E5462D00DAE393 /* ADNChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADNChannel.h; sourceTree = "<group>"; };
-		252A2BFB16E5462D00DAE393 /* ADNChannel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADNChannel.m; sourceTree = "<group>"; };
-		252A2BFF16E5464700DAE393 /* ADNMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADNMessage.h; sourceTree = "<group>"; };
-		252A2C0016E5464700DAE393 /* ADNMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADNMessage.m; sourceTree = "<group>"; };
-		252A2C0416E5465A00DAE393 /* ADNFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADNFile.h; sourceTree = "<group>"; };
-		252A2C0516E5465A00DAE393 /* ADNFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADNFile.m; sourceTree = "<group>"; };
-		252A2C0916E5466A00DAE393 /* ADNStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADNStream.h; sourceTree = "<group>"; };
-		252A2C0A16E5466A00DAE393 /* ADNStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADNStream.m; sourceTree = "<group>"; };
-		252A2C0E16E5467300DAE393 /* ADNFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADNFilter.h; sourceTree = "<group>"; };
-		252A2C0F16E5467400DAE393 /* ADNFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADNFilter.m; sourceTree = "<group>"; };
-		252A2C1316E5467B00DAE393 /* ADNInteraction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADNInteraction.h; sourceTree = "<group>"; };
-		252A2C1416E5467B00DAE393 /* ADNInteraction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADNInteraction.m; sourceTree = "<group>"; };
-		252A2C1816E5468700DAE393 /* ADNStreamMarker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADNStreamMarker.h; sourceTree = "<group>"; };
-		252A2C1916E5468700DAE393 /* ADNStreamMarker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADNStreamMarker.m; sourceTree = "<group>"; };
-		252A2C1D16E546F900DAE393 /* ADNPlace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADNPlace.h; sourceTree = "<group>"; };
-		252A2C1E16E546F900DAE393 /* ADNPlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADNPlace.m; sourceTree = "<group>"; };
-		252A2C2216E5472400DAE393 /* ADNExploreStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADNExploreStream.h; sourceTree = "<group>"; };
-		252A2C2316E5472400DAE393 /* ADNExploreStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADNExploreStream.m; sourceTree = "<group>"; };
-		252A2C2716E5473D00DAE393 /* ADNAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADNAnnotation.h; sourceTree = "<group>"; };
-		252A2C2816E5473D00DAE393 /* ADNAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADNAnnotation.m; sourceTree = "<group>"; };
-		252A2C2C16E5477B00DAE393 /* ADNEntities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADNEntities.h; sourceTree = "<group>"; };
-		252A2C2D16E5477B00DAE393 /* ADNEntities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADNEntities.m; sourceTree = "<group>"; };
-		252A2C3116E5489300DAE393 /* ADNAnnotatableResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADNAnnotatableResource.h; sourceTree = "<group>"; };
-		252A2C3216E5489300DAE393 /* ADNAnnotatableResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADNAnnotatableResource.m; sourceTree = "<group>"; };
-		252A2C3616E55ACD00DAE393 /* ADNImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADNImage.h; sourceTree = "<group>"; };
-		252A2C3716E55ACD00DAE393 /* ADNImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADNImage.m; sourceTree = "<group>"; };
-		252A2C3B16E55B5100DAE393 /* ADNUserCounts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADNUserCounts.h; sourceTree = "<group>"; };
-		252A2C3C16E55B5200DAE393 /* ADNUserCounts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADNUserCounts.m; sourceTree = "<group>"; };
-		252A2C4316E5624700DAE393 /* ADNClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADNClient.h; sourceTree = "<group>"; };
-		252A2C4416E5624700DAE393 /* ADNClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADNClient.m; sourceTree = "<group>"; };
-		252A2C5A16E7117700DAE393 /* ADNClient+ADNPostStreams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ADNClient+ADNPostStreams.h"; sourceTree = "<group>"; };
-		252A2C5B16E7117700DAE393 /* ADNClient+ADNPostStreams.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ADNClient+ADNPostStreams.m"; sourceTree = "<group>"; };
+		252A2BF516E545F100DAE393 /* ANKPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKPost.h; sourceTree = "<group>"; };
+		252A2BF616E545F100DAE393 /* ANKPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANKPost.m; sourceTree = "<group>"; };
+		252A2BFA16E5462D00DAE393 /* ANKChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKChannel.h; sourceTree = "<group>"; };
+		252A2BFB16E5462D00DAE393 /* ANKChannel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANKChannel.m; sourceTree = "<group>"; };
+		252A2BFF16E5464700DAE393 /* ANKMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKMessage.h; sourceTree = "<group>"; };
+		252A2C0016E5464700DAE393 /* ANKMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANKMessage.m; sourceTree = "<group>"; };
+		252A2C0416E5465A00DAE393 /* ANKFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKFile.h; sourceTree = "<group>"; };
+		252A2C0516E5465A00DAE393 /* ANKFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANKFile.m; sourceTree = "<group>"; };
+		252A2C0916E5466A00DAE393 /* ANKStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKStream.h; sourceTree = "<group>"; };
+		252A2C0A16E5466A00DAE393 /* ANKStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANKStream.m; sourceTree = "<group>"; };
+		252A2C0E16E5467300DAE393 /* ANKFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKFilter.h; sourceTree = "<group>"; };
+		252A2C0F16E5467400DAE393 /* ANKFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANKFilter.m; sourceTree = "<group>"; };
+		252A2C1316E5467B00DAE393 /* ANKInteraction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKInteraction.h; sourceTree = "<group>"; };
+		252A2C1416E5467B00DAE393 /* ANKInteraction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANKInteraction.m; sourceTree = "<group>"; };
+		252A2C1816E5468700DAE393 /* ANKStreamMarker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKStreamMarker.h; sourceTree = "<group>"; };
+		252A2C1916E5468700DAE393 /* ANKStreamMarker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANKStreamMarker.m; sourceTree = "<group>"; };
+		252A2C1D16E546F900DAE393 /* ANKPlace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKPlace.h; sourceTree = "<group>"; };
+		252A2C1E16E546F900DAE393 /* ANKPlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANKPlace.m; sourceTree = "<group>"; };
+		252A2C2216E5472400DAE393 /* ANKExploreStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKExploreStream.h; sourceTree = "<group>"; };
+		252A2C2316E5472400DAE393 /* ANKExploreStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANKExploreStream.m; sourceTree = "<group>"; };
+		252A2C2716E5473D00DAE393 /* ANKAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKAnnotation.h; sourceTree = "<group>"; };
+		252A2C2816E5473D00DAE393 /* ANKAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANKAnnotation.m; sourceTree = "<group>"; };
+		252A2C2C16E5477B00DAE393 /* ANKEntities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKEntities.h; sourceTree = "<group>"; };
+		252A2C2D16E5477B00DAE393 /* ANKEntities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANKEntities.m; sourceTree = "<group>"; };
+		252A2C3116E5489300DAE393 /* ANKAnnotatableResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKAnnotatableResource.h; sourceTree = "<group>"; };
+		252A2C3216E5489300DAE393 /* ANKAnnotatableResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANKAnnotatableResource.m; sourceTree = "<group>"; };
+		252A2C3616E55ACD00DAE393 /* ANKImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKImage.h; sourceTree = "<group>"; };
+		252A2C3716E55ACD00DAE393 /* ANKImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANKImage.m; sourceTree = "<group>"; };
+		252A2C3B16E55B5100DAE393 /* ANKUserCounts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKUserCounts.h; sourceTree = "<group>"; };
+		252A2C3C16E55B5200DAE393 /* ANKUserCounts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANKUserCounts.m; sourceTree = "<group>"; };
+		252A2C4316E5624700DAE393 /* ANKClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKClient.h; sourceTree = "<group>"; };
+		252A2C4416E5624700DAE393 /* ANKClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANKClient.m; sourceTree = "<group>"; };
+		252A2C5A16E7117700DAE393 /* ANKClient+ANKPostStreams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ANKClient+ANKPostStreams.h"; sourceTree = "<group>"; };
+		252A2C5B16E7117700DAE393 /* ANKClient+ANKPostStreams.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ANKClient+ANKPostStreams.m"; sourceTree = "<group>"; };
 		5DC370D916E0805E00190862 /* libADNKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libADNKit.a; path = "libADNKit-iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DC370DC16E0805E00190862 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5DC370E016E0805E00190862 /* ADNKit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ADNKit-Prefix.pch"; sourceTree = "<group>"; };
@@ -255,56 +255,56 @@
 		5DC3727D16E3AF6900190862 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5DC3728016E3AF8800190862 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/CoreLocation.framework; sourceTree = DEVELOPER_DIR; };
 		5DC3728216E3AF8E00190862 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
-		5DC3728816E3B10800190862 /* ADNResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADNResource.h; sourceTree = "<group>"; };
-		5DC3728916E3B10800190862 /* ADNResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADNResource.m; sourceTree = "<group>"; };
-		5DC3729616E3B4D300190862 /* ADNJSONRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADNJSONRequestOperation.h; sourceTree = "<group>"; };
-		5DC3729716E3B4D300190862 /* ADNJSONRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADNJSONRequestOperation.m; sourceTree = "<group>"; };
-		5DC3729B16E3B66700190862 /* ADNResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADNResponse.h; sourceTree = "<group>"; };
-		5DC3729C16E3B66700190862 /* ADNResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADNResponse.m; sourceTree = "<group>"; };
-		5DC372A116E448ED00190862 /* NSArray+ADNAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+ADNAdditions.h"; sourceTree = "<group>"; };
-		5DC372A216E448ED00190862 /* NSArray+ADNAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+ADNAdditions.m"; sourceTree = "<group>"; };
-		5DC372A616E44AE500190862 /* ADNValueTransformations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADNValueTransformations.h; sourceTree = "<group>"; };
-		5DC372A716E44AE500190862 /* ADNValueTransformations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADNValueTransformations.m; sourceTree = "<group>"; };
-		5DC372F516E4752000190862 /* ADNClient+ADNUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ADNClient+ADNUser.h"; sourceTree = "<group>"; };
-		5DC372F616E4752000190862 /* ADNClient+ADNUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ADNClient+ADNUser.m"; sourceTree = "<group>"; };
-		5DC372FA16E4758F00190862 /* ADNUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADNUser.h; sourceTree = "<group>"; };
-		5DC372FB16E4759000190862 /* ADNUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADNUser.m; sourceTree = "<group>"; };
-		5DC372FF16E4822A00190862 /* NSDictionary+ADNAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+ADNAdditions.h"; sourceTree = "<group>"; };
-		5DC3730016E4822A00190862 /* NSDictionary+ADNAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+ADNAdditions.m"; sourceTree = "<group>"; };
-		5DC3730B16E5CDD600190862 /* ADNUserDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADNUserDescription.h; sourceTree = "<group>"; };
-		5DC3730C16E5CDD700190862 /* ADNUserDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADNUserDescription.m; sourceTree = "<group>"; };
-		5DC3731116E65BDA00190862 /* ADNObjectSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADNObjectSource.h; sourceTree = "<group>"; };
-		5DC3731216E65BDC00190862 /* ADNObjectSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADNObjectSource.m; sourceTree = "<group>"; };
-		5DC3731916E6661500190862 /* ADNClient+ADNPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ADNClient+ADNPost.h"; sourceTree = "<group>"; };
-		5DC3731A16E6661500190862 /* ADNClient+ADNPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ADNClient+ADNPost.m"; sourceTree = "<group>"; };
-		5DC3731E16E6661D00190862 /* ADNClient+ADNFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ADNClient+ADNFile.h"; sourceTree = "<group>"; };
-		5DC3731F16E6661D00190862 /* ADNClient+ADNFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ADNClient+ADNFile.m"; sourceTree = "<group>"; };
-		5DF6EF6E16E8F80B0018D445 /* ADNChannelCounts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADNChannelCounts.h; sourceTree = "<group>"; };
-		5DF6EF6F16E8F80B0018D445 /* ADNChannelCounts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADNChannelCounts.m; sourceTree = "<group>"; };
-		5DF6EF7316E8FAE50018D445 /* ADNACL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADNACL.h; sourceTree = "<group>"; };
-		5DF6EF7416E8FAE50018D445 /* ADNACL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADNACL.m; sourceTree = "<group>"; };
-		5DF6EF8116E90BFB0018D445 /* ADNFilterClause.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADNFilterClause.h; sourceTree = "<group>"; };
-		5DF6EF8216E90BFB0018D445 /* ADNFilterClause.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADNFilterClause.m; sourceTree = "<group>"; };
-		5DF6F02E16E9A6D70018D445 /* ADNPlaceCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADNPlaceCategory.h; sourceTree = "<group>"; };
-		5DF6F02F16E9A6D70018D445 /* ADNPlaceCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADNPlaceCategory.m; sourceTree = "<group>"; };
-		5DF6F03516E9A97C0018D445 /* ADNClient+ADNPlace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ADNClient+ADNPlace.h"; sourceTree = "<group>"; };
-		5DF6F03616E9A97C0018D445 /* ADNClient+ADNPlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ADNClient+ADNPlace.m"; sourceTree = "<group>"; };
-		5DF6F03A16E9A9970018D445 /* ADNClient+ADNChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ADNClient+ADNChannel.h"; sourceTree = "<group>"; };
-		5DF6F03B16E9A9970018D445 /* ADNClient+ADNChannel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ADNClient+ADNChannel.m"; sourceTree = "<group>"; };
-		5DF6F03F16E9A9A20018D445 /* ADNClient+ADNMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ADNClient+ADNMessage.h"; sourceTree = "<group>"; };
-		5DF6F04016E9A9A20018D445 /* ADNClient+ADNMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ADNClient+ADNMessage.m"; sourceTree = "<group>"; };
-		5DF6F04416E9A9AF0018D445 /* ADNClient+ADNStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ADNClient+ADNStream.h"; sourceTree = "<group>"; };
-		5DF6F04516E9A9AF0018D445 /* ADNClient+ADNStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ADNClient+ADNStream.m"; sourceTree = "<group>"; };
-		5DF6F08116EA4AC90018D445 /* ADNEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADNEntity.h; sourceTree = "<group>"; };
-		5DF6F08216EA4AC90018D445 /* ADNEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADNEntity.m; sourceTree = "<group>"; };
-		5DF6F08616EA4D850018D445 /* ADNMentionEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADNMentionEntity.h; sourceTree = "<group>"; };
-		5DF6F08716EA4D850018D445 /* ADNMentionEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADNMentionEntity.m; sourceTree = "<group>"; };
-		5DF6F08B16EA4DFC0018D445 /* ADNHashtagEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADNHashtagEntity.h; sourceTree = "<group>"; };
-		5DF6F08C16EA4DFD0018D445 /* ADNHashtagEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADNHashtagEntity.m; sourceTree = "<group>"; };
-		5DF6F09016EA4E0C0018D445 /* ADNLinkEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADNLinkEntity.h; sourceTree = "<group>"; };
-		5DF6F09116EA4E0C0018D445 /* ADNLinkEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADNLinkEntity.m; sourceTree = "<group>"; };
-		5DF6F09616EA70540018D445 /* ADNClient+ADNHandlerBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ADNClient+ADNHandlerBlocks.h"; sourceTree = "<group>"; };
-		5DF6F09716EA70550018D445 /* ADNClient+ADNHandlerBlocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ADNClient+ADNHandlerBlocks.m"; sourceTree = "<group>"; };
+		5DC3728816E3B10800190862 /* ANKResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKResource.h; sourceTree = "<group>"; };
+		5DC3728916E3B10800190862 /* ANKResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANKResource.m; sourceTree = "<group>"; };
+		5DC3729616E3B4D300190862 /* ANKJSONRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKJSONRequestOperation.h; sourceTree = "<group>"; };
+		5DC3729716E3B4D300190862 /* ANKJSONRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANKJSONRequestOperation.m; sourceTree = "<group>"; };
+		5DC3729B16E3B66700190862 /* ANKAPIResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKAPIResponse.h; sourceTree = "<group>"; };
+		5DC3729C16E3B66700190862 /* ANKAPIResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANKAPIResponse.m; sourceTree = "<group>"; };
+		5DC372A116E448ED00190862 /* NSArray+ANKAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+ANKAdditions.h"; sourceTree = "<group>"; };
+		5DC372A216E448ED00190862 /* NSArray+ANKAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+ANKAdditions.m"; sourceTree = "<group>"; };
+		5DC372A616E44AE500190862 /* ANKValueTransformations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKValueTransformations.h; sourceTree = "<group>"; };
+		5DC372A716E44AE500190862 /* ANKValueTransformations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANKValueTransformations.m; sourceTree = "<group>"; };
+		5DC372F516E4752000190862 /* ANKClient+ANKUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ANKClient+ANKUser.h"; sourceTree = "<group>"; };
+		5DC372F616E4752000190862 /* ANKClient+ANKUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ANKClient+ANKUser.m"; sourceTree = "<group>"; };
+		5DC372FA16E4758F00190862 /* ANKUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKUser.h; sourceTree = "<group>"; };
+		5DC372FB16E4759000190862 /* ANKUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANKUser.m; sourceTree = "<group>"; };
+		5DC372FF16E4822A00190862 /* NSDictionary+ANKAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+ANKAdditions.h"; sourceTree = "<group>"; };
+		5DC3730016E4822A00190862 /* NSDictionary+ANKAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+ANKAdditions.m"; sourceTree = "<group>"; };
+		5DC3730B16E5CDD600190862 /* ANKUserDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKUserDescription.h; sourceTree = "<group>"; };
+		5DC3730C16E5CDD700190862 /* ANKUserDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANKUserDescription.m; sourceTree = "<group>"; };
+		5DC3731116E65BDA00190862 /* ANKObjectSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKObjectSource.h; sourceTree = "<group>"; };
+		5DC3731216E65BDC00190862 /* ANKObjectSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANKObjectSource.m; sourceTree = "<group>"; };
+		5DC3731916E6661500190862 /* ANKClient+ANKPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ANKClient+ANKPost.h"; sourceTree = "<group>"; };
+		5DC3731A16E6661500190862 /* ANKClient+ANKPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ANKClient+ANKPost.m"; sourceTree = "<group>"; };
+		5DC3731E16E6661D00190862 /* ANKClient+ANKFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ANKClient+ANKFile.h"; sourceTree = "<group>"; };
+		5DC3731F16E6661D00190862 /* ANKClient+ANKFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ANKClient+ANKFile.m"; sourceTree = "<group>"; };
+		5DF6EF6E16E8F80B0018D445 /* ANKChannelCounts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKChannelCounts.h; sourceTree = "<group>"; };
+		5DF6EF6F16E8F80B0018D445 /* ANKChannelCounts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANKChannelCounts.m; sourceTree = "<group>"; };
+		5DF6EF7316E8FAE50018D445 /* ANKACL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKACL.h; sourceTree = "<group>"; };
+		5DF6EF7416E8FAE50018D445 /* ANKACL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANKACL.m; sourceTree = "<group>"; };
+		5DF6EF8116E90BFB0018D445 /* ANKFilterClause.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKFilterClause.h; sourceTree = "<group>"; };
+		5DF6EF8216E90BFB0018D445 /* ANKFilterClause.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANKFilterClause.m; sourceTree = "<group>"; };
+		5DF6F02E16E9A6D70018D445 /* ANKPlaceCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKPlaceCategory.h; sourceTree = "<group>"; };
+		5DF6F02F16E9A6D70018D445 /* ANKPlaceCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANKPlaceCategory.m; sourceTree = "<group>"; };
+		5DF6F03516E9A97C0018D445 /* ANKClient+ANKPlace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ANKClient+ANKPlace.h"; sourceTree = "<group>"; };
+		5DF6F03616E9A97C0018D445 /* ANKClient+ANKPlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ANKClient+ANKPlace.m"; sourceTree = "<group>"; };
+		5DF6F03A16E9A9970018D445 /* ANKClient+ANKChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ANKClient+ANKChannel.h"; sourceTree = "<group>"; };
+		5DF6F03B16E9A9970018D445 /* ANKClient+ANKChannel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ANKClient+ANKChannel.m"; sourceTree = "<group>"; };
+		5DF6F03F16E9A9A20018D445 /* ANKClient+ANKMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ANKClient+ANKMessage.h"; sourceTree = "<group>"; };
+		5DF6F04016E9A9A20018D445 /* ANKClient+ANKMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ANKClient+ANKMessage.m"; sourceTree = "<group>"; };
+		5DF6F04416E9A9AF0018D445 /* ANKClient+ANKStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ANKClient+ANKStream.h"; sourceTree = "<group>"; };
+		5DF6F04516E9A9AF0018D445 /* ANKClient+ANKStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ANKClient+ANKStream.m"; sourceTree = "<group>"; };
+		5DF6F08116EA4AC90018D445 /* ANKEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKEntity.h; sourceTree = "<group>"; };
+		5DF6F08216EA4AC90018D445 /* ANKEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANKEntity.m; sourceTree = "<group>"; };
+		5DF6F08616EA4D850018D445 /* ANKMentionEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKMentionEntity.h; sourceTree = "<group>"; };
+		5DF6F08716EA4D850018D445 /* ANKMentionEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANKMentionEntity.m; sourceTree = "<group>"; };
+		5DF6F08B16EA4DFC0018D445 /* ANKHashtagEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKHashtagEntity.h; sourceTree = "<group>"; };
+		5DF6F08C16EA4DFD0018D445 /* ANKHashtagEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANKHashtagEntity.m; sourceTree = "<group>"; };
+		5DF6F09016EA4E0C0018D445 /* ANKLinkEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKLinkEntity.h; sourceTree = "<group>"; };
+		5DF6F09116EA4E0C0018D445 /* ANKLinkEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANKLinkEntity.m; sourceTree = "<group>"; };
+		5DF6F09616EA70540018D445 /* ANKClient+ANKHandlerBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ANKClient+ANKHandlerBlocks.h"; sourceTree = "<group>"; };
+		5DF6F09716EA70550018D445 /* ANKClient+ANKHandlerBlocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ANKClient+ANKHandlerBlocks.m"; sourceTree = "<group>"; };
 		5DF6F09D16EA7B410018D445 /* ANKUsernamePasswordAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKUsernamePasswordAuthViewController.h; sourceTree = "<group>"; };
 		5DF6F09E16EA7B410018D445 /* ANKUsernamePasswordAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANKUsernamePasswordAuthViewController.m; sourceTree = "<group>"; };
 		5DF6F0A216EA7B6A0018D445 /* ANKOAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKOAuthViewController.h; sourceTree = "<group>"; };
@@ -370,8 +370,8 @@
 		5DC370DE16E0805E00190862 /* ADNKit */ = {
 			isa = PBXGroup;
 			children = (
-				252A2C4316E5624700DAE393 /* ADNClient.h */,
-				252A2C4416E5624700DAE393 /* ADNClient.m */,
+				252A2C4316E5624700DAE393 /* ANKClient.h */,
+				252A2C4416E5624700DAE393 /* ANKClient.m */,
 				5DC3728716E3B0FC00190862 /* Resources */,
 				5DC372F416E4750800190862 /* API Calls */,
 				5DC3728D16E3B2CB00190862 /* Networking */,
@@ -462,8 +462,8 @@
 		5DC3728716E3B0FC00190862 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				5DC372A616E44AE500190862 /* ADNValueTransformations.h */,
-				5DC372A716E44AE500190862 /* ADNValueTransformations.m */,
+				5DC372A616E44AE500190862 /* ANKValueTransformations.h */,
+				5DC372A716E44AE500190862 /* ANKValueTransformations.m */,
 				5DF6EF7A16E8FE470018D445 /* Abstract */,
 				5DF6EF7816E8FE2B0018D445 /* User */,
 				5DF6EF7B16E8FE6F0018D445 /* Post */,
@@ -482,12 +482,12 @@
 		5DC3728D16E3B2CB00190862 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				5DC3729616E3B4D300190862 /* ADNJSONRequestOperation.h */,
-				5DC3729716E3B4D300190862 /* ADNJSONRequestOperation.m */,
-				5DC3729B16E3B66700190862 /* ADNResponse.h */,
-				5DC3729C16E3B66700190862 /* ADNResponse.m */,
-				5DF6F09616EA70540018D445 /* ADNClient+ADNHandlerBlocks.h */,
-				5DF6F09716EA70550018D445 /* ADNClient+ADNHandlerBlocks.m */,
+				5DC3729616E3B4D300190862 /* ANKJSONRequestOperation.h */,
+				5DC3729716E3B4D300190862 /* ANKJSONRequestOperation.m */,
+				5DC3729B16E3B66700190862 /* ANKAPIResponse.h */,
+				5DC3729C16E3B66700190862 /* ANKAPIResponse.m */,
+				5DF6F09616EA70540018D445 /* ANKClient+ANKHandlerBlocks.h */,
+				5DF6F09716EA70550018D445 /* ANKClient+ANKHandlerBlocks.m */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -495,10 +495,10 @@
 		5DC372A016E448A900190862 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				5DC372A116E448ED00190862 /* NSArray+ADNAdditions.h */,
-				5DC372A216E448ED00190862 /* NSArray+ADNAdditions.m */,
-				5DC372FF16E4822A00190862 /* NSDictionary+ADNAdditions.h */,
-				5DC3730016E4822A00190862 /* NSDictionary+ADNAdditions.m */,
+				5DC372A116E448ED00190862 /* NSArray+ANKAdditions.h */,
+				5DC372A216E448ED00190862 /* NSArray+ANKAdditions.m */,
+				5DC372FF16E4822A00190862 /* NSDictionary+ANKAdditions.h */,
+				5DC3730016E4822A00190862 /* NSDictionary+ANKAdditions.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -506,22 +506,22 @@
 		5DC372F416E4750800190862 /* API Calls */ = {
 			isa = PBXGroup;
 			children = (
-				5DC372F516E4752000190862 /* ADNClient+ADNUser.h */,
-				5DC372F616E4752000190862 /* ADNClient+ADNUser.m */,
-				5DC3731916E6661500190862 /* ADNClient+ADNPost.h */,
-				5DC3731A16E6661500190862 /* ADNClient+ADNPost.m */,
-				252A2C5A16E7117700DAE393 /* ADNClient+ADNPostStreams.h */,
-				252A2C5B16E7117700DAE393 /* ADNClient+ADNPostStreams.m */,
-				5DC3731E16E6661D00190862 /* ADNClient+ADNFile.h */,
-				5DC3731F16E6661D00190862 /* ADNClient+ADNFile.m */,
-				5DF6F03516E9A97C0018D445 /* ADNClient+ADNPlace.h */,
-				5DF6F03616E9A97C0018D445 /* ADNClient+ADNPlace.m */,
-				5DF6F03A16E9A9970018D445 /* ADNClient+ADNChannel.h */,
-				5DF6F03B16E9A9970018D445 /* ADNClient+ADNChannel.m */,
-				5DF6F03F16E9A9A20018D445 /* ADNClient+ADNMessage.h */,
-				5DF6F04016E9A9A20018D445 /* ADNClient+ADNMessage.m */,
-				5DF6F04416E9A9AF0018D445 /* ADNClient+ADNStream.h */,
-				5DF6F04516E9A9AF0018D445 /* ADNClient+ADNStream.m */,
+				5DC372F516E4752000190862 /* ANKClient+ANKUser.h */,
+				5DC372F616E4752000190862 /* ANKClient+ANKUser.m */,
+				5DC3731916E6661500190862 /* ANKClient+ANKPost.h */,
+				5DC3731A16E6661500190862 /* ANKClient+ANKPost.m */,
+				252A2C5A16E7117700DAE393 /* ANKClient+ANKPostStreams.h */,
+				252A2C5B16E7117700DAE393 /* ANKClient+ANKPostStreams.m */,
+				5DC3731E16E6661D00190862 /* ANKClient+ANKFile.h */,
+				5DC3731F16E6661D00190862 /* ANKClient+ANKFile.m */,
+				5DF6F03516E9A97C0018D445 /* ANKClient+ANKPlace.h */,
+				5DF6F03616E9A97C0018D445 /* ANKClient+ANKPlace.m */,
+				5DF6F03A16E9A9970018D445 /* ANKClient+ANKChannel.h */,
+				5DF6F03B16E9A9970018D445 /* ANKClient+ANKChannel.m */,
+				5DF6F03F16E9A9A20018D445 /* ANKClient+ANKMessage.h */,
+				5DF6F04016E9A9A20018D445 /* ANKClient+ANKMessage.m */,
+				5DF6F04416E9A9AF0018D445 /* ANKClient+ANKStream.h */,
+				5DF6F04516E9A9AF0018D445 /* ANKClient+ANKStream.m */,
 			);
 			path = "API Calls";
 			sourceTree = "<group>";
@@ -529,12 +529,12 @@
 		5DF6EF7816E8FE2B0018D445 /* User */ = {
 			isa = PBXGroup;
 			children = (
-				5DC372FA16E4758F00190862 /* ADNUser.h */,
-				5DC372FB16E4759000190862 /* ADNUser.m */,
-				252A2C3B16E55B5100DAE393 /* ADNUserCounts.h */,
-				252A2C3C16E55B5200DAE393 /* ADNUserCounts.m */,
-				5DC3730B16E5CDD600190862 /* ADNUserDescription.h */,
-				5DC3730C16E5CDD700190862 /* ADNUserDescription.m */,
+				5DC372FA16E4758F00190862 /* ANKUser.h */,
+				5DC372FB16E4759000190862 /* ANKUser.m */,
+				252A2C3B16E55B5100DAE393 /* ANKUserCounts.h */,
+				252A2C3C16E55B5200DAE393 /* ANKUserCounts.m */,
+				5DC3730B16E5CDD600190862 /* ANKUserDescription.h */,
+				5DC3730C16E5CDD700190862 /* ANKUserDescription.m */,
 			);
 			name = User;
 			sourceTree = "<group>";
@@ -542,12 +542,12 @@
 		5DF6EF7916E8FE3C0018D445 /* Channel */ = {
 			isa = PBXGroup;
 			children = (
-				252A2BFA16E5462D00DAE393 /* ADNChannel.h */,
-				252A2BFB16E5462D00DAE393 /* ADNChannel.m */,
-				5DF6EF6E16E8F80B0018D445 /* ADNChannelCounts.h */,
-				5DF6EF6F16E8F80B0018D445 /* ADNChannelCounts.m */,
-				5DF6EF7316E8FAE50018D445 /* ADNACL.h */,
-				5DF6EF7416E8FAE50018D445 /* ADNACL.m */,
+				252A2BFA16E5462D00DAE393 /* ANKChannel.h */,
+				252A2BFB16E5462D00DAE393 /* ANKChannel.m */,
+				5DF6EF6E16E8F80B0018D445 /* ANKChannelCounts.h */,
+				5DF6EF6F16E8F80B0018D445 /* ANKChannelCounts.m */,
+				5DF6EF7316E8FAE50018D445 /* ANKACL.h */,
+				5DF6EF7416E8FAE50018D445 /* ANKACL.m */,
 			);
 			name = Channel;
 			sourceTree = "<group>";
@@ -555,10 +555,10 @@
 		5DF6EF7A16E8FE470018D445 /* Abstract */ = {
 			isa = PBXGroup;
 			children = (
-				5DC3728816E3B10800190862 /* ADNResource.h */,
-				5DC3728916E3B10800190862 /* ADNResource.m */,
-				252A2C3116E5489300DAE393 /* ADNAnnotatableResource.h */,
-				252A2C3216E5489300DAE393 /* ADNAnnotatableResource.m */,
+				5DC3728816E3B10800190862 /* ANKResource.h */,
+				5DC3728916E3B10800190862 /* ANKResource.m */,
+				252A2C3116E5489300DAE393 /* ANKAnnotatableResource.h */,
+				252A2C3216E5489300DAE393 /* ANKAnnotatableResource.m */,
 			);
 			name = Abstract;
 			sourceTree = "<group>";
@@ -566,8 +566,8 @@
 		5DF6EF7B16E8FE6F0018D445 /* Post */ = {
 			isa = PBXGroup;
 			children = (
-				252A2BF516E545F100DAE393 /* ADNPost.h */,
-				252A2BF616E545F100DAE393 /* ADNPost.m */,
+				252A2BF516E545F100DAE393 /* ANKPost.h */,
+				252A2BF616E545F100DAE393 /* ANKPost.m */,
 			);
 			name = Post;
 			sourceTree = "<group>";
@@ -575,8 +575,8 @@
 		5DF6EF7C16E8FE800018D445 /* Message */ = {
 			isa = PBXGroup;
 			children = (
-				252A2BFF16E5464700DAE393 /* ADNMessage.h */,
-				252A2C0016E5464700DAE393 /* ADNMessage.m */,
+				252A2BFF16E5464700DAE393 /* ANKMessage.h */,
+				252A2C0016E5464700DAE393 /* ANKMessage.m */,
 			);
 			name = Message;
 			sourceTree = "<group>";
@@ -584,8 +584,8 @@
 		5DF6EF7D16E8FE860018D445 /* File */ = {
 			isa = PBXGroup;
 			children = (
-				252A2C0416E5465A00DAE393 /* ADNFile.h */,
-				252A2C0516E5465A00DAE393 /* ADNFile.m */,
+				252A2C0416E5465A00DAE393 /* ANKFile.h */,
+				252A2C0516E5465A00DAE393 /* ANKFile.m */,
 			);
 			name = File;
 			sourceTree = "<group>";
@@ -593,8 +593,8 @@
 		5DF6EF7E16E8FE8F0018D445 /* Stream */ = {
 			isa = PBXGroup;
 			children = (
-				252A2C0916E5466A00DAE393 /* ADNStream.h */,
-				252A2C0A16E5466A00DAE393 /* ADNStream.m */,
+				252A2C0916E5466A00DAE393 /* ANKStream.h */,
+				252A2C0A16E5466A00DAE393 /* ANKStream.m */,
 			);
 			name = Stream;
 			sourceTree = "<group>";
@@ -602,10 +602,10 @@
 		5DF6EF7F16E8FE950018D445 /* Filter */ = {
 			isa = PBXGroup;
 			children = (
-				252A2C0E16E5467300DAE393 /* ADNFilter.h */,
-				252A2C0F16E5467400DAE393 /* ADNFilter.m */,
-				5DF6EF8116E90BFB0018D445 /* ADNFilterClause.h */,
-				5DF6EF8216E90BFB0018D445 /* ADNFilterClause.m */,
+				252A2C0E16E5467300DAE393 /* ANKFilter.h */,
+				252A2C0F16E5467400DAE393 /* ANKFilter.m */,
+				5DF6EF8116E90BFB0018D445 /* ANKFilterClause.h */,
+				5DF6EF8216E90BFB0018D445 /* ANKFilterClause.m */,
 			);
 			name = Filter;
 			sourceTree = "<group>";
@@ -613,18 +613,18 @@
 		5DF6EF8016E8FEAE0018D445 /* Misc */ = {
 			isa = PBXGroup;
 			children = (
-				252A2C2716E5473D00DAE393 /* ADNAnnotation.h */,
-				252A2C2816E5473D00DAE393 /* ADNAnnotation.m */,
-				5DC3731116E65BDA00190862 /* ADNObjectSource.h */,
-				5DC3731216E65BDC00190862 /* ADNObjectSource.m */,
-				252A2C1316E5467B00DAE393 /* ADNInteraction.h */,
-				252A2C1416E5467B00DAE393 /* ADNInteraction.m */,
-				252A2C1816E5468700DAE393 /* ADNStreamMarker.h */,
-				252A2C1916E5468700DAE393 /* ADNStreamMarker.m */,
-				252A2C2216E5472400DAE393 /* ADNExploreStream.h */,
-				252A2C2316E5472400DAE393 /* ADNExploreStream.m */,
-				252A2C3616E55ACD00DAE393 /* ADNImage.h */,
-				252A2C3716E55ACD00DAE393 /* ADNImage.m */,
+				252A2C2716E5473D00DAE393 /* ANKAnnotation.h */,
+				252A2C2816E5473D00DAE393 /* ANKAnnotation.m */,
+				5DC3731116E65BDA00190862 /* ANKObjectSource.h */,
+				5DC3731216E65BDC00190862 /* ANKObjectSource.m */,
+				252A2C1316E5467B00DAE393 /* ANKInteraction.h */,
+				252A2C1416E5467B00DAE393 /* ANKInteraction.m */,
+				252A2C1816E5468700DAE393 /* ANKStreamMarker.h */,
+				252A2C1916E5468700DAE393 /* ANKStreamMarker.m */,
+				252A2C2216E5472400DAE393 /* ANKExploreStream.h */,
+				252A2C2316E5472400DAE393 /* ANKExploreStream.m */,
+				252A2C3616E55ACD00DAE393 /* ANKImage.h */,
+				252A2C3716E55ACD00DAE393 /* ANKImage.m */,
 			);
 			name = Misc;
 			sourceTree = "<group>";
@@ -632,10 +632,10 @@
 		5DF6F02D16E99FB50018D445 /* Place */ = {
 			isa = PBXGroup;
 			children = (
-				252A2C1D16E546F900DAE393 /* ADNPlace.h */,
-				252A2C1E16E546F900DAE393 /* ADNPlace.m */,
-				5DF6F02E16E9A6D70018D445 /* ADNPlaceCategory.h */,
-				5DF6F02F16E9A6D70018D445 /* ADNPlaceCategory.m */,
+				252A2C1D16E546F900DAE393 /* ANKPlace.h */,
+				252A2C1E16E546F900DAE393 /* ANKPlace.m */,
+				5DF6F02E16E9A6D70018D445 /* ANKPlaceCategory.h */,
+				5DF6F02F16E9A6D70018D445 /* ANKPlaceCategory.m */,
 			);
 			name = Place;
 			sourceTree = "<group>";
@@ -643,16 +643,16 @@
 		5DF6F09516EA4F480018D445 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				252A2C2C16E5477B00DAE393 /* ADNEntities.h */,
-				252A2C2D16E5477B00DAE393 /* ADNEntities.m */,
-				5DF6F08116EA4AC90018D445 /* ADNEntity.h */,
-				5DF6F08216EA4AC90018D445 /* ADNEntity.m */,
-				5DF6F08616EA4D850018D445 /* ADNMentionEntity.h */,
-				5DF6F08716EA4D850018D445 /* ADNMentionEntity.m */,
-				5DF6F08B16EA4DFC0018D445 /* ADNHashtagEntity.h */,
-				5DF6F08C16EA4DFD0018D445 /* ADNHashtagEntity.m */,
-				5DF6F09016EA4E0C0018D445 /* ADNLinkEntity.h */,
-				5DF6F09116EA4E0C0018D445 /* ADNLinkEntity.m */,
+				252A2C2C16E5477B00DAE393 /* ANKEntities.h */,
+				252A2C2D16E5477B00DAE393 /* ANKEntities.m */,
+				5DF6F08116EA4AC90018D445 /* ANKEntity.h */,
+				5DF6F08216EA4AC90018D445 /* ANKEntity.m */,
+				5DF6F08616EA4D850018D445 /* ANKMentionEntity.h */,
+				5DF6F08716EA4D850018D445 /* ANKMentionEntity.m */,
+				5DF6F08B16EA4DFC0018D445 /* ANKHashtagEntity.h */,
+				5DF6F08C16EA4DFD0018D445 /* ANKHashtagEntity.m */,
+				5DF6F09016EA4E0C0018D445 /* ANKLinkEntity.h */,
+				5DF6F09116EA4E0C0018D445 /* ANKLinkEntity.m */,
 			);
 			name = Entities;
 			sourceTree = "<group>";
@@ -683,48 +683,48 @@
 				5DC3726A16E3AE1500190862 /* AFPropertyListRequestOperation.h in Headers */,
 				5DC3726D16E3AE1500190862 /* AFURLConnectionOperation.h in Headers */,
 				5DC3727016E3AE1500190862 /* AFXMLRequestOperation.h in Headers */,
-				5DC3728A16E3B10800190862 /* ADNResource.h in Headers */,
-				5DC3729816E3B4D300190862 /* ADNJSONRequestOperation.h in Headers */,
-				5DC3729D16E3B66700190862 /* ADNResponse.h in Headers */,
-				5DC372A316E448ED00190862 /* NSArray+ADNAdditions.h in Headers */,
-				5DC372A816E44AE500190862 /* ADNValueTransformations.h in Headers */,
-				5DC372F716E4752000190862 /* ADNClient+ADNUser.h in Headers */,
-				5DC372FC16E4759000190862 /* ADNUser.h in Headers */,
-				5DC3730116E4822A00190862 /* NSDictionary+ADNAdditions.h in Headers */,
-				252A2BF916E545FC00DAE393 /* ADNPost.h in Headers */,
-				252A2BFE16E5463400DAE393 /* ADNChannel.h in Headers */,
-				252A2C0116E5464700DAE393 /* ADNMessage.h in Headers */,
-				252A2C0616E5465A00DAE393 /* ADNFile.h in Headers */,
-				252A2C0B16E5466A00DAE393 /* ADNStream.h in Headers */,
-				252A2C1016E5467400DAE393 /* ADNFilter.h in Headers */,
-				252A2C1516E5467B00DAE393 /* ADNInteraction.h in Headers */,
-				252A2C1A16E5468700DAE393 /* ADNStreamMarker.h in Headers */,
-				252A2C1F16E546F900DAE393 /* ADNPlace.h in Headers */,
-				252A2C2416E5472400DAE393 /* ADNExploreStream.h in Headers */,
-				252A2C2916E5473D00DAE393 /* ADNAnnotation.h in Headers */,
-				252A2C3316E5489400DAE393 /* ADNAnnotatableResource.h in Headers */,
-				252A2C3816E55ACD00DAE393 /* ADNImage.h in Headers */,
-				252A2C3D16E55B5200DAE393 /* ADNUserCounts.h in Headers */,
-				252A2C4516E5624700DAE393 /* ADNClient.h in Headers */,
-				5DC3730D16E5CDDB00190862 /* ADNUserDescription.h in Headers */,
-				5DC3731316E65BDD00190862 /* ADNObjectSource.h in Headers */,
-				5DC3731616E665CE00190862 /* ADNEntities.h in Headers */,
-				5DC3731B16E6661500190862 /* ADNClient+ADNPost.h in Headers */,
-				5DC3732016E6661D00190862 /* ADNClient+ADNFile.h in Headers */,
-				252A2C5C16E7117700DAE393 /* ADNClient+ADNPostStreams.h in Headers */,
-				5DF6EF7016E8F80C0018D445 /* ADNChannelCounts.h in Headers */,
-				5DF6EF7516E8FAE60018D445 /* ADNACL.h in Headers */,
-				5DF6EF8316E90BFB0018D445 /* ADNFilterClause.h in Headers */,
-				5DF6F03016E9A6D70018D445 /* ADNPlaceCategory.h in Headers */,
-				5DF6F03716E9A97C0018D445 /* ADNClient+ADNPlace.h in Headers */,
-				5DF6F03C16E9A9970018D445 /* ADNClient+ADNChannel.h in Headers */,
-				5DF6F04116E9A9A20018D445 /* ADNClient+ADNMessage.h in Headers */,
-				5DF6F04616E9A9AF0018D445 /* ADNClient+ADNStream.h in Headers */,
-				5DF6F08316EA4AC90018D445 /* ADNEntity.h in Headers */,
-				5DF6F08816EA4D860018D445 /* ADNMentionEntity.h in Headers */,
-				5DF6F08D16EA4DFD0018D445 /* ADNHashtagEntity.h in Headers */,
-				5DF6F09216EA4E0D0018D445 /* ADNLinkEntity.h in Headers */,
-				5DF6F09816EA70550018D445 /* ADNClient+ADNHandlerBlocks.h in Headers */,
+				5DC3728A16E3B10800190862 /* ANKResource.h in Headers */,
+				5DC3729816E3B4D300190862 /* ANKJSONRequestOperation.h in Headers */,
+				5DC3729D16E3B66700190862 /* ANKAPIResponse.h in Headers */,
+				5DC372A316E448ED00190862 /* NSArray+ANKAdditions.h in Headers */,
+				5DC372A816E44AE500190862 /* ANKValueTransformations.h in Headers */,
+				5DC372F716E4752000190862 /* ANKClient+ANKUser.h in Headers */,
+				5DC372FC16E4759000190862 /* ANKUser.h in Headers */,
+				5DC3730116E4822A00190862 /* NSDictionary+ANKAdditions.h in Headers */,
+				252A2BF916E545FC00DAE393 /* ANKPost.h in Headers */,
+				252A2BFE16E5463400DAE393 /* ANKChannel.h in Headers */,
+				252A2C0116E5464700DAE393 /* ANKMessage.h in Headers */,
+				252A2C0616E5465A00DAE393 /* ANKFile.h in Headers */,
+				252A2C0B16E5466A00DAE393 /* ANKStream.h in Headers */,
+				252A2C1016E5467400DAE393 /* ANKFilter.h in Headers */,
+				252A2C1516E5467B00DAE393 /* ANKInteraction.h in Headers */,
+				252A2C1A16E5468700DAE393 /* ANKStreamMarker.h in Headers */,
+				252A2C1F16E546F900DAE393 /* ANKPlace.h in Headers */,
+				252A2C2416E5472400DAE393 /* ANKExploreStream.h in Headers */,
+				252A2C2916E5473D00DAE393 /* ANKAnnotation.h in Headers */,
+				252A2C3316E5489400DAE393 /* ANKAnnotatableResource.h in Headers */,
+				252A2C3816E55ACD00DAE393 /* ANKImage.h in Headers */,
+				252A2C3D16E55B5200DAE393 /* ANKUserCounts.h in Headers */,
+				252A2C4516E5624700DAE393 /* ANKClient.h in Headers */,
+				5DC3730D16E5CDDB00190862 /* ANKUserDescription.h in Headers */,
+				5DC3731316E65BDD00190862 /* ANKObjectSource.h in Headers */,
+				5DC3731616E665CE00190862 /* ANKEntities.h in Headers */,
+				5DC3732016E6661D00190862 /* ANKClient+ANKFile.h in Headers */,
+				5DF6EF7016E8F80C0018D445 /* ANKChannelCounts.h in Headers */,
+				5DF6EF7516E8FAE60018D445 /* ANKACL.h in Headers */,
+				5DF6EF8316E90BFB0018D445 /* ANKFilterClause.h in Headers */,
+				5DF6F03016E9A6D70018D445 /* ANKPlaceCategory.h in Headers */,
+				5DF6F03716E9A97C0018D445 /* ANKClient+ANKPlace.h in Headers */,
+				5DF6F03C16E9A9970018D445 /* ANKClient+ANKChannel.h in Headers */,
+				5DF6F04116E9A9A20018D445 /* ANKClient+ANKMessage.h in Headers */,
+				5DF6F04616E9A9AF0018D445 /* ANKClient+ANKStream.h in Headers */,
+				5DF6F08316EA4AC90018D445 /* ANKEntity.h in Headers */,
+				5DF6F08816EA4D860018D445 /* ANKMentionEntity.h in Headers */,
+				5DF6F08D16EA4DFD0018D445 /* ANKHashtagEntity.h in Headers */,
+				5DF6F09216EA4E0D0018D445 /* ANKLinkEntity.h in Headers */,
+				5DF6F09816EA70550018D445 /* ANKClient+ANKHandlerBlocks.h in Headers */,
+				5DF6F0A516EA861E0018D445 /* ANKClient+ANKPost.h in Headers */,
+				5DF6F0A816EA86610018D445 /* ANKClient+ANKPostStreams.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -818,50 +818,50 @@
 				5DC3726E16E3AE1500190862 /* AFURLConnectionOperation.m in Sources */,
 				5DC3727116E3AE1500190862 /* AFXMLRequestOperation.m in Sources */,
 				5DC3727416E3AE1500190862 /* UIImageView+AFNetworking.m in Sources */,
-				5DC3728B16E3B10800190862 /* ADNResource.m in Sources */,
-				5DC3729916E3B4D300190862 /* ADNJSONRequestOperation.m in Sources */,
-				5DC3729E16E3B66700190862 /* ADNResponse.m in Sources */,
-				5DC372A416E448ED00190862 /* NSArray+ADNAdditions.m in Sources */,
-				5DC372A916E44AE500190862 /* ADNValueTransformations.m in Sources */,
-				5DC372F816E4752000190862 /* ADNClient+ADNUser.m in Sources */,
-				5DC372FD16E4759000190862 /* ADNUser.m in Sources */,
-				5DC3730216E4822A00190862 /* NSDictionary+ADNAdditions.m in Sources */,
-				252A2BF716E545F100DAE393 /* ADNPost.m in Sources */,
-				252A2BFC16E5462D00DAE393 /* ADNChannel.m in Sources */,
-				252A2C0216E5464700DAE393 /* ADNMessage.m in Sources */,
-				252A2C0716E5465A00DAE393 /* ADNFile.m in Sources */,
-				252A2C0C16E5466A00DAE393 /* ADNStream.m in Sources */,
-				252A2C1116E5467400DAE393 /* ADNFilter.m in Sources */,
-				252A2C1616E5467B00DAE393 /* ADNInteraction.m in Sources */,
-				252A2C1B16E5468700DAE393 /* ADNStreamMarker.m in Sources */,
-				252A2C2016E546F900DAE393 /* ADNPlace.m in Sources */,
-				252A2C2516E5472400DAE393 /* ADNExploreStream.m in Sources */,
-				252A2C2A16E5473D00DAE393 /* ADNAnnotation.m in Sources */,
-				252A2C3416E5489400DAE393 /* ADNAnnotatableResource.m in Sources */,
-				252A2C3916E55ACD00DAE393 /* ADNImage.m in Sources */,
-				252A2C3E16E55B5200DAE393 /* ADNUserCounts.m in Sources */,
-				252A2C4616E5624700DAE393 /* ADNClient.m in Sources */,
-				5DC3730E16E5CDDB00190862 /* ADNUserDescription.m in Sources */,
-				5DC3731416E65BDD00190862 /* ADNObjectSource.m in Sources */,
-				5DC3731816E665D200190862 /* ADNEntities.m in Sources */,
-				5DC3731C16E6661500190862 /* ADNClient+ADNPost.m in Sources */,
-				5DC3732116E6661D00190862 /* ADNClient+ADNFile.m in Sources */,
-				252A2C5D16E7117700DAE393 /* ADNClient+ADNPostStreams.m in Sources */,
-				5DF6EF7116E8F80C0018D445 /* ADNChannelCounts.m in Sources */,
-				5DF6EF7616E8FAE60018D445 /* ADNACL.m in Sources */,
-				5DF6EF8416E90BFB0018D445 /* ADNFilterClause.m in Sources */,
-				5DF6F03116E9A6D70018D445 /* ADNPlaceCategory.m in Sources */,
-				5DF6F03816E9A97C0018D445 /* ADNClient+ADNPlace.m in Sources */,
-				5DF6F03D16E9A9970018D445 /* ADNClient+ADNChannel.m in Sources */,
-				5DF6F04216E9A9A20018D445 /* ADNClient+ADNMessage.m in Sources */,
-				5DF6F04716E9A9AF0018D445 /* ADNClient+ADNStream.m in Sources */,
-				5DF6F08416EA4AC90018D445 /* ADNEntity.m in Sources */,
-				5DF6F08916EA4D860018D445 /* ADNMentionEntity.m in Sources */,
-				5DF6F08E16EA4DFD0018D445 /* ADNHashtagEntity.m in Sources */,
-				5DF6F09316EA4E0D0018D445 /* ADNLinkEntity.m in Sources */,
-				5DF6F09916EA70550018D445 /* ADNClient+ADNHandlerBlocks.m in Sources */,
+				5DC3728B16E3B10800190862 /* ANKResource.m in Sources */,
+				5DC3729916E3B4D300190862 /* ANKJSONRequestOperation.m in Sources */,
+				5DC372A416E448ED00190862 /* NSArray+ANKAdditions.m in Sources */,
+				5DC372A916E44AE500190862 /* ANKValueTransformations.m in Sources */,
+				5DC372F816E4752000190862 /* ANKClient+ANKUser.m in Sources */,
+				5DC372FD16E4759000190862 /* ANKUser.m in Sources */,
+				5DC3730216E4822A00190862 /* NSDictionary+ANKAdditions.m in Sources */,
+				252A2BF716E545F100DAE393 /* ANKPost.m in Sources */,
+				252A2BFC16E5462D00DAE393 /* ANKChannel.m in Sources */,
+				252A2C0216E5464700DAE393 /* ANKMessage.m in Sources */,
+				252A2C0716E5465A00DAE393 /* ANKFile.m in Sources */,
+				252A2C0C16E5466A00DAE393 /* ANKStream.m in Sources */,
+				252A2C1116E5467400DAE393 /* ANKFilter.m in Sources */,
+				252A2C1616E5467B00DAE393 /* ANKInteraction.m in Sources */,
+				252A2C1B16E5468700DAE393 /* ANKStreamMarker.m in Sources */,
+				252A2C2016E546F900DAE393 /* ANKPlace.m in Sources */,
+				252A2C2516E5472400DAE393 /* ANKExploreStream.m in Sources */,
+				252A2C2A16E5473D00DAE393 /* ANKAnnotation.m in Sources */,
+				252A2C3416E5489400DAE393 /* ANKAnnotatableResource.m in Sources */,
+				252A2C3916E55ACD00DAE393 /* ANKImage.m in Sources */,
+				252A2C3E16E55B5200DAE393 /* ANKUserCounts.m in Sources */,
+				252A2C4616E5624700DAE393 /* ANKClient.m in Sources */,
+				5DC3730E16E5CDDB00190862 /* ANKUserDescription.m in Sources */,
+				5DC3731416E65BDD00190862 /* ANKObjectSource.m in Sources */,
+				5DC3731816E665D200190862 /* ANKEntities.m in Sources */,
+				5DC3732116E6661D00190862 /* ANKClient+ANKFile.m in Sources */,
+				5DF6EF7116E8F80C0018D445 /* ANKChannelCounts.m in Sources */,
+				5DF6EF7616E8FAE60018D445 /* ANKACL.m in Sources */,
+				5DF6EF8416E90BFB0018D445 /* ANKFilterClause.m in Sources */,
+				5DF6F03116E9A6D70018D445 /* ANKPlaceCategory.m in Sources */,
+				5DF6F03816E9A97C0018D445 /* ANKClient+ANKPlace.m in Sources */,
+				5DF6F03D16E9A9970018D445 /* ANKClient+ANKChannel.m in Sources */,
+				5DF6F04216E9A9A20018D445 /* ANKClient+ANKMessage.m in Sources */,
+				5DF6F04716E9A9AF0018D445 /* ANKClient+ANKStream.m in Sources */,
+				5DF6F08416EA4AC90018D445 /* ANKEntity.m in Sources */,
+				5DF6F08916EA4D860018D445 /* ANKMentionEntity.m in Sources */,
+				5DF6F08E16EA4DFD0018D445 /* ANKHashtagEntity.m in Sources */,
+				5DF6F09316EA4E0D0018D445 /* ANKLinkEntity.m in Sources */,
+				5DF6F09916EA70550018D445 /* ANKClient+ANKHandlerBlocks.m in Sources */,
 				5DF6F0A016EA7B410018D445 /* ANKUsernamePasswordAuthViewController.m in Sources */,
 				5DF6F0A416EA7B6B0018D445 /* ANKOAuthViewController.m in Sources */,
+				5DF6F0A616EA86260018D445 /* ANKClient+ANKPost.m in Sources */,
+				5DF6F0AA16EA86650018D445 /* ANKClient+ANKPostStreams.m in Sources */,
+				5DF6F0AB16EA8A9C0018D445 /* ANKAPIResponse.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -876,48 +876,48 @@
 				5DC3726C16E3AE1500190862 /* AFPropertyListRequestOperation.m in Sources */,
 				5DC3726F16E3AE1500190862 /* AFURLConnectionOperation.m in Sources */,
 				5DC3727216E3AE1500190862 /* AFXMLRequestOperation.m in Sources */,
-				5DC3728C16E3B10800190862 /* ADNResource.m in Sources */,
-				5DC3729A16E3B4D300190862 /* ADNJSONRequestOperation.m in Sources */,
-				5DC3729F16E3B66700190862 /* ADNResponse.m in Sources */,
-				5DC372A516E448ED00190862 /* NSArray+ADNAdditions.m in Sources */,
-				5DC372AA16E44AE500190862 /* ADNValueTransformations.m in Sources */,
-				5DC372F916E4752000190862 /* ADNClient+ADNUser.m in Sources */,
-				5DC372FE16E4759000190862 /* ADNUser.m in Sources */,
-				5DC3730316E4822A00190862 /* NSDictionary+ADNAdditions.m in Sources */,
-				252A2BF816E545F400DAE393 /* ADNPost.m in Sources */,
-				252A2BFD16E5463100DAE393 /* ADNChannel.m in Sources */,
-				252A2C0316E5464700DAE393 /* ADNMessage.m in Sources */,
-				252A2C0816E5465A00DAE393 /* ADNFile.m in Sources */,
-				252A2C0D16E5466A00DAE393 /* ADNStream.m in Sources */,
-				252A2C1216E5467400DAE393 /* ADNFilter.m in Sources */,
-				252A2C1716E5467B00DAE393 /* ADNInteraction.m in Sources */,
-				252A2C1C16E5468700DAE393 /* ADNStreamMarker.m in Sources */,
-				252A2C2116E546F900DAE393 /* ADNPlace.m in Sources */,
-				252A2C2616E5472400DAE393 /* ADNExploreStream.m in Sources */,
-				252A2C2B16E5473D00DAE393 /* ADNAnnotation.m in Sources */,
-				252A2C3516E5489400DAE393 /* ADNAnnotatableResource.m in Sources */,
-				252A2C3A16E55ACD00DAE393 /* ADNImage.m in Sources */,
-				252A2C3F16E55B5200DAE393 /* ADNUserCounts.m in Sources */,
-				252A2C4716E5624700DAE393 /* ADNClient.m in Sources */,
-				5DC3730F16E5CDDB00190862 /* ADNUserDescription.m in Sources */,
-				5DC3731516E65BDD00190862 /* ADNObjectSource.m in Sources */,
-				5DC3731716E665D100190862 /* ADNEntities.m in Sources */,
-				5DC3731D16E6661500190862 /* ADNClient+ADNPost.m in Sources */,
-				5DC3732216E6661D00190862 /* ADNClient+ADNFile.m in Sources */,
-				252A2C5E16E7117700DAE393 /* ADNClient+ADNPostStreams.m in Sources */,
-				5DF6EF7216E8F80C0018D445 /* ADNChannelCounts.m in Sources */,
-				5DF6EF7716E8FAE60018D445 /* ADNACL.m in Sources */,
-				5DF6EF8516E90BFB0018D445 /* ADNFilterClause.m in Sources */,
-				5DF6F03216E9A6D70018D445 /* ADNPlaceCategory.m in Sources */,
-				5DF6F03916E9A97C0018D445 /* ADNClient+ADNPlace.m in Sources */,
-				5DF6F03E16E9A9970018D445 /* ADNClient+ADNChannel.m in Sources */,
-				5DF6F04316E9A9A20018D445 /* ADNClient+ADNMessage.m in Sources */,
-				5DF6F04816E9A9AF0018D445 /* ADNClient+ADNStream.m in Sources */,
-				5DF6F08516EA4AC90018D445 /* ADNEntity.m in Sources */,
-				5DF6F08A16EA4D860018D445 /* ADNMentionEntity.m in Sources */,
-				5DF6F08F16EA4DFD0018D445 /* ADNHashtagEntity.m in Sources */,
-				5DF6F09416EA4E0D0018D445 /* ADNLinkEntity.m in Sources */,
-				5DF6F09A16EA70550018D445 /* ADNClient+ADNHandlerBlocks.m in Sources */,
+				5DC3728C16E3B10800190862 /* ANKResource.m in Sources */,
+				5DC3729A16E3B4D300190862 /* ANKJSONRequestOperation.m in Sources */,
+				5DC372A516E448ED00190862 /* NSArray+ANKAdditions.m in Sources */,
+				5DC372AA16E44AE500190862 /* ANKValueTransformations.m in Sources */,
+				5DC372F916E4752000190862 /* ANKClient+ANKUser.m in Sources */,
+				5DC372FE16E4759000190862 /* ANKUser.m in Sources */,
+				5DC3730316E4822A00190862 /* NSDictionary+ANKAdditions.m in Sources */,
+				252A2BF816E545F400DAE393 /* ANKPost.m in Sources */,
+				252A2BFD16E5463100DAE393 /* ANKChannel.m in Sources */,
+				252A2C0316E5464700DAE393 /* ANKMessage.m in Sources */,
+				252A2C0816E5465A00DAE393 /* ANKFile.m in Sources */,
+				252A2C0D16E5466A00DAE393 /* ANKStream.m in Sources */,
+				252A2C1216E5467400DAE393 /* ANKFilter.m in Sources */,
+				252A2C1716E5467B00DAE393 /* ANKInteraction.m in Sources */,
+				252A2C1C16E5468700DAE393 /* ANKStreamMarker.m in Sources */,
+				252A2C2116E546F900DAE393 /* ANKPlace.m in Sources */,
+				252A2C2616E5472400DAE393 /* ANKExploreStream.m in Sources */,
+				252A2C2B16E5473D00DAE393 /* ANKAnnotation.m in Sources */,
+				252A2C3516E5489400DAE393 /* ANKAnnotatableResource.m in Sources */,
+				252A2C3A16E55ACD00DAE393 /* ANKImage.m in Sources */,
+				252A2C3F16E55B5200DAE393 /* ANKUserCounts.m in Sources */,
+				252A2C4716E5624700DAE393 /* ANKClient.m in Sources */,
+				5DC3730F16E5CDDB00190862 /* ANKUserDescription.m in Sources */,
+				5DC3731516E65BDD00190862 /* ANKObjectSource.m in Sources */,
+				5DC3731716E665D100190862 /* ANKEntities.m in Sources */,
+				5DC3731D16E6661500190862 /* ANKClient+ANKPost.m in Sources */,
+				5DC3732216E6661D00190862 /* ANKClient+ANKFile.m in Sources */,
+				5DF6EF7216E8F80C0018D445 /* ANKChannelCounts.m in Sources */,
+				5DF6EF7716E8FAE60018D445 /* ANKACL.m in Sources */,
+				5DF6EF8516E90BFB0018D445 /* ANKFilterClause.m in Sources */,
+				5DF6F03216E9A6D70018D445 /* ANKPlaceCategory.m in Sources */,
+				5DF6F03916E9A97C0018D445 /* ANKClient+ANKPlace.m in Sources */,
+				5DF6F03E16E9A9970018D445 /* ANKClient+ANKChannel.m in Sources */,
+				5DF6F04316E9A9A20018D445 /* ANKClient+ANKMessage.m in Sources */,
+				5DF6F04816E9A9AF0018D445 /* ANKClient+ANKStream.m in Sources */,
+				5DF6F08516EA4AC90018D445 /* ANKEntity.m in Sources */,
+				5DF6F08A16EA4D860018D445 /* ANKMentionEntity.m in Sources */,
+				5DF6F08F16EA4DFD0018D445 /* ANKHashtagEntity.m in Sources */,
+				5DF6F09416EA4E0D0018D445 /* ANKLinkEntity.m in Sources */,
+				5DF6F09A16EA70550018D445 /* ANKClient+ANKHandlerBlocks.m in Sources */,
+				5DF6F0A916EA86650018D445 /* ANKClient+ANKPostStreams.m in Sources */,
+				5DF6F0AC16EA8A9D0018D445 /* ANKAPIResponse.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
