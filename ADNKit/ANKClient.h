@@ -10,17 +10,17 @@
 
 
 typedef NS_ENUM(NSUInteger, ANKAuthScope) {
-    ADNAuthScopeNone            = 0,
-    ADNAuthScopeBasic           = (1 << 0), // see basic information about this user
-    ADNAuthScopeStream          = (1 << 1), // read this user’s stream
-    ADNAuthScopeEmail           = (1 << 2), // access this user’s email address
-    ADNAuthScopeWritePost       = (1 << 3), // create a new post as this user
-    ADNAuthScopeFollow          = (1 << 4), // add or remove follows (or mutes) for this user
-    ADNAuthScopePublicMessages  = (1 << 5), // send and receive public messages as this user
-    ADNAuthScopeMessages        = (1 << 6), // send and receive public and private messages as this user
-    ADNAuthScopeUpdateProfile   = (1 << 7), // update a user’s name, images, and other profile information
-    ADNAuthScopeFiles           = (1 << 8), // manage a user’s files. This is not needed for uploading files.
-    ADNAuthScopeExport          = (1 << 9), // bulk export all of this user’s App.net data
+    ANKAuthScopeNone            = 0,
+    ANKAuthScopeBasic           = (1 << 0), // see basic information about this user
+    ANKAuthScopeStream          = (1 << 1), // read this user’s stream
+    ANKAuthScopeEmail           = (1 << 2), // access this user’s email address
+    ANKAuthScopeWritePost       = (1 << 3), // create a new post as this user
+    ANKAuthScopeFollow          = (1 << 4), // add or remove follows (or mutes) for this user
+    ANKAuthScopePublicMessages  = (1 << 5), // send and receive public messages as this user
+    ANKAuthScopeMessages        = (1 << 6), // send and receive public and private messages as this user
+    ANKAuthScopeUpdateProfile   = (1 << 7), // update a user’s name, images, and other profile information
+    ANKAuthScopeFiles           = (1 << 8), // manage a user’s files. This is not needed for uploading files.
+    ANKAuthScopeExport          = (1 << 9), // bulk export all of this user’s App.net data
 };
 
 

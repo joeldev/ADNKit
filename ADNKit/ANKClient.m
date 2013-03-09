@@ -118,20 +118,20 @@
 
 
 + (NSString *)scopeStringForAuthScopes:(ANKAuthScope)scopes {
-	if (scopes == ADNAuthScopeNone) return nil;
+	if (scopes == ANKAuthScopeNone) return nil;
     
     NSMutableArray *scopeValues = [NSMutableArray array];
     
-    if ((scopes & ADNAuthScopeBasic) == ADNAuthScopeBasic)						[scopeValues addObject:@"basic"];
-	if ((scopes & ADNAuthScopeStream) == ADNAuthScopeStream)					[scopeValues addObject:@"stream"];
-	if ((scopes & ADNAuthScopeEmail) == ADNAuthScopeEmail)						[scopeValues addObject:@"email"];
-	if ((scopes & ADNAuthScopeWritePost) == ADNAuthScopeWritePost)				[scopeValues addObject:@"write_post"];
-	if ((scopes & ADNAuthScopeFollow) == ADNAuthScopeFollow)					[scopeValues addObject:@"follow"];
-	if ((scopes & ADNAuthScopePublicMessages) == ADNAuthScopePublicMessages)	[scopeValues addObject:@"public_messages"];
-	if ((scopes & ADNAuthScopeMessages) == ADNAuthScopeMessages)				[scopeValues addObject:@"messages"];
-	if ((scopes & ADNAuthScopeUpdateProfile) == ADNAuthScopeUpdateProfile)		[scopeValues addObject:@"update_profile"];
-	if ((scopes & ADNAuthScopeExport) == ADNAuthScopeExport)					[scopeValues addObject:@"export"];
-	if ((scopes & ADNAuthScopeFiles) == ADNAuthScopeFiles)						[scopeValues addObject:@"files"];
+    if ((scopes & ANKAuthScopeBasic) == ANKAuthScopeBasic)						[scopeValues addObject:@"basic"];
+	if ((scopes & ANKAuthScopeStream) == ANKAuthScopeStream)					[scopeValues addObject:@"stream"];
+	if ((scopes & ANKAuthScopeEmail) == ANKAuthScopeEmail)						[scopeValues addObject:@"email"];
+	if ((scopes & ANKAuthScopeWritePost) == ANKAuthScopeWritePost)				[scopeValues addObject:@"write_post"];
+	if ((scopes & ANKAuthScopeFollow) == ANKAuthScopeFollow)					[scopeValues addObject:@"follow"];
+	if ((scopes & ANKAuthScopePublicMessages) == ANKAuthScopePublicMessages)	[scopeValues addObject:@"public_messages"];
+	if ((scopes & ANKAuthScopeMessages) == ANKAuthScopeMessages)				[scopeValues addObject:@"messages"];
+	if ((scopes & ANKAuthScopeUpdateProfile) == ANKAuthScopeUpdateProfile)		[scopeValues addObject:@"update_profile"];
+	if ((scopes & ANKAuthScopeExport) == ANKAuthScopeExport)					[scopeValues addObject:@"export"];
+	if ((scopes & ANKAuthScopeFiles) == ANKAuthScopeFiles)						[scopeValues addObject:@"files"];
     
     return [scopeValues componentsJoinedByString:@","];
 }
