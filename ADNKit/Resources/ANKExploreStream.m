@@ -12,7 +12,7 @@
 @implementation ANKExploreStream
 
 + (NSDictionary *)JSONToLocalKeyMapping {
-	//return [[super JSONToLocalKeyMapping] ]
+	return [[super JSONToLocalKeyMapping] ank_dictionaryByAppendingDictionary:@{@"url": @"URL"}];
 }
 
 @end

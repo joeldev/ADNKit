@@ -8,6 +8,12 @@
 
 #import "ANKResource.h"
 
+
 @interface ANKInteraction : ANKResource
+
+@property (strong) NSString *actionString;
+@property (strong) NSDate *eventDate;
+@property (strong) NSArray *objects;
+@property (strong) NSArray *users;
 
 @end
