@@ -101,7 +101,7 @@
 		5DC3729916E3B4D300190862 /* ANKJSONRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3729716E3B4D300190862 /* ANKJSONRequestOperation.m */; };
 		5DC3729A16E3B4D300190862 /* ANKJSONRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3729716E3B4D300190862 /* ANKJSONRequestOperation.m */; };
 		5DC3729D16E3B66700190862 /* ANKAPIResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC3729B16E3B66700190862 /* ANKAPIResponse.h */; };
-		5DC372A316E448ED00190862 /* NSArray+ANKAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC372A116E448ED00190862 /* NSArray+ANKAdditions.h */; };
+		5DC372A316E448ED00190862 /* NSArray+ANKAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC372A116E448ED00190862 /* NSArray+ANKAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DC372A416E448ED00190862 /* NSArray+ANKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC372A216E448ED00190862 /* NSArray+ANKAdditions.m */; };
 		5DC372A516E448ED00190862 /* NSArray+ANKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC372A216E448ED00190862 /* NSArray+ANKAdditions.m */; };
 		5DC372A816E44AE500190862 /* ANKValueTransformations.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC372A616E44AE500190862 /* ANKValueTransformations.h */; };
@@ -113,7 +113,7 @@
 		5DC372FC16E4759000190862 /* ANKUser.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC372FA16E4758F00190862 /* ANKUser.h */; };
 		5DC372FD16E4759000190862 /* ANKUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC372FB16E4759000190862 /* ANKUser.m */; };
 		5DC372FE16E4759000190862 /* ANKUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC372FB16E4759000190862 /* ANKUser.m */; };
-		5DC3730116E4822A00190862 /* NSDictionary+ANKAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC372FF16E4822A00190862 /* NSDictionary+ANKAdditions.h */; };
+		5DC3730116E4822A00190862 /* NSDictionary+ANKAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC372FF16E4822A00190862 /* NSDictionary+ANKAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DC3730216E4822A00190862 /* NSDictionary+ANKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3730016E4822A00190862 /* NSDictionary+ANKAdditions.m */; };
 		5DC3730316E4822A00190862 /* NSDictionary+ANKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3730016E4822A00190862 /* NSDictionary+ANKAdditions.m */; };
 		5DC3730D16E5CDDB00190862 /* ANKUserDescription.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC3730B16E5CDD600190862 /* ANKUserDescription.h */; settings = {ATTRIBUTES = (Public, ); }; };
