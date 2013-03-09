@@ -16,7 +16,7 @@ static dispatch_once_t propertiesMapOnceToken;
 
 
 // internal class representing a single property for a class
-@interface ADNResourceProperty : NSObject
+@interface ANKResourceProperty : NSObject
 
 @property (strong) NSString *name;
 @property (assign) Class objectType;
@@ -29,7 +29,7 @@ static dispatch_once_t propertiesMapOnceToken;
 @end
 
 
-@implementation ADNResourceProperty
+@implementation ANKResourceProperty
 
 - (id)initWithName:(NSString *)name attributesString:(NSString *)attributesString forParentClass:(Class)parentClass {
 	if ((self = [super init])) {
@@ -95,7 +95,7 @@ static dispatch_once_t propertiesMapOnceToken;
 	objc_property_t *propertiesList = class_copyPropertyList([self class], &propertyCount);
 	for (unsigned int i = 0; i < propertyCount; i++) {
 		objc_property_t property = propertiesList[i];
-		ADNResourceProperty *propertyObject = [[ADNResourceProperty alloc] initWithName:[NSString stringWithUTF8String:property_getName(property)] attributesString:[NSString stringWithUTF8String:property_getAttributes(property)] forParentClass:[self class]];
+		ANKResourceProperty *propertyObject = [[ANKResourceProperty alloc] initWithName:[NSString stringWithUTF8String:property_getName(property)] attributesString:[NSString stringWithUTF8String:property_getAttributes(property)] forParentClass:[self class]];
 		propertiesForClass[propertyObject.name] = propertyObject;
 	}
 	
@@ -178,7 +178,7 @@ static dispatch_once_t propertiesMapOnceToken;
 		}
 		
 		// look up info about the local property
-		ADNResourceProperty *property = propertiesMap[NSStringFromClass(class)][localKey];
+		ANKResourceProperty *property = propertiesMap[NSStringFromClass(class)][localKey];
 		
 		// if we couldn't find the property, walk up until we either do or run out of superclasses
 		Class superclass = class_getSuperclass(class);
@@ -227,8 +227,14 @@ static dispatch_once_t propertiesMapOnceToken;
 	NSMutableDictionary *JSONDictionary = [NSMutableDictionary dictionary];
 	NSDictionary *propertiesForClass = propertiesMap[NSStringFromClass(class)];
 	
+	// if we have properties for the superclass, add those in too (which will walk the tree up until we hit ADNResource and won't go higher
+	Class superclass = class_getSuperclass(class);
+	if (propertiesMap[NSStringFromClass(superclass)]) {
+		[JSONDictionary addEntriesFromDictionary:[self JSONDictionaryForClass:superclass]];
+	}
+	
 	for (NSString *localKey in propertiesForClass) {
-		ADNResourceProperty *property = propertiesForClass[localKey];
+		ANKResourceProperty *property = propertiesForClass[localKey];
 		
 		// figure out the JSON key
 		NSString *remoteKey = [class inverseKeyMapping][localKey] ?: localKey;
@@ -257,12 +263,6 @@ static dispatch_once_t propertiesMapOnceToken;
 		if (value) {
 			JSONDictionary[remoteKey] = value;
 		}
-	}
-	
-	// if we have properties for the superclass, add those in too (which will walk the tree up until we hit ADNResource and won't go higher
-	Class superclass = class_getSuperclass(class);
-	if (propertiesMap[NSStringFromClass(superclass)]) {
-		[JSONDictionary addEntriesFromDictionary:[self JSONDictionaryForClass:superclass]];
 	}
 	
 	return JSONDictionary;
