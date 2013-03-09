@@ -14,7 +14,7 @@
 
 // http://developers.app.net/docs/resources/place/#retrieve-a-place
 
-- (void)fetchPlaceWithFactualID:(NSString *)factualID completion:(ADNClientCompletionBlock)completionHandler {
+- (void)fetchPlaceWithFactualID:(NSString *)factualID completion:(ANKClientCompletionBlock)completionHandler {
 	[self getPath:[NSString stringWithFormat:@"places/%@", factualID]
 	   parameters:nil
 		  success:[self successHandlerForResourceClass:[ANKPlace class] clientHandler:completionHandler]
@@ -25,7 +25,7 @@
 // parameters contains keys located in ADNPlace.h
 // http://developers.app.net/docs/resources/place/#search-for-a-place
 
-- (void)searchForPlacesWithParameters:(NSDictionary *)params completion:(ADNClientCompletionBlock)completionHandler {
+- (void)searchForPlacesWithParameters:(NSDictionary *)params completion:(ANKClientCompletionBlock)completionHandler {
 	[self getPath:@"places/search"
 	   parameters:params
 		  success:[self successHandlerForCollectionOfResourceClass:[ANKPlace class] clientHandler:completionHandler]

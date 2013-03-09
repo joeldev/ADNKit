@@ -6,11 +6,11 @@
 //  Copyright (c) 2013 Afterwork Studios. All rights reserved.
 //
 
-#import "ANKClient+ANKHandlerBlocks.h
+#import "ANKClient+ANKHandlerBlocks.h"
 
 
 @interface ANKClient (ANKInteraction)
 
-- (void)fetchInteractionsForCurrentUserWithCompletion:(ADNClientCompletionBlock)completionHandler;
+- (void)fetchInteractionsForCurrentUserWithCompletion:(ANKClientCompletionBlock)completionHandler;
 
 @end

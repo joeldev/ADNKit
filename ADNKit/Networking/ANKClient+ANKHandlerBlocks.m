@@ -22,7 +22,7 @@
 }
 
 
-- (AFNetworkingSuccessBlock)successHandlerForClientHandler:(ADNClientCompletionBlock)handler unboxBlock:(id (^)(ANKAPIResponse *response, NSError **error))unboxBlock {
+- (AFNetworkingSuccessBlock)successHandlerForClientHandler:(ANKClientCompletionBlock)handler unboxBlock:(id (^)(ANKAPIResponse *response, NSError **error))unboxBlock {
 	return ^(AFHTTPRequestOperation *operation, ANKAPIResponse *responseWrapper) {
 		id finalObject = responseWrapper.data;
 		NSError *error = nil;
@@ -38,7 +38,7 @@
 }
 
 
-- (AFNetworkingSuccessBlock)successHandlerForResourceClass:(Class)resourceClass clientHandler:(ADNClientCompletionBlock)handler {
+- (AFNetworkingSuccessBlock)successHandlerForResourceClass:(Class)resourceClass clientHandler:(ANKClientCompletionBlock)handler {
 	return [self successHandlerForClientHandler:handler unboxBlock:^id(ANKAPIResponse *response, NSError *__autoreleasing *error) {
 		id unboxedObject = nil;
 		if ([resourceClass isSubclassOfClass:[ANKResource class]] && [response.data isKindOfClass:[NSDictionary class]]) {
@@ -49,28 +49,28 @@
 }
 
 
-- (AFNetworkingSuccessBlock)successHandlerForCollectionOfResourceClass:(Class)resourceClass clientHandler:(ADNClientCompletionBlock)handler {
+- (AFNetworkingSuccessBlock)successHandlerForCollectionOfResourceClass:(Class)resourceClass clientHandler:(ANKClientCompletionBlock)handler {
 	return [self successHandlerForClientHandler:handler unboxBlock:^id(ANKAPIResponse *response, NSError *__autoreleasing *error) {
 		return [self unboxCollectionResponse:response ofResourceClass:resourceClass];
 	}];
 }
 
 
-- (AFNetworkingSuccessBlock)successHandlerForCollectionOfResourceClass:(Class)resourceClass clientHandler:(ADNClientCompletionBlock)handler mapBlock:(id (^)(id object))mapBlock {
+- (AFNetworkingSuccessBlock)successHandlerForCollectionOfResourceClass:(Class)resourceClass clientHandler:(ANKClientCompletionBlock)handler mapBlock:(id (^)(id object))mapBlock {
 	return [self successHandlerForClientHandler:handler unboxBlock:^id(ANKAPIResponse *response, NSError *__autoreleasing *error) {
 		return [[self unboxCollectionResponse:response ofResourceClass:resourceClass] ank_map:mapBlock];
 	}];
 }
 
 
-- (AFNetworkingSuccessBlock)successHandlerForCollectionOfResourceClass:(Class)resourceClass clientHandler:(ADNClientCompletionBlock)handler filterBlock:(BOOL (^)(id object))filterBlock {
+- (AFNetworkingSuccessBlock)successHandlerForCollectionOfResourceClass:(Class)resourceClass clientHandler:(ANKClientCompletionBlock)handler filterBlock:(BOOL (^)(id object))filterBlock {
 	return [self successHandlerForClientHandler:handler unboxBlock:^id(ANKAPIResponse *response, NSError *__autoreleasing *error) {
 		return [[self unboxCollectionResponse:response ofResourceClass:resourceClass] ank_filter:filterBlock];
 	}];
 }
 
 
-- (AFNetworkingSuccessBlock)successHandlerForPrimitiveResponseWithClientHandler:(ADNClientCompletionBlock)handler {
+- (AFNetworkingSuccessBlock)successHandlerForPrimitiveResponseWithClientHandler:(ANKClientCompletionBlock)handler {
 	return ^(AFHTTPRequestOperation *operation, id responseObject) {
 		if (handler) {
 			handler(((ANKAPIResponse *)responseObject).data, nil);
@@ -79,7 +79,7 @@
 }
 
 
-- (AFNetworkingFailureBlock)failureHandlerForClientHandler:(ADNClientCompletionBlock)handler {
+- (AFNetworkingFailureBlock)failureHandlerForClientHandler:(ANKClientCompletionBlock)handler {
 	return ^(AFHTTPRequestOperation *operation, NSError *error) {
 		if (handler) {
 			handler(nil, error);

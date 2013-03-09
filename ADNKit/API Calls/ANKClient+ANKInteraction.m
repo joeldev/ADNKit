@@ -12,7 +12,7 @@
 
 @implementation ANKClient (ANKInteraction)
 
-- (void)fetchInteractionsForCurrentUserWithCompletion:(ADNClientCompletionBlock)completionHandler {
+- (void)fetchInteractionsForCurrentUserWithCompletion:(ANKClientCompletionBlock)completionHandler {
 	[self getPath:@"users/me/interations"
 	   parameters:nil
 		  success:[self successHandlerForCollectionOfResourceClass:[ANKInteraction class] clientHandler:completionHandler]

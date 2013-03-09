@@ -11,9 +11,9 @@
 
 @interface ANKClient (ANKPlace)
 
-- (void)fetchPlaceWithFactualID:(NSString *)factualID completion:(ADNClientCompletionBlock)completionHandler;
+- (void)fetchPlaceWithFactualID:(NSString *)factualID completion:(ANKClientCompletionBlock)completionHandler;
 
 // parameters contains keys located in ADNPlace.h
-- (void)searchForPlacesWithParameters:(NSDictionary *)params completion:(ADNClientCompletionBlock)completionHandler;
+- (void)searchForPlacesWithParameters:(NSDictionary *)params completion:(ANKClientCompletionBlock)completionHandler;
 
 @end

@@ -14,7 +14,7 @@
 
 // http://developers.app.net/docs/resources/file/lookup/#retrieve-a-file
 
-- (void)fetchFileWithID:(NSString *)fileID completion:(ADNClientCompletionBlock)completionHandler {
+- (void)fetchFileWithID:(NSString *)fileID completion:(ANKClientCompletionBlock)completionHandler {
 	[self getPath:[NSString stringWithFormat:@"files/%@", fileID]
 	   parameters:nil
 		  success:[self successHandlerForResourceClass:[ANKFile class] clientHandler:completionHandler]
@@ -24,7 +24,7 @@
 
 // http://developers.app.net/docs/resources/file/lookup/#retrieve-multiple-files
 
-- (void)fetchFilesWithIDs:(NSArray *)fileIDs completion:(ADNClientCompletionBlock)completionHandler {
+- (void)fetchFilesWithIDs:(NSArray *)fileIDs completion:(ANKClientCompletionBlock)completionHandler {
 	[self getPath:[NSString stringWithFormat:@"files?ids=%@", [fileIDs componentsJoinedByString:@","]]
 	   parameters:nil
 		  success:[self successHandlerForCollectionOfResourceClass:[ANKFile class] clientHandler:completionHandler]
@@ -34,7 +34,7 @@
 
 // http://developers.app.net/docs/resources/file/lookup/#retrieve-my-files
 
-- (void)fetchCurrentUserFilesWithCompletion:(ADNClientCompletionBlock)completionHandler {
+- (void)fetchCurrentUserFilesWithCompletion:(ANKClientCompletionBlock)completionHandler {
 	[self getPath:@"users/me/files"
 	   parameters:nil
 		  success:[self successHandlerForCollectionOfResourceClass:[ANKFile class] clientHandler:completionHandler]
@@ -44,12 +44,12 @@
 
 // http://developers.app.net/docs/resources/file/content/#get-file-content
 
-- (void)fetchContentsOfFile:(ANKFile *)file completion:(ADNClientCompletionBlock)completionHandler {
+- (void)fetchContentsOfFile:(ANKFile *)file completion:(ANKClientCompletionBlock)completionHandler {
 	[self fetchContentsOfFileWithID:file.fileID completion:completionHandler];
 }
 
 
-- (void)fetchContentsOfFileWithID:(NSString *)fileID completion:(ADNClientCompletionBlock)completionHandler {
+- (void)fetchContentsOfFileWithID:(NSString *)fileID completion:(ANKClientCompletionBlock)completionHandler {
 	NSURLRequest *request = [self requestWithMethod:@"GET" path:[NSString stringWithFormat:@"files/%@/content", fileID] parameters:nil];
 	AFHTTPRequestOperation *requestOperation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
 	[requestOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -67,7 +67,7 @@
 
 // http://developers.app.net/docs/resources/file/lifecycle/#create-a-file
 
-- (void)createFile:(ANKFile *)file withData:(NSData *)fileData completion:(ADNClientCompletionBlock)completionHandler {
+- (void)createFile:(ANKFile *)file withData:(NSData *)fileData completion:(ANKClientCompletionBlock)completionHandler {
 	if (!fileData) {
 		[self postPath:@"files"
 			parameters:[file JSONDictionary]
@@ -79,17 +79,17 @@
 }
 
 
-- (void)createFileWithData:(NSData *)fileData mimeType:(NSString *)mimeType filename:(NSString *)filename metadata:(NSDictionary *)metadata completion:(ADNClientCompletionBlock)completionHandler {
+- (void)createFileWithData:(NSData *)fileData mimeType:(NSString *)mimeType filename:(NSString *)filename metadata:(NSDictionary *)metadata completion:(ANKClientCompletionBlock)completionHandler {
 	[self createFileWithData:fileData mimeType:mimeType filename:filename fileURL:nil metadata:metadata completion:completionHandler];
 }
 
 
-- (void)createFileWithContentsOfURL:(NSURL *)fileURL metadata:(NSDictionary *)metadata completion:(ADNClientCompletionBlock)completionHandler {
+- (void)createFileWithContentsOfURL:(NSURL *)fileURL metadata:(NSDictionary *)metadata completion:(ANKClientCompletionBlock)completionHandler {
 	[self createFileWithData:nil mimeType:nil filename:nil fileURL:fileURL metadata:metadata completion:completionHandler];
 }
 
 
-- (void)createFileWithData:(NSData *)fileData mimeType:(NSString *)mimeType filename:(NSString *)filename fileURL:(NSURL *)fileURL metadata:(NSDictionary *)metadata completion:(ADNClientCompletionBlock)completionHandler {
+- (void)createFileWithData:(NSData *)fileData mimeType:(NSString *)mimeType filename:(NSString *)filename fileURL:(NSURL *)fileURL metadata:(NSDictionary *)metadata completion:(ANKClientCompletionBlock)completionHandler {
 	__block NSError *multipartEncodeError = nil;
 	NSMutableURLRequest *request = [self multipartFormRequestWithMethod:@"POST" path:@"files" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
 		if (fileURL) {
@@ -119,12 +119,12 @@
 
 // http://developers.app.net/docs/resources/file/lifecycle/#update-a-file
 
-- (void)updateFile:(ANKFile *)file completion:(ADNClientCompletionBlock)completionHandler {
+- (void)updateFile:(ANKFile *)file completion:(ANKClientCompletionBlock)completionHandler {
 	[self updateFileWithID:file.fileID name:file.name isPublic:file.isPublic completion:completionHandler];
 }
 
 
-- (void)updateFileWithID:(NSString *)fileID name:(NSString *)updatedName isPublic:(BOOL)updatedPublicFlag completion:(ADNClientCompletionBlock)completionHandler {
+- (void)updateFileWithID:(NSString *)fileID name:(NSString *)updatedName isPublic:(BOOL)updatedPublicFlag completion:(ANKClientCompletionBlock)completionHandler {
 	[self putPath:[NSString stringWithFormat:@"files/%@", fileID]
 	   parameters:@{@"name": updatedName, @"public": (updatedPublicFlag ? @"true" : @"false")}
 		  success:[self successHandlerForResourceClass:[ANKFile class] clientHandler:completionHandler]
@@ -134,12 +134,12 @@
 
 // http://developers.app.net/docs/resources/file/lifecycle/#delete-a-file
 
-- (void)deleteFile:(ANKFile *)file completion:(ADNClientCompletionBlock)completionHandler {
+- (void)deleteFile:(ANKFile *)file completion:(ANKClientCompletionBlock)completionHandler {
 	[self deleteFileWithID:file.fileID completion:completionHandler];
 }
 
 
-- (void)deleteFileWithID:(NSString *)fileID completion:(ADNClientCompletionBlock)completionHandler {
+- (void)deleteFileWithID:(NSString *)fileID completion:(ANKClientCompletionBlock)completionHandler {
 	[self deletePath:[NSString stringWithFormat:@"files/%@", fileID]
 		  parameters:nil
 			 success:[self successHandlerForResourceClass:[ANKFile class] clientHandler:completionHandler]
@@ -149,12 +149,12 @@
 
 // http://developers.app.net/docs/resources/file/content/#set-file-content
 
-- (void)setContentOfFile:(ANKFile *)file fileData:(NSData *)fileData mimeType:(NSString *)mimeType completion:(ADNClientCompletionBlock)completionHandler {
+- (void)setContentOfFile:(ANKFile *)file fileData:(NSData *)fileData mimeType:(NSString *)mimeType completion:(ANKClientCompletionBlock)completionHandler {
 	[self setContentOfFileWithID:file.fileID fileData:fileData mimeType:mimeType completion:completionHandler];
 }
 
 
-- (void)setContentOfFileWithID:(NSString *)fileID fileData:(NSData *)fileData mimeType:(NSString *)mimeType completion:(ADNClientCompletionBlock)completionHandler {
+- (void)setContentOfFileWithID:(NSString *)fileID fileData:(NSData *)fileData mimeType:(NSString *)mimeType completion:(ANKClientCompletionBlock)completionHandler {
 	NSMutableURLRequest *request = [self requestWithMethod:@"PUT" path:[NSString stringWithFormat:@"files/%@/content", fileID] parameters:nil];
 	[request setValue:mimeType forHTTPHeaderField:@"Content-Type"];
 	[request setHTTPBody:fileData];

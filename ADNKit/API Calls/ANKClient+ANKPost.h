@@ -13,33 +13,33 @@
 
 @interface ANKClient (ANKPost)
 
-- (void)fetchPostWithID:(NSString *)postID completion:(ADNClientCompletionBlock)completionHandler;
-- (void)fetchPostsWithIDs:(NSArray *)postIDs completion:(ADNClientCompletionBlock)completionHandler;
+- (void)fetchPostWithID:(NSString *)postID completion:(ANKClientCompletionBlock)completionHandler;
+- (void)fetchPostsWithIDs:(NSArray *)postIDs completion:(ANKClientCompletionBlock)completionHandler;
 
-- (void)fetchRepliesToPost:(ANKPost *)post completion:(ADNClientCompletionBlock)completionHandler;
-- (void)fetchRepliesToPostWithID:(NSString *)postID completion:(ADNClientCompletionBlock)completionHandler;
+- (void)fetchRepliesToPost:(ANKPost *)post completion:(ANKClientCompletionBlock)completionHandler;
+- (void)fetchRepliesToPostWithID:(NSString *)postID completion:(ANKClientCompletionBlock)completionHandler;
 
-- (void)fetchPostsStarredByUser:(ANKUser *)user completion:(ADNClientCompletionBlock)completionHandler;
-- (void)fetchPostsStarredByUserWithID:(NSString *)userID completion:(ADNClientCompletionBlock)completionHandler;
+- (void)fetchPostsStarredByUser:(ANKUser *)user completion:(ANKClientCompletionBlock)completionHandler;
+- (void)fetchPostsStarredByUserWithID:(NSString *)userID completion:(ANKClientCompletionBlock)completionHandler;
 
-- (void)createPost:(ANKPost *)post completion:(ADNClientCompletionBlock)completionHandler;
-- (void)createPostWithText:(NSString *)text completion:(ADNClientCompletionBlock)completionHandler;
-- (void)createPostWithText:(NSString *)text inReplyToPost:(ANKPost *)post completion:(ADNClientCompletionBlock)completionHandler;
-- (void)createPostWithText:(NSString *)text inReplyToPostWithID:(NSString *)postID completion:(ADNClientCompletionBlock)completionHandler;
-- (void)deletePost:(ANKPost *)post completion:(ADNClientCompletionBlock)completionHandler;
-- (void)deletePostWithID:(NSString *)postID completion:(ADNClientCompletionBlock)completionHandler;
+- (void)createPost:(ANKPost *)post completion:(ANKClientCompletionBlock)completionHandler;
+- (void)createPostWithText:(NSString *)text completion:(ANKClientCompletionBlock)completionHandler;
+- (void)createPostWithText:(NSString *)text inReplyToPost:(ANKPost *)post completion:(ANKClientCompletionBlock)completionHandler;
+- (void)createPostWithText:(NSString *)text inReplyToPostWithID:(NSString *)postID completion:(ANKClientCompletionBlock)completionHandler;
+- (void)deletePost:(ANKPost *)post completion:(ANKClientCompletionBlock)completionHandler;
+- (void)deletePostWithID:(NSString *)postID completion:(ANKClientCompletionBlock)completionHandler;
 
-- (void)repostPost:(ANKPost *)post completion:(ADNClientCompletionBlock)completionHandler;
-- (void)repostPostWithID:(NSString *)postID completion:(ADNClientCompletionBlock)completionHandler;
-- (void)unrepostPost:(ANKPost *)post completion:(ADNClientCompletionBlock)completionHandler;
-- (void)unrepostPostWithID:(NSString *)postID completion:(ADNClientCompletionBlock)completionHandler;
+- (void)repostPost:(ANKPost *)post completion:(ANKClientCompletionBlock)completionHandler;
+- (void)repostPostWithID:(NSString *)postID completion:(ANKClientCompletionBlock)completionHandler;
+- (void)unrepostPost:(ANKPost *)post completion:(ANKClientCompletionBlock)completionHandler;
+- (void)unrepostPostWithID:(NSString *)postID completion:(ANKClientCompletionBlock)completionHandler;
 
-- (void)starPost:(ANKPost *)post completion:(ADNClientCompletionBlock)completionHandler;
-- (void)starPostWithID:(NSString *)postID completion:(ADNClientCompletionBlock)completionHandler;
-- (void)unstarPost:(ANKPost *)post completion:(ADNClientCompletionBlock)completionHandler;
-- (void)unstarPostWithID:(NSString *)postID completion:(ADNClientCompletionBlock)completionHandler;
+- (void)starPost:(ANKPost *)post completion:(ANKClientCompletionBlock)completionHandler;
+- (void)starPostWithID:(NSString *)postID completion:(ANKClientCompletionBlock)completionHandler;
+- (void)unstarPost:(ANKPost *)post completion:(ANKClientCompletionBlock)completionHandler;
+- (void)unstarPostWithID:(NSString *)postID completion:(ANKClientCompletionBlock)completionHandler;
 
-- (void)reportPostAsSpam:(ANKPost *)post completion:(ADNClientCompletionBlock)completionHandler;
-- (void)reportPostWithIDAsSpam:(NSString *)postID completion:(ADNClientCompletionBlock)completionHandler;
+- (void)reportPostAsSpam:(ANKPost *)post completion:(ANKClientCompletionBlock)completionHandler;
+- (void)reportPostWithIDAsSpam:(NSString *)postID completion:(ANKClientCompletionBlock)completionHandler;
 
 @end

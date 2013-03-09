@@ -13,16 +13,16 @@
 
 @interface ANKClient (ANKPostStreams)
 
-- (void)fetchGlobalStreamWithCompletion:(ADNClientCompletionBlock)completionHandler;
-- (void)fetchPostsWithHashtag:(NSString *)hashtag completion:(ADNClientCompletionBlock)completionHandler;
+- (void)fetchGlobalStreamWithCompletion:(ANKClientCompletionBlock)completionHandler;
+- (void)fetchPostsWithHashtag:(NSString *)hashtag completion:(ANKClientCompletionBlock)completionHandler;
 
-- (void)fetchPostsCreatedByUser:(ANKUser *)user completion:(ADNClientCompletionBlock)completionHandler;
-- (void)fetchPostsCreatedByUserWithID:(NSString *)userID completion:(ADNClientCompletionBlock)completionHandler;
+- (void)fetchPostsCreatedByUser:(ANKUser *)user completion:(ANKClientCompletionBlock)completionHandler;
+- (void)fetchPostsCreatedByUserWithID:(NSString *)userID completion:(ANKClientCompletionBlock)completionHandler;
 
-- (void)fetchPostsMentioningUser:(ANKUser *)user completion:(ADNClientCompletionBlock)completionHandler;
-- (void)fetchPostsMentioningUserWithID:(NSString *)userID completion:(ADNClientCompletionBlock)completionHandler;
+- (void)fetchPostsMentioningUser:(ANKUser *)user completion:(ANKClientCompletionBlock)completionHandler;
+- (void)fetchPostsMentioningUserWithID:(NSString *)userID completion:(ANKClientCompletionBlock)completionHandler;
 
-- (void)fetchStreamForCurrentUserWithCompletion:(ADNClientCompletionBlock)completionHandler;
-- (void)fetchUnifiedStreamForCurrentUserWithCompletion:(ADNClientCompletionBlock)completionHandler;
+- (void)fetchStreamForCurrentUserWithCompletion:(ANKClientCompletionBlock)completionHandler;
+- (void)fetchUnifiedStreamForCurrentUserWithCompletion:(ANKClientCompletionBlock)completionHandler;
 
 @end

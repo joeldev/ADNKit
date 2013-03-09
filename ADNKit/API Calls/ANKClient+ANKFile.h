@@ -13,23 +13,23 @@
 
 @interface ANKClient (ANKFile)
 
-- (void)fetchFileWithID:(NSString *)fileID completion:(ADNClientCompletionBlock)completionHandler;
-- (void)fetchFilesWithIDs:(NSArray *)fileIDs completion:(ADNClientCompletionBlock)completionHandler;
-- (void)fetchCurrentUserFilesWithCompletion:(ADNClientCompletionBlock)completionHandler;
-- (void)fetchContentsOfFile:(ANKFile *)file completion:(ADNClientCompletionBlock)completionHandler;
-- (void)fetchContentsOfFileWithID:(NSString *)fileID completion:(ADNClientCompletionBlock)completionHandler;
+- (void)fetchFileWithID:(NSString *)fileID completion:(ANKClientCompletionBlock)completionHandler;
+- (void)fetchFilesWithIDs:(NSArray *)fileIDs completion:(ANKClientCompletionBlock)completionHandler;
+- (void)fetchCurrentUserFilesWithCompletion:(ANKClientCompletionBlock)completionHandler;
+- (void)fetchContentsOfFile:(ANKFile *)file completion:(ANKClientCompletionBlock)completionHandler;
+- (void)fetchContentsOfFileWithID:(NSString *)fileID completion:(ANKClientCompletionBlock)completionHandler;
 
-- (void)createFile:(ANKFile *)file withData:(NSData *)fileData completion:(ADNClientCompletionBlock)completionHandler;
-- (void)createFileWithData:(NSData *)fileData mimeType:(NSString *)mimeType filename:(NSString *)filename metadata:(NSDictionary *)metadata completion:(ADNClientCompletionBlock)completionHandler;
-- (void)createFileWithContentsOfURL:(NSURL *)fileURL metadata:(NSDictionary *)metadata completion:(ADNClientCompletionBlock)completionHandler;
+- (void)createFile:(ANKFile *)file withData:(NSData *)fileData completion:(ANKClientCompletionBlock)completionHandler;
+- (void)createFileWithData:(NSData *)fileData mimeType:(NSString *)mimeType filename:(NSString *)filename metadata:(NSDictionary *)metadata completion:(ANKClientCompletionBlock)completionHandler;
+- (void)createFileWithContentsOfURL:(NSURL *)fileURL metadata:(NSDictionary *)metadata completion:(ANKClientCompletionBlock)completionHandler;
 
-- (void)updateFile:(ANKFile *)file completion:(ADNClientCompletionBlock)completionHandler;
-- (void)updateFileWithID:(NSString *)fileID name:(NSString *)updatedName isPublic:(BOOL)updatedPublicFlag completion:(ADNClientCompletionBlock)completionHandler;
+- (void)updateFile:(ANKFile *)file completion:(ANKClientCompletionBlock)completionHandler;
+- (void)updateFileWithID:(NSString *)fileID name:(NSString *)updatedName isPublic:(BOOL)updatedPublicFlag completion:(ANKClientCompletionBlock)completionHandler;
 
-- (void)deleteFile:(ANKFile *)file completion:(ADNClientCompletionBlock)completionHandler;
-- (void)deleteFileWithID:(NSString *)fileID completion:(ADNClientCompletionBlock)completionHandler;
+- (void)deleteFile:(ANKFile *)file completion:(ANKClientCompletionBlock)completionHandler;
+- (void)deleteFileWithID:(NSString *)fileID completion:(ANKClientCompletionBlock)completionHandler;
 
-- (void)setContentOfFile:(ANKFile *)file fileData:(NSData *)fileData mimeType:(NSString *)mimeType completion:(ADNClientCompletionBlock)completionHandler;
-- (void)setContentOfFileWithID:(NSString *)fileID fileData:(NSData *)fileData mimeType:(NSString *)mimeType completion:(ADNClientCompletionBlock)completionHandler;
+- (void)setContentOfFile:(ANKFile *)file fileData:(NSData *)fileData mimeType:(NSString *)mimeType completion:(ANKClientCompletionBlock)completionHandler;
+- (void)setContentOfFileWithID:(NSString *)fileID fileData:(NSData *)fileData mimeType:(NSString *)mimeType completion:(ANKClientCompletionBlock)completionHandler;
 
 @end
