@@ -28,15 +28,15 @@
     static ANKClient *sharedADNClient = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        sharedADNClient = [[ANKClient alloc] initWithBaseURL:[NSURL URLWithString:@"https://alpha-api.app.net/stream/0/"]];
+        sharedADNClient = [[ANKClient alloc] init];
     });
     
     return sharedADNClient;
 }
 
 
-- (id)initWithBaseURL:(NSURL *)URL {
-    if ((self = [super initWithBaseURL:URL])) {
+- (id)init {
+    if ((self = [super initWithBaseURL:[NSURL URLWithString:@"https://alpha-api.app.net/stream/0/"]])) {
 		self.parameterEncoding = AFJSONParameterEncoding;
 		[self setDefaultHeader:@"Accept" value:@"application/json"];
 		[self registerHTTPOperationClass:[ANKJSONRequestOperation class]];
