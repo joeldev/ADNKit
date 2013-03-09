@@ -60,6 +60,13 @@
 		5DA357AD16EAE8BB00FA21F8 /* ANKClient+ANKFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DA357AB16EAE8BB00FA21F8 /* ANKClient+ANKFilter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DA357AE16EAE8BB00FA21F8 /* ANKClient+ANKFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA357AC16EAE8BB00FA21F8 /* ANKClient+ANKFilter.m */; };
 		5DA357AF16EAE8BB00FA21F8 /* ANKClient+ANKFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA357AC16EAE8BB00FA21F8 /* ANKClient+ANKFilter.m */; };
+		5DA357C316EBC11600FA21F8 /* ANKOAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA357B816EBC10800FA21F8 /* ANKOAuthViewController.m */; };
+		5DA357C416EBC11B00FA21F8 /* ANKUsernamePasswordAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA357BA16EBC10800FA21F8 /* ANKUsernamePasswordAuthViewController.m */; };
+		5DA357C816EBC15B00FA21F8 /* ANKUsernameFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DA357C616EBC15B00FA21F8 /* ANKUsernameFormatter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5DA357C916EBC15B00FA21F8 /* ANKUsernameFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA357C716EBC15B00FA21F8 /* ANKUsernameFormatter.m */; };
+		5DA357CA16EBC15F00FA21F8 /* ANKUsernameFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA357C716EBC15B00FA21F8 /* ANKUsernameFormatter.m */; };
+		5DA357D316EBC29100FA21F8 /* ADNKit-iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DA357CB16EBC18B00FA21F8 /* ADNKit-iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5DA357D416EBC29600FA21F8 /* ADNKit-OSX.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DA357CC16EBC18B00FA21F8 /* ADNKit-OSX.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DC370DD16E0805E00190862 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DC370DC16E0805E00190862 /* Foundation.framework */; };
 		5DC370E216E0805E00190862 /* ADNKit.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5DC370E116E0805E00190862 /* ADNKit.h */; };
 		5DC3710916E0808C00190862 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DC370F016E0807000190862 /* Cocoa.framework */; };
@@ -168,8 +175,6 @@
 		5DF6F09816EA70550018D445 /* ANKClient+ANKHandlerBlocks.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DF6F09616EA70540018D445 /* ANKClient+ANKHandlerBlocks.h */; };
 		5DF6F09916EA70550018D445 /* ANKClient+ANKHandlerBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F09716EA70550018D445 /* ANKClient+ANKHandlerBlocks.m */; };
 		5DF6F09A16EA70550018D445 /* ANKClient+ANKHandlerBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F09716EA70550018D445 /* ANKClient+ANKHandlerBlocks.m */; };
-		5DF6F0A016EA7B410018D445 /* ANKUsernamePasswordAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F09E16EA7B410018D445 /* ANKUsernamePasswordAuthViewController.m */; };
-		5DF6F0A416EA7B6B0018D445 /* ANKOAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F0A316EA7B6A0018D445 /* ANKOAuthViewController.m */; };
 		5DF6F0A516EA861E0018D445 /* ANKClient+ANKPost.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC3731916E6661500190862 /* ANKClient+ANKPost.h */; };
 		5DF6F0A616EA86260018D445 /* ANKClient+ANKPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3731A16E6661500190862 /* ANKClient+ANKPost.m */; };
 		5DF6F0A816EA86610018D445 /* ANKClient+ANKPostStreams.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A2C5A16E7117700DAE393 /* ANKClient+ANKPostStreams.h */; };
@@ -232,6 +237,14 @@
 		5DA357A716EAE0E000FA21F8 /* ANKClient+ANKExploreStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ANKClient+ANKExploreStream.m"; sourceTree = "<group>"; };
 		5DA357AB16EAE8BB00FA21F8 /* ANKClient+ANKFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ANKClient+ANKFilter.h"; sourceTree = "<group>"; };
 		5DA357AC16EAE8BB00FA21F8 /* ANKClient+ANKFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ANKClient+ANKFilter.m"; sourceTree = "<group>"; };
+		5DA357B716EBC10800FA21F8 /* ANKOAuthViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ANKOAuthViewController.h; sourceTree = "<group>"; };
+		5DA357B816EBC10800FA21F8 /* ANKOAuthViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ANKOAuthViewController.m; sourceTree = "<group>"; };
+		5DA357B916EBC10800FA21F8 /* ANKUsernamePasswordAuthViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ANKUsernamePasswordAuthViewController.h; sourceTree = "<group>"; };
+		5DA357BA16EBC10800FA21F8 /* ANKUsernamePasswordAuthViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ANKUsernamePasswordAuthViewController.m; sourceTree = "<group>"; };
+		5DA357C616EBC15B00FA21F8 /* ANKUsernameFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKUsernameFormatter.h; sourceTree = "<group>"; };
+		5DA357C716EBC15B00FA21F8 /* ANKUsernameFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANKUsernameFormatter.m; sourceTree = "<group>"; };
+		5DA357CB16EBC18B00FA21F8 /* ADNKit-iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "ADNKit-iOS.h"; path = "ADNKit/ADNKit-iOS.h"; sourceTree = "<group>"; };
+		5DA357CC16EBC18B00FA21F8 /* ADNKit-OSX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "ADNKit-OSX.h"; path = "ADNKit/ADNKit-OSX.h"; sourceTree = "<group>"; };
 		5DC370D916E0805E00190862 /* libADNKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libADNKit.a; path = "libADNKit-iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DC370DC16E0805E00190862 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5DC370E016E0805E00190862 /* ADNKit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ADNKit-Prefix.pch"; sourceTree = "<group>"; };
@@ -318,10 +331,6 @@
 		5DF6F09116EA4E0C0018D445 /* ANKLinkEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANKLinkEntity.m; sourceTree = "<group>"; };
 		5DF6F09616EA70540018D445 /* ANKClient+ANKHandlerBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ANKClient+ANKHandlerBlocks.h"; sourceTree = "<group>"; };
 		5DF6F09716EA70550018D445 /* ANKClient+ANKHandlerBlocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ANKClient+ANKHandlerBlocks.m"; sourceTree = "<group>"; };
-		5DF6F09D16EA7B410018D445 /* ANKUsernamePasswordAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKUsernamePasswordAuthViewController.h; sourceTree = "<group>"; };
-		5DF6F09E16EA7B410018D445 /* ANKUsernamePasswordAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANKUsernamePasswordAuthViewController.m; sourceTree = "<group>"; };
-		5DF6F0A216EA7B6A0018D445 /* ANKOAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKOAuthViewController.h; sourceTree = "<group>"; };
-		5DF6F0A316EA7B6A0018D445 /* ANKOAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANKOAuthViewController.m; sourceTree = "<group>"; };
 		5DF6F0B616EAB80F0018D445 /* ANKClient+ANKInteraction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ANKClient+ANKInteraction.h"; sourceTree = "<group>"; };
 		5DF6F0B716EAB80F0018D445 /* ANKClient+ANKInteraction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ANKClient+ANKInteraction.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -352,10 +361,80 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5DA357B516EBC10600FA21F8 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				5DA357B616EBC10800FA21F8 /* iOS */,
+				5DA357BB16EBC10800FA21F8 /* OS X */,
+				5DA357BC16EBC10800FA21F8 /* Shared */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		5DA357B616EBC10800FA21F8 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				5DA357B716EBC10800FA21F8 /* ANKOAuthViewController.h */,
+				5DA357B816EBC10800FA21F8 /* ANKOAuthViewController.m */,
+				5DA357B916EBC10800FA21F8 /* ANKUsernamePasswordAuthViewController.h */,
+				5DA357BA16EBC10800FA21F8 /* ANKUsernamePasswordAuthViewController.m */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		5DA357BB16EBC10800FA21F8 /* OS X */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "OS X";
+			sourceTree = "<group>";
+		};
+		5DA357BC16EBC10800FA21F8 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		5DA357BD16EBC10800FA21F8 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				5DA357BE16EBC10D00FA21F8 /* iOS */,
+				5DA357BF16EBC10D00FA21F8 /* OS X */,
+				5DA357C216EBC10D00FA21F8 /* Shared */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		5DA357BE16EBC10D00FA21F8 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		5DA357BF16EBC10D00FA21F8 /* OS X */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "OS X";
+			sourceTree = "<group>";
+		};
+		5DA357C216EBC10D00FA21F8 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				5DA357C616EBC15B00FA21F8 /* ANKUsernameFormatter.h */,
+				5DA357C716EBC15B00FA21F8 /* ANKUsernameFormatter.m */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		5DC370D016E0805E00190862 = {
 			isa = PBXGroup;
 			children = (
 				5DC370E116E0805E00190862 /* ADNKit.h */,
+				5DA357CB16EBC18B00FA21F8 /* ADNKit-iOS.h */,
+				5DA357CC16EBC18B00FA21F8 /* ADNKit-OSX.h */,
 				5DC370DE16E0805E00190862 /* ADNKit */,
 				5DC3710A16E0808C00190862 /* ADNKit-OSX */,
 				5DC3724616E3AE1500190862 /* AFNetworking */,
@@ -390,8 +469,9 @@
 				5DC3728716E3B0FC00190862 /* Resources */,
 				5DC372F416E4750800190862 /* API Calls */,
 				5DC3728D16E3B2CB00190862 /* Networking */,
-				5DF6F09C16EA7A260018D445 /* UI */,
 				5DC372A016E448A900190862 /* Categories */,
+				5DA357B516EBC10600FA21F8 /* UI */,
+				5DA357BD16EBC10800FA21F8 /* Utilities */,
 				5DC370DF16E0805E00190862 /* Supporting Files */,
 			);
 			path = ADNKit;
@@ -678,17 +758,6 @@
 			name = Entities;
 			sourceTree = "<group>";
 		};
-		5DF6F09C16EA7A260018D445 /* UI */ = {
-			isa = PBXGroup;
-			children = (
-				5DF6F09D16EA7B410018D445 /* ANKUsernamePasswordAuthViewController.h */,
-				5DF6F09E16EA7B410018D445 /* ANKUsernamePasswordAuthViewController.m */,
-				5DF6F0A216EA7B6A0018D445 /* ANKOAuthViewController.h */,
-				5DF6F0A316EA7B6A0018D445 /* ANKOAuthViewController.m */,
-			);
-			path = UI;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -749,6 +818,9 @@
 				5DA357A416EADF9700FA21F8 /* ANKClient+ANKInteraction.h in Headers */,
 				5DA357A816EAE0E000FA21F8 /* ANKClient+ANKExploreStream.h in Headers */,
 				5DA357AD16EAE8BB00FA21F8 /* ANKClient+ANKFilter.h in Headers */,
+				5DA357C816EBC15B00FA21F8 /* ANKUsernameFormatter.h in Headers */,
+				5DA357D316EBC29100FA21F8 /* ADNKit-iOS.h in Headers */,
+				5DA357D416EBC29600FA21F8 /* ADNKit-OSX.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -881,14 +953,15 @@
 				5DF6F08E16EA4DFD0018D445 /* ANKHashtagEntity.m in Sources */,
 				5DF6F09316EA4E0D0018D445 /* ANKLinkEntity.m in Sources */,
 				5DF6F09916EA70550018D445 /* ANKClient+ANKHandlerBlocks.m in Sources */,
-				5DF6F0A016EA7B410018D445 /* ANKUsernamePasswordAuthViewController.m in Sources */,
-				5DF6F0A416EA7B6B0018D445 /* ANKOAuthViewController.m in Sources */,
 				5DF6F0A616EA86260018D445 /* ANKClient+ANKPost.m in Sources */,
 				5DF6F0AA16EA86650018D445 /* ANKClient+ANKPostStreams.m in Sources */,
 				5DF6F0AB16EA8A9C0018D445 /* ANKAPIResponse.m in Sources */,
 				5DF6F0B816EAB80F0018D445 /* ANKClient+ANKInteraction.m in Sources */,
 				5DA357A916EAE0E000FA21F8 /* ANKClient+ANKExploreStream.m in Sources */,
 				5DA357AE16EAE8BB00FA21F8 /* ANKClient+ANKFilter.m in Sources */,
+				5DA357C316EBC11600FA21F8 /* ANKOAuthViewController.m in Sources */,
+				5DA357C416EBC11B00FA21F8 /* ANKUsernamePasswordAuthViewController.m in Sources */,
+				5DA357CA16EBC15F00FA21F8 /* ANKUsernameFormatter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -948,6 +1021,7 @@
 				5DA357A516EADF9F00FA21F8 /* ANKClient+ANKInteraction.m in Sources */,
 				5DA357AA16EAE0E000FA21F8 /* ANKClient+ANKExploreStream.m in Sources */,
 				5DA357AF16EAE8BB00FA21F8 /* ANKClient+ANKFilter.m in Sources */,
+				5DA357C916EBC15B00FA21F8 /* ANKUsernameFormatter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

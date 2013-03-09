@@ -15,6 +15,9 @@
 #import "ANKClient+ANKChannel.h"
 #import "ANKClient+ANKMessage.h"
 #import "ANKClient+ANKStream.h"
+#import "ANKClient+ANKInteraction.h"
+#import "ANKClient+ANKExploreStream.h"
+#import "ANKClient+ANKFilter.h"
 
 #import "ANKResource.h"
 #import "ANKAnnotatableResource.h"
@@ -53,3 +56,11 @@
 #import "ANKValueTransformations.h"
 #import "ANKJSONRequestOperation.h"
 #import "ANKAPIResponse.h"
+
+#import "ANKUsernameFormatter.h"
+
+#ifdef __IPHONE_OS_VERSION_MIN_REQUIRED
+#import "ADNKit-iOS.h"
+#else
+#import "ADNKit-OSX.h"
+#endif
