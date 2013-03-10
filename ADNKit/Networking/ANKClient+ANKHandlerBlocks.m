@@ -15,8 +15,8 @@
 
 - (NSArray *)unboxCollectionResponse:(ANKAPIResponse *)response ofResourceClass:(Class)resourceClass {
 	id unboxedObject = nil;
-	if ([resourceClass isSubclassOfClass:[ANKResource class]] && [response.data isKindOfClass:[NSDictionary class]]) {
-		unboxedObject = [resourceClass objectFromJSONDictionary:response.data];
+	if ([resourceClass isSubclassOfClass:[ANKResource class]] && [response.data isKindOfClass:[NSArray class]]) {
+		unboxedObject = [resourceClass objectsFromJSONDictionaries:response.data];
 	}
 	return unboxedObject;
 }
