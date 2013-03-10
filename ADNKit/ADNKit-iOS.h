@@ -7,4 +7,4 @@
 //
 
 #import "ANKOAuthViewController.h"
-#import "ANKUsernamePasswordViewController.h"
+#import "ANKUsernamePasswordAuthViewController.h"
