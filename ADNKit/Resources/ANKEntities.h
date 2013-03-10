@@ -15,4 +15,6 @@
 @property (strong) NSArray *hashtags;
 @property (strong) NSArray *links;
 
+- (NSAttributedString *)attributedStringForString:(NSString *)string withDefaultAttributes:(NSDictionary *)defaultAttributes mentionAttributes:(NSDictionary *)mentionAttributes hashtagAttributes:(NSDictionary *)hashtagAttributes linkAttributes:(NSDictionary *)linkAttributes;
+
 @end
