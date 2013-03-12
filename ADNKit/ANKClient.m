@@ -8,6 +8,7 @@
 
 #import "ANKClient.h"
 #import "ANKJSONRequestOperation.h"
+#import "ANKPaginationSettings.h"
 
 
 @interface ANKClient ()
@@ -38,6 +39,7 @@
 - (id)init {
     if ((self = [super initWithBaseURL:[NSURL URLWithString:@"https://alpha-api.app.net/stream/0/"]])) {
 		self.parameterEncoding = AFJSONParameterEncoding;
+		self.defaultPagination = [[ANKPaginationSettings alloc] init];
 		[self setDefaultHeader:@"Accept" value:@"application/json"];
 		[self registerHTTPOperationClass:[ANKJSONRequestOperation class]];
 		
@@ -68,6 +70,9 @@
 	NSMutableDictionary *mutableParameters = parameters ? [parameters mutableCopy] : [NSMutableDictionary dictionary];
 	if (self.shouldRequestAnnotations) {
 		mutableParameters[@"include_annotations"] = @(1);
+	}
+	if (self.defaultPagination) {
+		[mutableParameters addEntriesFromDictionary:[self.defaultPagination JSONDictionary]];
 	}
 	return [super requestWithMethod:method path:path parameters:mutableParameters];
 }
@@ -164,6 +169,23 @@
 	}
 	
 	return scopeDescriptions;
+}
+
+
+#pragma mark -
+#pragma mark Pagination
+
+- (void)paginate:(ANKPaginationSettings *)pagination requestsBlock:(void (^)(void))requestsBlock {
+	@synchronized (self) {
+		__strong ANKPaginationSettings *defaultPaginationSettings = self.defaultPagination;
+		self.defaultPagination = pagination;
+		
+		if (requestsBlock) {
+			requestsBlock();
+		}
+		
+		self.defaultPagination = defaultPaginationSettings;
+	}
 }
 
 
