@@ -9,12 +9,14 @@
 #import "ANKResource.h"
 
 
+@class ANKEntity;
+
 @interface ANKEntities : ANKResource
 
 @property (strong) NSArray *mentions;
 @property (strong) NSArray *hashtags;
 @property (strong) NSArray *links;
 
-- (NSAttributedString *)attributedStringForString:(NSString *)string withDefaultAttributes:(NSDictionary *)defaultAttributes mentionAttributes:(NSDictionary *)mentionAttributes hashtagAttributes:(NSDictionary *)hashtagAttributes linkAttributes:(NSDictionary *)linkAttributes;
+- (NSAttributedString *)attributedStringForString:(NSString *)string withDefaultAttributes:(NSDictionary *)defaultAttributes mentionAttributes:(NSDictionary *)mentionAttributes hashtagAttributes:(NSDictionary *)hashtagAttributes linkAttributes:(NSDictionary *)linkAttributes attributeEncodeBlock:(void (^)(NSMutableDictionary *attributes, ANKEntity *entity))encodeBlock;
 
 @end
