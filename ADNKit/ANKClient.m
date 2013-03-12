@@ -192,7 +192,6 @@
 #pragma mark -
 #pragma mark Internal API
 
-
 - (void)initializeHTTPAuthClient {
 	self.authHTTPClient = [AFHTTPClient clientWithBaseURL:[NSURL URLWithString:@"https://account.app.net/oauth"]];
 	self.authHTTPClient.parameterEncoding = AFFormURLParameterEncoding;
