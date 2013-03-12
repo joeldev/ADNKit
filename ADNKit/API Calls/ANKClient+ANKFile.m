@@ -54,11 +54,11 @@
 	AFHTTPRequestOperation *requestOperation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
 	[requestOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
 		if (completionHandler) {
-			completionHandler(responseObject, nil);
+			completionHandler(responseObject, nil, nil);
 		}
 	} failure:^(AFHTTPRequestOperation *operation, NSError *error) {
 		if (completionHandler) {
-			completionHandler(nil, error);
+			completionHandler(nil, nil, error);
 		}
 	}];
 	[self enqueueHTTPRequestOperation:requestOperation];
@@ -105,7 +105,7 @@
 	
 	if (multipartEncodeError) {
 		if (completionHandler) {
-			completionHandler(nil, multipartEncodeError);
+			completionHandler(nil, nil, multipartEncodeError);
 		}
 		return;
 	}

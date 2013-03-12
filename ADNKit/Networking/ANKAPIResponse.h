@@ -12,9 +12,12 @@
 static NSString *const kANKAPIResponseKey = @"ANKAPIResponse";
 
 
+@class ANKAPIResponseMeta;
+
 @interface ANKAPIResponse : NSObject
 
 @property (readonly, strong) id data;
+@property (readonly, strong) ANKAPIResponseMeta *meta;
 
 - (id)initWithResponseObject:(id)responseObject;
 

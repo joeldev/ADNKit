@@ -7,11 +7,13 @@
 //
 
 #import "ANKAPIResponse.h"
+#import "ANKAPIResponseMeta.h"
 
 
 @interface ANKAPIResponse ()
 
 @property (readwrite, strong) id data;
+@property (readwrite, strong) ANKAPIResponseMeta *meta;
 
 @end
 
@@ -23,8 +25,7 @@
 		if ([responseObject isKindOfClass:[NSDictionary class]]) {
 			NSDictionary *responseDictionary = (NSDictionary *)responseObject;
 			self.data = responseDictionary[@"data"];
-			// TODO: deal with meta
-			// TODO: look for and expose errors and error codes
+			self.meta = [ANKAPIResponseMeta objectFromJSONDictionary:responseDictionary[@"meta"]];
 		}
 	}
 	return self;

@@ -32,7 +32,7 @@
 		}
 		
 		if (handler) {
-			handler(finalObject, error);
+			handler(finalObject, responseWrapper.meta, error);
 		}
 	};
 }
@@ -72,8 +72,9 @@
 
 - (AFNetworkingSuccessBlock)successHandlerForPrimitiveResponseWithClientHandler:(ANKClientCompletionBlock)handler {
 	return ^(AFHTTPRequestOperation *operation, id responseObject) {
+		ANKAPIResponse *response = (ANKAPIResponse *)responseObject;
 		if (handler) {
-			handler(((ANKAPIResponse *)responseObject).data, nil);
+			handler(response.data, response.meta, nil);
 		}
 	};
 }
@@ -82,7 +83,7 @@
 - (AFNetworkingFailureBlock)failureHandlerForClientHandler:(ANKClientCompletionBlock)handler {
 	return ^(AFHTTPRequestOperation *operation, NSError *error) {
 		if (handler) {
-			handler(nil, error);
+			handler(nil, nil, error);
 		}
 	};
 }

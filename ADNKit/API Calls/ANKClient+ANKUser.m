@@ -73,11 +73,11 @@
 	AFHTTPRequestOperation *requestOperation = [[AFHTTPRequestOperation alloc] initWithRequest:URLRequest];
 	[requestOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
 		if (completionHandler) {
-			completionHandler([operation.response URL], nil);
+			completionHandler([operation.response URL], nil, nil);
 		}
 	} failure:^(AFHTTPRequestOperation *operation, NSError *error) {
 		if (completionHandler) {
-			completionHandler(nil, error);
+			completionHandler(nil, nil, error);
 		}
 	}];
 	[self enqueueHTTPRequestOperation:requestOperation];
@@ -106,11 +106,11 @@
 	AFHTTPRequestOperation *requestOperation = [[AFHTTPRequestOperation alloc] initWithRequest:URLRequest];
 	[requestOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
 		if (completionHandler) {
-			completionHandler([operation.response URL], nil);
+			completionHandler([operation.response URL], nil, nil);
 		}
 	} failure:^(AFHTTPRequestOperation *operation, NSError *error) {
 		if (completionHandler) {
-			completionHandler(nil, error);
+			completionHandler(nil, nil, error);
 		}
 	}];
 	[self enqueueHTTPRequestOperation:requestOperation];
