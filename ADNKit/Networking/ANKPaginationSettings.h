@@ -23,6 +23,7 @@
 @property (strong) NSString *markerID;
 @property (strong) NSString *markerIDInclusive;
 
++ (instancetype)settingsWithCount:(NSUInteger)count;
 + (instancetype)settingsWithSinceID:(NSString *)sinceID beforeID:(NSString *)beforeID count:(NSUInteger)count;
 + (instancetype)settingsWithLastReadID:(NSString *)lastReadID markerID:(NSString *)markerID count:(NSUInteger)count;
 + (instancetype)settingsWithLastReadIDInclusive:(NSString *)lastReadIDInclusive markerIDInclusive:(NSString *)markerIDInclusive count:(NSUInteger)count;

@@ -22,6 +22,11 @@
 }
 
 
++ (instancetype)settingsWithCount:(NSUInteger)count {
+	return [[self class] settingsWithSinceID:nil beforeID:nil count:count];
+}
+
+
 + (instancetype)settingsWithSinceID:(NSString *)sinceID beforeID:(NSString *)beforeID count:(NSUInteger)count {
 	ANKPaginationSettings *settings = [[[self class] alloc] init];
 	settings.sinceID = sinceID;
