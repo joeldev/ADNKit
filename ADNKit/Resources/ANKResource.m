@@ -133,6 +133,11 @@ static dispatch_once_t propertiesMapOnceToken;
 }
 
 
++ (NSSet *)localKeysExcludedFromJSONOutput {
+	return nil;
+}
+
+
 + (instancetype)objectFromJSONDictionary:(NSDictionary *)dictionary {
 	return [[[self class] alloc] initWithJSONDictionary:dictionary];
 }
@@ -234,6 +239,11 @@ static dispatch_once_t propertiesMapOnceToken;
 	}
 	
 	for (NSString *localKey in propertiesForClass) {
+		if ([[[self class] localKeysExcludedFromJSONOutput] containsObject:localKey]) {
+			// skip this key, it is marked as excluded
+			continue;
+		}
+		
 		ANKResourceProperty *property = propertiesForClass[localKey];
 		
 		// figure out the JSON key

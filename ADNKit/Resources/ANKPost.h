@@ -38,4 +38,8 @@
 @property (strong) NSArray *reposters;
 @property (strong) ANKPost *repostedPost;
 
+// this does not come from the server, nor is it returned as a key in -JSONDictionary. It is meant for
+// easy caching from the client to encourage not generating the attributed string more than once.
+@property (strong) NSAttributedString *attributedText;
+
 @end

@@ -31,6 +31,11 @@
 }
 
 
++ (NSSet *)localKeysExcludedFromJSONOutput {
+	return [NSSet setWithObject:@"attributedText"];
+}
+
+
 + (Class)starredByUsersCollectionObjectClass {
 	return [ANKUser class];
 }

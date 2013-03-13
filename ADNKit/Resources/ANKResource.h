@@ -14,6 +14,7 @@
 + (NSDictionary *)JSONToLocalKeyMapping;
 + (NSString *)JSONKeyForLocalKey:(NSString *)localKey;
 + (NSString *)localKeyForJSONKey:(NSString *)JSONKey;
++ (NSSet *)localKeysExcludedFromJSONOutput;
 
 + (instancetype)objectFromJSONDictionary:(NSDictionary *)dictionary;
 + (NSArray *)objectsFromJSONDictionaries:(NSArray *)dictionaries;
