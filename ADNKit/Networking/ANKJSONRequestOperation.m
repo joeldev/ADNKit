@@ -8,6 +8,7 @@
 
 #import "ANKJSONRequestOperation.h"
 #import "ANKAPIResponse.h"
+#import "ANKAPIResponseMeta.h"
 
 
 @implementation ANKJSONRequestOperation
@@ -27,7 +28,7 @@
 		NSError *modifiedError = [NSError errorWithDomain:error.domain code:error.code userInfo:modifiedUserInfo];
 		
 		if (failure) {
-			failure(operation, modifiedError);
+			failure(operation, response.meta.isError ? response.meta.error : modifiedError);
 		}
     }];
 }
