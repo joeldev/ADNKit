@@ -56,6 +56,8 @@ typedef NS_ENUM(NSUInteger, ANKAuthScope) {
 #pragma mark -
 #pragma mark Pagination
 
+- (instancetype)clientWithPagination:(ANKPaginationSettings *)pagination;
+
 // call this method to apply the passed pagination settings to all requests fired from within the requestsBlock (similar to UIView animation).
 // this does not effect the defaultPagination
 - (void)paginate:(ANKPaginationSettings *)pagination requestsBlock:(void (^)(void))requestsBlock;

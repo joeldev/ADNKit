@@ -57,6 +57,7 @@
 #import "ANKJSONRequestOperation.h"
 #import "ANKAPIResponse.h"
 #import "ANKAPIResponseMeta.h"
+#import "ANKPaginationSettings.h"
 
 #import "ANKUsernameFormatter.h"
 

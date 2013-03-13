@@ -55,6 +55,14 @@
 }
 
 
+- (id)copyWithZone:(NSZone *)zone {
+	ANKClient *copy = [[ANKClient alloc] init];
+	copy.accessToken = self.accessToken;
+	copy.shouldRequestAnnotations = self.shouldRequestAnnotations;
+	return copy;
+}
+
+
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
 	if ([keyPath isEqualToString:@"accessToken"]) {
 		if (self.accessToken) {
@@ -174,6 +182,13 @@
 
 #pragma mark -
 #pragma mark Pagination
+
+- (instancetype)clientWithPagination:(ANKPaginationSettings *)pagination {
+	ANKClient *clientCopy = [self copy];
+	clientCopy.defaultPagination = pagination;
+	return clientCopy;
+}
+
 
 - (void)paginate:(ANKPaginationSettings *)pagination requestsBlock:(void (^)(void))requestsBlock {
 	@synchronized (self) {
