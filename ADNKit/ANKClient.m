@@ -9,6 +9,7 @@
 #import "ANKClient.h"
 #import "ANKJSONRequestOperation.h"
 #import "ANKPaginationSettings.h"
+#import "ANKAPIResponseMeta.h"
 
 
 @interface ANKClient ()
@@ -232,6 +233,13 @@
 
 
 - (void)HTTPAuthDidCompleteSuccessfully:(BOOL)wasSuccessful error:(NSError *)error handler:(void (^)(BOOL successful, NSError *error))handler {
+	if (error.localizedRecoverySuggestion) {
+		NSDictionary *errorDictionary = [NSJSONSerialization JSONObjectWithData:[error.localizedRecoverySuggestion dataUsingEncoding:NSUTF8StringEncoding] options:0 error:nil];
+		if (errorDictionary) {
+			NSError *modifiedError = [NSError errorWithDomain:kANKErrorDomain code:0 userInfo:@{NSLocalizedDescriptionKey: errorDictionary[@"error"]}];
+			error = modifiedError;
+		}
+	}
 	if (handler) {
 		handler(wasSuccessful, error);
 	}
