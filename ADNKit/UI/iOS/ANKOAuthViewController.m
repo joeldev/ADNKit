@@ -8,31 +8,60 @@
 
 #import "ANKOAuthViewController.h"
 
+
 @interface ANKOAuthViewController ()
+
+@property (strong) UIWebView *webView;
+@property (strong) NSURLRequest *request;
+@property (strong) ANKClient *client;
+@property (copy) void (^authDidFinishHandler)(ANKClient *authedClient, NSError *error, ANKOAuthViewController *controller);
 
 @end
 
+
 @implementation ANKOAuthViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+- (id)initWithWebAuthRequest:(NSURLRequest *)request client:(ANKClient *)client completion:(void (^)(ANKClient *authedClient, NSError *error, ANKOAuthViewController *controller))completionHander {
+	if ((self = [super init])) {
+		self.authDidFinishHandler = completionHander;
+		self.request = request;
+		self.client = client;
+		self.title = @"Log in to App.net";
+	}
+	return self;
 }
 
-- (void)viewDidLoad
-{
+
+- (void)viewDidLoad {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+	self.webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
+	[self.view addSubview:self.webView];
+	
+	__weak ANKOAuthViewController *weakSelf = self;
+	self.client.webAuthCompletionHandler = ^(BOOL succeeded, NSError *error) {
+		if (succeeded) {
+			weakSelf.authDidFinishHandler(weakSelf.client, nil, weakSelf);
+		} else {
+			weakSelf.authDidFinishHandler(nil, error, weakSelf);
+		}
+	};
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+- (void)viewDidAppear:(BOOL)animated {
+	[super viewDidAppear:animated];
+	[self.webView loadRequest:self.request];
 }
+
+
+- (void)cancel {
+	[self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+- (void)authenticateWebAuthAccessCode:(NSString *)accessCode forClientID:(NSString *)clientID clientSecret:(NSString *)clientSecret {
+	[self.client authenticateWebAuthAccessCode:accessCode forClientID:clientID clientSecret:clientSecret];
+}
+
 
 @end

@@ -97,6 +97,11 @@ typedef NS_ENUM(NSInteger, ANKCellType) {
 }
 
 
+- (void)cancel {
+	[self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 	return ANKTotalCellsCount;
 }
