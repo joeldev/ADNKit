@@ -42,6 +42,6 @@
 // easy caching from the client to encourage not generating the attributed string more than once.
 @property (strong) NSAttributedString *attributedText;
 
-- (BOOL)isMention;
+- (BOOL)containsMentionForUsername:(NSString *)username;
 
 @end

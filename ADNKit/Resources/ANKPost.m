@@ -52,8 +52,8 @@
 }
 
 
-- (BOOL)isMention {
-	return [self.entities containsMentionForUsername:self.user.username];
+- (BOOL)containsMentionForUsername:(NSString *)username {
+	return [self.entities containsMentionForUsername:username];
 }
 
 

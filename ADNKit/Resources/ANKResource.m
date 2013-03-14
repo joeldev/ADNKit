@@ -220,6 +220,7 @@ static dispatch_once_t propertiesMapOnceToken;
 			[self setValue:value forKey:localKey];
 		}
 	}
+	[self objectDidUpdate];
 }
 
 
