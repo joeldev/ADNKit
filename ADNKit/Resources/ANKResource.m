@@ -223,6 +223,11 @@ static dispatch_once_t propertiesMapOnceToken;
 }
 
 
+- (void)objectDidUpdate {
+	// override me!
+}
+
+
 - (NSDictionary *)JSONDictionary {
 	return [self JSONDictionaryForClass:[self class]];
 }
