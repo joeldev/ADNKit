@@ -52,6 +52,7 @@
 		252A2C4516E5624700DAE393 /* ANKClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A2C4316E5624700DAE393 /* ANKClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		252A2C4616E5624700DAE393 /* ANKClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C4416E5624700DAE393 /* ANKClient.m */; };
 		252A2C4716E5624700DAE393 /* ANKClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C4416E5624700DAE393 /* ANKClient.m */; };
+		252A2CF716F1122600DAE393 /* ANKTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2CF616F1122600DAE393 /* ANKTextFieldCell.m */; };
 		5D714BE416EFB74A0008434D /* ANKAPIResponseMeta.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D714BE216EFB74A0008434D /* ANKAPIResponseMeta.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5D714BE516EFB74A0008434D /* ANKAPIResponseMeta.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D714BE316EFB74A0008434D /* ANKAPIResponseMeta.m */; };
 		5D714BE616EFB74A0008434D /* ANKAPIResponseMeta.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D714BE316EFB74A0008434D /* ANKAPIResponseMeta.m */; };
@@ -239,6 +240,8 @@
 		252A2C4416E5624700DAE393 /* ANKClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANKClient.m; sourceTree = "<group>"; };
 		252A2C5A16E7117700DAE393 /* ANKClient+ANKPostStreams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ANKClient+ANKPostStreams.h"; sourceTree = "<group>"; };
 		252A2C5B16E7117700DAE393 /* ANKClient+ANKPostStreams.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ANKClient+ANKPostStreams.m"; sourceTree = "<group>"; };
+		252A2CF516F1122600DAE393 /* ANKTextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKTextFieldCell.h; sourceTree = "<group>"; };
+		252A2CF616F1122600DAE393 /* ANKTextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANKTextFieldCell.m; sourceTree = "<group>"; };
 		5D714BE216EFB74A0008434D /* ANKAPIResponseMeta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKAPIResponseMeta.h; sourceTree = "<group>"; };
 		5D714BE316EFB74A0008434D /* ANKAPIResponseMeta.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANKAPIResponseMeta.m; sourceTree = "<group>"; };
 		5D714BE716EFF1CC0008434D /* ANKPaginationSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKPaginationSettings.h; sourceTree = "<group>"; };
@@ -388,6 +391,8 @@
 				5DA357B816EBC10800FA21F8 /* ANKOAuthViewController.m */,
 				5DA357B916EBC10800FA21F8 /* ANKUsernamePasswordAuthViewController.h */,
 				5DA357BA16EBC10800FA21F8 /* ANKUsernamePasswordAuthViewController.m */,
+				252A2CF516F1122600DAE393 /* ANKTextFieldCell.h */,
+				252A2CF616F1122600DAE393 /* ANKTextFieldCell.m */,
 			);
 			path = iOS;
 			sourceTree = "<group>";
@@ -980,6 +985,7 @@
 				5DA357CA16EBC15F00FA21F8 /* ANKUsernameFormatter.m in Sources */,
 				5D714BE516EFB74A0008434D /* ANKAPIResponseMeta.m in Sources */,
 				5D714BEA16EFF1CC0008434D /* ANKPaginationSettings.m in Sources */,
+				252A2CF716F1122600DAE393 /* ANKTextFieldCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

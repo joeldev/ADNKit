@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ANKUsernamePasswordAuthViewController : UIViewController
+
+@interface ANKUsernamePasswordAuthViewController : UITableViewController <UITextFieldDelegate>
+
+- (id)initWithClient:(ANKClient *)client clientID:(NSString *)clientID passwordGrantSecret:(NSString *)passwordGrantSecret authScopes:(ANKAuthScope)authScopes completion:(void (^)(ANKClient *authedClient, NSError *error, ANKUsernamePasswordAuthViewController *controller))completionHandler;
+
+// set these blocks if you want to show a loading UI during the request
+@property (copy) void (^authRequestDidBegin)(void);
+@property (copy) void (^authRequestDidFinish)(void);
 
 @end
