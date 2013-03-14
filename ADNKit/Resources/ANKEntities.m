@@ -12,6 +12,13 @@
 #import "ANKLinkEntity.h"
 
 
+@interface ANKEntities ()
+
+@property (strong) NSDictionary *mentionMap;
+
+@end
+
+
 @implementation ANKEntities
 
 + (Class)mentionsCollectionObjectClass {
@@ -26,6 +33,21 @@
 
 + (Class)linksCollectionObjectClass {
 	return [ANKLinkEntity class];
+}
+
+
+- (void)objectDidUpdate {
+	self.mentionMap = [NSDictionary dictionaryWithObjects:self.mentions forKeys:[self.mentions valueForKeyPath:@"username"]];
+}
+
+
+- (ANKMentionEntity *)mentionForUsername:(NSString *)username {
+	return self.mentionMap[([username hasPrefix:@"@"] ? [username substringFromIndex:1] : username)];
+}
+
+
+- (BOOL)containsMentionForUsername:(NSString *)username {
+	return [self mentionForUsername:username] != nil;
 }
 
 

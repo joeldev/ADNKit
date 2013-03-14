@@ -21,6 +21,7 @@
 
 - (id)initWithJSONDictionary:(NSDictionary *)JSONDictionay;
 - (void)updateObjectFromJSONDictionary:(NSDictionary *)JSONDictionary;
+- (void)objectDidUpdate;
 - (NSDictionary *)JSONDictionary;
 
 @end

@@ -8,6 +8,7 @@
 
 #import "ANKPost.h"
 #import "ANKUser.h"
+#import "ANKEntities.h"
 
 
 @implementation ANKPost
@@ -48,6 +49,11 @@
 
 - (NSString *)description {
 	return [NSString stringWithFormat:@"<%@ %p> - @%@: %@", NSStringFromClass([self class]), self, self.user.username, self.text];
+}
+
+
+- (BOOL)containsMentionForUsername:(NSString *)username {
+	return [self.entities containsMentionForUsername:username];
 }
 
 
