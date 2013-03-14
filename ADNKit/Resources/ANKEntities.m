@@ -42,7 +42,7 @@
 
 
 - (ANKMentionEntity *)mentionForUsername:(NSString *)username {
-	return self.mentionMap[username];
+	return self.mentionMap[([username hasPrefix:@"@"] ? [username substringFromIndex:1] : username)];
 }
 
 
