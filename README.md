@@ -26,7 +26,7 @@ ADNKit makes use of submodules for its dependencies. After cloning the repo, mak
 /* this assumes you have two text fields, usernameField and passwordField */
 
 // ask for permission to see user information and send new Posts
-ADNAuthScope requestedScopes = ADNAuthScopeBasic | ADNAuthScopeWritePost;
+ANKAuthScope requestedScopes = ANKAuthScopeBasic | ANKAuthScopeWritePost;
 
 // handler to call when finished authenticating
 id handler = ^(BOOL success, NSError *error) {
@@ -38,7 +38,7 @@ id handler = ^(BOOL success, NSError *error) {
 };
 
 // authenticate, calling the handler block when complete
-[[ADNClient sharedClient] authenticateUsername:usernameField.text
+[[ANKClient sharedClient] authenticateUsername:usernameField.text
 									  password:passwordField.text
 									  clientID:@"xxxxxx"
 						   passwordGrantSecret:@"zzzzzz"
@@ -53,7 +53,7 @@ Once the completion block is called with a successful response, you are complete
 Now that we are authenticated with App.net, let's make our inaugural Post:
 
 ```objc
-[[ADNClient sharedClient] createPostWithText:@"Hello, world!" completion:^(ADNPost *post, NSError *error) {
+[[ANKClient sharedClient] createPostWithText:@"Hello, world!" completion:^(ADNPost *post, NSError *error) {
     NSLog(@"post created! %@", post ?: error);
 }];
 ```
@@ -64,7 +64,7 @@ You could have also achieved the same thing with:
 ```objc
 ADNPost *post = [[ADNPost alloc] init];
 post.text = @"Hello, world!";
-[[ADNClient sharedClient] createPost:post completion:^(ADNPost *post, NSError *error) {
+[[ANKClient sharedClient] createPost:post completion:^(ADNPost *post, NSError *error) {
     NSLog(@"post created! %@", post ?: error);
 }];
 ```
