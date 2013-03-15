@@ -40,7 +40,7 @@
 		252A2C2916E5473D00DAE393 /* ANKAnnotation.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A2C2716E5473D00DAE393 /* ANKAnnotation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		252A2C2A16E5473D00DAE393 /* ANKAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C2816E5473D00DAE393 /* ANKAnnotation.m */; };
 		252A2C2B16E5473D00DAE393 /* ANKAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C2816E5473D00DAE393 /* ANKAnnotation.m */; };
-		252A2C3316E5489400DAE393 /* ANKAnnotatableResource.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A2C3116E5489300DAE393 /* ANKAnnotatableResource.h */; };
+		252A2C3316E5489400DAE393 /* ANKAnnotatableResource.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A2C3116E5489300DAE393 /* ANKAnnotatableResource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		252A2C3416E5489400DAE393 /* ANKAnnotatableResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C3216E5489300DAE393 /* ANKAnnotatableResource.m */; };
 		252A2C3516E5489400DAE393 /* ANKAnnotatableResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C3216E5489300DAE393 /* ANKAnnotatableResource.m */; };
 		252A2C3816E55ACD00DAE393 /* ANKImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A2C3616E55ACD00DAE393 /* ANKImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -62,6 +62,7 @@
 		252A2D2316F27F2E00DAE393 /* ANKClient+ANKTokenStatus.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A2D2116F27F2E00DAE393 /* ANKClient+ANKTokenStatus.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		252A2D2416F27F2E00DAE393 /* ANKClient+ANKTokenStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2D2216F27F2E00DAE393 /* ANKClient+ANKTokenStatus.m */; };
 		252A2D2516F27F2E00DAE393 /* ANKClient+ANKTokenStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2D2216F27F2E00DAE393 /* ANKClient+ANKTokenStatus.m */; };
+		259A5EC616F2E1EF00AF9F35 /* ADNKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC370E116E0805E00190862 /* ADNKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5D714BE416EFB74A0008434D /* ANKAPIResponseMeta.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D714BE216EFB74A0008434D /* ANKAPIResponseMeta.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5D714BE516EFB74A0008434D /* ANKAPIResponseMeta.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D714BE316EFB74A0008434D /* ANKAPIResponseMeta.m */; };
 		5D714BE616EFB74A0008434D /* ANKAPIResponseMeta.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D714BE316EFB74A0008434D /* ANKAPIResponseMeta.m */; };
@@ -70,7 +71,7 @@
 		5D714BEB16EFF1CC0008434D /* ANKPaginationSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D714BE816EFF1CC0008434D /* ANKPaginationSettings.m */; };
 		5DA357A416EADF9700FA21F8 /* ANKClient+ANKInteraction.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DF6F0B616EAB80F0018D445 /* ANKClient+ANKInteraction.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DA357A516EADF9F00FA21F8 /* ANKClient+ANKInteraction.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F0B716EAB80F0018D445 /* ANKClient+ANKInteraction.m */; };
-		5DA357A816EAE0E000FA21F8 /* ANKClient+ANKExploreStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DA357A616EAE0E000FA21F8 /* ANKClient+ANKExploreStream.h */; };
+		5DA357A816EAE0E000FA21F8 /* ANKClient+ANKExploreStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DA357A616EAE0E000FA21F8 /* ANKClient+ANKExploreStream.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DA357A916EAE0E000FA21F8 /* ANKClient+ANKExploreStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA357A716EAE0E000FA21F8 /* ANKClient+ANKExploreStream.m */; };
 		5DA357AA16EAE0E000FA21F8 /* ANKClient+ANKExploreStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA357A716EAE0E000FA21F8 /* ANKClient+ANKExploreStream.m */; };
 		5DA357AD16EAE8BB00FA21F8 /* ANKClient+ANKFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DA357AB16EAE8BB00FA21F8 /* ANKClient+ANKFilter.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -81,7 +82,6 @@
 		5DA357C816EBC15B00FA21F8 /* ANKUsernameFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DA357C616EBC15B00FA21F8 /* ANKUsernameFormatter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DA357C916EBC15B00FA21F8 /* ANKUsernameFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA357C716EBC15B00FA21F8 /* ANKUsernameFormatter.m */; };
 		5DA357CA16EBC15F00FA21F8 /* ANKUsernameFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA357C716EBC15B00FA21F8 /* ANKUsernameFormatter.m */; };
-		5DA357D316EBC29100FA21F8 /* ADNKit-iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DA357CB16EBC18B00FA21F8 /* ADNKit-iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DA357D416EBC29600FA21F8 /* ADNKit-OSX.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DA357CC16EBC18B00FA21F8 /* ADNKit-OSX.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DC370DD16E0805E00190862 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DC370DC16E0805E00190862 /* Foundation.framework */; };
 		5DC370E216E0805E00190862 /* ADNKit.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5DC370E116E0805E00190862 /* ADNKit.h */; };
@@ -117,23 +117,23 @@
 		5DC3727E16E3AF6900190862 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DC3727D16E3AF6900190862 /* UIKit.framework */; };
 		5DC3728116E3AF8900190862 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DC3728016E3AF8800190862 /* CoreLocation.framework */; };
 		5DC3728316E3AF8E00190862 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DC3728216E3AF8E00190862 /* SystemConfiguration.framework */; };
-		5DC3728A16E3B10800190862 /* ANKResource.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC3728816E3B10800190862 /* ANKResource.h */; };
+		5DC3728A16E3B10800190862 /* ANKResource.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC3728816E3B10800190862 /* ANKResource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DC3728B16E3B10800190862 /* ANKResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3728916E3B10800190862 /* ANKResource.m */; };
 		5DC3728C16E3B10800190862 /* ANKResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3728916E3B10800190862 /* ANKResource.m */; };
-		5DC3729816E3B4D300190862 /* ANKJSONRequestOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC3729616E3B4D300190862 /* ANKJSONRequestOperation.h */; };
+		5DC3729816E3B4D300190862 /* ANKJSONRequestOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC3729616E3B4D300190862 /* ANKJSONRequestOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DC3729916E3B4D300190862 /* ANKJSONRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3729716E3B4D300190862 /* ANKJSONRequestOperation.m */; };
 		5DC3729A16E3B4D300190862 /* ANKJSONRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3729716E3B4D300190862 /* ANKJSONRequestOperation.m */; };
-		5DC3729D16E3B66700190862 /* ANKAPIResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC3729B16E3B66700190862 /* ANKAPIResponse.h */; };
+		5DC3729D16E3B66700190862 /* ANKAPIResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC3729B16E3B66700190862 /* ANKAPIResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DC372A316E448ED00190862 /* NSArray+ANKAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC372A116E448ED00190862 /* NSArray+ANKAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DC372A416E448ED00190862 /* NSArray+ANKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC372A216E448ED00190862 /* NSArray+ANKAdditions.m */; };
 		5DC372A516E448ED00190862 /* NSArray+ANKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC372A216E448ED00190862 /* NSArray+ANKAdditions.m */; };
-		5DC372A816E44AE500190862 /* ANKValueTransformations.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC372A616E44AE500190862 /* ANKValueTransformations.h */; };
+		5DC372A816E44AE500190862 /* ANKValueTransformations.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC372A616E44AE500190862 /* ANKValueTransformations.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DC372A916E44AE500190862 /* ANKValueTransformations.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC372A716E44AE500190862 /* ANKValueTransformations.m */; };
 		5DC372AA16E44AE500190862 /* ANKValueTransformations.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC372A716E44AE500190862 /* ANKValueTransformations.m */; };
-		5DC372F716E4752000190862 /* ANKClient+ANKUser.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC372F516E4752000190862 /* ANKClient+ANKUser.h */; };
+		5DC372F716E4752000190862 /* ANKClient+ANKUser.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC372F516E4752000190862 /* ANKClient+ANKUser.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DC372F816E4752000190862 /* ANKClient+ANKUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC372F616E4752000190862 /* ANKClient+ANKUser.m */; };
 		5DC372F916E4752000190862 /* ANKClient+ANKUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC372F616E4752000190862 /* ANKClient+ANKUser.m */; };
-		5DC372FC16E4759000190862 /* ANKUser.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC372FA16E4758F00190862 /* ANKUser.h */; };
+		5DC372FC16E4759000190862 /* ANKUser.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC372FA16E4758F00190862 /* ANKUser.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DC372FD16E4759000190862 /* ANKUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC372FB16E4759000190862 /* ANKUser.m */; };
 		5DC372FE16E4759000190862 /* ANKUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC372FB16E4759000190862 /* ANKUser.m */; };
 		5DC3730116E4822A00190862 /* NSDictionary+ANKAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC372FF16E4822A00190862 /* NSDictionary+ANKAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -149,7 +149,7 @@
 		5DC3731716E665D100190862 /* ANKEntities.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C2D16E5477B00DAE393 /* ANKEntities.m */; };
 		5DC3731816E665D200190862 /* ANKEntities.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C2D16E5477B00DAE393 /* ANKEntities.m */; };
 		5DC3731D16E6661500190862 /* ANKClient+ANKPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3731A16E6661500190862 /* ANKClient+ANKPost.m */; };
-		5DC3732016E6661D00190862 /* ANKClient+ANKFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC3731E16E6661D00190862 /* ANKClient+ANKFile.h */; };
+		5DC3732016E6661D00190862 /* ANKClient+ANKFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC3731E16E6661D00190862 /* ANKClient+ANKFile.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DC3732116E6661D00190862 /* ANKClient+ANKFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3731F16E6661D00190862 /* ANKClient+ANKFile.m */; };
 		5DC3732216E6661D00190862 /* ANKClient+ANKFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3731F16E6661D00190862 /* ANKClient+ANKFile.m */; };
 		5DF6EF7016E8F80C0018D445 /* ANKChannelCounts.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DF6EF6E16E8F80B0018D445 /* ANKChannelCounts.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -164,16 +164,16 @@
 		5DF6F03016E9A6D70018D445 /* ANKPlaceCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DF6F02E16E9A6D70018D445 /* ANKPlaceCategory.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DF6F03116E9A6D70018D445 /* ANKPlaceCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F02F16E9A6D70018D445 /* ANKPlaceCategory.m */; };
 		5DF6F03216E9A6D70018D445 /* ANKPlaceCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F02F16E9A6D70018D445 /* ANKPlaceCategory.m */; };
-		5DF6F03716E9A97C0018D445 /* ANKClient+ANKPlace.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DF6F03516E9A97C0018D445 /* ANKClient+ANKPlace.h */; };
+		5DF6F03716E9A97C0018D445 /* ANKClient+ANKPlace.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DF6F03516E9A97C0018D445 /* ANKClient+ANKPlace.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DF6F03816E9A97C0018D445 /* ANKClient+ANKPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F03616E9A97C0018D445 /* ANKClient+ANKPlace.m */; };
 		5DF6F03916E9A97C0018D445 /* ANKClient+ANKPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F03616E9A97C0018D445 /* ANKClient+ANKPlace.m */; };
-		5DF6F03C16E9A9970018D445 /* ANKClient+ANKChannel.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DF6F03A16E9A9970018D445 /* ANKClient+ANKChannel.h */; };
+		5DF6F03C16E9A9970018D445 /* ANKClient+ANKChannel.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DF6F03A16E9A9970018D445 /* ANKClient+ANKChannel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DF6F03D16E9A9970018D445 /* ANKClient+ANKChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F03B16E9A9970018D445 /* ANKClient+ANKChannel.m */; };
 		5DF6F03E16E9A9970018D445 /* ANKClient+ANKChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F03B16E9A9970018D445 /* ANKClient+ANKChannel.m */; };
-		5DF6F04116E9A9A20018D445 /* ANKClient+ANKMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DF6F03F16E9A9A20018D445 /* ANKClient+ANKMessage.h */; };
+		5DF6F04116E9A9A20018D445 /* ANKClient+ANKMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DF6F03F16E9A9A20018D445 /* ANKClient+ANKMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DF6F04216E9A9A20018D445 /* ANKClient+ANKMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F04016E9A9A20018D445 /* ANKClient+ANKMessage.m */; };
 		5DF6F04316E9A9A20018D445 /* ANKClient+ANKMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F04016E9A9A20018D445 /* ANKClient+ANKMessage.m */; };
-		5DF6F04616E9A9AF0018D445 /* ANKClient+ANKStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DF6F04416E9A9AF0018D445 /* ANKClient+ANKStream.h */; };
+		5DF6F04616E9A9AF0018D445 /* ANKClient+ANKStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DF6F04416E9A9AF0018D445 /* ANKClient+ANKStream.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DF6F04716E9A9AF0018D445 /* ANKClient+ANKStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F04516E9A9AF0018D445 /* ANKClient+ANKStream.m */; };
 		5DF6F04816E9A9AF0018D445 /* ANKClient+ANKStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F04516E9A9AF0018D445 /* ANKClient+ANKStream.m */; };
 		5DF6F08316EA4AC90018D445 /* ANKEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DF6F08116EA4AC90018D445 /* ANKEntity.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -188,12 +188,12 @@
 		5DF6F09216EA4E0D0018D445 /* ANKLinkEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DF6F09016EA4E0C0018D445 /* ANKLinkEntity.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DF6F09316EA4E0D0018D445 /* ANKLinkEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F09116EA4E0C0018D445 /* ANKLinkEntity.m */; };
 		5DF6F09416EA4E0D0018D445 /* ANKLinkEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F09116EA4E0C0018D445 /* ANKLinkEntity.m */; };
-		5DF6F09816EA70550018D445 /* ANKClient+ANKHandlerBlocks.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DF6F09616EA70540018D445 /* ANKClient+ANKHandlerBlocks.h */; };
+		5DF6F09816EA70550018D445 /* ANKClient+ANKHandlerBlocks.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DF6F09616EA70540018D445 /* ANKClient+ANKHandlerBlocks.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DF6F09916EA70550018D445 /* ANKClient+ANKHandlerBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F09716EA70550018D445 /* ANKClient+ANKHandlerBlocks.m */; };
 		5DF6F09A16EA70550018D445 /* ANKClient+ANKHandlerBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6F09716EA70550018D445 /* ANKClient+ANKHandlerBlocks.m */; };
-		5DF6F0A516EA861E0018D445 /* ANKClient+ANKPost.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC3731916E6661500190862 /* ANKClient+ANKPost.h */; };
+		5DF6F0A516EA861E0018D445 /* ANKClient+ANKPost.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC3731916E6661500190862 /* ANKClient+ANKPost.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DF6F0A616EA86260018D445 /* ANKClient+ANKPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3731A16E6661500190862 /* ANKClient+ANKPost.m */; };
-		5DF6F0A816EA86610018D445 /* ANKClient+ANKPostStreams.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A2C5A16E7117700DAE393 /* ANKClient+ANKPostStreams.h */; };
+		5DF6F0A816EA86610018D445 /* ANKClient+ANKPostStreams.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A2C5A16E7117700DAE393 /* ANKClient+ANKPostStreams.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DF6F0A916EA86650018D445 /* ANKClient+ANKPostStreams.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C5B16E7117700DAE393 /* ANKClient+ANKPostStreams.m */; };
 		5DF6F0AA16EA86650018D445 /* ANKClient+ANKPostStreams.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C5B16E7117700DAE393 /* ANKClient+ANKPostStreams.m */; };
 		5DF6F0AB16EA8A9C0018D445 /* ANKAPIResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3729C16E3B66700190862 /* ANKAPIResponse.m */; };
@@ -867,13 +867,13 @@
 				5DA357A816EAE0E000FA21F8 /* ANKClient+ANKExploreStream.h in Headers */,
 				5DA357AD16EAE8BB00FA21F8 /* ANKClient+ANKFilter.h in Headers */,
 				5DA357C816EBC15B00FA21F8 /* ANKUsernameFormatter.h in Headers */,
-				5DA357D316EBC29100FA21F8 /* ADNKit-iOS.h in Headers */,
 				5DA357D416EBC29600FA21F8 /* ADNKit-OSX.h in Headers */,
 				5D714BE416EFB74A0008434D /* ANKAPIResponseMeta.h in Headers */,
 				5D714BE916EFF1CC0008434D /* ANKPaginationSettings.h in Headers */,
 				252A2D1916F27BC000DAE393 /* ANKTokenStatus.h in Headers */,
 				252A2D1E16F27C8B00DAE393 /* ANKStorage.h in Headers */,
 				252A2D2316F27F2E00DAE393 /* ANKClient+ANKTokenStatus.h in Headers */,
+				259A5EC616F2E1EF00AF9F35 /* ADNKit.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
