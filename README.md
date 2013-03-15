@@ -84,7 +84,6 @@ The following built-in frameworks are used:
 * MobileCoreServices.framework (iOS only)
 
 # License
-### License ###
 BSD 3-Clause License:
 > Copyright (c) 2013, Joel Levin. All rights reserved.
  
