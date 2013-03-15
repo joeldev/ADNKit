@@ -1,4 +1,4 @@
-//
+
 //  ADNClient.m
 //  ADNKit
 //
@@ -191,16 +191,13 @@
 }
 
 
-- (void)paginate:(ANKPaginationSettings *)pagination requestsBlock:(void (^)(ANKPaginationSettings *currentPagination))requestsBlock {
+- (void)paginate:(ANKPaginationSettings *)pagination requestsBlock:(void (^)(ANKClient *paginatedClient))requestsBlock {
 	@synchronized (self) {
-		__strong ANKPaginationSettings *defaultPaginationSettings = self.defaultPagination;
-		self.defaultPagination = pagination;
+		ANKClient *paginatedClient = [self clientWithPagination:pagination];
 		
 		if (requestsBlock) {
-			requestsBlock(self.defaultPagination);
+			requestsBlock(paginatedClient);
 		}
-		
-		self.defaultPagination = defaultPaginationSettings;
 	}
 }
 

@@ -60,6 +60,6 @@ typedef NS_ENUM(NSUInteger, ANKAuthScope) {
 
 // call this method to apply the passed pagination settings to all requests fired from within the requestsBlock (similar to UIView animation).
 // this does not effect the defaultPagination
-- (void)paginate:(ANKPaginationSettings *)pagination requestsBlock:(void (^)(ANKPaginationSettings *currentPagination))requestsBlock;
+- (void)paginate:(ANKPaginationSettings *)pagination requestsBlock:(void (^)(ANKClient *paginatedClient))requestsBlock;
 
 @end
