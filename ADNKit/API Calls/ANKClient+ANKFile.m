@@ -74,22 +74,28 @@
 			   success:[self successHandlerForResourceClass:[ANKFile class] clientHandler:completionHandler]
 			   failure:[self failureHandlerForClientHandler:completionHandler]];
 	} else {
-		[self createFileWithData:fileData mimeType:file.mimeType filename:file.name fileURL:nil metadata:[file JSONDictionary] completion:completionHandler];
+		[self createFileWithData:fileData mimeType:file.mimeType filename:file.name fileURL:nil metadata:[file JSONDictionary] progress:nil completion:completionHandler];
 	}
 }
 
 
-- (void)createFileWithData:(NSData *)fileData mimeType:(NSString *)mimeType filename:(NSString *)filename metadata:(NSDictionary *)metadata completion:(ANKClientCompletionBlock)completionHandler {
-	[self createFileWithData:fileData mimeType:mimeType filename:filename fileURL:nil metadata:metadata completion:completionHandler];
+- (void)createFileWithData:(NSData *)fileData mimeType:(NSString *)mimeType filename:(NSString *)filename metadata:(NSDictionary *)metadata progress:(ANKClientFileUploadProgressBlock)progressHandler completion:(ANKClientCompletionBlock)completionHandler {
+	[self createFileWithData:fileData mimeType:mimeType filename:filename fileURL:nil metadata:metadata progress:progressHandler completion:completionHandler];
 }
 
 
-- (void)createFileWithContentsOfURL:(NSURL *)fileURL metadata:(NSDictionary *)metadata completion:(ANKClientCompletionBlock)completionHandler {
-	[self createFileWithData:nil mimeType:nil filename:nil fileURL:fileURL metadata:metadata completion:completionHandler];
+- (void)createFileWithContentsOfURL:(NSURL *)fileURL metadata:(NSDictionary *)metadata progress:(ANKClientFileUploadProgressBlock)progressHandler completion:(ANKClientCompletionBlock)completionHandler {
+	[self createFileWithData:nil mimeType:nil filename:nil fileURL:fileURL metadata:metadata progress:progressHandler completion:completionHandler];
 }
 
 
-- (void)createFileWithData:(NSData *)fileData mimeType:(NSString *)mimeType filename:(NSString *)filename fileURL:(NSURL *)fileURL metadata:(NSDictionary *)metadata completion:(ANKClientCompletionBlock)completionHandler {
+- (void)createFileWithData:(NSData *)fileData
+                  mimeType:(NSString *)mimeType
+                  filename:(NSString *)filename
+                   fileURL:(NSURL *)fileURL
+                  metadata:(NSDictionary *)metadata
+                  progress:(ANKClientFileUploadProgressBlock)progressHandler
+                completion:(ANKClientCompletionBlock)completionHandler {
 	__block NSError *multipartEncodeError = nil;
 	NSMutableURLRequest *request = [self multipartFormRequestWithMethod:@"POST" path:@"files" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
 		if (fileURL) {
@@ -113,6 +119,7 @@
 	AFHTTPRequestOperation *requestOperation = [self HTTPRequestOperationWithRequest:request
 																			 success:[self successHandlerForResourceClass:[ANKFile class] clientHandler:completionHandler]
 																			 failure:[self failureHandlerForClientHandler:completionHandler]];
+    [requestOperation setUploadProgressBlock:progressHandler];
 	[self enqueueHTTPRequestOperation:requestOperation];
 }
 
