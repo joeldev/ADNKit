@@ -48,6 +48,11 @@
 }
 
 
+- (NSArray *)NSArrayFrom__NSArrayI:(NSArray *)array {
+	return array;
+}
+
+
 - (id)JSONObjectFromNSURL:(NSURL *)URL {
 	return [URL absoluteString];
 }

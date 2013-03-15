@@ -14,7 +14,7 @@
 @interface ANKTokenStatus : ANKResource
 
 @property (strong) NSString *clientID;
-@property (strong) ANKAPIResponse *app;
+@property (strong) ANKObjectSource *app;
 @property (strong) NSArray *scopes;
 @property (strong) ANKUser *user;
 @property (strong) ANKStorage *storage;
