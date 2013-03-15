@@ -191,13 +191,13 @@
 }
 
 
-- (void)paginate:(ANKPaginationSettings *)pagination requestsBlock:(void (^)(void))requestsBlock {
+- (void)paginate:(ANKPaginationSettings *)pagination requestsBlock:(void (^)(ANKPaginationSettings *currentPagination))requestsBlock {
 	@synchronized (self) {
 		__strong ANKPaginationSettings *defaultPaginationSettings = self.defaultPagination;
 		self.defaultPagination = pagination;
 		
 		if (requestsBlock) {
-			requestsBlock();
+			requestsBlock(self.defaultPagination);
 		}
 		
 		self.defaultPagination = defaultPaginationSettings;
