@@ -33,7 +33,7 @@ typedef NS_ENUM(NSUInteger, ANKAuthScope) {
 @property (strong) NSString *accessToken; // access token acquired by auth or persisted across launches and set directly
 @property (assign) BOOL shouldRequestAnnotations; // when yes, annotations will be fetched regardless of the object type
 @property (copy) void (^webAuthCompletionHandler)(BOOL success, NSError *error); // set as completion block for oauth authentication
-@property (strong) ANKPaginationSettings *defaultPagination;
+@property (strong) ANKPaginationSettings *pagination;
 
 #pragma mark -
 #pragma mark Authentication
@@ -57,9 +57,5 @@ typedef NS_ENUM(NSUInteger, ANKAuthScope) {
 #pragma mark Pagination
 
 - (instancetype)clientWithPagination:(ANKPaginationSettings *)pagination;
-
-// call this method to apply the passed pagination settings to all requests fired from within the requestsBlock (similar to UIView animation).
-// this does not effect the defaultPagination
-- (void)paginate:(ANKPaginationSettings *)pagination requestsBlock:(void (^)(ANKClient *paginatedClient))requestsBlock;
 
 @end

@@ -40,7 +40,7 @@
 - (id)init {
     if ((self = [super initWithBaseURL:[NSURL URLWithString:@"https://alpha-api.app.net/stream/0/"]])) {
 		self.parameterEncoding = AFJSONParameterEncoding;
-		self.defaultPagination = [[ANKPaginationSettings alloc] init];
+		self.pagination = [[ANKPaginationSettings alloc] init];
 		[self setDefaultHeader:@"Accept" value:@"application/json"];
 		[self registerHTTPOperationClass:[ANKJSONRequestOperation class]];
 		
@@ -80,8 +80,8 @@
 	if (self.shouldRequestAnnotations) {
 		mutableParameters[@"include_annotations"] = @(1);
 	}
-	if (self.defaultPagination) {
-		[mutableParameters addEntriesFromDictionary:[self.defaultPagination JSONDictionary]];
+	if (self.pagination) {
+		[mutableParameters addEntriesFromDictionary:[self.pagination JSONDictionary]];
 	}
 	return [super requestWithMethod:method path:path parameters:mutableParameters];
 }
@@ -186,19 +186,8 @@
 
 - (instancetype)clientWithPagination:(ANKPaginationSettings *)pagination {
 	ANKClient *clientCopy = [self copy];
-	clientCopy.defaultPagination = pagination;
+	clientCopy.pagination = pagination;
 	return clientCopy;
-}
-
-
-- (void)paginate:(ANKPaginationSettings *)pagination requestsBlock:(void (^)(ANKClient *paginatedClient))requestsBlock {
-	@synchronized (self) {
-		ANKClient *paginatedClient = [self clientWithPagination:pagination];
-		
-		if (requestsBlock) {
-			requestsBlock(paginatedClient);
-		}
-	}
 }
 
 
