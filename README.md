@@ -8,13 +8,22 @@ ADNKit is a brand new Objective-C framework for building App.net iOS and OS X ap
 
 It's also important to note that many parts of core architecture in this framework is based on [Matt Rubin](https://github.com/mattrubin)'s fantastic architectural work in his [AppDotNet](https://github.com/mattrubin/AppDotNet) project. My hat's off to him for designing a truly excellent framework architecture and open sourcing it!
 
+### Apps using ADNKit
+
+* Climber by [@rrbrambley] (https://alpha.app.net/rrbrambley)
+* Soapbox by [@joeldev] (https://alpha.app.net/joeldev)
+* Unannounced project by redacted
+* Unannounced project by redacted
+
+*Please file an issue to get your app added if you'd like to be on the list!*
+
 # Getting Started
 Please see [the wiki](https://github.com/joeldev/ADNKit/wiki) for full documentation.
 
 ### Installation
 ADNKit makes use of submodules for its dependencies. After cloning the repo, make sure to run `git submodule update --init --recursive` from the top level before trying to build the code. There is also a Releases folder containing stable binary releases.
 
-**It's also important to note that AFNetworking is compiled in as part of the library and does not need to be added to your project.**
+**It's also important to note that AFNetworking is currently statically compiled in as part of the library and does not need to be added to your project.**
 
 ### Hello, world!
 
