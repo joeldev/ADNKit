@@ -62,6 +62,11 @@
 }
 
 
+- (NSDictionary *)NSDictionaryFrom__NSDictionaryM:(NSDictionary *)dictionary {
+	return dictionary;
+}
+
+
 - (id)JSONObjectFromNSURL:(NSURL *)URL {
 	return [URL absoluteString];
 }

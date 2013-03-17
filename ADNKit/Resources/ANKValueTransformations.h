@@ -23,6 +23,7 @@
 - (NSDate *)NSDateFromNSString:(NSString *)string;
 - (NSArray *)NSArrayFrom__NSArrayI:(NSArray *)array;
 - (NSDictionary *)NSDictionaryFrom__NSDictionaryI:(NSDictionary *)dictionary;
+- (NSDictionary *)NSDictionaryFrom__NSDictionaryM:(NSDictionary *)dictionary;
 
 // reverse transformations
 - (id)JSONObjectFromNSURL:(NSURL *)URL;
