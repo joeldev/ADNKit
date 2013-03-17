@@ -29,8 +29,13 @@
 }
 
 
++ (NSString *)annotationValueWrapperKey {
+	return kANKPlaceAnnotationKey;
+}
+
+
 - (NSDictionary *)annotationValue {
-	return @{kADNPlaceAnnotationKey: @{[[self class] JSONKeyForLocalKey:@"factualID"]: self.factualID}};
+	return @{kANKPlaceAnnotationKey: @{[[self class] JSONKeyForLocalKey:@"factualID"]: self.factualID}};
 }
 
 

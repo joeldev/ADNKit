@@ -12,6 +12,7 @@
 @protocol ANKAnnotationReplacement <NSObject>
 
 @required
++ (NSString *)annotationValueWrapperKey;
 - (NSDictionary *)annotationValue;
 
 @end

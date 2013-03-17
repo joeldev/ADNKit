@@ -66,7 +66,13 @@
 - (ANKResource *)resourceOfClass:(Class)resourceClass forValue:(id)resourceValue {
 	ANKResource *resource = nil;
 	if ([resourceValue isKindOfClass:[NSDictionary class]] && [resourceClass isSubclassOfClass:[ANKResource class]]) {
-		resource = [resourceClass objectFromJSONDictionary:resourceValue];
+		// value is a dictionary and resource is a valid resource class
+		NSDictionary *JSONDictionary = resourceValue;
+		if ([resourceClass conformsToProtocol:@protocol(ANKAnnotationReplacement)]) {
+			// this is a replacement resource, so we need to unwrap it one level to get to the actual object
+			JSONDictionary = [JSONDictionary objectForKey:[resourceClass annotationValueWrapperKey]];
+		}
+		resource = [resourceClass objectFromJSONDictionary:JSONDictionary];
 	}
 	return resource;
 }

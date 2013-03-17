@@ -37,9 +37,14 @@
 
 
 + (NSDictionary *)fileListAnnotationValueForFiles:(NSArray *)files {
-	return @{kADNFileListAnnotationKey: [files ank_map:^id(ANKFile *file) {
+	return @{kANKFileListAnnotationKey: [files ank_map:^id(ANKFile *file) {
 		return [file fileAnnotationValueWithWrapper:NO];
 	}]};
+}
+
+
++ (NSString *)annotationValueWrapperKey {
+	return kANKFileAnnotationKey;
 }
 
 
@@ -50,7 +55,7 @@
 
 - (NSDictionary *)fileAnnotationValueWithWrapper:(BOOL)includeWrapper {
 	NSDictionary *value = @{[[self class] JSONKeyForLocalKey:@"fileID"]: self.fileID, [[self class] JSONKeyForLocalKey:@"format"]: @"url", [[self class] JSONKeyForLocalKey:@"fileToken"]: self.fileToken};
-	return (includeWrapper ? @{kADNFileAnnotationKey: value} : value);
+	return (includeWrapper ? @{kANKFileAnnotationKey: value} : value);
 }
 
 

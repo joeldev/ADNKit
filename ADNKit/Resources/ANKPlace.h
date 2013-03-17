@@ -9,16 +9,16 @@
 #import "ANKResource.h"
 
 
-static NSString *const kADNPlaceAnnotationKey = @"+net.app.core.place";
+static NSString *const kANKPlaceAnnotationKey = @"+net.app.core.place";
 
-static NSString *const kADNPlaceSearchParamLatitude = @"latitude";
-static NSString *const kADNPlaceSearchParamLongitude = @"longitude";
-static NSString *const kADNPlaceSearchParamQuery = @"q";
-static NSString *const kADNPlaceSearchParamRadius = @"radius";
-static NSString *const kADNPlaceSearchParamCount = @"count";
-static NSString *const kADNPlaceSearchParamAltitude = @"altitude";
-static NSString *const kADNPlaceSearchParamHorizontalAccuracy = @"horizontal_accuracy";
-static NSString *const kADNPlaceSearchParamVerticalAccuracy = @"vertical_accuracy";
+static NSString *const kANKPlaceSearchParamLatitude = @"latitude";
+static NSString *const kANKPlaceSearchParamLongitude = @"longitude";
+static NSString *const kANKPlaceSearchParamQuery = @"q";
+static NSString *const kANKPlaceSearchParamRadius = @"radius";
+static NSString *const kANKPlaceSearchParamCount = @"count";
+static NSString *const kANKPlaceSearchParamAltitude = @"altitude";
+static NSString *const kANKPlaceSearchParamHorizontalAccuracy = @"horizontal_accuracy";
+static NSString *const kANKPlaceSearchParamVerticalAccuracy = @"vertical_accuracy";
 
 
 @interface ANKPlace : ANKResource <ANKAnnotationReplacement>

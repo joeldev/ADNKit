@@ -9,8 +9,8 @@
 #import "ANKAnnotatableResource.h"
 
 
-static NSString *const kADNFileAnnotationKey = @"+net.app.core.file";
-static NSString *const kADNFileListAnnotationKey = @"+net.app.core.file_list";
+static NSString *const kANKFileAnnotationKey = @"+net.app.core.file";
+static NSString *const kANKFileListAnnotationKey = @"+net.app.core.file_list";
 
 
 @class ANKUser, ANKObjectSource;
