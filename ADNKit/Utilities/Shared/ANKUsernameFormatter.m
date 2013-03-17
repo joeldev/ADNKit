@@ -17,7 +17,14 @@
 
 
 - (BOOL)getObjectValue:(id *)anObject forString:(NSString *)string errorDescription:(NSString **)error {
-	*anObject = string;
+	if (![string hasPrefix:@"@"] && string.length > 0) {
+		*anObject = [@"@" stringByAppendingString:string];
+	} else if ([string isEqualToString:@"@"]) {
+		*anObject = @"";
+	} else {
+		*anObject = string;
+	}
+	
 	return YES;
 }
 
