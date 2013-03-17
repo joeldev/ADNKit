@@ -57,6 +57,7 @@
 #import "ANKExploreStream.h"
 #import "ANKAnnotation.h"
 #import "ANKImage.h"
+#import "ANKGeolocation.h"
 
 #import "ANKValueTransformations.h"
 #import "ANKJSONRequestOperation.h"
