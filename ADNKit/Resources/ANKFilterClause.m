@@ -20,13 +20,13 @@
 }
 
 
-- (ADNFilterClauseOperator)clauseOperator {
+- (ANKFilterClauseOperator)clauseOperator {
 	static NSDictionary *operatorMapping = nil;
 	static dispatch_once_t onceToken;
 	dispatch_once(&onceToken, ^{
-		operatorMapping = [@{@"equals": @(ADNFilterClauseOperatorEquals), @"matches": @(ADNFilterClauseOperatorMatches), @"lt": @(ADNFilterClauseOperatorLessThan), @"le": @(ADNFilterClauseOperatorLessThanOrEquals), @"gt": @(ADNFilterClauseOperatorGreaterThan), @"ge": @(ADNFilterClauseOperatorGreaterThanOrEquals), @"one_of": @(ADNFilterClauseOperatorOneOf)} copy];
+		operatorMapping = [@{@"equals": @(ANKFilterClauseOperatorEquals), @"matches": @(ANKFilterClauseOperatorMatches), @"lt": @(ANKFilterClauseOperatorLessThan), @"le": @(ANKFilterClauseOperatorLessThanOrEquals), @"gt": @(ANKFilterClauseOperatorGreaterThan), @"ge": @(ANKFilterClauseOperatorGreaterThanOrEquals), @"one_of": @(ANKFilterClauseOperatorOneOf)} copy];
 	});
-	return (ADNFilterClauseOperator)[operatorMapping[self.operatorString] unsignedIntegerValue];
+	return (ANKFilterClauseOperator)[operatorMapping[self.operatorString] unsignedIntegerValue];
 }
 
 

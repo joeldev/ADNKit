@@ -13,14 +13,14 @@
 #import "ANKResource.h"
 
 
-typedef NS_ENUM(NSUInteger, ADNFilterClauseOperator) {
-	ADNFilterClauseOperatorEquals = 0,
-	ADNFilterClauseOperatorMatches,
-	ADNFilterClauseOperatorLessThan,
-	ADNFilterClauseOperatorLessThanOrEquals,
-	ADNFilterClauseOperatorGreaterThan,
-	ADNFilterClauseOperatorGreaterThanOrEquals,
-	ADNFilterClauseOperatorOneOf
+typedef NS_ENUM(NSUInteger, ANKFilterClauseOperator) {
+	ANKFilterClauseOperatorEquals = 0,
+	ANKFilterClauseOperatorMatches,
+	ANKFilterClauseOperatorLessThan,
+	ANKFilterClauseOperatorLessThanOrEquals,
+	ANKFilterClauseOperatorGreaterThan,
+	ANKFilterClauseOperatorGreaterThanOrEquals,
+	ANKFilterClauseOperatorOneOf
 };
 
 
@@ -31,6 +31,6 @@ typedef NS_ENUM(NSUInteger, ADNFilterClauseOperator) {
 @property (strong) NSString *field;
 @property (strong) id value;
 
-- (ADNFilterClauseOperator)clauseOperator;
+- (ANKFilterClauseOperator)clauseOperator;
 
 @end
