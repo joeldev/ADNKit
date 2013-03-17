@@ -136,4 +136,9 @@
 }
 
 
++ (instancetype)oembedAnnotationForOEmbed:(ANKOEmbed *)oembed {
+	return [[self class] annotationWithType:kANKCoreAnnotationEmbeddedMedia object:oembed];
+}
+
+
 @end

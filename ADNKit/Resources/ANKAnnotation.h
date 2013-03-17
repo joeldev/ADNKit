@@ -24,7 +24,7 @@ static NSString *const kANKCoreAnnotationLanguage = @"net.app.core.language";
 static NSString *const kANKCoreAnnotationEmbeddedMedia = @"net.app.core.oembed";
 
 
-@class ANKChannel, ANKPlace, ANKGeolocation;
+@class ANKChannel, ANKPlace, ANKGeolocation, ANKOEmbed;
 
 @interface ANKAnnotation : ANKResource
 
@@ -48,7 +48,7 @@ static NSString *const kANKCoreAnnotationEmbeddedMedia = @"net.app.core.oembed";
 + (instancetype)fallbackURLAnnotationWithURL:(NSURL *)URL;
 + (instancetype)geolocationAnnotationForGeolocation:(ANKGeolocation *)geolocation;
 + (instancetype)languageAnnotationForLanguageIdentifier:(NSString *)languageIdentifier;
-// TODO: oembed
++ (instancetype)oembedAnnotationForOEmbed:(ANKOEmbed *)oembed;
 
 - (ANKResource *)resourceOfClassForValue:(Class)resourceClass;
 - (ANKResource *)resourceOfClass:(Class)resourceClass forValueKeyPath:(NSString *)keyPath;

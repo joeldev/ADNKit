@@ -11,6 +11,9 @@
 		2529AFA916F62D430002A1E6 /* ANKGeolocation.h in Headers */ = {isa = PBXBuildFile; fileRef = 2529AFA716F62D430002A1E6 /* ANKGeolocation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2529AFAA16F62D430002A1E6 /* ANKGeolocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2529AFA816F62D430002A1E6 /* ANKGeolocation.m */; };
 		2529AFAB16F62D430002A1E6 /* ANKGeolocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2529AFA816F62D430002A1E6 /* ANKGeolocation.m */; };
+		2529AFAE16F651A40002A1E6 /* ANKOEmbed.h in Headers */ = {isa = PBXBuildFile; fileRef = 2529AFAC16F651A40002A1E6 /* ANKOEmbed.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2529AFAF16F651A40002A1E6 /* ANKOEmbed.m in Sources */ = {isa = PBXBuildFile; fileRef = 2529AFAD16F651A40002A1E6 /* ANKOEmbed.m */; };
+		2529AFB016F651A40002A1E6 /* ANKOEmbed.m in Sources */ = {isa = PBXBuildFile; fileRef = 2529AFAD16F651A40002A1E6 /* ANKOEmbed.m */; };
 		252A2BF716E545F100DAE393 /* ANKPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2BF616E545F100DAE393 /* ANKPost.m */; };
 		252A2BF816E545F400DAE393 /* ANKPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2BF616E545F100DAE393 /* ANKPost.m */; };
 		252A2BF916E545FC00DAE393 /* ANKPost.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A2BF516E545F100DAE393 /* ANKPost.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -222,6 +225,8 @@
 		2529AFA516F629020002A1E6 /* ANKAnnotationReplacement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKAnnotationReplacement.h; sourceTree = "<group>"; };
 		2529AFA716F62D430002A1E6 /* ANKGeolocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKGeolocation.h; sourceTree = "<group>"; };
 		2529AFA816F62D430002A1E6 /* ANKGeolocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANKGeolocation.m; sourceTree = "<group>"; };
+		2529AFAC16F651A40002A1E6 /* ANKOEmbed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKOEmbed.h; sourceTree = "<group>"; };
+		2529AFAD16F651A40002A1E6 /* ANKOEmbed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANKOEmbed.m; sourceTree = "<group>"; };
 		252A2BF516E545F100DAE393 /* ANKPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKPost.h; sourceTree = "<group>"; };
 		252A2BF616E545F100DAE393 /* ANKPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANKPost.m; sourceTree = "<group>"; };
 		252A2BFA16E5462D00DAE393 /* ANKChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKChannel.h; sourceTree = "<group>"; };
@@ -784,6 +789,8 @@
 				252A2C3716E55ACD00DAE393 /* ANKImage.m */,
 				2529AFA716F62D430002A1E6 /* ANKGeolocation.h */,
 				2529AFA816F62D430002A1E6 /* ANKGeolocation.m */,
+				2529AFAC16F651A40002A1E6 /* ANKOEmbed.h */,
+				2529AFAD16F651A40002A1E6 /* ANKOEmbed.m */,
 			);
 			name = Misc;
 			sourceTree = "<group>";
@@ -886,6 +893,7 @@
 				259A5EC616F2E1EF00AF9F35 /* ADNKit.h in Headers */,
 				2529AFA616F629020002A1E6 /* ANKAnnotationReplacement.h in Headers */,
 				2529AFA916F62D430002A1E6 /* ANKGeolocation.h in Headers */,
+				2529AFAE16F651A40002A1E6 /* ANKOEmbed.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1034,6 +1042,7 @@
 				252A2D1F16F27C8B00DAE393 /* ANKStorage.m in Sources */,
 				252A2D2416F27F2E00DAE393 /* ANKClient+ANKTokenStatus.m in Sources */,
 				2529AFAA16F62D430002A1E6 /* ANKGeolocation.m in Sources */,
+				2529AFAF16F651A40002A1E6 /* ANKOEmbed.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1100,6 +1109,7 @@
 				252A2D2016F27C8B00DAE393 /* ANKStorage.m in Sources */,
 				252A2D2516F27F2E00DAE393 /* ANKClient+ANKTokenStatus.m in Sources */,
 				2529AFAB16F62D430002A1E6 /* ANKGeolocation.m in Sources */,
+				2529AFB016F651A40002A1E6 /* ANKOEmbed.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
