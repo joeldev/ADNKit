@@ -11,7 +11,7 @@ It's also important to note that many parts of core architecture in this framewo
 ### Apps using ADNKit
 
 * [Climber] (https://alpha.app.net/climber) by [@rrbrambley] (https://alpha.app.net/rrbrambley)
-* Soapbox by [@joeldev] (https://alpha.app.net/joeldev)
+* [Soapbox] (https://alpha.app.net/soapbox) by [@joeldev] (https://alpha.app.net/joeldev)
 * [Orbit] (https://alpha.app.net/orbit) by *redacted*
 * Unannounced project by *redacted*
 
