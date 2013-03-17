@@ -26,13 +26,13 @@
 }
 
 
-- (ADNFilterMatchPolicy)matchPolicy {
+- (ANKFilterMatchPolicy)matchPolicy {
 	static NSDictionary *matchPolicyStringMap = nil;
 	static dispatch_once_t onceToken;
 	dispatch_once(&onceToken, ^{
-		matchPolicyStringMap = [@{@"include_any": @(ADNFilterMatchPolicyIncludeAny), @"include_all": @(ADNFilterMatchPolicyIncludeAll), @"exclude_any": @(ADNFilterMatchPolicyExcludeAny), @"exclude_all": @(ADNFilterMatchPolicyExcludeAll)} copy];
+		matchPolicyStringMap = [@{@"include_any": @(ANKFilterMatchPolicyIncludeAny), @"include_all": @(ANKFilterMatchPolicyIncludeAll), @"exclude_any": @(ANKFilterMatchPolicyExcludeAny), @"exclude_all": @(ANKFilterMatchPolicyExcludeAll)} copy];
 	});
-	return (ADNFilterMatchPolicy)[matchPolicyStringMap[self.matchPolicyString] unsignedIntegerValue];
+	return (ANKFilterMatchPolicy)[matchPolicyStringMap[self.matchPolicyString] unsignedIntegerValue];
 }
 
 

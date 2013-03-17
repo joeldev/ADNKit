@@ -17,7 +17,7 @@
 
 - (void)fetchPlaceWithFactualID:(NSString *)factualID completion:(ANKClientCompletionBlock)completionHandler;
 
-// parameters contains keys located in ADNPlace.h
+// parameters contains keys located in ANKPlace.h
 - (void)searchForPlacesWithParameters:(NSDictionary *)params completion:(ANKClientCompletionBlock)completionHandler;
 
 @end

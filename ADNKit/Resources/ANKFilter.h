@@ -13,11 +13,11 @@
 #import "ANKResource.h"
 
 
-typedef NS_ENUM(NSUInteger, ADNFilterMatchPolicy) {
-	ADNFilterMatchPolicyIncludeAny = 0,
-	ADNFilterMatchPolicyIncludeAll,
-	ADNFilterMatchPolicyExcludeAny,
-	ADNFilterMatchPolicyExcludeAll
+typedef NS_ENUM(NSUInteger, ANKFilterMatchPolicy) {
+	ANKFilterMatchPolicyIncludeAny = 0,
+	ANKFilterMatchPolicyIncludeAll,
+	ANKFilterMatchPolicyExcludeAny,
+	ANKFilterMatchPolicyExcludeAll
 };
 
 
@@ -28,6 +28,6 @@ typedef NS_ENUM(NSUInteger, ADNFilterMatchPolicy) {
 @property (strong) NSArray *clauses;
 @property (strong) NSString *matchPolicyString;
 
-- (ADNFilterMatchPolicy)matchPolicy;
+- (ANKFilterMatchPolicy)matchPolicy;
 
 @end

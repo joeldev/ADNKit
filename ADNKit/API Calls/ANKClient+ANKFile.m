@@ -14,7 +14,7 @@
 #import "ANKFile.h"
 
 
-@implementation ANKClient (ADNFile)
+@implementation ANKClient (ANKFile)
 
 // http://developers.app.net/docs/resources/file/lookup/#retrieve-a-file
 

@@ -31,13 +31,13 @@
 @implementation ANKClient
 
 + (instancetype)sharedClient {
-    static ANKClient *sharedADNClient = nil;
+    static ANKClient *sharedANKClient = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        sharedADNClient = [[ANKClient alloc] init];
+        sharedANKClient = [[ANKClient alloc] init];
     });
     
-    return sharedADNClient;
+    return sharedANKClient;
 }
 
 

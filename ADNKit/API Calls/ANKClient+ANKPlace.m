@@ -26,7 +26,7 @@
 }
 
 
-// parameters contains keys located in ADNPlace.h
+// parameters contains keys located in ANKPlace.h
 // http://developers.app.net/docs/resources/place/#search-for-a-place
 
 - (void)searchForPlacesWithParameters:(NSDictionary *)params completion:(ANKClientCompletionBlock)completionHandler {
