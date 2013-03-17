@@ -209,8 +209,8 @@
 			self.accessToken = responseDictionary[@"access_token"];
 			[self HTTPAuthDidCompleteSuccessfully:YES error:nil handler:handler];
 		} else {
-			// TODO: create an error saying that we didn't get access_token back
-			[self HTTPAuthDidCompleteSuccessfully:NO error:nil handler:handler];
+			NSError *error = [NSError errorWithDomain:kANKErrorDomain code:-1 userInfo:@{NSLocalizedDescriptionKey: @"Could not find key access_token in response", NSLocalizedFailureReasonErrorKey: responseDictionary}];
+			[self HTTPAuthDidCompleteSuccessfully:NO error:error handler:handler];
 		}
 	} failure:^(AFHTTPRequestOperation *operation, NSError *error) {
 		[self HTTPAuthDidCompleteSuccessfully:NO error:error handler:handler];
