@@ -19,6 +19,7 @@ static dispatch_once_t propertiesMapOnceToken;
 @interface ANKResourceProperty : NSObject
 
 @property (strong) NSString *name;
+@property (strong) NSString *JSONKey;
 @property (assign) Class objectType;
 @property (assign) BOOL isPrimitive;
 @property (assign) BOOL isModelObject;
@@ -68,12 +69,16 @@ static dispatch_once_t propertiesMapOnceToken;
 	return self;
 }
 
+
+- (NSString *)description {
+	return [NSString stringWithFormat:@"<%@ %p> - %@ (%@)", NSStringFromClass([self class]), self, self.name, self.JSONKey];
+}
+
+
 @end
 
 
 @interface ANKResource ()
-
-+ (NSDictionary *)inverseKeyMapping;
 
 - (void)updateObjectFromJSONDictionary:(NSDictionary *)JSONDictionary forClass:(Class)class;
 - (NSDictionary *)JSONDictionaryForClass:(Class)class;
@@ -91,11 +96,14 @@ static dispatch_once_t propertiesMapOnceToken;
 	NSMutableDictionary *propertiesForClass = [NSMutableDictionary dictionary];
 	propertiesMap[NSStringFromClass([self class])] = propertiesForClass;
 	
+	NSDictionary *inverseKeyMapping = [[[self class] JSONToLocalKeyMapping] ank_inverseDictionary];
+	
 	unsigned int propertyCount = 0;
 	objc_property_t *propertiesList = class_copyPropertyList([self class], &propertyCount);
 	for (unsigned int i = 0; i < propertyCount; i++) {
 		objc_property_t property = propertiesList[i];
 		ANKResourceProperty *propertyObject = [[ANKResourceProperty alloc] initWithName:[NSString stringWithUTF8String:property_getName(property)] attributesString:[NSString stringWithUTF8String:property_getAttributes(property)] forParentClass:[self class]];
+		propertyObject.JSONKey = inverseKeyMapping[propertyObject.name] ?: propertyObject.name;
 		propertiesForClass[propertyObject.name] = propertyObject;
 	}
 	
@@ -108,23 +116,8 @@ static dispatch_once_t propertiesMapOnceToken;
 }
 
 
-+ (NSDictionary *)inverseKeyMapping {
-	static NSMutableDictionary *inverseKeyMap = nil;
-	static dispatch_once_t onceToken;
-	dispatch_once(&onceToken, ^{
-		inverseKeyMap = [[NSMutableDictionary alloc] init];
-		NSDictionary *regularKeyMapping = [self JSONToLocalKeyMapping];
-		for (NSString *serverKey in regularKeyMapping) {
-			NSString *localKey = regularKeyMapping[serverKey];
-			inverseKeyMap[localKey] = serverKey;
-		}
-	});	
-	return inverseKeyMap;
-}
-
-
 + (NSString *)JSONKeyForLocalKey:(NSString *)localKey {
-	return [[self class] inverseKeyMapping][localKey] ?: localKey;
+	return ((ANKResourceProperty *)propertiesMap[NSStringFromClass([self class])][localKey]).JSONKey;
 }
 
 
@@ -253,7 +246,7 @@ static dispatch_once_t propertiesMapOnceToken;
 		ANKResourceProperty *property = propertiesForClass[localKey];
 		
 		// figure out the JSON key
-		NSString *remoteKey = [class inverseKeyMapping][localKey] ?: localKey;
+		NSString *remoteKey = [[self class] JSONKeyForLocalKey:localKey];
 		
 		// grab the value and transform it if necessary
 		id value = [self valueForKey:localKey];

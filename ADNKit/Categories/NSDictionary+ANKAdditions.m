@@ -17,4 +17,17 @@
 	return mutableSelf;
 }
 
+
+- (NSDictionary *)ank_inverseDictionary {
+	NSMutableDictionary *inverse = [NSMutableDictionary dictionaryWithCapacity:self.count];
+	for (id key in self) {
+		id value = [self objectForKey:key];
+		if ([value conformsToProtocol:@protocol(NSCopying)]) {
+			inverse[value] = key;
+		}
+	}
+	return inverse;
+}
+
+
 @end

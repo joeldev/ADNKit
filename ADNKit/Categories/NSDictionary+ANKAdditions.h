@@ -12,5 +12,6 @@
 @interface NSDictionary (ANKAdditions)
 
 - (NSDictionary *)ank_dictionaryByAppendingDictionary:(NSDictionary *)otherDictionary;
+- (NSDictionary *)ank_inverseDictionary;
 
 @end
