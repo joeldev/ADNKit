@@ -29,7 +29,7 @@
 }
 
 
-- (NSDictionary *)placeAnnotationValue {
+- (NSDictionary *)annotationValue {
 	return @{kADNPlaceAnnotationKey: @{[[self class] JSONKeyForLocalKey:@"factualID"]: self.factualID}};
 }
 

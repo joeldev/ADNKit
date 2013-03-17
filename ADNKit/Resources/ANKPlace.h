@@ -21,7 +21,7 @@ static NSString *const kADNPlaceSearchParamHorizontalAccuracy = @"horizontal_acc
 static NSString *const kADNPlaceSearchParamVerticalAccuracy = @"vertical_accuracy";
 
 
-@interface ANKPlace : ANKResource
+@interface ANKPlace : ANKResource <ANKAnnotationReplacement>
 
 @property (strong) NSString *factualID;
 @property (strong) NSString *name;
@@ -41,7 +41,5 @@ static NSString *const kADNPlaceSearchParamVerticalAccuracy = @"vertical_accurac
 @property (strong) NSString *fax;
 @property (strong) NSURL *website;
 @property (strong) NSArray *categories;
-
-- (NSDictionary *)placeAnnotationValue;
 
 @end

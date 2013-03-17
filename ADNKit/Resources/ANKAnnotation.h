@@ -15,6 +15,7 @@
 @property (strong) NSDictionary *value;
 
 + (instancetype)annotationWithType:(NSString *)type value:(NSDictionary *)value;
++ (instancetype)annotationWithType:(NSString *)type object:(ANKResource *)resource;
 
 - (ANKResource *)resourceOfClassForValue:(Class)resourceClass;
 - (ANKResource *)resourceOfClass:(Class)resourceClass forValueKeyPath:(NSString *)keyPath;

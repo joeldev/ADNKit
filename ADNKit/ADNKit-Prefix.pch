@@ -12,6 +12,8 @@
 
 #import <SystemConfiguration/SystemConfiguration.h>
 #import "AFNetworking.h"
+#import "ANKResource.h"
+#import "ANKAnnotationReplacement.h"
 #import "ANKClient.h"
 #import "ANKClient+ANKHandlerBlocks.h"
 #import "NSArray+ANKAdditions.h"

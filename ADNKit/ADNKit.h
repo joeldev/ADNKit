@@ -22,6 +22,7 @@
 
 #import "ANKResource.h"
 #import "ANKAnnotatableResource.h"
+#import "ANKAnnotationReplacement.h"
 
 #import "ANKUser.h"
 #import "ANKUserCounts.h"

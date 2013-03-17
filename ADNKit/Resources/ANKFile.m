@@ -43,7 +43,7 @@
 }
 
 
-- (NSDictionary *)fileAnnotationValue {
+- (NSDictionary *)annotationValue {
 	return [self fileAnnotationValueWithWrapper:YES];
 }
 

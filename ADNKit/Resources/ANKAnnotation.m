@@ -26,6 +26,18 @@
 }
 
 
++ (instancetype)annotationWithType:(NSString *)type object:(ANKResource *)resource {
+	NSDictionary *value = nil;
+	if ([resource conformsToProtocol:@protocol(ANKAnnotationReplacement)]) {
+		ANKResource <ANKAnnotationReplacement> *replaceableResource = (ANKResource <ANKAnnotationReplacement> *)resource;
+		value = [replaceableResource annotationValue];
+	} else {
+		value = [resource JSONDictionary];
+	}
+	return [[self class] annotationWithType:type value:value];
+}
+
+
 - (NSString *)description {
 	return [NSString stringWithFormat:@"<%@ %p> - %@: %@", NSStringFromClass([self class]), self, self.type, self.value];
 }

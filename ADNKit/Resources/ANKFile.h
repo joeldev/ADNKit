@@ -15,7 +15,7 @@ static NSString *const kADNFileListAnnotationKey = @"+net.app.core.file_list";
 
 @class ANKUser, ANKObjectSource;
 
-@interface ANKFile : ANKAnnotatableResource
+@interface ANKFile : ANKAnnotatableResource <ANKAnnotationReplacement>
 
 @property (strong) NSString *fileID;
 @property (strong) NSString *kind;
@@ -38,6 +38,5 @@ static NSString *const kADNFileListAnnotationKey = @"+net.app.core.file_list";
 @property (strong) ANKObjectSource *source;
 
 + (NSDictionary *)fileListAnnotationValueForFiles:(NSArray *)files;
-- (NSDictionary *)fileAnnotationValue;
 
 @end

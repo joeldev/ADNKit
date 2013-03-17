@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2529AFA616F629020002A1E6 /* ANKAnnotationReplacement.h in Headers */ = {isa = PBXBuildFile; fileRef = 2529AFA516F629020002A1E6 /* ANKAnnotationReplacement.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		252A2BF716E545F100DAE393 /* ANKPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2BF616E545F100DAE393 /* ANKPost.m */; };
 		252A2BF816E545F400DAE393 /* ANKPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2BF616E545F100DAE393 /* ANKPost.m */; };
 		252A2BF916E545FC00DAE393 /* ANKPost.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A2BF516E545F100DAE393 /* ANKPost.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -215,6 +216,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2529AFA516F629020002A1E6 /* ANKAnnotationReplacement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKAnnotationReplacement.h; sourceTree = "<group>"; };
 		252A2BF516E545F100DAE393 /* ANKPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKPost.h; sourceTree = "<group>"; };
 		252A2BF616E545F100DAE393 /* ANKPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANKPost.m; sourceTree = "<group>"; };
 		252A2BFA16E5462D00DAE393 /* ANKChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKChannel.h; sourceTree = "<group>"; };
@@ -708,6 +710,7 @@
 				5DC3728916E3B10800190862 /* ANKResource.m */,
 				252A2C3116E5489300DAE393 /* ANKAnnotatableResource.h */,
 				252A2C3216E5489300DAE393 /* ANKAnnotatableResource.m */,
+				2529AFA516F629020002A1E6 /* ANKAnnotationReplacement.h */,
 			);
 			name = Abstract;
 			sourceTree = "<group>";
@@ -874,6 +877,7 @@
 				252A2D1E16F27C8B00DAE393 /* ANKStorage.h in Headers */,
 				252A2D2316F27F2E00DAE393 /* ANKClient+ANKTokenStatus.h in Headers */,
 				259A5EC616F2E1EF00AF9F35 /* ADNKit.h in Headers */,
+				2529AFA616F629020002A1E6 /* ANKAnnotationReplacement.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
