@@ -10,9 +10,9 @@ It's also important to note that many parts of core architecture in this framewo
 
 ### Apps using ADNKit
 
-* Climber by [@rrbrambley] (https://alpha.app.net/rrbrambley)
+* [Climber] (https://alpha.app.net/climber) by [@rrbrambley] (https://alpha.app.net/rrbrambley)
 * Soapbox by [@joeldev] (https://alpha.app.net/joeldev)
-* Unannounced project by *redacted*
+* [Orbit] (https://alpha.app.net/orbit) by *redacted*
 * Unannounced project by *redacted*
 
 *Please file an issue to get your app added if you'd like to be on the list!*
