@@ -1,9 +1,9 @@
 ![logo](https://github.com/joeldev/ADNKit/raw/master/Images/adnkit.png)
 
 ADNKit is a brand new Objective-C framework for building App.net iOS and OS X applications. The guiding design principles are:
-* Simple and easy to understand API, designed for making things happen quickly
-* As much heavylifting as possible is done for you
-* 100% App.net API support
+* Simple and powerful API
+* As much heavylifting as possible is done for you (aka, tons of convenience methods)
+* 100% App.net API and features support
 * No external dependencies other than AFNetworking
 
 It's also important to note that many parts of core architecture in this framework is based on [Matt Rubin](https://github.com/mattrubin)'s fantastic architectural work in his [AppDotNet](https://github.com/mattrubin/AppDotNet) project. My hat's off to him for designing a truly excellent framework architecture and open sourcing it!
