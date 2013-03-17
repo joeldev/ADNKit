@@ -27,7 +27,7 @@ static NSString *const kANKFileListAnnotationKey = @"+net.app.core.file_list";
 @property (strong) NSDate *createdAt;
 @property (assign) NSUInteger sizeBytes;
 @property (assign) NSUInteger sizeBytesIncludingDerivedFiles;
-// TODO: @property (strong) NSDictionary *derivedFiles;
+@property (strong) NSDictionary *derivedFiles;
 @property (strong) NSURL *URL;
 @property (strong) NSDate *URLExpireDate;
 @property (strong) NSURL *permanentURL;

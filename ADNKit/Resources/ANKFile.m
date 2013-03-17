@@ -28,11 +28,17 @@
 			@"created_at": @"createdAt",
 			@"size": @"sizeBytes",
 			@"total_size": @"sizeBytesIncludingDerivedFiles",
+			@"derived_files": @"derivedFiles",
 			@"url": @"URL",
 			@"url_expires": @"URLExpireDate",
 			@"url_permanent": @"permanentURL",
 			@"file_token": @"fileToken",
 			@"file_token_read": @"readOnlyFileToken"}];
+}
+
+
++ (NSSet *)localKeysExcludedFromJSONOutput {
+	return [[NSSet setWithSet:[super localKeysExcludedFromJSONOutput]] setByAddingObjectsFromArray:@[@"derivedFiles"]];
 }
 
 
@@ -50,6 +56,21 @@
 
 - (NSDictionary *)annotationValue {
 	return [self fileAnnotationValueWithWrapper:YES];
+}
+
+
+- (void)updateObjectFromJSONDictionary:(NSDictionary *)JSONDictionary {
+	NSMutableDictionary *mutableJSONDictionary = [NSMutableDictionary dictionaryWithDictionary:JSONDictionary];
+	NSString *derivedFilesKey = [[self class] JSONKeyForLocalKey:@"derivedFiles"];
+	
+	if (mutableJSONDictionary[derivedFilesKey]) {
+		NSDictionary *derivedFiles = mutableJSONDictionary[derivedFilesKey];
+		mutableJSONDictionary[derivedFilesKey] = [derivedFiles ank_mapValues:^id(id key, id value) {
+			return [ANKFile objectFromJSONDictionary:value];
+		}];
+	}
+	
+	[super updateObjectFromJSONDictionary:mutableJSONDictionary];
 }
 
 

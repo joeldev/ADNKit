@@ -30,4 +30,17 @@
 }
 
 
+- (NSDictionary *)ank_mapValues:(id (^)(id key, id value))block {
+	NSMutableDictionary *processedDictionary = [NSMutableDictionary dictionary];
+	for (id key in self) {
+		id value = [self objectForKey:key];
+		id mappedValue = block(key, value);
+		if (mappedValue) {
+			processedDictionary[key] = mappedValue;
+		}
+	}
+	return processedDictionary;
+}
+
+
 @end

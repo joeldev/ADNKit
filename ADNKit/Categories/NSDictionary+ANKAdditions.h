@@ -13,5 +13,6 @@
 
 - (NSDictionary *)ank_dictionaryByAppendingDictionary:(NSDictionary *)otherDictionary;
 - (NSDictionary *)ank_inverseDictionary;
+- (NSDictionary *)ank_mapValues:(id (^)(id key, id value))block;
 
 @end
