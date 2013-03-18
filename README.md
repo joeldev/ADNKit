@@ -87,7 +87,7 @@ There are many interesting articles and documentation [on the wiki](https://gith
 
 # Dependencies
 ADNKit uses the following dependencies:
-* [AFNetworking](https://github.com/AFNetworking/AFNetworking)
+* [AFNetworking](https://github.com/AFNetworking/AFNetworking) (statically compiled in to the framework - does not need to be added to your project).
 
 The following built-in frameworks are used:
 * CoreLocation.framework
