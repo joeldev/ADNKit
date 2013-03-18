@@ -6,7 +6,7 @@ ADNKit is a brand new Objective-C framework for building App.net iOS and OS X ap
 * 100% App.net API and features support
 * No external dependencies other than AFNetworking
 
-It's also important to note that many parts of core architecture in this framework is based on [Matt Rubin](https://github.com/mattrubin)'s fantastic architectural work in his [AppDotNet](https://github.com/mattrubin/AppDotNet) project. My hat's off to him for designing a truly excellent framework architecture and open sourcing it!
+Note: the basic core structure of this framework is based off of [Matt Rubin](https://github.com/mattrubin)'s fantastic architectural work in his [AppDotNet](https://github.com/mattrubin/AppDotNet) project.
 
 ### Apps using ADNKit
 
