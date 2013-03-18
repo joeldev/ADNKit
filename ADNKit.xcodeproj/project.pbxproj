@@ -69,6 +69,7 @@
 		252A2D2316F27F2E00DAE393 /* ANKClient+ANKTokenStatus.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A2D2116F27F2E00DAE393 /* ANKClient+ANKTokenStatus.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		252A2D2416F27F2E00DAE393 /* ANKClient+ANKTokenStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2D2216F27F2E00DAE393 /* ANKClient+ANKTokenStatus.m */; };
 		252A2D2516F27F2E00DAE393 /* ANKClient+ANKTokenStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2D2216F27F2E00DAE393 /* ANKClient+ANKTokenStatus.m */; };
+		252A87D416F79A09001F3E8F /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 252A87D316F79A09001F3E8F /* CoreServices.framework */; };
 		259A5EC616F2E1EF00AF9F35 /* ADNKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC370E116E0805E00190862 /* ADNKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5D714BE416EFB74A0008434D /* ANKAPIResponseMeta.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D714BE216EFB74A0008434D /* ANKAPIResponseMeta.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5D714BE516EFB74A0008434D /* ANKAPIResponseMeta.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D714BE316EFB74A0008434D /* ANKAPIResponseMeta.m */; };
@@ -269,6 +270,7 @@
 		252A2D1D16F27C8B00DAE393 /* ANKStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANKStorage.m; sourceTree = "<group>"; };
 		252A2D2116F27F2E00DAE393 /* ANKClient+ANKTokenStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ANKClient+ANKTokenStatus.h"; sourceTree = "<group>"; };
 		252A2D2216F27F2E00DAE393 /* ANKClient+ANKTokenStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ANKClient+ANKTokenStatus.m"; sourceTree = "<group>"; };
+		252A87D316F79A09001F3E8F /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/CoreServices.framework; sourceTree = DEVELOPER_DIR; };
 		5D714BE216EFB74A0008434D /* ANKAPIResponseMeta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKAPIResponseMeta.h; sourceTree = "<group>"; };
 		5D714BE316EFB74A0008434D /* ANKAPIResponseMeta.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANKAPIResponseMeta.m; sourceTree = "<group>"; };
 		5D714BE716EFF1CC0008434D /* ANKPaginationSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKPaginationSettings.h; sourceTree = "<group>"; };
@@ -392,6 +394,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				252A87D416F79A09001F3E8F /* CoreServices.framework in Frameworks */,
 				5DC3728316E3AF8E00190862 /* SystemConfiguration.framework in Frameworks */,
 				5DC3728116E3AF8900190862 /* CoreLocation.framework in Frameworks */,
 				5DC3710916E0808C00190862 /* Cocoa.framework in Frameworks */,
@@ -601,6 +604,7 @@
 				5DC370F316E0807000190862 /* AppKit.framework */,
 				5DC370F416E0807000190862 /* CoreData.framework */,
 				5DC370F516E0807000190862 /* Foundation.framework */,
+				252A87D316F79A09001F3E8F /* CoreServices.framework */,
 				5DC3728216E3AF8E00190862 /* SystemConfiguration.framework */,
 				5DC3728016E3AF8800190862 /* CoreLocation.framework */,
 			);
@@ -1222,7 +1226,7 @@
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				INFOPLIST_FILE = "ADNKit-OSX/ADNKit-OSX-Info.plist";
 				INSTALL_PATH = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = ADNKit;
 				SDKROOT = macosx;
 				WRAPPER_EXTENSION = framework;
@@ -1248,7 +1252,7 @@
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				INFOPLIST_FILE = "ADNKit-OSX/ADNKit-OSX-Info.plist";
 				INSTALL_PATH = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = ADNKit;
 				SDKROOT = macosx;
 				WRAPPER_EXTENSION = framework;
