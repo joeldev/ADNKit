@@ -19,4 +19,10 @@
 	return [[super JSONToLocalKeyMapping] ank_dictionaryByAppendingDictionary:@{@"horizontal_accuracy": @"horizontalAccuracy", @"vertical_accuracy": @"verticalAccuracy"}];
 }
 
+
+- (CLLocationCoordinate2D)location {
+	return CLLocationCoordinate2DMake(self.latitude, self.longitude);
+}
+
+
 @end
