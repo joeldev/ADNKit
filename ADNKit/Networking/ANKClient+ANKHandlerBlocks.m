@@ -86,8 +86,10 @@
 
 - (AFNetworkingFailureBlock)failureHandlerForClientHandler:(ANKClientCompletionBlock)handler {
 	return ^(AFHTTPRequestOperation *operation, NSError *error) {
+		ANKAPIResponse *response = error.userInfo[kANKAPIResponseKey];
+		
 		if (handler) {
-			handler(nil, nil, error);
+			handler(nil, response.meta, error);
 		}
 	};
 }

@@ -32,7 +32,7 @@
 		NSError *modifiedError = [NSError errorWithDomain:error.domain code:error.code userInfo:modifiedUserInfo];
 		
 		if (failure) {
-			failure(operation, response.meta.isError ? response.meta.error : modifiedError);
+			failure(operation, response.meta.error ?: modifiedError);
 		}
     }];
 }

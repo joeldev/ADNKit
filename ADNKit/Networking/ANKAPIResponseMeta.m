@@ -28,7 +28,13 @@
 
 
 - (NSError *)error {
-	return [NSError errorWithDomain:kANKErrorDomain code:(self.errorID ? [self.errorID integerValue] : 0) userInfo:@{NSLocalizedDescriptionKey: self.errorMessage, kANKErrorTypeKey: @(self.errorType)}];
+	NSError *error = nil;
+	
+	if (self.isError) {
+		error = [NSError errorWithDomain:kANKErrorDomain code:(self.errorID ? [self.errorID integerValue] : 0) userInfo:@{NSLocalizedDescriptionKey: self.errorMessage, kANKErrorTypeKey: @(self.errorType)}];
+	}
+	
+	return error;
 }
 
 
