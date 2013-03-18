@@ -24,4 +24,16 @@
 			@"public": @"isPublic"}];
 }
 
+
++ (instancetype)ACLForUsers:(NSArray *)users {
+	return [[self class] ACLForUserIDs:[users valueForKeyPath:@"userID"]];
+}
+
+
++ (instancetype)ACLForUserIDs:(NSArray *)userIDs {
+	ANKACL *ACL = [[[self class] alloc] init];
+	ACL.userIDs = userIDs;
+	return ACL;
+}
+
 @end

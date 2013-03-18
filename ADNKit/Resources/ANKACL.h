@@ -21,4 +21,7 @@
 @property (assign) BOOL isImmutable;
 @property (assign) BOOL isPublic;
 
++ (instancetype)ACLForUsers:(NSArray *)users;
++ (instancetype)ACLForUserIDs:(NSArray *)userIDs;
+
 @end
