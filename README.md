@@ -29,7 +29,9 @@ ADNKit makes use of submodules for its dependencies. After cloning the repo, mak
 
 ##### Authentication
 
-[More information about authentication with ADNKit](https://github.com/joeldev/ADNKit/wiki/Authentication-basics), including how to set up and implement both Username/Password and OAuth authentication.
+[Find more information about authentication with ADNKit](https://github.com/joeldev/ADNKit/wiki/Authentication-basics), including how to set up and implement both Username/Password and OAuth authentication.
+
+If you are writing an iOS app, be sure to [check out the features ADNKit provides](https://github.com/joeldev/ADNKit/wiki/Easy-authentication-for-iOS-apps) to make auth easier on iOS.
 
 ```objc
 /* this assumes you have two text fields, usernameField and passwordField */
@@ -57,7 +59,7 @@ id handler = ^(BOOL success, NSError *error) {
 
 Once the completion block is called with a successful response, you are completely good to go and can start using the rest of the API calls immediately.
 
-##### Creating Posts
+##### Creating a Post
 
 Now that we are authenticated with App.net, let's make our inaugural Post:
 
@@ -77,11 +79,11 @@ post.text = @"Hello, world!";
     NSLog(@"post created! %@", post ?: error);
 }];
 ```
-Using the model objects directly lets you set them up completely (such as setting post.annotations). There is not a convenience method for everything, so more advanced situations are intended to be handled by creating the model object, setting it up how you want it, and then sending it to the server.
+Using the model objects directly lets you set them up completely (such as setting post.annotations). There is not a convenience method for everything, so more advanced situations are intended to be handled by creating the model object, setting it up how you want it, and then handing it directly to an ANKClient method.
 
 # Documentation
 
-Documentation is currently being kept [on the wiki](https://github.com/joeldev/ADNKit/wiki).
+There are many interesting articles and documentation [on the wiki](https://github.com/joeldev/ADNKit/wiki).
 
 # Dependencies
 ADNKit uses the following dependencies:
