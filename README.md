@@ -29,7 +29,7 @@ ADNKit makes use of submodules for its dependencies. After cloning the repo, mak
 
 ##### Authentication
 
-[More information about authentication with ADNKit](https://github.com/joeldev/ADNKit/wiki/Authentication), including how to set up and implement both Username/Password and OAuth authentication.
+[More information about authentication with ADNKit](https://github.com/joeldev/ADNKit/wiki/Authentication-basics), including how to set up and implement both Username/Password and OAuth authentication.
 
 ```objc
 /* this assumes you have two text fields, usernameField and passwordField */
