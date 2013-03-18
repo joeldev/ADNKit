@@ -582,7 +582,7 @@
 				5DC3725016E3AE1500190862 /* AFNetworkActivityIndicatorManager.m */,
 			);
 			name = AFNetworking;
-			path = External/AFNetworking/AFNetworking;
+			path = External/AFNetworking;
 			sourceTree = "<group>";
 		};
 		5DC3727C16E3AF6100190862 /* iOS */ = {

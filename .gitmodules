@@ -1,5 +1,0 @@
-[submodule "External/AFNetworking"]
-	path = External/AFNetworking
-	url = https://github.com/AFNetworking/AFNetworking
-	ignore = dirty
-
