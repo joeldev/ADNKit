@@ -85,7 +85,7 @@ Using the model objects directly lets you set them up completely (such as settin
 
 # Documentation
 
-There are many interesting articles and documentation [on the wiki](https://github.com/joeldev/ADNKit/wiki).
+There are articles and documentation [on the wiki](https://github.com/joeldev/ADNKit/wiki).
 
 # Dependencies
 ADNKit uses the following dependencies:
