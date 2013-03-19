@@ -24,7 +24,7 @@ Pod::Spec.new do |s|
      LICENSE
    }
   s.author       = { "Joel Levin" => "joellevin.email@gmail.com" }
-  s.source       = { :git => "https://github.com/AshFurrow/ADNKit.git", :commit => 'af5e26e9203c7d8b1142c03a076a50bab23e21bd' }
+  s.source       = { :git => "https://github.com/joeldev/ADNKit.git", :commit => 'af5e26e9203c7d8b1142c03a076a50bab23e21bd' }
   s.ios.deployment_target = '5.0'
   s.ios.frameworks = 'CoreLocation', 'SystemConfiguration', 'MobileCoreServices', 'UIKit'
   s.ios.source_files = 'ADNKit/*.{h,m}'
