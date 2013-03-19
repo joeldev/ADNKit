@@ -4,9 +4,10 @@ Pod::Spec.new do |s|
   s.summary      = "Full-featured Objective-C framework for developing App.net apps on OS X and iOS."
   s.homepage     = "https://github.com/joeldev/ADNKit"
   s.author       = { "Joel Levin" => "joel@joeldev.com" }
-  s.source       = { :git => "https://github.com/joeldev/ADNKit.git", :tag => "1.0RC" }
-  s.source_files = 'ADNKit'
+  s.source       = { :git => "https://github.com/joeldev/ADNKit.git", :tag => "1.0RC2" }
+  s.source_files = 'ADNKit', 'External/AFNetworking'
   s.requires_arc = true
+  s.prefix_header_file = 'ADNKit/ADNKit-Prefix.pch'
 
   s.ios.deployment_target = '5.0'
   s.ios.frameworks = 'MobileCoreServices', 'SystemConfiguration', 'CoreLocation'

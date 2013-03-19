@@ -11,14 +11,17 @@
  */
 
 #import <ADNKit/ADNKit.h>
+#import <CoreLocation/CoreLocation.h>
 
 
 @interface ANKGeolocation : ANKResource
 
-@property (assign) double latitude;
-@property (assign) double longitude;
+@property (assign) CGFloat latitude;
+@property (assign) CGFloat longitude;
 @property (assign) NSInteger altitude;
 @property (assign) NSUInteger horizontalAccuracy;
 @property (assign) NSUInteger verticalAccuracy;
+
+- (CLLocationCoordinate2D)location;
 
 @end
