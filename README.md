@@ -27,6 +27,8 @@ For iOS apps, make sure that you have added the folder containing the ADNKit hea
 
 **It's also important to note that AFNetworking is currently statically compiled in as part of the library and does not need to be added to your project.**
 
+ADNKit is also available via CocoaPods, thanks to [Ash Furrow] (https://alpha.app.net/ashfurrow).
+
 ### Hello, world!
 
 ##### Authentication
