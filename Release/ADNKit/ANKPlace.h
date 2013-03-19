@@ -11,6 +11,7 @@
  */
 
 #import "ANKResource.h"
+#import <CoreLocation/CoreLocation.h>
 
 
 static NSString *const kANKPlaceAnnotationKey = @"+net.app.core.place";
@@ -45,5 +46,7 @@ static NSString *const kANKPlaceSearchParamVerticalAccuracy = @"vertical_accurac
 @property (strong) NSString *fax;
 @property (strong) NSURL *website;
 @property (strong) NSArray *categories;
+
+- (CLLocationCoordinate2D)location;
 
 @end
