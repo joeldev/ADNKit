@@ -1,16 +1,19 @@
 Pod::Spec.new do |s|
   s.name         = "ADNKit"
   s.version      = "1.0"
-  s.summary      = "Full-featured Objective-C framework for developing App.net apps on OS X and iOS."
+  s.summary      = "Full-featured Objective-C framework for developing iOS and OS X App.net apps."
   s.homepage     = "https://github.com/joeldev/ADNKit"
   s.author       = { "Joel Levin" => "joel@joeldev.com" }
   s.source       = { :git => "https://github.com/joeldev/ADNKit.git", :tag => "1.0RC3" }
-  s.source_files = 'ADNKit', 'External/AFNetworking'
+  s.source_files = 'ADNKit', 'ADNKit/{API Calls,Categories,Networking,Resources,Utilities/Shared}/*.{h,m}'
   s.requires_arc = true
+  s.dependency 'AFNetworking', :git => "https://github.com/AFNetworking/AFNetworking.git", :commit => "121ef7a"
   s.prefix_header_file = 'ADNKit/ADNKit-Prefix.pch'
 
   s.ios.deployment_target = '5.0'
   s.ios.frameworks = 'MobileCoreServices', 'SystemConfiguration', 'CoreLocation'
+  #s.ios.source_files = [s.source_files, 'ADNKit/UI/iOS/*{.h,.m}'].flatten
+  s.ios.source_files = 'ADNKit', 'ADNKit/{API Calls,Categories,Networking,Resources,Utilities/Shared}/*.{h,m}', 'ADNKit/UI/iOS/*{.h,.m}'
   
   s.osx.deployment_target = '10.7'
   s.osx.frameworks = 'CoreServices', 'SystemConfiguration', 'CoreLocation'
