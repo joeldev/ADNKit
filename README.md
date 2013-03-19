@@ -21,7 +21,9 @@ Note: the basic core structure of this framework is based off of [Matt Rubin](ht
 Please see [the wiki](https://github.com/joeldev/ADNKit/wiki) for full documentation.
 
 ### Installation
-ADNKit makes use of submodules for its dependencies. After cloning the repo, make sure to run `git submodule update --init --recursive` from the top level before trying to build the code. There is also a Releases folder containing stable binary releases.
+ADNKit makes use of submodules for its dependency. After cloning the repo, make sure to run `git submodule update --init --recursive` from the top level before trying to build the franework. There is also a Release folder containing the latest stable binary release (for both OS X and iOS) and headers.
+
+For iOS apps, make sure that you have added the folder containing the ADNKit headers folder to your header search paths. This folder can either be copied from Release/ADNKit or you can point directly to that location if ADNKit is a submodule in your project (aka, path would be something like 'Vendor/ADNKit/Release/ADNKit').
 
 **It's also important to note that AFNetworking is currently statically compiled in as part of the library and does not need to be added to your project.**
 
@@ -87,7 +89,7 @@ There are many interesting articles and documentation [on the wiki](https://gith
 
 # Dependencies
 ADNKit uses the following dependencies:
-* [AFNetworking](https://github.com/AFNetworking/AFNetworking) (statically compiled in to the framework - does not need to be added to your project).
+* [AFNetworking](https://github.com/AFNetworking/AFNetworking) (statically compiled into the framework - does not need to be added to your project).
 
 The following built-in frameworks are used:
 * CoreLocation.framework
