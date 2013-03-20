@@ -31,7 +31,7 @@
 	NSError *error = nil;
 	
 	if (self.isError) {
-		error = [NSError errorWithDomain:kANKErrorDomain code:(self.errorID ? [self.errorID integerValue] : 0) userInfo:@{NSLocalizedDescriptionKey: self.errorMessage, kANKErrorTypeKey: @(self.errorType)}];
+		error = [NSError errorWithDomain:kANKErrorDomain code:self.statusCode userInfo:@{NSLocalizedDescriptionKey: self.errorMessage, kANKErrorTypeKey: @(self.errorType), kANKErrorIDKey: self.errorID}];
 	}
 	
 	return error;
