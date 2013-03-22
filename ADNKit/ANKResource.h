@@ -13,7 +13,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface ANKResource : NSObject
+@interface ANKResource : NSObject <NSCopying, NSCoding>
 
 + (NSDictionary *)JSONToLocalKeyMapping;
 + (NSString *)JSONKeyForLocalKey:(NSString *)localKey;

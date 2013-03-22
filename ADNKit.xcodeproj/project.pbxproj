@@ -171,6 +171,12 @@
 		252A898D16F8CDF3001F3E8F /* NSDictionary+ANKAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A88E816F8CDF1001F3E8F /* NSDictionary+ANKAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		252A898E16F8CDF3001F3E8F /* NSDictionary+ANKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A88E916F8CDF2001F3E8F /* NSDictionary+ANKAdditions.m */; };
 		252A898F16F8CDF3001F3E8F /* NSDictionary+ANKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A88E916F8CDF2001F3E8F /* NSDictionary+ANKAdditions.m */; };
+		2592B7A216FCED64004573FF /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2592B7A116FCED64004573FF /* SenTestingKit.framework */; };
+		2592B7A416FCED64004573FF /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2592B7A316FCED64004573FF /* Cocoa.framework */; };
+		2592B7AE16FCED64004573FF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2592B7AC16FCED64004573FF /* InfoPlist.strings */; };
+		2592B7B116FCED64004573FF /* ADNKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2592B7B016FCED64004573FF /* ADNKitTests.m */; };
+		2592B7B816FCED96004573FF /* ADNKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DC3710816E0808C00190862 /* ADNKit.framework */; };
+		2592B7B916FD2503004573FF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DC3728216E3AF8E00190862 /* SystemConfiguration.framework */; };
 		259A5EC616F2E1EF00AF9F35 /* ADNKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC370E116E0805E00190862 /* ADNKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DA357D416EBC29600FA21F8 /* ADNKit-OSX.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DA357CC16EBC18B00FA21F8 /* ADNKit-OSX.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DC370DD16E0805E00190862 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DC370DC16E0805E00190862 /* Foundation.framework */; };
@@ -208,6 +214,16 @@
 		5DC3728116E3AF8900190862 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DC3728016E3AF8800190862 /* CoreLocation.framework */; };
 		5DC3728316E3AF8E00190862 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DC3728216E3AF8E00190862 /* SystemConfiguration.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2592B7B616FCED92004573FF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5DC370D116E0805E00190862 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5DC3710716E0808C00190862;
+			remoteInfo = "ADNKit-OSX";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		5DC370D716E0805E00190862 /* CopyFiles */ = {
@@ -337,6 +353,17 @@
 		252A88E716F8CDF0001F3E8F /* NSArray+ANKAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+ANKAdditions.m"; sourceTree = "<group>"; };
 		252A88E816F8CDF1001F3E8F /* NSDictionary+ANKAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+ANKAdditions.h"; sourceTree = "<group>"; };
 		252A88E916F8CDF2001F3E8F /* NSDictionary+ANKAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+ANKAdditions.m"; sourceTree = "<group>"; };
+		2592B7A016FCED64004573FF /* ADNKitTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ADNKitTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2592B7A116FCED64004573FF /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		2592B7A316FCED64004573FF /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		2592B7A616FCED64004573FF /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		2592B7A716FCED64004573FF /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		2592B7A816FCED64004573FF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		2592B7AB16FCED64004573FF /* ADNKitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ADNKitTests-Info.plist"; sourceTree = "<group>"; };
+		2592B7AD16FCED64004573FF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2592B7AF16FCED64004573FF /* ADNKitTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ADNKitTests.h; sourceTree = "<group>"; };
+		2592B7B016FCED64004573FF /* ADNKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ADNKitTests.m; sourceTree = "<group>"; };
+		2592B7B216FCED64004573FF /* ADNKitTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ADNKitTests-Prefix.pch"; sourceTree = "<group>"; };
 		5DA357CB16EBC18B00FA21F8 /* ADNKit-iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "ADNKit-iOS.h"; path = "ADNKit/ADNKit-iOS.h"; sourceTree = "<group>"; };
 		5DA357CC16EBC18B00FA21F8 /* ADNKit-OSX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "ADNKit-OSX.h"; path = "ADNKit/ADNKit-OSX.h"; sourceTree = "<group>"; };
 		5DC370D916E0805E00190862 /* libADNKit-iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libADNKit-iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -378,6 +405,17 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		2592B79C16FCED64004573FF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2592B7B916FD2503004573FF /* SystemConfiguration.framework in Frameworks */,
+				2592B7B816FCED96004573FF /* ADNKit.framework in Frameworks */,
+				2592B7A216FCED64004573FF /* SenTestingKit.framework in Frameworks */,
+				2592B7A416FCED64004573FF /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5DC370D616E0805E00190862 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -543,6 +581,36 @@
 			name = "App.net API";
 			sourceTree = "<group>";
 		};
+		2592B7A516FCED64004573FF /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2592B7A616FCED64004573FF /* AppKit.framework */,
+				2592B7A716FCED64004573FF /* CoreData.framework */,
+				2592B7A816FCED64004573FF /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		2592B7A916FCED64004573FF /* ADNKitTests */ = {
+			isa = PBXGroup;
+			children = (
+				2592B7AF16FCED64004573FF /* ADNKitTests.h */,
+				2592B7B016FCED64004573FF /* ADNKitTests.m */,
+				2592B7AA16FCED64004573FF /* Supporting Files */,
+			);
+			path = ADNKitTests;
+			sourceTree = "<group>";
+		};
+		2592B7AA16FCED64004573FF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2592B7AB16FCED64004573FF /* ADNKitTests-Info.plist */,
+				2592B7AC16FCED64004573FF /* InfoPlist.strings */,
+				2592B7B216FCED64004573FF /* ADNKitTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		5DC370D016E0805E00190862 = {
 			isa = PBXGroup;
 			children = (
@@ -553,6 +621,7 @@
 				5DC370DF16E0805E00190862 /* Supporting Files */,
 				5DC3710A16E0808C00190862 /* ADNKit-OSX */,
 				5DC3724616E3AE1500190862 /* AFNetworking */,
+				2592B7A916FCED64004573FF /* ADNKitTests */,
 				5DC370DB16E0805E00190862 /* Frameworks */,
 				5DC370DA16E0805E00190862 /* Products */,
 			);
@@ -563,6 +632,7 @@
 			children = (
 				5DC370D916E0805E00190862 /* libADNKit-iOS.a */,
 				5DC3710816E0808C00190862 /* ADNKit.framework */,
+				2592B7A016FCED64004573FF /* ADNKitTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -572,6 +642,9 @@
 			children = (
 				5DC3727C16E3AF6100190862 /* iOS */,
 				5DC3727F16E3AF7A00190862 /* OS X */,
+				2592B7A116FCED64004573FF /* SenTestingKit.framework */,
+				2592B7A316FCED64004573FF /* Cocoa.framework */,
+				2592B7A516FCED64004573FF /* Other Frameworks */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -753,6 +826,25 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		2592B79F16FCED64004573FF /* ADNKitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2592B7B516FCED64004573FF /* Build configuration list for PBXNativeTarget "ADNKitTests" */;
+			buildPhases = (
+				2592B79B16FCED64004573FF /* Sources */,
+				2592B79C16FCED64004573FF /* Frameworks */,
+				2592B79D16FCED64004573FF /* Resources */,
+				2592B79E16FCED64004573FF /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2592B7B716FCED92004573FF /* PBXTargetDependency */,
+			);
+			name = ADNKitTests;
+			productName = ADNKitTests;
+			productReference = 2592B7A016FCED64004573FF /* ADNKitTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
 		5DC370D816E0805E00190862 /* ADNKit-iOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5DC370E716E0805E00190862 /* Build configuration list for PBXNativeTarget "ADNKit-iOS" */;
@@ -811,11 +903,20 @@
 			targets = (
 				5DC370D816E0805E00190862 /* ADNKit-iOS */,
 				5DC3710716E0808C00190862 /* ADNKit-OSX */,
+				2592B79F16FCED64004573FF /* ADNKitTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		2592B79D16FCED64004573FF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2592B7AE16FCED64004573FF /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5DC3710616E0808C00190862 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -826,7 +927,31 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2592B79E16FCED64004573FF /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		2592B79B16FCED64004573FF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2592B7B116FCED64004573FF /* ADNKitTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5DC370D516E0805E00190862 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -968,7 +1093,23 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		2592B7B716FCED92004573FF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5DC3710716E0808C00190862 /* ADNKit-OSX */;
+			targetProxy = 2592B7B616FCED92004573FF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
+		2592B7AC16FCED64004573FF /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2592B7AD16FCED64004573FF /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		5DC3710D16E0808C00190862 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -980,6 +1121,43 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		2592B7B316FCED64004573FF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ADNKitTests/ADNKitTests-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				INFOPLIST_FILE = "ADNKitTests/ADNKitTests-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		2592B7B416FCED64004573FF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ADNKitTests/ADNKitTests-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				INFOPLIST_FILE = "ADNKitTests/ADNKitTests-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
 		5DC370E516E0805E00190862 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1113,6 +1291,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		2592B7B516FCED64004573FF /* Build configuration list for PBXNativeTarget "ADNKitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2592B7B316FCED64004573FF /* Debug */,
+				2592B7B416FCED64004573FF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		5DC370D416E0805E00190862 /* Build configuration list for PBXProject "ADNKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

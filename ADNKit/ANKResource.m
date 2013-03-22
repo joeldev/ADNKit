@@ -86,6 +86,8 @@ static dispatch_once_t propertiesMapOnceToken;
 
 - (void)updateObjectFromJSONDictionary:(NSDictionary *)JSONDictionary forClass:(Class)class;
 - (NSDictionary *)JSONDictionaryForClass:(Class)class;
+- (NSDictionary *)resourcePropertiesForClass:(Class)class;
+- (void)iteratePropertiesWithBlock:(void (^)(ANKResourceProperty *property))block;
 
 @end
 
@@ -279,6 +281,73 @@ static dispatch_once_t propertiesMapOnceToken;
 	}
 	
 	return JSONDictionary;
+}
+
+
+- (NSDictionary *)resourcePropertiesForClass:(Class)class {
+	NSMutableDictionary *properties = [NSMutableDictionary dictionary];
+	
+	Class superclass = class_getSuperclass(class);
+	if (propertiesMap[NSStringFromClass(superclass)]) {
+		[properties addEntriesFromDictionary:[self resourcePropertiesForClass:superclass]];
+	}
+
+	[properties addEntriesFromDictionary:propertiesMap[NSStringFromClass(class)]];
+	
+	return properties;
+}
+
+
+- (void)iteratePropertiesWithBlock:(void (^)(ANKResourceProperty *property))block {
+	NSDictionary *properties = [self resourcePropertiesForClass:[self class]];
+	for (NSString *propertyName in properties) {
+		ANKResourceProperty *property = properties[propertyName];
+		if (block) {
+			block(property);
+		}
+	}
+}
+
+
+#pragma mark -
+#pragma mark NSCopying
+
+- (id)copyWithZone:(NSZone *)zone {
+	ANKResource *copy = [[[self class] alloc] init];
+	NSDictionary *properties = [self resourcePropertiesForClass:[self class]];
+	
+	[self iteratePropertiesWithBlock:^(ANKResourceProperty *property) {
+		id value = [self valueForKey:property.name];
+		if (value) {
+			[copy setValue:value forKey:property.name];
+		}
+	}];
+	
+	return copy;
+}
+
+
+#pragma mark -
+#pragma mark NSCoding
+
+- (id)initWithCoder:(NSCoder *)aDecoder {
+	if ((self = [super init])) {
+		[self iteratePropertiesWithBlock:^(ANKResourceProperty *property) {
+			id decodedValue = [aDecoder decodeObjectForKey:property.name];
+			[self setValue:decodedValue forKey:property.name];
+		}];
+	}
+	return self;
+}
+
+
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+	[self iteratePropertiesWithBlock:^(ANKResourceProperty *property) {
+		id value = [self valueForKey:property.name];
+		if (value) {
+			[aCoder encodeObject:value forKey:property.name];
+		}
+	}];
 }
 
 
