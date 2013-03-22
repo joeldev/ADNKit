@@ -41,8 +41,13 @@
 }
 
 
++ (NSURL *)APIBaseURL {
+	return [NSURL URLWithString:@"https://alpha-api.app.net/stream/0/"];
+}
+
+
 - (id)init {
-    if ((self = [super initWithBaseURL:[NSURL URLWithString:@"https://alpha-api.app.net/stream/0/"]])) {
+    if ((self = [super initWithBaseURL:[[self class] APIBaseURL]])) {
 		self.parameterEncoding = AFJSONParameterEncoding;
 		self.pagination = [[ANKPaginationSettings alloc] init];
 		[self setDefaultHeader:@"Accept" value:@"application/json"];

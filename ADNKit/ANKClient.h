@@ -32,6 +32,7 @@ typedef NS_ENUM(NSUInteger, ANKAuthScope) {
 
 @interface ANKClient : AFHTTPClient
 
++ (NSURL *)APIBaseURL; // defaults to @"https://alpha-api.app.net/stream/0/" -- subclass and override to change it
 + (instancetype)sharedClient;
 
 @property (strong) NSString *accessToken; // access token acquired by auth or persisted across launches and set directly
