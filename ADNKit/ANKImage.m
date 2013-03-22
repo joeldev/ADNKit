@@ -28,7 +28,7 @@
 - (NSURL *)URLForSize:(CGSize)size {
 	NSURL *URL = self.URL;
 	if (size.width > 0 && size.height > 0) {
-		URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@?w=%@&h=%@", [self.URL absoluteString], [@(size.width) stringValue], [@(size.height) stringValue]]];
+		URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@?w=%@&h=%@", [self.URL absoluteString], [[NSNumber numberWithUnsignedInteger:(NSUInteger)size.width] stringValue], [[NSNumber numberWithUnsignedInteger:(NSUInteger)size.height] stringValue]]];
 	}
 	return URL;
 }
