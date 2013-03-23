@@ -5,6 +5,7 @@ ADNKit is a brand new Objective-C framework for building App.net iOS and OS X ap
 * As much heavylifting as possible is done for you (aka, tons of convenience methods)
 * 100% App.net API and features support
 * No external dependencies other than AFNetworking
+* Multi-user support
 
 Note: the basic core structure of this framework is based off of [Matt Rubin](https://github.com/mattrubin)'s fantastic architectural work in his [AppDotNet](https://github.com/mattrubin/AppDotNet) project.
 
@@ -28,6 +29,10 @@ For iOS apps, make sure that you have added the folder containing the ADNKit hea
 **It's also important to note that AFNetworking is currently statically compiled in as part of the library and does not need to be added to your project.**
 
 ADNKit is also available via CocoaPods, thanks to [Ash Furrow] (https://alpha.app.net/ashfurrow).
+
+##### Deployment Requirements
+
+ADNKit requires OS X 10.7+ or iOS 5.0+. OS version compatibility is ensured by using the wonderful [Deploymate](http://www.deploymateapp.com) tool.
 
 ### Hello, world!
 
@@ -85,9 +90,13 @@ post.text = @"Hello, world!";
 ```
 Using the model objects directly lets you set them up completely (such as setting post.annotations). There is not a convenience method for everything, so more advanced situations are intended to be handled by creating the model object, setting it up how you want it, and then handing it directly to an ANKClient method.
 
+##### Supporting Multiple Logged-in User Accounts
+
+Documentation and example code for how to support multiple user accounts can be found [here] (https://github.com/joeldev/ADNKit/wiki/Supporting-multiple-logged-in-Users). The summary is: don't use ANKClient's sharedClient, alloc/init your own client object (one per user).
+
 # Documentation
 
-There are articles and documentation [on the wiki](https://github.com/joeldev/ADNKit/wiki).
+There are many articles worth reading and documentation [on the wiki](https://github.com/joeldev/ADNKit/wiki).
 
 # Dependencies
 ADNKit uses the following dependencies:
