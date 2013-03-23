@@ -314,7 +314,6 @@ static dispatch_once_t propertiesMapOnceToken;
 
 - (id)copyWithZone:(NSZone *)zone {
 	ANKResource *copy = [[[self class] alloc] init];
-	NSDictionary *properties = [self resourcePropertiesForClass:[self class]];
 	
 	[self iteratePropertiesWithBlock:^(ANKResourceProperty *property) {
 		id value = [self valueForKey:property.name];
