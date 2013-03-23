@@ -13,25 +13,8 @@
 #import "ANKStorage.h"
 
 
-static NSByteCountFormatter *sharedByteFormatter;
-static dispatch_once_t byteFormatterOnceToken;
-
 @implementation ANKStorage
 
-- (NSString *)formattedAvailableStorage {
-	dispatch_once(&byteFormatterOnceToken, ^{
-		sharedByteFormatter = [[NSByteCountFormatter alloc] init];
-	});
-	return [sharedByteFormatter stringFromByteCount:self.available];
-}
-
-
-- (NSString *)formattedUsedStorage {
-	dispatch_once(&byteFormatterOnceToken, ^{
-		sharedByteFormatter = [[NSByteCountFormatter alloc] init];
-	});
-	return [sharedByteFormatter stringFromByteCount:self.used];
-}
 
 
 @end
