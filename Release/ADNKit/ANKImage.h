@@ -21,5 +21,6 @@
 @property (assign) BOOL isDefault;
 
 - (CGSize)size;
+- (NSURL *)URLForSize:(CGSize)size;
 
 @end

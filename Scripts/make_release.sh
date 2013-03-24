@@ -7,9 +7,13 @@ cd ../External/AFNetworking/AFNetworking && find . -iname "*.h" -exec cp -v "{}"
 cd ../../../
 
 xcodebuild clean build -target ADNKit-iOS -sdk iphoneos
-xcodebuild build -target ADNKit-iOS -sdk iphonesimulator
+xcodebuild clean build -target ADNKit-AFNetworking-iOS -sdk iphoneos
+xcodebuild clean build -target ADNKit-iOS -sdk iphonesimulator
+xcodebuild clean build -target ADNKit-AFNetworking-iOS -sdk iphonesimulator
 
 lipo -create -output Release/libADNKit-iOS.a build/Release-iphoneos/libADNKit-iOS.a build/Release-iphonesimulator/libADNKit-iOS.a
+
+lipo -create -output Release/libADNKit-AFNetworking-iOS.a build/Release-iphoneos/libADNKit-AFNetworking-iOS.a build/Release-iphonesimulator/libADNKit-AFNetworking-iOS.a
 
 xcodebuild clean build -target ADNKit-OSX
 

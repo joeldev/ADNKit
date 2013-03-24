@@ -25,6 +25,7 @@ typedef NS_ENUM(NSUInteger, ANKErrorType) {
 
 static NSString *const kANKErrorDomain = @"ANKErrorDomain";
 static NSString *const kANKErrorTypeKey = @"ANKErrorType";
+static NSString *const kANKErrorIDKey = @"ANKErrorID";
 
 
 @class ANKStreamMarker;

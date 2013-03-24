@@ -18,7 +18,4 @@
 @property (assign) size_t available;
 @property (assign) size_t used;
 
-- (NSString *)formattedAvailableStorage;
-- (NSString *)formattedUsedStorage;
-
 @end
