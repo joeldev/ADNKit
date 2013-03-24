@@ -2,8 +2,10 @@
 
 rm -rf Release
 mkdir -p Release/ADNKit
+mkdir -p Release/ADNKit+AFNetworking
 cd ADNKit && find . -iname "*.h" -exec cp -v "{}" "../Release/ADNKit/" \;
-cd ../External/AFNetworking/AFNetworking && find . -iname "*.h" -exec cp -v "{}" "../../../Release/ADNKit/" \;
+find . -iname "*.h" -exec cp -v "{}" "../Release/ADNKit+AFNetworking/" \;
+cd ../External/AFNetworking/AFNetworking && find . -iname "*.h" -exec cp -v "{}" "../../../Release/ADNKit+AFNetworking/" \;
 cd ../../../
 
 xcodebuild clean build -target ADNKit-iOS -sdk iphoneos
