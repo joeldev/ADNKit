@@ -24,9 +24,13 @@ Please see [the wiki](https://github.com/joeldev/ADNKit/wiki) for full documenta
 ### Installation
 ADNKit makes use of submodules for its dependency. After cloning the repo, make sure to run `git submodule update --init --recursive` from the top level before trying to build the franework. There is also a Release folder containing the latest stable binary release (for both OS X and iOS) and headers.
 
+ADNKit is also available via CocoaPods, thanks to [Ash Furrow] (https://alpha.app.net/ashfurrow).
+
+##### iOS
+
 For iOS apps, make sure that you have added the folder containing the ADNKit headers folder to your header search paths. This folder can either be copied from Release/ADNKit or you can point directly to that location if ADNKit is a submodule in your project (aka, path would be something like 'Vendor/ADNKit/Release/ADNKit').
 
-ADNKit is also available via CocoaPods, thanks to [Ash Furrow] (https://alpha.app.net/ashfurrow).
+Also make sure to add the `-all_load` and `-ObjC` linker flags to Other Linker Flags. If ADNKit has been added as a submodule and you plan to use a binary build from the Release folder, you need to add the Release folder itself to your header search paths (as non-recursive). Doing so will allow the <ADNKit/header.h> format used by ADNKit.h to work in your project.
 
 ##### Deployment Requirements
 
