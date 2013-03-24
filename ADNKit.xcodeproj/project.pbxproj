@@ -177,36 +177,98 @@
 		2592B7B116FCED64004573FF /* ADNKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2592B7B016FCED64004573FF /* ADNKitTests.m */; };
 		2592B7B816FCED96004573FF /* ADNKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DC3710816E0808C00190862 /* ADNKit.framework */; };
 		2592B7B916FD2503004573FF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DC3728216E3AF8E00190862 /* SystemConfiguration.framework */; };
+		2592B7C616FF8410004573FF /* ANKClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C4416E5624700DAE393 /* ANKClient.m */; };
+		2592B7C716FF8410004573FF /* ANKACL.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A887C16F8CDB6001F3E8F /* ANKACL.m */; };
+		2592B7C816FF8410004573FF /* ANKAnnotatableResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A887E16F8CDB6001F3E8F /* ANKAnnotatableResource.m */; };
+		2592B7C916FF8410004573FF /* ANKAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A888016F8CDB6001F3E8F /* ANKAnnotation.m */; };
+		2592B7CA16FF8410004573FF /* ANKAPIResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A888316F8CDB6001F3E8F /* ANKAPIResponse.m */; };
+		2592B7CB16FF8410004573FF /* ANKAPIResponseMeta.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A888516F8CDB6001F3E8F /* ANKAPIResponseMeta.m */; };
+		2592B7CC16FF8410004573FF /* ANKChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A888716F8CDB6001F3E8F /* ANKChannel.m */; };
+		2592B7CD16FF8410004573FF /* ANKChannelCounts.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A888916F8CDB7001F3E8F /* ANKChannelCounts.m */; };
+		2592B7CE16FF8410004573FF /* ANKClient+ANKChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A888B16F8CDB7001F3E8F /* ANKClient+ANKChannel.m */; };
+		2592B7CF16FF8410004573FF /* ANKClient+ANKExploreStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A888D16F8CDB7001F3E8F /* ANKClient+ANKExploreStream.m */; };
+		2592B7D016FF8410004573FF /* ANKClient+ANKFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A888F16F8CDB7001F3E8F /* ANKClient+ANKFile.m */; };
+		2592B7D116FF8410004573FF /* ANKClient+ANKFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A889116F8CDB8001F3E8F /* ANKClient+ANKFilter.m */; };
+		2592B7D216FF8410004573FF /* ANKClient+ANKHandlerBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A889316F8CDB8001F3E8F /* ANKClient+ANKHandlerBlocks.m */; };
+		2592B7D316FF8410004573FF /* ANKClient+ANKInteraction.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A889516F8CDB9001F3E8F /* ANKClient+ANKInteraction.m */; };
+		2592B7D416FF8410004573FF /* ANKClient+ANKMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A889716F8CDB9001F3E8F /* ANKClient+ANKMessage.m */; };
+		2592B7D516FF8410004573FF /* ANKClient+ANKPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A889916F8CDBA001F3E8F /* ANKClient+ANKPlace.m */; };
+		2592B7D616FF8410004573FF /* ANKClient+ANKPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A889B16F8CDBA001F3E8F /* ANKClient+ANKPost.m */; };
+		2592B7D716FF8410004573FF /* ANKClient+ANKPostStreams.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A889D16F8CDBA001F3E8F /* ANKClient+ANKPostStreams.m */; };
+		2592B7D816FF8410004573FF /* ANKClient+ANKStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A889F16F8CDBB001F3E8F /* ANKClient+ANKStream.m */; };
+		2592B7D916FF8410004573FF /* ANKClient+ANKTokenStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A88A116F8CDBC001F3E8F /* ANKClient+ANKTokenStatus.m */; };
+		2592B7DA16FF8410004573FF /* ANKClient+ANKUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A88A316F8CDBC001F3E8F /* ANKClient+ANKUser.m */; };
+		2592B7DB16FF8410004573FF /* ANKEntities.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A88A516F8CDBD001F3E8F /* ANKEntities.m */; };
+		2592B7DC16FF8410004573FF /* ANKEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A88A716F8CDBE001F3E8F /* ANKEntity.m */; };
+		2592B7DD16FF8410004573FF /* ANKExploreStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A88A916F8CDBF001F3E8F /* ANKExploreStream.m */; };
+		2592B7DE16FF8410004573FF /* ANKFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A88AB16F8CDC0001F3E8F /* ANKFile.m */; };
+		2592B7DF16FF8410004573FF /* ANKFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A88AD16F8CDC0001F3E8F /* ANKFilter.m */; };
+		2592B7E016FF8410004573FF /* ANKFilterClause.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A88AF16F8CDC2001F3E8F /* ANKFilterClause.m */; };
+		2592B7E116FF8410004573FF /* ANKGeolocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A88B116F8CDC3001F3E8F /* ANKGeolocation.m */; };
+		2592B7E216FF8410004573FF /* ANKHashtagEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A88B316F8CDC4001F3E8F /* ANKHashtagEntity.m */; };
+		2592B7E316FF8410004573FF /* ANKImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A88B516F8CDC5001F3E8F /* ANKImage.m */; };
+		2592B7E416FF8410004573FF /* ANKInteraction.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A88B716F8CDC6001F3E8F /* ANKInteraction.m */; };
+		2592B7E516FF8410004573FF /* ANKJSONRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A88B916F8CDC8001F3E8F /* ANKJSONRequestOperation.m */; };
+		2592B7E616FF8410004573FF /* ANKLinkEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A88BB16F8CDC9001F3E8F /* ANKLinkEntity.m */; };
+		2592B7E716FF8410004573FF /* ANKMentionEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A88BD16F8CDCA001F3E8F /* ANKMentionEntity.m */; };
+		2592B7E816FF8410004573FF /* ANKMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A88BF16F8CDCC001F3E8F /* ANKMessage.m */; };
+		2592B7E916FF8410004573FF /* ANKOAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A88C116F8CDCD001F3E8F /* ANKOAuthViewController.m */; };
+		2592B7EA16FF8410004573FF /* ANKObjectSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A88C316F8CDCE001F3E8F /* ANKObjectSource.m */; };
+		2592B7EB16FF8410004573FF /* ANKOEmbed.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A88C516F8CDD0001F3E8F /* ANKOEmbed.m */; };
+		2592B7EC16FF8410004573FF /* ANKPaginationSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A88C716F8CDD1001F3E8F /* ANKPaginationSettings.m */; };
+		2592B7ED16FF8410004573FF /* ANKPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A88C916F8CDD3001F3E8F /* ANKPlace.m */; };
+		2592B7EE16FF8410004573FF /* ANKPlaceCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A88CB16F8CDD4001F3E8F /* ANKPlaceCategory.m */; };
+		2592B7EF16FF8410004573FF /* ANKPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A88CD16F8CDD6001F3E8F /* ANKPost.m */; };
+		2592B7F016FF8410004573FF /* ANKResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A88CF16F8CDD7001F3E8F /* ANKResource.m */; };
+		2592B7F116FF8410004573FF /* ANKStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A88D116F8CDD9001F3E8F /* ANKStorage.m */; };
+		2592B7F216FF8410004573FF /* ANKStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A88D316F8CDDB001F3E8F /* ANKStream.m */; };
+		2592B7F316FF8410004573FF /* ANKStreamMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A88D516F8CDDC001F3E8F /* ANKStreamMarker.m */; };
+		2592B7F416FF8410004573FF /* ANKTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A88D716F8CDDE001F3E8F /* ANKTextFieldCell.m */; };
+		2592B7F516FF8410004573FF /* ANKTokenStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A88D916F8CDE0001F3E8F /* ANKTokenStatus.m */; };
+		2592B7F616FF8410004573FF /* ANKUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A88DB16F8CDE3001F3E8F /* ANKUser.m */; };
+		2592B7F716FF8410004573FF /* ANKUserCounts.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A88DD16F8CDE5001F3E8F /* ANKUserCounts.m */; };
+		2592B7F816FF8410004573FF /* ANKUserDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A88DF16F8CDE7001F3E8F /* ANKUserDescription.m */; };
+		2592B7F916FF8410004573FF /* ANKUsernameFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A88E116F8CDE9001F3E8F /* ANKUsernameFormatter.m */; };
+		2592B7FA16FF8410004573FF /* ANKUsernamePasswordAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A88E316F8CDEB001F3E8F /* ANKUsernamePasswordAuthViewController.m */; };
+		2592B7FB16FF8410004573FF /* ANKValueTransformations.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A88E516F8CDEE001F3E8F /* ANKValueTransformations.m */; };
+		2592B7FC16FF8410004573FF /* NSArray+ANKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A88E716F8CDF0001F3E8F /* NSArray+ANKAdditions.m */; };
+		2592B7FD16FF8410004573FF /* NSDictionary+ANKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A88E916F8CDF2001F3E8F /* NSDictionary+ANKAdditions.m */; };
+		2592B7FF16FF8410004573FF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DC3727D16E3AF6900190862 /* UIKit.framework */; };
+		2592B80016FF8410004573FF /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DC3727A16E3AF4400190862 /* MobileCoreServices.framework */; };
+		2592B80116FF8410004573FF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DC3727816E3AF4000190862 /* SystemConfiguration.framework */; };
+		2592B80216FF8410004573FF /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DC3727616E3AF3800190862 /* CoreLocation.framework */; };
+		2592B80316FF8410004573FF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DC370DC16E0805E00190862 /* Foundation.framework */; };
+		2592B80A16FF8440004573FF /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3724816E3AE1500190862 /* AFHTTPClient.m */; };
+		2592B80B16FF8440004573FF /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3724A16E3AE1500190862 /* AFHTTPRequestOperation.m */; };
+		2592B80C16FF8440004573FF /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3724C16E3AE1500190862 /* AFImageRequestOperation.m */; };
+		2592B80D16FF8440004573FF /* AFJSONRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3724E16E3AE1500190862 /* AFJSONRequestOperation.m */; };
+		2592B80E16FF8440004573FF /* AFPropertyListRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3725316E3AE1500190862 /* AFPropertyListRequestOperation.m */; };
+		2592B80F16FF8440004573FF /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3725516E3AE1500190862 /* AFURLConnectionOperation.m */; };
+		2592B81016FF8440004573FF /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3725716E3AE1500190862 /* AFXMLRequestOperation.m */; };
+		2592B81116FF8440004573FF /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3725016E3AE1500190862 /* AFNetworkActivityIndicatorManager.m */; };
+		2592B81216FF847F004573FF /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3725916E3AE1500190862 /* UIImageView+AFNetworking.m */; };
+		2592B81316FF84A4004573FF /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3724816E3AE1500190862 /* AFHTTPClient.m */; };
+		2592B81416FF84A4004573FF /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3724A16E3AE1500190862 /* AFHTTPRequestOperation.m */; };
+		2592B81516FF84A4004573FF /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3724C16E3AE1500190862 /* AFImageRequestOperation.m */; };
+		2592B81616FF84A4004573FF /* AFJSONRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3724E16E3AE1500190862 /* AFJSONRequestOperation.m */; };
+		2592B81716FF84A4004573FF /* AFPropertyListRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3725316E3AE1500190862 /* AFPropertyListRequestOperation.m */; };
+		2592B81816FF84A4004573FF /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3725516E3AE1500190862 /* AFURLConnectionOperation.m */; };
+		2592B81916FF84A4004573FF /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3725716E3AE1500190862 /* AFXMLRequestOperation.m */; };
+		2592B81A16FF84A4004573FF /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3725916E3AE1500190862 /* UIImageView+AFNetworking.m */; };
+		2592B81B16FF84A4004573FF /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3725016E3AE1500190862 /* AFNetworkActivityIndicatorManager.m */; };
 		259A5EC616F2E1EF00AF9F35 /* ADNKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC370E116E0805E00190862 /* ADNKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DA357D416EBC29600FA21F8 /* ADNKit-OSX.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DA357CC16EBC18B00FA21F8 /* ADNKit-OSX.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DC370DD16E0805E00190862 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DC370DC16E0805E00190862 /* Foundation.framework */; };
-		5DC370E216E0805E00190862 /* ADNKit.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5DC370E116E0805E00190862 /* ADNKit.h */; };
 		5DC3710916E0808C00190862 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DC370F016E0807000190862 /* Cocoa.framework */; };
 		5DC3710F16E0808C00190862 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5DC3710D16E0808C00190862 /* InfoPlist.strings */; };
 		5DC3725A16E3AE1500190862 /* AFHTTPClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC3724716E3AE1500190862 /* AFHTTPClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5DC3725B16E3AE1500190862 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3724816E3AE1500190862 /* AFHTTPClient.m */; };
-		5DC3725C16E3AE1500190862 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3724816E3AE1500190862 /* AFHTTPClient.m */; };
 		5DC3725D16E3AE1500190862 /* AFHTTPRequestOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC3724916E3AE1500190862 /* AFHTTPRequestOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5DC3725E16E3AE1500190862 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3724A16E3AE1500190862 /* AFHTTPRequestOperation.m */; };
-		5DC3725F16E3AE1500190862 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3724A16E3AE1500190862 /* AFHTTPRequestOperation.m */; };
 		5DC3726016E3AE1500190862 /* AFImageRequestOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC3724B16E3AE1500190862 /* AFImageRequestOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5DC3726116E3AE1500190862 /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3724C16E3AE1500190862 /* AFImageRequestOperation.m */; };
-		5DC3726216E3AE1500190862 /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3724C16E3AE1500190862 /* AFImageRequestOperation.m */; };
 		5DC3726316E3AE1500190862 /* AFJSONRequestOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC3724D16E3AE1500190862 /* AFJSONRequestOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5DC3726416E3AE1500190862 /* AFJSONRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3724E16E3AE1500190862 /* AFJSONRequestOperation.m */; };
-		5DC3726516E3AE1500190862 /* AFJSONRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3724E16E3AE1500190862 /* AFJSONRequestOperation.m */; };
-		5DC3726716E3AE1500190862 /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3725016E3AE1500190862 /* AFNetworkActivityIndicatorManager.m */; };
 		5DC3726916E3AE1500190862 /* AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC3725116E3AE1500190862 /* AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DC3726A16E3AE1500190862 /* AFPropertyListRequestOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC3725216E3AE1500190862 /* AFPropertyListRequestOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5DC3726B16E3AE1500190862 /* AFPropertyListRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3725316E3AE1500190862 /* AFPropertyListRequestOperation.m */; };
-		5DC3726C16E3AE1500190862 /* AFPropertyListRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3725316E3AE1500190862 /* AFPropertyListRequestOperation.m */; };
 		5DC3726D16E3AE1500190862 /* AFURLConnectionOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC3725416E3AE1500190862 /* AFURLConnectionOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5DC3726E16E3AE1500190862 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3725516E3AE1500190862 /* AFURLConnectionOperation.m */; };
-		5DC3726F16E3AE1500190862 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3725516E3AE1500190862 /* AFURLConnectionOperation.m */; };
 		5DC3727016E3AE1500190862 /* AFXMLRequestOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC3725616E3AE1500190862 /* AFXMLRequestOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5DC3727116E3AE1500190862 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3725716E3AE1500190862 /* AFXMLRequestOperation.m */; };
-		5DC3727216E3AE1500190862 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3725716E3AE1500190862 /* AFXMLRequestOperation.m */; };
-		5DC3727416E3AE1500190862 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3725916E3AE1500190862 /* UIImageView+AFNetworking.m */; };
 		5DC3727716E3AF3800190862 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DC3727616E3AF3800190862 /* CoreLocation.framework */; };
 		5DC3727916E3AF4000190862 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DC3727816E3AF4000190862 /* SystemConfiguration.framework */; };
 		5DC3727B16E3AF4400190862 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DC3727A16E3AF4400190862 /* MobileCoreServices.framework */; };
@@ -226,13 +288,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		2592B80416FF8410004573FF /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/${PRODUCT_NAME}";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5DC370D716E0805E00190862 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
-				5DC370E216E0805E00190862 /* ADNKit.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,6 +434,7 @@
 		2592B7AF16FCED64004573FF /* ADNKitTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ADNKitTests.h; sourceTree = "<group>"; };
 		2592B7B016FCED64004573FF /* ADNKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ADNKitTests.m; sourceTree = "<group>"; };
 		2592B7B216FCED64004573FF /* ADNKitTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ADNKitTests-Prefix.pch"; sourceTree = "<group>"; };
+		2592B80916FF8410004573FF /* libADNKit-AFNetworking-iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libADNKit-AFNetworking-iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DA357CB16EBC18B00FA21F8 /* ADNKit-iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "ADNKit-iOS.h"; path = "ADNKit/ADNKit-iOS.h"; sourceTree = "<group>"; };
 		5DA357CC16EBC18B00FA21F8 /* ADNKit-OSX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "ADNKit-OSX.h"; path = "ADNKit/ADNKit-OSX.h"; sourceTree = "<group>"; };
 		5DC370D916E0805E00190862 /* libADNKit-iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libADNKit-iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -413,6 +484,18 @@
 				2592B7B816FCED96004573FF /* ADNKit.framework in Frameworks */,
 				2592B7A216FCED64004573FF /* SenTestingKit.framework in Frameworks */,
 				2592B7A416FCED64004573FF /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2592B7FE16FF8410004573FF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2592B7FF16FF8410004573FF /* UIKit.framework in Frameworks */,
+				2592B80016FF8410004573FF /* MobileCoreServices.framework in Frameworks */,
+				2592B80116FF8410004573FF /* SystemConfiguration.framework in Frameworks */,
+				2592B80216FF8410004573FF /* CoreLocation.framework in Frameworks */,
+				2592B80316FF8410004573FF /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -633,6 +716,7 @@
 				5DC370D916E0805E00190862 /* libADNKit-iOS.a */,
 				5DC3710816E0808C00190862 /* ADNKit.framework */,
 				2592B7A016FCED64004573FF /* ADNKitTests.octest */,
+				2592B80916FF8410004573FF /* libADNKit-AFNetworking-iOS.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -845,6 +929,23 @@
 			productReference = 2592B7A016FCED64004573FF /* ADNKitTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
+		2592B7C416FF8410004573FF /* ADNKit-AFNetworking-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2592B80616FF8410004573FF /* Build configuration list for PBXNativeTarget "ADNKit-AFNetworking-iOS" */;
+			buildPhases = (
+				2592B7C516FF8410004573FF /* Sources */,
+				2592B7FE16FF8410004573FF /* Frameworks */,
+				2592B80416FF8410004573FF /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ADNKit-AFNetworking-iOS";
+			productName = ADNKit;
+			productReference = 2592B80916FF8410004573FF /* libADNKit-AFNetworking-iOS.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 		5DC370D816E0805E00190862 /* ADNKit-iOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5DC370E716E0805E00190862 /* Build configuration list for PBXNativeTarget "ADNKit-iOS" */;
@@ -902,6 +1003,7 @@
 			projectRoot = "";
 			targets = (
 				5DC370D816E0805E00190862 /* ADNKit-iOS */,
+				2592B7C416FF8410004573FF /* ADNKit-AFNetworking-iOS */,
 				5DC3710716E0808C00190862 /* ADNKit-OSX */,
 				2592B79F16FCED64004573FF /* ADNKitTests */,
 			);
@@ -952,19 +1054,82 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2592B7C516FF8410004573FF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2592B7C616FF8410004573FF /* ANKClient.m in Sources */,
+				2592B7C716FF8410004573FF /* ANKACL.m in Sources */,
+				2592B7C816FF8410004573FF /* ANKAnnotatableResource.m in Sources */,
+				2592B7C916FF8410004573FF /* ANKAnnotation.m in Sources */,
+				2592B7CA16FF8410004573FF /* ANKAPIResponse.m in Sources */,
+				2592B7CB16FF8410004573FF /* ANKAPIResponseMeta.m in Sources */,
+				2592B7CC16FF8410004573FF /* ANKChannel.m in Sources */,
+				2592B7CD16FF8410004573FF /* ANKChannelCounts.m in Sources */,
+				2592B7CE16FF8410004573FF /* ANKClient+ANKChannel.m in Sources */,
+				2592B7CF16FF8410004573FF /* ANKClient+ANKExploreStream.m in Sources */,
+				2592B7D016FF8410004573FF /* ANKClient+ANKFile.m in Sources */,
+				2592B7D116FF8410004573FF /* ANKClient+ANKFilter.m in Sources */,
+				2592B7D216FF8410004573FF /* ANKClient+ANKHandlerBlocks.m in Sources */,
+				2592B7D316FF8410004573FF /* ANKClient+ANKInteraction.m in Sources */,
+				2592B7D416FF8410004573FF /* ANKClient+ANKMessage.m in Sources */,
+				2592B7D516FF8410004573FF /* ANKClient+ANKPlace.m in Sources */,
+				2592B7D616FF8410004573FF /* ANKClient+ANKPost.m in Sources */,
+				2592B7D716FF8410004573FF /* ANKClient+ANKPostStreams.m in Sources */,
+				2592B7D816FF8410004573FF /* ANKClient+ANKStream.m in Sources */,
+				2592B7D916FF8410004573FF /* ANKClient+ANKTokenStatus.m in Sources */,
+				2592B7DA16FF8410004573FF /* ANKClient+ANKUser.m in Sources */,
+				2592B7DB16FF8410004573FF /* ANKEntities.m in Sources */,
+				2592B7DC16FF8410004573FF /* ANKEntity.m in Sources */,
+				2592B7DD16FF8410004573FF /* ANKExploreStream.m in Sources */,
+				2592B7DE16FF8410004573FF /* ANKFile.m in Sources */,
+				2592B7DF16FF8410004573FF /* ANKFilter.m in Sources */,
+				2592B7E016FF8410004573FF /* ANKFilterClause.m in Sources */,
+				2592B7E116FF8410004573FF /* ANKGeolocation.m in Sources */,
+				2592B7E216FF8410004573FF /* ANKHashtagEntity.m in Sources */,
+				2592B7E316FF8410004573FF /* ANKImage.m in Sources */,
+				2592B7E416FF8410004573FF /* ANKInteraction.m in Sources */,
+				2592B7E516FF8410004573FF /* ANKJSONRequestOperation.m in Sources */,
+				2592B7E616FF8410004573FF /* ANKLinkEntity.m in Sources */,
+				2592B7E716FF8410004573FF /* ANKMentionEntity.m in Sources */,
+				2592B7E816FF8410004573FF /* ANKMessage.m in Sources */,
+				2592B7E916FF8410004573FF /* ANKOAuthViewController.m in Sources */,
+				2592B7EA16FF8410004573FF /* ANKObjectSource.m in Sources */,
+				2592B7EB16FF8410004573FF /* ANKOEmbed.m in Sources */,
+				2592B7EC16FF8410004573FF /* ANKPaginationSettings.m in Sources */,
+				2592B7ED16FF8410004573FF /* ANKPlace.m in Sources */,
+				2592B7EE16FF8410004573FF /* ANKPlaceCategory.m in Sources */,
+				2592B7EF16FF8410004573FF /* ANKPost.m in Sources */,
+				2592B7F016FF8410004573FF /* ANKResource.m in Sources */,
+				2592B7F116FF8410004573FF /* ANKStorage.m in Sources */,
+				2592B7F216FF8410004573FF /* ANKStream.m in Sources */,
+				2592B7F316FF8410004573FF /* ANKStreamMarker.m in Sources */,
+				2592B7F416FF8410004573FF /* ANKTextFieldCell.m in Sources */,
+				2592B7F516FF8410004573FF /* ANKTokenStatus.m in Sources */,
+				2592B7F616FF8410004573FF /* ANKUser.m in Sources */,
+				2592B7F716FF8410004573FF /* ANKUserCounts.m in Sources */,
+				2592B7F816FF8410004573FF /* ANKUserDescription.m in Sources */,
+				2592B7F916FF8410004573FF /* ANKUsernameFormatter.m in Sources */,
+				2592B7FA16FF8410004573FF /* ANKUsernamePasswordAuthViewController.m in Sources */,
+				2592B7FB16FF8410004573FF /* ANKValueTransformations.m in Sources */,
+				2592B7FC16FF8410004573FF /* NSArray+ANKAdditions.m in Sources */,
+				2592B7FD16FF8410004573FF /* NSDictionary+ANKAdditions.m in Sources */,
+				2592B80A16FF8440004573FF /* AFHTTPClient.m in Sources */,
+				2592B80B16FF8440004573FF /* AFHTTPRequestOperation.m in Sources */,
+				2592B80C16FF8440004573FF /* AFImageRequestOperation.m in Sources */,
+				2592B80D16FF8440004573FF /* AFJSONRequestOperation.m in Sources */,
+				2592B80E16FF8440004573FF /* AFPropertyListRequestOperation.m in Sources */,
+				2592B80F16FF8440004573FF /* AFURLConnectionOperation.m in Sources */,
+				2592B81016FF8440004573FF /* AFXMLRequestOperation.m in Sources */,
+				2592B81116FF8440004573FF /* AFNetworkActivityIndicatorManager.m in Sources */,
+				2592B81216FF847F004573FF /* UIImageView+AFNetworking.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5DC370D516E0805E00190862 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5DC3725B16E3AE1500190862 /* AFHTTPClient.m in Sources */,
-				5DC3725E16E3AE1500190862 /* AFHTTPRequestOperation.m in Sources */,
-				5DC3726116E3AE1500190862 /* AFImageRequestOperation.m in Sources */,
-				5DC3726416E3AE1500190862 /* AFJSONRequestOperation.m in Sources */,
-				5DC3726716E3AE1500190862 /* AFNetworkActivityIndicatorManager.m in Sources */,
-				5DC3726B16E3AE1500190862 /* AFPropertyListRequestOperation.m in Sources */,
-				5DC3726E16E3AE1500190862 /* AFURLConnectionOperation.m in Sources */,
-				5DC3727116E3AE1500190862 /* AFXMLRequestOperation.m in Sources */,
-				5DC3727416E3AE1500190862 /* UIImageView+AFNetworking.m in Sources */,
 				252A2C4616E5624700DAE393 /* ANKClient.m in Sources */,
 				252A88EB16F8CDF2001F3E8F /* ANKACL.m in Sources */,
 				252A88EE16F8CDF2001F3E8F /* ANKAnnotatableResource.m in Sources */,
@@ -1028,13 +1193,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5DC3725C16E3AE1500190862 /* AFHTTPClient.m in Sources */,
-				5DC3725F16E3AE1500190862 /* AFHTTPRequestOperation.m in Sources */,
-				5DC3726216E3AE1500190862 /* AFImageRequestOperation.m in Sources */,
-				5DC3726516E3AE1500190862 /* AFJSONRequestOperation.m in Sources */,
-				5DC3726C16E3AE1500190862 /* AFPropertyListRequestOperation.m in Sources */,
-				5DC3726F16E3AE1500190862 /* AFURLConnectionOperation.m in Sources */,
-				5DC3727216E3AE1500190862 /* AFXMLRequestOperation.m in Sources */,
 				252A2C4716E5624700DAE393 /* ANKClient.m in Sources */,
 				252A88EC16F8CDF2001F3E8F /* ANKACL.m in Sources */,
 				252A88EF16F8CDF2001F3E8F /* ANKAnnotatableResource.m in Sources */,
@@ -1088,6 +1246,15 @@
 				252A898916F8CDF3001F3E8F /* ANKValueTransformations.m in Sources */,
 				252A898C16F8CDF3001F3E8F /* NSArray+ANKAdditions.m in Sources */,
 				252A898F16F8CDF3001F3E8F /* NSDictionary+ANKAdditions.m in Sources */,
+				2592B81316FF84A4004573FF /* AFHTTPClient.m in Sources */,
+				2592B81416FF84A4004573FF /* AFHTTPRequestOperation.m in Sources */,
+				2592B81516FF84A4004573FF /* AFImageRequestOperation.m in Sources */,
+				2592B81616FF84A4004573FF /* AFJSONRequestOperation.m in Sources */,
+				2592B81716FF84A4004573FF /* AFPropertyListRequestOperation.m in Sources */,
+				2592B81816FF84A4004573FF /* AFURLConnectionOperation.m in Sources */,
+				2592B81916FF84A4004573FF /* AFXMLRequestOperation.m in Sources */,
+				2592B81A16FF84A4004573FF /* UIImageView+AFNetworking.m in Sources */,
+				2592B81B16FF84A4004573FF /* AFNetworkActivityIndicatorManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1155,6 +1322,32 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+		2592B80716FF8410004573FF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/ADNKit.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ADNKit/ADNKit-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(SRCROOT)";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "ADNKit-AFNetworking-iOS";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		2592B80816FF8410004573FF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/ADNKit.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ADNKit/ADNKit-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(SRCROOT)";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "ADNKit-AFNetworking-iOS";
+				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
@@ -1298,6 +1491,16 @@
 				2592B7B416FCED64004573FF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2592B80616FF8410004573FF /* Build configuration list for PBXNativeTarget "ADNKit-AFNetworking-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2592B80716FF8410004573FF /* Debug */,
+				2592B80816FF8410004573FF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5DC370D416E0805E00190862 /* Build configuration list for PBXProject "ADNKit" */ = {
 			isa = XCConfigurationList;
