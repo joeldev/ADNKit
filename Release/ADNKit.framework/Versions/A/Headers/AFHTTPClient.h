@@ -21,6 +21,7 @@
 // THE SOFTWARE.
 
 #import <Foundation/Foundation.h>
+#import "AFURLConnectionOperation.h"
 
 #import <Availability.h>
 
@@ -135,6 +136,13 @@ typedef enum {
  */
 #ifdef _SYSTEMCONFIGURATION_H
 @property (readonly, nonatomic, assign) AFNetworkReachabilityStatus networkReachabilityStatus;
+#endif
+
+/**
+ Default SSL pinning mode for each `AFHTTPRequestOperation` which will be enqueued with `enqueueHTTPRequestOperation:`.
+ */
+#ifdef _AFNETWORKING_PIN_SSL_CERTIFICATES_
+@property (nonatomic, assign) AFURLConnectionOperationSSLPinningMode defaultSSLPinningMode;
 #endif
 
 ///---------------------------------------------
@@ -440,7 +448,7 @@ typedef enum {
 ///----------------
 
 /**
- ### Network Reachability
+ ## Network Reachability
 
  The following constants are provided by `AFHTTPClient` as possible network reachability statuses.
 
@@ -471,7 +479,7 @@ typedef enum {
  A key in the userInfo dictionary in a `AFNetworkingReachabilityDidChangeNotification` notification.
  The corresponding value is an `NSNumber` object representing the `AFNetworkReachabilityStatus` value for the current reachability status.
 
- ### Parameter Encoding
+ ## Parameter Encoding
 
  The following constants are provided by `AFHTTPClient` as possible methods for serializing parameters into query string or message body values.
 
@@ -567,6 +575,21 @@ extern NSTimeInterval const kAFUploadStream3GSuggestedDelay;
                         error:(NSError * __autoreleasing *)error;
 
 /**
+ Appends the HTTP header `Content-Disposition: file; filename=#{filename}; name=#{name}"` and `Content-Type: #{mimeType}`, followed by the data from the input stream and the multipart form boundary.
+
+ @param inputStream The input stream to be appended to the form data
+ @param name The name to be associated with the specified input stream. This parameter must not be `nil`.
+ @param fileName The filename to be associated with the specified input stream. This parameter must not be `nil`.
+ @param length The length of the specified input stream in bytes.
+ @param mimeType The MIME type of the specified data. (For example, the MIME type for a JPEG image is image/jpeg.) For a list of valid MIME types, see http://www.iana.org/assignments/media-types/. This parameter must not be `nil`.
+ */
+- (void)appendPartWithInputStream:(NSInputStream *)inputStream
+                             name:(NSString *)name
+                         fileName:(NSString *)fileName
+                           length:(unsigned long long)length
+                         mimeType:(NSString *)mimeType;
+
+/**
  Appends the HTTP header `Content-Disposition: file; filename=#{filename}; name=#{name}"` and `Content-Type: #{mimeType}`, followed by the encoded file data and the multipart form boundary.
 
  @param data The data to be encoded and appended to the form data.
@@ -588,6 +611,7 @@ extern NSTimeInterval const kAFUploadStream3GSuggestedDelay;
 
 - (void)appendPartWithFormData:(NSData *)data
                           name:(NSString *)name;
+
 
 /**
  Appends HTTP headers, followed by the encoded data and the multipart form boundary.
