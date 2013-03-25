@@ -252,7 +252,7 @@ static dispatch_once_t propertiesMapOnceToken;
 		ANKResourceProperty *property = propertiesForClass[localKey];
 		
 		// figure out the JSON key
-		NSString *remoteKey = [[self class] JSONKeyForLocalKey:localKey];
+		NSString *remoteKey = property.JSONKey;
 		
 		// grab the value and transform it if necessary
 		id value = [self valueForKey:localKey];
