@@ -169,6 +169,11 @@ static dispatch_once_t propertiesMapOnceToken;
 		
 		// next, pull out the value and class of the value
 		id value = JSONDictionary[JSONKey];
+		// treat omitted value the same as explicit null
+		if (value == [NSNull null]) {
+			value = nil;
+		}
+
 		Class valueClass = [value class];
 		NSString *valueClassString = NSStringFromClass(valueClass);
 		
