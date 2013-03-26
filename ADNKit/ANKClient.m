@@ -190,6 +190,16 @@
 }
 
 
+- (BOOL)isAuthenticated {
+	return self.accessToken != nil;
+}
+
+
+- (void)logOut {
+	self.accessToken = nil;
+}
+
+
 #pragma mark -
 #pragma mark Pagination
 
