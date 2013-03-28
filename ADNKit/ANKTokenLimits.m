@@ -21,4 +21,18 @@
 			@"following": @"followingLimit"}];
 }
 
+
+- (BOOL)isUploadableFileAtPath:(NSString *)filePath {
+	NSError *error = nil;
+	BOOL isUploadable = NO;
+	NSDictionary *attributes = [[NSFileManager defaultManager] attributesOfItemAtPath:filePath error:&error];
+	
+	if (attributes && !error && self.fileSizeLimit > 0) {
+		isUploadable = ([attributes[NSFileSize] unsignedIntegerValue] <= self.fileSizeLimit);
+	}
+	
+	return isUploadable;
+}
+
+
 @end
