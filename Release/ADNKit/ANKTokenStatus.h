@@ -13,7 +13,7 @@
 #import "ANKResource.h"
 
 
-@class ANKObjectSource, ANKUser, ANKStorage;
+@class ANKObjectSource, ANKUser, ANKStorage, ANKTokenLimits;
 
 @interface ANKTokenStatus : ANKResource
 
@@ -22,5 +22,6 @@
 @property (strong) NSArray *scopes;
 @property (strong) ANKUser *user;
 @property (strong) ANKStorage *storage;
+@property (strong) ANKTokenLimits *limits;
 
 @end

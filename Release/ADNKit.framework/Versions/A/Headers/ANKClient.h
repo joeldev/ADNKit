@@ -58,6 +58,9 @@ typedef NS_ENUM(NSUInteger, ANKAuthScope) {
 // this method returns full descriptions for the given scopes that can be placed in the UI
 + (NSArray *)scopeDescriptionsForScope:(ANKAuthScope)scope;
 
+- (BOOL)isAuthenticated;
+- (void)logOut;
+
 #pragma mark -
 #pragma mark Pagination
 
