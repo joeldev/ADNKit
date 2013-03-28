@@ -13,15 +13,9 @@
 #import "ANKResource.h"
 
 
-@class ANKObjectSource, ANKUser, ANKStorage, ANKTokenLimits;
+@interface ANKTokenLimits : ANKResource
 
-@interface ANKTokenStatus : ANKResource
-
-@property (strong) NSString *clientID;
-@property (strong) ANKObjectSource *app;
-@property (strong) NSArray *scopes;
-@property (strong) ANKUser *user;
-@property (strong) ANKStorage *storage;
-@property (strong) ANKTokenLimits *limits;
+@property (assign) NSUInteger fileSizeLimit;
+@property (assign) NSUInteger followingLimit;
 
 @end

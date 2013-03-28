@@ -257,6 +257,10 @@
 		2592B81A16FF84A4004573FF /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3725916E3AE1500190862 /* UIImageView+AFNetworking.m */; };
 		2592B81B16FF84A4004573FF /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3725016E3AE1500190862 /* AFNetworkActivityIndicatorManager.m */; };
 		259A5EC616F2E1EF00AF9F35 /* ADNKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC370E116E0805E00190862 /* ADNKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5D2CFEE61703E8F200086FBD /* ANKTokenLimits.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D2CFEE41703E8F200086FBD /* ANKTokenLimits.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5D2CFEE71703E8F200086FBD /* ANKTokenLimits.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2CFEE51703E8F200086FBD /* ANKTokenLimits.m */; };
+		5D2CFEE81703E8F200086FBD /* ANKTokenLimits.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2CFEE51703E8F200086FBD /* ANKTokenLimits.m */; };
+		5D2CFEE91703E8F200086FBD /* ANKTokenLimits.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2CFEE51703E8F200086FBD /* ANKTokenLimits.m */; };
 		5DA357D416EBC29600FA21F8 /* ADNKit-OSX.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DA357CC16EBC18B00FA21F8 /* ADNKit-OSX.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DC370DD16E0805E00190862 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DC370DC16E0805E00190862 /* Foundation.framework */; };
 		5DC3710916E0808C00190862 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DC370F016E0807000190862 /* Cocoa.framework */; };
@@ -435,6 +439,8 @@
 		2592B7B016FCED64004573FF /* ADNKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ADNKitTests.m; sourceTree = "<group>"; };
 		2592B7B216FCED64004573FF /* ADNKitTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ADNKitTests-Prefix.pch"; sourceTree = "<group>"; };
 		2592B80916FF8410004573FF /* libADNKit-AFNetworking-iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libADNKit-AFNetworking-iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D2CFEE41703E8F200086FBD /* ANKTokenLimits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKTokenLimits.h; sourceTree = "<group>"; };
+		5D2CFEE51703E8F200086FBD /* ANKTokenLimits.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANKTokenLimits.m; sourceTree = "<group>"; };
 		5DA357CB16EBC18B00FA21F8 /* ADNKit-iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "ADNKit-iOS.h"; path = "ADNKit/ADNKit-iOS.h"; sourceTree = "<group>"; };
 		5DA357CC16EBC18B00FA21F8 /* ADNKit-OSX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "ADNKit-OSX.h"; path = "ADNKit/ADNKit-OSX.h"; sourceTree = "<group>"; };
 		5DC370D916E0805E00190862 /* libADNKit-iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libADNKit-iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -623,6 +629,8 @@
 				252A88D516F8CDDC001F3E8F /* ANKStreamMarker.m */,
 				252A88D816F8CDDF001F3E8F /* ANKTokenStatus.h */,
 				252A88D916F8CDE0001F3E8F /* ANKTokenStatus.m */,
+				5D2CFEE41703E8F200086FBD /* ANKTokenLimits.h */,
+				5D2CFEE51703E8F200086FBD /* ANKTokenLimits.m */,
 				252A88DA16F8CDE2001F3E8F /* ANKUser.h */,
 				252A88DB16F8CDE3001F3E8F /* ANKUser.m */,
 				252A88DC16F8CDE4001F3E8F /* ANKUserCounts.h */,
@@ -904,6 +912,7 @@
 				252A898716F8CDF3001F3E8F /* ANKValueTransformations.h in Headers */,
 				252A898A16F8CDF3001F3E8F /* NSArray+ANKAdditions.h in Headers */,
 				252A898D16F8CDF3001F3E8F /* NSDictionary+ANKAdditions.h in Headers */,
+				5D2CFEE61703E8F200086FBD /* ANKTokenLimits.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1123,6 +1132,7 @@
 				2592B81016FF8440004573FF /* AFXMLRequestOperation.m in Sources */,
 				2592B81116FF8440004573FF /* AFNetworkActivityIndicatorManager.m in Sources */,
 				2592B81216FF847F004573FF /* UIImageView+AFNetworking.m in Sources */,
+				5D2CFEE81703E8F200086FBD /* ANKTokenLimits.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1186,6 +1196,7 @@
 				252A898816F8CDF3001F3E8F /* ANKValueTransformations.m in Sources */,
 				252A898B16F8CDF3001F3E8F /* NSArray+ANKAdditions.m in Sources */,
 				252A898E16F8CDF3001F3E8F /* NSDictionary+ANKAdditions.m in Sources */,
+				5D2CFEE71703E8F200086FBD /* ANKTokenLimits.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1255,6 +1266,7 @@
 				2592B81916FF84A4004573FF /* AFXMLRequestOperation.m in Sources */,
 				2592B81A16FF84A4004573FF /* UIImageView+AFNetworking.m in Sources */,
 				2592B81B16FF84A4004573FF /* AFNetworkActivityIndicatorManager.m in Sources */,
+				5D2CFEE91703E8F200086FBD /* ANKTokenLimits.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
