@@ -11,6 +11,7 @@
  */
 
 #import "ANKFile.h"
+#import "ANKImage.h"
 
 
 @interface ANKFile ()
@@ -37,7 +38,8 @@
 			@"url_expires": @"URLExpireDate",
 			@"url_permanent": @"permanentURL",
 			@"file_token": @"fileToken",
-			@"file_token_read": @"readOnlyFileToken"}];
+			@"file_token_read": @"readOnlyFileToken",
+			@"image_info": @"imageInfo"}];
 }
 
 
@@ -75,6 +77,10 @@
 	}
 	
 	[super updateObjectFromJSONDictionary:mutableJSONDictionary];
+	
+	if (self.imageInfo && !self.imageInfo.URL && [self.kind isEqualToString:kANKFileKindImage]) {
+		self.imageInfo.URL = self.permanentURL ?: self.URL;
+	}
 }
 
 

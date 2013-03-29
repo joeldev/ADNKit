@@ -28,7 +28,7 @@ ADNKit is also available via CocoaPods, thanks to [Ash Furrow] (https://alpha.ap
 
 ##### iOS
 
-For iOS apps, make sure that you have added the folder containing the ADNKit headers folder to your header search paths. This folder can either be copied from Release/ADNKit or you can point directly to that location if ADNKit is a submodule in your project (aka, path would be something like 'Vendor/ADNKit/Release/ADNKit').
+For iOS apps, make sure that you have added the folder containing the ADNKit headers folder to your header search paths. This folder can either be copied from Release/ADNKit or you can point directly to that location if ADNKit is a submodule in your project (aka, path would be something like 'Vendor/ADNKit/Release/ADNKit'). Additionally, add the Release folder itself to both header and library search paths.
 
 Also make sure to add the `-all_load` and `-ObjC` linker flags to Other Linker Flags. If ADNKit has been added as a submodule and you plan to use a binary build from the Release folder, you need to add the Release folder itself to your header search paths (as non-recursive). Doing so will allow the <ADNKit/header.h> format used by ADNKit.h to work in your project.
 
