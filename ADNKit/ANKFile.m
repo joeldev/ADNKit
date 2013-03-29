@@ -78,7 +78,7 @@
 	
 	[super updateObjectFromJSONDictionary:mutableJSONDictionary];
 	
-	if (self.imageInfo && !self.imageInfo.URL && [self.kind isEqualToString:kANKFileKindImage]) {
+	if (self.imageInfo && !self.imageInfo.URL && [self isImage]) {
 		self.imageInfo.URL = self.permanentURL ?: self.URL;
 	}
 }
@@ -92,6 +92,11 @@
 
 - (NSString *)description {
 	return [NSString stringWithFormat:@"<%@ %p> - %@ (%@)", NSStringFromClass([self class]), self, self.name, self.mimeType];
+}
+
+
+- (BOOL)isImage {
+	return [self.kind isEqualToString:kANKFileKindImage];
 }
 
 
