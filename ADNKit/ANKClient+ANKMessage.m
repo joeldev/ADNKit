@@ -83,7 +83,7 @@
 
 
 - (void)createMessageWithText:(NSString *)messageText inReplyToMessageWithID:(NSString *)messageID inChannel:(ANKChannel *)channel completion:(ANKClientCompletionBlock)completionHandler {
-	[self createMessageWithText:messageText inReplyToMessageWithID:messageID inChannel:channel completion:completionHandler];
+	[self createMessageWithText:messageText inReplyToMessageWithID:messageID inChannelWithID:channel.channelID completion:completionHandler];
 }
 
 
