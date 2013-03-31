@@ -88,6 +88,11 @@
 }
 
 
+- (void)createFile:(ANKFile *)file withContentsOfURL:(NSURL *)fileURL progress:(ANKClientFileUploadProgressBlock)progressHandler completion:(ANKClientCompletionBlock)completionHandler {
+	[self createFileWithData:nil mimeType:nil filename:nil fileURL:fileURL metadata:[file JSONDictionary] progress:progressHandler completion:completionHandler];
+}
+
+
 - (void)createFileWithContentsOfURL:(NSURL *)fileURL metadata:(NSDictionary *)metadata progress:(ANKClientFileUploadProgressBlock)progressHandler completion:(ANKClientCompletionBlock)completionHandler {
 	[self createFileWithData:nil mimeType:nil filename:nil fileURL:fileURL metadata:metadata progress:progressHandler completion:completionHandler];
 }
