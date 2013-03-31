@@ -45,6 +45,7 @@ static NSString *const kANKFileKIndOther = @"other";
 @property (strong) ANKImage *imageInfo;
 
 + (NSDictionary *)fileListAnnotationValueForFiles:(NSArray *)files;
+- (NSDictionary *)oembedAnnotationValue;
 - (BOOL)isImage;
 
 @end
