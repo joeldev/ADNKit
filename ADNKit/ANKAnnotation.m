@@ -145,4 +145,9 @@
 }
 
 
++ (instancetype)oembedAnnotationForFile:(ANKFile *)file {
+	return [[self class] annotationWithType:kANKCoreAnnotationEmbeddedMedia value:[file annotationValue]];
+}
+
+
 @end
