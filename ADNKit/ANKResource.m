@@ -123,7 +123,7 @@ static dispatch_once_t propertiesMapOnceToken;
 
 
 + (NSString *)JSONKeyForLocalKey:(NSString *)localKey {
-	return ((ANKResourceProperty *)propertiesMap[NSStringFromClass([self class])][localKey]).JSONKey;
+	return ((ANKResourceProperty *)propertiesMap[NSStringFromClass([self class])][localKey]).JSONKey ?: localKey;
 }
 
 
