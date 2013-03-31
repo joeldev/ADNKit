@@ -18,4 +18,6 @@
 @property (assign) NSUInteger fileSizeLimit;
 @property (assign) NSUInteger followingLimit;
 
+- (BOOL)isUploadableFileAtPath:(NSString *)filePath;
+
 @end

@@ -15,9 +15,11 @@
 
 static NSString *const kANKFileAnnotationKey = @"+net.app.core.file";
 static NSString *const kANKFileListAnnotationKey = @"+net.app.core.file_list";
+static NSString *const kANKFileKindImage = @"image";
+static NSString *const kANKFileKIndOther = @"other";
 
 
-@class ANKUser, ANKObjectSource;
+@class ANKUser, ANKObjectSource, ANKImage;
 
 @interface ANKFile : ANKAnnotatableResource <ANKAnnotationReplacement>
 
@@ -40,7 +42,9 @@ static NSString *const kANKFileListAnnotationKey = @"+net.app.core.file_list";
 @property (strong) NSString *type;
 @property (strong) ANKUser *user;
 @property (strong) ANKObjectSource *source;
+@property (strong) ANKImage *imageInfo;
 
 + (NSDictionary *)fileListAnnotationValueForFiles:(NSArray *)files;
+- (BOOL)isImage;
 
 @end
