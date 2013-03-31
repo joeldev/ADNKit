@@ -85,7 +85,7 @@
 
 
 - (NSDictionary *)fileAnnotationValueWithWrapper:(BOOL)includeWrapper {
-	NSDictionary *value = @{[[self class] JSONKeyForLocalKey:@"fileID"]: self.fileID, [[self class] JSONKeyForLocalKey:@"format"]: @"url", [[self class] JSONKeyForLocalKey:@"fileToken"]: self.fileToken};
+	NSDictionary *value = @{@"file_id": self.fileID, [[self class] JSONKeyForLocalKey:@"format"]: @"url", [[self class] JSONKeyForLocalKey:@"fileToken"]: self.fileToken};
 	return (includeWrapper ? @{kANKFileAnnotationKey: value} : value);
 }
 
