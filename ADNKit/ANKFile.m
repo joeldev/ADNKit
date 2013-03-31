@@ -16,7 +16,7 @@
 
 @interface ANKFile ()
 
-- (NSDictionary *)fileAnnotationValueWithWrapper:(BOOL)includeWrapper;
+- (NSDictionary *)fileAnnotationValueWithWrapper:(BOOL)includeWrapper isOEmbed:(BOOL)isOEmbed;
 
 @end
 
@@ -50,7 +50,7 @@
 
 + (NSDictionary *)fileListAnnotationValueForFiles:(NSArray *)files {
 	return @{kANKFileListAnnotationKey: [files ank_map:^id(ANKFile *file) {
-		return [file fileAnnotationValueWithWrapper:NO];
+		return [file fileAnnotationValueWithWrapper:NO isOEmbed:NO];
 	}]};
 }
 
@@ -61,7 +61,12 @@
 
 
 - (NSDictionary *)annotationValue {
-	return [self fileAnnotationValueWithWrapper:YES];
+	return [self fileAnnotationValueWithWrapper:YES isOEmbed:NO];
+}
+
+
+- (NSDictionary *)oembedAnnotationValue {
+	return [self fileAnnotationValueWithWrapper:YES isOEmbed:YES];
 }
 
 
@@ -84,8 +89,8 @@
 }
 
 
-- (NSDictionary *)fileAnnotationValueWithWrapper:(BOOL)includeWrapper {
-	NSDictionary *value = @{@"file_id": self.fileID, [[self class] JSONKeyForLocalKey:@"format"]: @"url", [[self class] JSONKeyForLocalKey:@"fileToken"]: self.fileToken};
+- (NSDictionary *)fileAnnotationValueWithWrapper:(BOOL)includeWrapper isOEmbed:(BOOL)isOEmbed {
+	NSDictionary *value = @{@"file_id": self.fileID, @"format": (isOEmbed ? @"oembed" : @"url"), [[self class] JSONKeyForLocalKey:@"fileToken"]: self.fileToken};
 	return (includeWrapper ? @{kANKFileAnnotationKey: value} : value);
 }
 
