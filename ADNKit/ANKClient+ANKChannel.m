@@ -115,6 +115,16 @@
 }
 
 
+// http://developers.app.net/docs/resources/channel/muting/#get-current-users-muted-channels
+
+- (void)fetchMutedChannelsForCurrentUserWithCompletion:(ANKClientCompletionBlock)completionHandler {
+	[self getPath:@"users/me/channels/muted"
+	   parameters:nil
+		  success:[self successHandlerForCollectionOfResourceClass:[ANKChannel class] clientHandler:completionHandler]
+		  failure:[self failureHandlerForClientHandler:completionHandler]];
+}
+
+
 // http://developers.app.net/docs/resources/channel/lifecycle/#create-a-channel
 
 - (void)createChannel:(ANKChannel *)channel completion:(ANKClientCompletionBlock)completionHandler {
@@ -191,6 +201,36 @@
 
 - (void)unsubscribeToChannelWithID:(NSString *)channelID completion:(ANKClientCompletionBlock)completionHandler {
 	[self deletePath:[NSString stringWithFormat:@"channels/%@/subscribe", channelID]
+		  parameters:nil
+			 success:[self successHandlerForResourceClass:[ANKChannel class] clientHandler:completionHandler]
+			 failure:[self failureHandlerForClientHandler:completionHandler]];
+}
+
+
+// http://developers.app.net/docs/resources/channel/muting/#mute-a-channel
+
+- (void)muteChannel:(ANKChannel *)channel completion:(ANKClientCompletionBlock)completionHandler {
+	[self muteChannelWithID:channel.channelID completion:completionHandler];
+}
+
+
+- (void)muteChannelWithID:(NSString *)channelID completion:(ANKClientCompletionBlock)completionHandler {
+	[self postPath:[NSString stringWithFormat:@"channels/%@/mute", channelID]
+		parameters:nil
+		   success:[self successHandlerForResourceClass:[ANKChannel class] clientHandler:completionHandler]
+		   failure:[self failureHandlerForClientHandler:completionHandler]];
+}
+
+
+// http://developers.app.net/docs/resources/channel/muting/#unmute-a-channel
+
+- (void)unmuteChannel:(ANKChannel *)channel completion:(ANKClientCompletionBlock)completionHandler {
+	[self unmuteChannelWithID:channel.channelID completion:completionHandler];
+}
+
+
+- (void)unmuteChannelWithID:(NSString *)channelID completion:(ANKClientCompletionBlock)completionHandler {
+	[self deletePath:[NSString stringWithFormat:@"channels/%@/mute", channelID]
 		  parameters:nil
 			 success:[self successHandlerForResourceClass:[ANKChannel class] clientHandler:completionHandler]
 			 failure:[self failureHandlerForClientHandler:completionHandler]];
