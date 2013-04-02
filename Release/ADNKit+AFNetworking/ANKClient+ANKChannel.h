@@ -31,6 +31,8 @@
 - (void)fetchUserIDsSubscribedToChannelWithID:(NSString *)channelID completion:(ANKClientCompletionBlock)completionHandler;
 - (void)fetchUserIDsSubscribedToChannelIDs:(NSArray *)channelIDs completion:(ANKClientCompletionBlock)completionHandler;
 
+- (void)fetchMutedChannelsForCurrentUserWithCompletion:(ANKClientCompletionBlock)completionHandler;
+
 - (void)createChannel:(ANKChannel *)channel completion:(ANKClientCompletionBlock)completionHandler;
 - (void)createChannelWithType:(NSString *)type readers:(ANKACL *)readersACL writers:(ANKACL *)writersACL completion:(ANKClientCompletionBlock)completionHandler;
 
@@ -41,5 +43,10 @@
 - (void)subscribeToChannelWithID:(NSString *)channelID completion:(ANKClientCompletionBlock)completionHandler;
 - (void)unsubscribeToChannel:(ANKChannel *)channel completion:(ANKClientCompletionBlock)completionHandler;
 - (void)unsubscribeToChannelWithID:(NSString *)channelID completion:(ANKClientCompletionBlock)completionHandler;
+
+- (void)muteChannel:(ANKChannel *)channel completion:(ANKClientCompletionBlock)completionHandler;
+- (void)muteChannelWithID:(NSString *)channelID completion:(ANKClientCompletionBlock)completionHandler;
+- (void)unmuteChannel:(ANKChannel *)channel completion:(ANKClientCompletionBlock)completionHandler;
+- (void)unmuteChannelWithID:(NSString *)channelID completion:(ANKClientCompletionBlock)completionHandler;
 
 @end
