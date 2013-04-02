@@ -60,6 +60,19 @@
 }
 
 
++ (instancetype)fileWithFileAtURL:(NSURL *)fileURL {
+	NSString *UTI = (__bridge_transfer NSString *)UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, (__bridge CFStringRef)[fileURL pathExtension], NULL);
+	NSString *contentType = (__bridge_transfer NSString *)UTTypeCopyPreferredTagWithClass((__bridge CFStringRef)UTI, kUTTagClassMIMEType);
+	
+	ANKFile *file = [[ANKFile alloc] init];
+	file.name = [fileURL lastPathComponent];
+	file.mimeType = contentType ?: @"application/octet-stream";
+	file.kind = [file.mimeType hasPrefix:@"image"] ? @"image" : @"other";
+	
+	return file;
+}
+
+
 - (NSDictionary *)annotationValue {
 	return [self fileAnnotationValueWithWrapper:YES isOEmbed:NO];
 }
@@ -101,7 +114,7 @@
 
 
 - (BOOL)isImage {
-	return [self.kind isEqualToString:kANKFileKindImage];
+	return [self.kind isEqualToString:kANKFileKindImage] || [self.mimeType hasPrefix:@"image"];
 }
 
 

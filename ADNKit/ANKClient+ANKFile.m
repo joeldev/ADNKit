@@ -78,23 +78,23 @@
 			   success:[self successHandlerForResourceClass:[ANKFile class] clientHandler:completionHandler]
 			   failure:[self failureHandlerForClientHandler:completionHandler]];
 	} else {
-		[self createFileWithData:fileData mimeType:file.mimeType filename:file.name fileURL:nil metadata:[file JSONDictionary] progress:nil completion:completionHandler];
+		[self createFileWithData:fileData mimeType:file.mimeType filename:file.name fileURL:nil kind:file.kind metadata:[file JSONDictionary] progress:nil completion:completionHandler];
 	}
 }
 
 
 - (void)createFileWithData:(NSData *)fileData mimeType:(NSString *)mimeType filename:(NSString *)filename metadata:(NSDictionary *)metadata progress:(ANKClientFileUploadProgressBlock)progressHandler completion:(ANKClientCompletionBlock)completionHandler {
-	[self createFileWithData:fileData mimeType:mimeType filename:filename fileURL:nil metadata:metadata progress:progressHandler completion:completionHandler];
+	[self createFileWithData:fileData mimeType:mimeType filename:filename fileURL:nil kind:([mimeType hasPrefix:@"image"] ? @"image" : @"other") metadata:metadata progress:progressHandler completion:completionHandler];
 }
 
 
 - (void)createFile:(ANKFile *)file withContentsOfURL:(NSURL *)fileURL progress:(ANKClientFileUploadProgressBlock)progressHandler completion:(ANKClientCompletionBlock)completionHandler {
-	[self createFileWithData:nil mimeType:nil filename:nil fileURL:fileURL metadata:[file JSONDictionary] progress:progressHandler completion:completionHandler];
+	[self createFileWithData:nil mimeType:nil filename:nil fileURL:fileURL kind:@"other" metadata:[file JSONDictionary] progress:progressHandler completion:completionHandler];
 }
 
 
 - (void)createFileWithContentsOfURL:(NSURL *)fileURL metadata:(NSDictionary *)metadata progress:(ANKClientFileUploadProgressBlock)progressHandler completion:(ANKClientCompletionBlock)completionHandler {
-	[self createFileWithData:nil mimeType:nil filename:nil fileURL:fileURL metadata:metadata progress:progressHandler completion:completionHandler];
+	[self createFileWithData:nil mimeType:nil filename:nil fileURL:fileURL kind:nil metadata:metadata progress:progressHandler completion:completionHandler];
 }
 
 
@@ -102,10 +102,16 @@
                   mimeType:(NSString *)mimeType
                   filename:(NSString *)filename
                    fileURL:(NSURL *)fileURL
+					  kind:(NSString *)fileKind
                   metadata:(NSDictionary *)metadata
                   progress:(ANKClientFileUploadProgressBlock)progressHandler
                 completion:(ANKClientCompletionBlock)completionHandler {
 	__block NSError *multipartEncodeError = nil;
+	NSMutableDictionary *modifiedMetadata = [metadata mutableCopy];
+	if (fileKind) {
+		modifiedMetadata[@"kind"] = fileKind;
+	}
+	
 	NSMutableURLRequest *request = [self multipartFormRequestWithMethod:@"POST" path:@"files" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
 		if (fileURL) {
 			[formData appendPartWithFileURL:fileURL name:@"content" error:&multipartEncodeError];
@@ -114,7 +120,7 @@
 		}
 		
 		if (metadata.count > 0) {
-			[formData appendPartWithFileData:[NSJSONSerialization dataWithJSONObject:metadata options:0 error:&multipartEncodeError] name:@"metadata" fileName:@"metadata.json" mimeType:@"application/json"];
+			[formData appendPartWithFileData:[NSJSONSerialization dataWithJSONObject:modifiedMetadata options:0 error:&multipartEncodeError] name:@"metadata" fileName:@"metadata.json" mimeType:@"application/json"];
 		}
 	}];
 	
