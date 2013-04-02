@@ -40,6 +40,11 @@
 - (void)fetchMutedUserIDsForUsers:(NSArray *)users completion:(ANKClientCompletionBlock)completionHandler;
 - (void)fetchMutedUserIDsForUserIDs:(NSArray *)userIDs completion:(ANKClientCompletionBlock)completionHandler;
 
+- (void)fetchBlockedUsersForUser:(ANKUser *)user completion:(ANKClientCompletionBlock)completionHandler;
+- (void)fetchBlockedUsersForUserWithID:(NSString *)userID completion:(ANKClientCompletionBlock)completionHandler;
+- (void)fetchBlockedUsersForUsers:(NSArray *)users completion:(ANKClientCompletionBlock)completionHandler;
+- (void)fetchBlockedUsersForUserIDs:(NSArray *)users completion:(ANKClientCompletionBlock)completionHandler;
+
 - (void)fetchUsersRepostedForPost:(ANKPost *)post completion:(ANKClientCompletionBlock)completionHandler;
 - (void)fetchUsersRepostedForPostWithID:(NSString *)postID completion:(ANKClientCompletionBlock)completionHandler;
 - (void)fetchUsersStarredForPost:(ANKPost *)post completion:(ANKClientCompletionBlock)completionHandler;
@@ -58,5 +63,10 @@
 - (void)muteUserWithID:(NSString *)userID completion:(ANKClientCompletionBlock)completionHandler;
 - (void)unmuteUser:(ANKUser *)user completion:(ANKClientCompletionBlock)completionHandler;
 - (void)unmuteUserWithID:(NSString *)userID completion:(ANKClientCompletionBlock)completionHandler;
+
+- (void)blockUser:(ANKUser *)user completion:(ANKClientCompletionBlock)completionHandler;
+- (void)blockUserWithID:(NSString *)userID completion:(ANKClientCompletionBlock)completionHandler;
+- (void)unblockUser:(ANKUser *)user completion:(ANKClientCompletionBlock)completionHandler;
+- (void)unblockUserWithID:(NSString *)userID completion:(ANKClientCompletionBlock)completionHandler;
 
 @end

@@ -303,6 +303,36 @@
 }
 
 
+// http://developers.app.net/docs/resources/user/blocking/#list-blocked-users
+
+- (void)fetchBlockedUsersForUser:(ANKUser *)user completion:(ANKClientCompletionBlock)completionHandler {
+	[self fetchBlockedUsersForUserWithID:user.userID completion:completionHandler];
+}
+
+
+- (void)fetchBlockedUsersForUserWithID:(NSString *)userID completion:(ANKClientCompletionBlock)completionHandler {
+	[self getPath:[self endpointPathForUserID:userID endpoint:@"blocked"]
+	   parameters:nil
+		  success:[self successHandlerForCollectionOfResourceClass:[ANKUser class] clientHandler:completionHandler]
+		  failure:[self failureHandlerForClientHandler:completionHandler]];
+}
+
+
+// http://developers.app.net/docs/resources/user/blocking/#retrieve-blocked-user-ids-for-multiple-users
+
+- (void)fetchBlockedUsersForUsers:(NSArray *)users completion:(ANKClientCompletionBlock)completionHandler {
+	[self fetchBlockedUsersForUserIDs:[users valueForKeyPath:@"userID"] completion:completionHandler];
+}
+
+
+- (void)fetchBlockedUsersForUserIDs:(NSArray *)users completion:(ANKClientCompletionBlock)completionHandler {
+	[self getPath:@"users/blocked/ids"
+	   parameters:nil
+		  success:[self successHandlerForPrimitiveResponseWithClientHandler:completionHandler]
+		  failure:[self failureHandlerForClientHandler:completionHandler]];
+}
+
+
 // GET /stream/0/posts/[post_id]/reposters
 // http://developers.app.net/docs/resources/user/post-interactions/#list-users-who-have-reposted-a-post
 
@@ -332,6 +362,36 @@
 	   parameters:nil
 		  success:[self successHandlerForCollectionOfResourceClass:[ANKUser class] clientHandler:completionHandler]
 		  failure:[self failureHandlerForClientHandler:completionHandler]];
+}
+
+
+// http://developers.app.net/docs/resources/user/blocking/#block-a-user
+
+- (void)blockUser:(ANKUser *)user completion:(ANKClientCompletionBlock)completionHandler {
+	[self blockUserWithID:user.userID completion:completionHandler];
+}
+
+
+- (void)blockUserWithID:(NSString *)userID completion:(ANKClientCompletionBlock)completionHandler {
+	[self postPath:[self endpointPathForUserID:userID endpoint:@"block"]
+		parameters:nil
+		   success:[self successHandlerForResourceClass:[ANKUser class] clientHandler:completionHandler]
+		   failure:[self failureHandlerForClientHandler:completionHandler]];
+}
+
+
+// http://developers.app.net/docs/resources/user/blocking/#unblock-a-user
+
+- (void)unblockUser:(ANKUser *)user completion:(ANKClientCompletionBlock)completionHandler {
+	[self unblockUserWithID:user.userID completion:completionHandler];
+}
+
+
+- (void)unblockUserWithID:(NSString *)userID completion:(ANKClientCompletionBlock)completionHandler {
+	[self deletePath:[self endpointPathForUserID:userID endpoint:@"block"]
+		  parameters:nil
+			 success:[self successHandlerForResourceClass:[ANKUser class] clientHandler:completionHandler]
+			 failure:[self failureHandlerForClientHandler:completionHandler]];
 }
 
 
