@@ -44,6 +44,8 @@ static NSString *const kANKFileKIndOther = @"other";
 @property (strong) ANKObjectSource *source;
 @property (strong) ANKImage *imageInfo;
 
++ (instancetype)fileWithFileAtURL:(NSURL *)fileURL; // creates an ANKFile using properties from the file at fileURL
+
 + (NSDictionary *)fileListAnnotationValueForFiles:(NSArray *)files;
 - (NSDictionary *)oembedAnnotationValue;
 - (BOOL)isImage;
