@@ -17,7 +17,7 @@
 @implementation ANKClient (ANKInteraction)
 
 - (void)fetchInteractionsForCurrentUserWithCompletion:(ANKClientCompletionBlock)completionHandler {
-	[self getPath:@"users/me/interations"
+	[self getPath:@"users/me/interactions"
 	   parameters:nil
 		  success:[self successHandlerForCollectionOfResourceClass:[ANKInteraction class] clientHandler:completionHandler]
 		  failure:[self failureHandlerForClientHandler:completionHandler]];
