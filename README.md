@@ -13,8 +13,8 @@ Note: the basic core structure of this framework is based off of [Matt Rubin](ht
 
 * [Climber] (https://alpha.app.net/climber) by [@rrbrambley] (https://alpha.app.net/rrbrambley)
 * [Soapbox] (https://alpha.app.net/soapbox) by [@joeldev] (https://alpha.app.net/joeldev)
-* [Orbit] (https://alpha.app.net/orbit) by *redacted*
-* Unannounced project by *redacted*
+* [Orbit] (https://alpha.app.net/orbit) by [@joeldev] (https://alpha.app.net/joeldev) and [@lavoy] (https://alpha.app.net/lavoy)
+* *Multiple unannounced projects*
 
 *Please file an issue to get your app added if you'd like to be on the list!*
 
