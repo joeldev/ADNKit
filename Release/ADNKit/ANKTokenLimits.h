@@ -17,6 +17,7 @@
 
 @property (assign) NSUInteger fileSizeLimit;
 @property (assign) NSUInteger followingLimit;
+@property (assign) NSUInteger availableInvites;
 
 - (BOOL)isUploadableFileAtPath:(NSString *)filePath;
 
