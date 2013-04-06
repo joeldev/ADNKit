@@ -118,4 +118,14 @@
 }
 
 
+- (ANKFile *)smallImageThumbnailFile {
+	return self.derivedFiles[@"image_thumb_200s"];
+}
+
+
+- (ANKFile *)mediumImageThumbnailFile {
+	return self.derivedFiles[@"image_thumb_960r"];
+}
+
+
 @end
