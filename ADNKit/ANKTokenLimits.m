@@ -18,7 +18,8 @@
 + (NSDictionary *)JSONToLocalKeyMapping {
 	return [[super JSONToLocalKeyMapping] ank_dictionaryByAppendingDictionary:@{
 			@"max_file_size": @"fileSizeLimit",
-			@"following": @"followingLimit"}];
+			@"following": @"followingLimit",
+			@"available_invites": @"availableInvites"}];
 }
 
 
