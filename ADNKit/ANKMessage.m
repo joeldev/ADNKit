@@ -11,6 +11,7 @@
  */
 
 #import "ANKMessage.h"
+#import "ANKEntities.h"
 
 
 @implementation ANKMessage
@@ -27,5 +28,12 @@
 			@"is_deleted": @"isDeleted",
 			@"machine_only": @"isMachineOnly"}];
 }
+
+
+- (void)objectDidUpdate {
+	[super objectDidUpdate];
+	self.entities.text = self.text;
+}
+
 
 @end

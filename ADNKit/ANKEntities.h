@@ -17,12 +17,16 @@
 
 @interface ANKEntities : ANKResource
 
+@property (weak) NSString *text;
 @property (strong) NSArray *mentions;
 @property (strong) NSArray *hashtags;
 @property (strong) NSArray *links;
 
 - (ANKMentionEntity *)mentionForUsername:(NSString *)username;
 - (BOOL)containsMentionForUsername:(NSString *)username;
+- (NSRange)rangeForEntity:(ANKEntity *)entity;
+
+- (NSAttributedString *)attributedStringWithDefaultAttributes:(NSDictionary *)defaultAttributes mentionAttributes:(NSDictionary *)mentionAttributes hashtagAttributes:(NSDictionary *)hashtagAttributes linkAttributes:(NSDictionary *)linkAttributes attributeEncodeBlock:(void (^)(NSMutableDictionary *attributes, ANKEntity *entity))encodeBlock;
 
 - (NSAttributedString *)attributedStringForString:(NSString *)string withDefaultAttributes:(NSDictionary *)defaultAttributes mentionAttributes:(NSDictionary *)mentionAttributes hashtagAttributes:(NSDictionary *)hashtagAttributes linkAttributes:(NSDictionary *)linkAttributes attributeEncodeBlock:(void (^)(NSMutableDictionary *attributes, ANKEntity *entity))encodeBlock;
 

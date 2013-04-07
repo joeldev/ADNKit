@@ -11,8 +11,14 @@
  */
 
 #import "ANKUserDescription.h"
+#import "ANKEntities.h"
 
 
 @implementation ANKUserDescription
+
+- (void)objectDidUpdate {
+	[super objectDidUpdate];
+	self.entities.text = self.text;
+}
 
 @end

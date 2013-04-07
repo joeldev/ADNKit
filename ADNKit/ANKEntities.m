@@ -11,19 +11,28 @@
  */
 
 #import "ANKEntities.h"
+#import "ANKEntity.h"
 #import "ANKMentionEntity.h"
 #import "ANKHashtagEntity.h"
 #import "ANKLinkEntity.h"
+#import "NSString+ANKAdditions.h"
 
 
 @interface ANKEntities ()
 
 @property (strong) NSDictionary *mentionMap;
 
+- (NSArray *)allEntities;
+
 @end
 
 
 @implementation ANKEntities
+
++ (NSSet *)localKeysExcludedFromJSONOutput {
+	return [[super localKeysExcludedFromJSONOutput] setByAddingObjectsFromArray:@[@"text"]];
+}
+
 
 + (Class)mentionsCollectionObjectClass {
 	return [ANKMentionEntity class];
@@ -41,7 +50,9 @@
 
 
 - (void)objectDidUpdate {
+	[super objectDidUpdate];
 	self.mentionMap = [NSDictionary dictionaryWithObjects:self.mentions forKeys:[self.mentions valueForKeyPath:@"username"]];
+	[self.allEntities makeObjectsPerformSelector:@selector(setParentEntities:) withObject:self];
 }
 
 
@@ -55,10 +66,34 @@
 }
 
 
+- (NSRange)rangeForEntity:(ANKEntity *)entity {
+	__block NSRange range = NSMakeRange(entity.position, entity.length);
+	
+    [self.text enumerateSubstringsInRange:NSMakeRange(0, entity.length) options:NSStringEnumerationByComposedCharacterSequences usingBlock:^(NSString *substring, NSRange substringRange, NSRange enclosingRange, BOOL *stop) {
+        if (substringRange.location >= range.location + range.length) {
+            *stop = YES;
+        } else if ([substring isSurrogatePair]) {
+            if (substringRange.location < range.location) {
+				range.location++;
+			} else {
+				range.length++;
+			}
+        }
+    }];
+	
+    return range;
+}
+
+
+- (NSAttributedString *)attributedStringWithDefaultAttributes:(NSDictionary *)defaultAttributes mentionAttributes:(NSDictionary *)mentionAttributes hashtagAttributes:(NSDictionary *)hashtagAttributes linkAttributes:(NSDictionary *)linkAttributes attributeEncodeBlock:(void (^)(NSMutableDictionary *attributes, ANKEntity *entity))encodeBlock {
+	return [self attributedStringForString:self.text withDefaultAttributes:defaultAttributes mentionAttributes:mentionAttributes hashtagAttributes:hashtagAttributes linkAttributes:linkAttributes attributeEncodeBlock:encodeBlock];
+}
+
+
 - (NSAttributedString *)attributedStringForString:(NSString *)string withDefaultAttributes:(NSDictionary *)defaultAttributes mentionAttributes:(NSDictionary *)mentionAttributes hashtagAttributes:(NSDictionary *)hashtagAttributes linkAttributes:(NSDictionary *)linkAttributes attributeEncodeBlock:(void (^)(NSMutableDictionary *attributes, ANKEntity *entity))encodeBlock {
 	NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:string attributes:defaultAttributes];
 	
-	NSArray *allEntities = [[(self.mentions ?: @[]) arrayByAddingObjectsFromArray:(self.hashtags ?: @[])] arrayByAddingObjectsFromArray:(self.links ?: @[])];
+	NSArray *allEntities = [self allEntities];
 	NSDictionary *typeMap = @{NSStringFromClass([ANKMentionEntity class]): mentionAttributes, NSStringFromClass([ANKHashtagEntity class]): hashtagAttributes, NSStringFromClass([ANKLinkEntity class]): linkAttributes};
 	
 	for (ANKEntity *entity in allEntities) {
@@ -70,6 +105,11 @@
 	}
 	
 	return attributedString;
+}
+
+
+- (NSArray *)allEntities {
+	return [[(self.mentions ?: @[]) arrayByAddingObjectsFromArray:(self.hashtags ?: @[])] arrayByAddingObjectsFromArray:(self.links ?: @[])];
 }
 
 

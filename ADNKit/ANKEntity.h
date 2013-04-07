@@ -13,8 +13,11 @@
 #import "ANKResource.h"
 
 
+@class ANKEntities;
+
 @interface ANKEntity : ANKResource
 
+@property (weak) ANKEntities *parentEntities;
 @property (assign) NSUInteger position;
 @property (assign) NSUInteger length;
 
