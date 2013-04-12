@@ -60,14 +60,14 @@
 }
 
 
-- (AFNetworkingSuccessBlock)successHandlerForCollectionOfResourceClass:(Class)resourceClass clientHandler:(ANKClientCompletionBlock)handler mapBlock:(id (^)(id object))mapBlock {
+- (AFNetworkingSuccessBlock)successHandlerForCollectionOfResourceClass:(Class)resourceClass clientHandler:(ANKClientCompletionBlock)handler mappedWith:(id (^)(id object))mapBlock {
 	return [self successHandlerForClientHandler:handler unboxBlock:^id(ANKAPIResponse *response, NSError *__autoreleasing *error) {
 		return [[self unboxCollectionResponse:response ofResourceClass:resourceClass] ank_map:mapBlock];
 	}];
 }
 
 
-- (AFNetworkingSuccessBlock)successHandlerForCollectionOfResourceClass:(Class)resourceClass clientHandler:(ANKClientCompletionBlock)handler filterBlock:(BOOL (^)(id object))filterBlock {
+- (AFNetworkingSuccessBlock)successHandlerForCollectionOfResourceClass:(Class)resourceClass clientHandler:(ANKClientCompletionBlock)handler filteredWith:(BOOL (^)(id object))filterBlock {
 	return [self successHandlerForClientHandler:handler unboxBlock:^id(ANKAPIResponse *response, NSError *__autoreleasing *error) {
 		return [[self unboxCollectionResponse:response ofResourceClass:resourceClass] ank_filter:filterBlock];
 	}];

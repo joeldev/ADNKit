@@ -29,7 +29,7 @@
 
 
 - (void)fetchCurrentUserPrivateMessageChannelsWithCompletion:(ANKClientCompletionBlock)completionHandler {
-	[self getPath:@"channels" parameters:nil success:[self successHandlerForCollectionOfResourceClass:[ANKChannel class] clientHandler:completionHandler filterBlock:^BOOL(id object) {
+	[self getPath:@"channels" parameters:nil success:[self successHandlerForCollectionOfResourceClass:[ANKChannel class] clientHandler:completionHandler filteredWith:^BOOL(id object) {
 		return [(ANKChannel *)object isPrivateMessageChannel];
 	}] failure:[self failureHandlerForClientHandler:completionHandler]];
 }
