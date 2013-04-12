@@ -121,6 +121,20 @@
 }
 
 
+// POST /stream/0/users/me/cover
+// http://developers.app.net/docs/resources/user/profile/#update-a-users-cover-image
+
+- (void)updateCurrentUserCoverImageWithImageData:(NSData *)imageData mimeType:(NSString *)mimeType completion:(ANKClientCompletionBlock)completionHandler {
+	NSURLRequest *URLRequest = [self multipartFormRequestWithMethod:@"POST" path:[self endpointPathForUserID:@"me" endpoint:@"cover"] parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+		[formData appendPartWithFileData:imageData name:@"cover" fileName:@"cover" mimeType:mimeType];
+	}];
+	AFHTTPRequestOperation *requestOperation = [self HTTPRequestOperationWithRequest:URLRequest
+																			 success:[self successHandlerForResourceClass:[ANKUser class] clientHandler:completionHandler]
+																			 failure:[self failureHandlerForClientHandler:completionHandler]];
+	[self enqueueHTTPRequestOperation:requestOperation];
+}
+
+
 // POST /stream/0/users/[user_id]/follow
 // http://developers.app.net/docs/resources/user/following/#follow-a-user
 
