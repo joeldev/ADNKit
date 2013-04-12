@@ -7,6 +7,7 @@
 //
 
 #import "ADNKitTests.h"
+#import "CustomPost.h"
 #import <ADNKit/ADNKit.h>
 
 
@@ -69,6 +70,15 @@
 	STAssertEquals(post.isStarredByCurrentUser, unarchivedData.isStarredByCurrentUser, @"Archiving failed");
 	
 	STAssertEqualObjects([(ANKAnnotation *)post.annotations[0] type], [(ANKAnnotation *)unarchivedData.annotations[0] type], @"Archiving failed");
+}
+
+
+- (void)testResourceReplacement {
+	[ANKResourceMap setCustomResourceClass:[CustomPost class] forResourceClass:[ANKPost class]];
+	STAssertEquals(ANKResolve([ANKPost class]), [CustomPost class], @"Setting custom resource class failed");
+	
+	[ANKResourceMap setCustomResourceClass:nil forResourceClass:[ANKPost class]];
+	STAssertEquals(ANKResolve([ANKPost class]), [ANKPost class], @"Removing custom resource class failed");
 }
 
 

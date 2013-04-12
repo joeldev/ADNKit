@@ -12,6 +12,7 @@
 
 #import "ANKResource.h"
 #import "ANKValueTransformations.h"
+#import "ANKResourceMap.h"
 #import <objc/runtime.h>
 
 
@@ -206,7 +207,7 @@ static dispatch_once_t propertiesMapOnceToken;
 					value = [property.objectType objectsFromJSONDictionaries:value];
 				} else if (property.isModelObject && [value isKindOfClass:[NSDictionary class]]) {
 					// property is an ADNResource, unpack it
-					value = [property.objectType objectFromJSONDictionary:value];
+					value = [ANKResolve([property.objectType class]) objectFromJSONDictionary:value];
 				} else {
 					// see if there's an existing transformation that we can run
 					SEL transformSelector = NSSelectorFromString([NSString stringWithFormat:@"%@From%@:", property.objectType, valueClass]);
