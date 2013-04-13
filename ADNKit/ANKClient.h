@@ -41,6 +41,9 @@ typedef NS_ENUM(NSUInteger, ANKAuthScope) {
 @property (copy) void (^webAuthCompletionHandler)(BOOL success, NSError *error); // set as completion block for oauth authentication
 @property (strong) ANKPaginationSettings *pagination;
 
+@property (assign) BOOL shouldUseSharedUserDefaultsController; // default NO - uses [NSUserDefaults standardUserDefaults] when NO, [[NSUserDefaultsController sharedUserDefaultsController] defaults] when YES.
+@property (assign) BOOL shouldSynchronizeOnUserDefaultsWrite; // default NO - if set to YES, will call synchronize on each write to make sure that user defaults are written to disk immediately
+
 #pragma mark -
 #pragma mark Authentication
 
@@ -66,5 +69,13 @@ typedef NS_ENUM(NSUInteger, ANKAuthScope) {
 #pragma mark Pagination
 
 - (instancetype)clientWithPagination:(ANKPaginationSettings *)pagination;
+
+#pragma mark -
+#pragma mark User Defaults
+
+- (NSUserDefaults *)userDefaults;
+- (NSDictionary *)authenticatedUserDefaults;
+- (void)setObject:(id)object forKeyInAuthenticatedUserDefaults:(NSString *)key;
+- (id)objectForKeyInAuthenticatedUserDefaults:(NSString *)key;
 
 @end

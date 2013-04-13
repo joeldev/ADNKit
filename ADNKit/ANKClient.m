@@ -216,6 +216,47 @@
 
 
 #pragma mark -
+#pragma mark User Defaults
+
+- (NSUserDefaults *)userDefaults {
+#ifdef ANK_OSX
+	return (self.shouldUseSharedUserDefaultsController ? [[NSUserDefaultsController sharedUserDefaultsController] defaults] : [NSUserDefaults standardUserDefaults]);
+#else
+	return [NSUserDefaults standardUserDefaults];
+#endif
+}
+
+
+- (NSDictionary *)authenticatedUserDefaults {
+	return self.isAuthenticated ? [self.userDefaults objectForKey:[NSString stringWithFormat:@"ANKUser%@", self.authenticatedUser.userID]] : nil;
+}
+
+
+- (void)setObject:(id)object forKeyInAuthenticatedUserDefaults:(NSString *)key {
+	if (self.isAuthenticated) {
+		NSDictionary *settings = [self authenticatedUserDefaults] ?: @{};
+		NSMutableDictionary *modifiedSettings = [NSMutableDictionary dictionaryWithDictionary:settings];
+		
+		if (object) {
+			modifiedSettings[key] = object;
+		} else {
+			[modifiedSettings removeObjectForKey:key];
+		}
+		
+		[self.userDefaults setObject:modifiedSettings forKey:[NSString stringWithFormat:@"ANKUser%@", self.authenticatedUser.userID]];
+		if (self.shouldSynchronizeOnUserDefaultsWrite) {
+			[self.userDefaults synchronize];
+		}
+	}
+}
+
+
+- (id)objectForKeyInAuthenticatedUserDefaults:(NSString *)key {
+	return self.authenticatedUserDefaults[key];
+}
+
+
+#pragma mark -
 #pragma mark Internal API
 
 - (void)initializeHTTPAuthClient {

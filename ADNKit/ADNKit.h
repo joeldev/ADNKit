@@ -76,7 +76,9 @@
 #import <ADNKit/ANKUsernameFormatter.h>
 
 #ifdef __IPHONE_OS_VERSION_MIN_REQUIRED
+#define ANK_IOS 1
 #import "ADNKit-iOS.h"
 #else
+#define ANK_OSX 1
 #import "ADNKit-OSX.h"
 #endif
