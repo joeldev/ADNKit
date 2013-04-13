@@ -14,12 +14,16 @@
 #import "ANKJSONRequestOperation.h"
 #import "ANKPaginationSettings.h"
 #import "ANKAPIResponseMeta.h"
+#import "ANKTokenStatus.h"
+#import "ANKResourceMap.h"
+#import "ANKUser.h"
 
 
 @interface ANKClient ()
 
 @property (strong) AFHTTPClient *authHTTPClient;
 @property (strong) NSString *webAuthRedirectURI;
+@property (readwrite, strong) ANKUser *authenticatedUser;
 
 - (void)initializeHTTPAuthClient;
 - (void)HTTPAuthDidCompleteSuccessfully:(BOOL)wasSuccessful error:(NSError *)error handler:(void (^)(BOOL successful, NSError *error))handler;
@@ -197,6 +201,7 @@
 
 - (void)logOut {
 	self.accessToken = nil;
+	self.authenticatedUser = nil;
 }
 
 
@@ -225,6 +230,10 @@
 	[self.authHTTPClient postPath:@"access_token" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
 		NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
 		if (responseDictionary[@"access_token"]) {
+			if (responseDictionary[@"token"]) {
+				ANKTokenStatus *token = [ANKResolve(ANKTokenStatus) objectFromJSONDictionary:responseDictionary[@"token"]];
+				self.authenticatedUser = token.user;
+			}
 			self.accessToken = responseDictionary[@"access_token"];
 			[self HTTPAuthDidCompleteSuccessfully:YES error:nil handler:handler];
 		} else {

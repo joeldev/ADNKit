@@ -28,13 +28,14 @@ typedef NS_ENUM(NSUInteger, ANKAuthScope) {
 };
 
 
-@class ANKPaginationSettings;
+@class ANKPaginationSettings, ANKUser;
 
 @interface ANKClient : AFHTTPClient
 
 + (NSURL *)APIBaseURL; // defaults to @"https://alpha-api.app.net/stream/0/" -- subclass and override to change it
 + (instancetype)sharedClient;
 
+@property (readonly, strong) ANKUser *authenticatedUser; // the authenticated user object
 @property (strong) NSString *accessToken; // access token acquired by auth or persisted across launches and set directly
 @property (assign) BOOL shouldRequestAnnotations; // when yes, annotations will be fetched regardless of the object type
 @property (copy) void (^webAuthCompletionHandler)(BOOL success, NSError *error); // set as completion block for oauth authentication
