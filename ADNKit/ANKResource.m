@@ -222,6 +222,10 @@ static dispatch_once_t propertiesMapOnceToken;
 				}
 			}
 			
+			if (!value && property.isPrimitive) {
+				continue;
+			}
+			
 			[self setValue:value forKey:localKey];
 		}
 	}
