@@ -27,8 +27,8 @@ typedef void (^ANKClientFileUploadProgressBlock)(NSUInteger bytesWritten, long l
 - (AFNetworkingSuccessBlock)successHandlerForClientHandler:(ANKClientCompletionBlock)handler unboxBlock:(id (^)(ANKAPIResponse *response, NSError **error))unboxBlock;
 - (AFNetworkingSuccessBlock)successHandlerForResourceClass:(Class)resourceClass clientHandler:(ANKClientCompletionBlock)handler;
 - (AFNetworkingSuccessBlock)successHandlerForCollectionOfResourceClass:(Class)resourceClass clientHandler:(ANKClientCompletionBlock)handler;
-- (AFNetworkingSuccessBlock)successHandlerForCollectionOfResourceClass:(Class)resourceClass clientHandler:(ANKClientCompletionBlock)handler mapBlock:(id (^)(id object))mapBlock;
-- (AFNetworkingSuccessBlock)successHandlerForCollectionOfResourceClass:(Class)resourceClass clientHandler:(ANKClientCompletionBlock)handler filterBlock:(BOOL (^)(id object))filterBlock;
+- (AFNetworkingSuccessBlock)successHandlerForCollectionOfResourceClass:(Class)resourceClass clientHandler:(ANKClientCompletionBlock)handler mappedWith:(id (^)(id object))mapBlock;
+- (AFNetworkingSuccessBlock)successHandlerForCollectionOfResourceClass:(Class)resourceClass clientHandler:(ANKClientCompletionBlock)handler filteredWith:(BOOL (^)(id object))filterBlock;
 - (AFNetworkingSuccessBlock)successHandlerForPrimitiveResponseWithClientHandler:(ANKClientCompletionBlock)handler;
 
 - (AFNetworkingFailureBlock)failureHandlerForClientHandler:(ANKClientCompletionBlock)handler;

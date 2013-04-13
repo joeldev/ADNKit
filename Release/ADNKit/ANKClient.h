@@ -28,17 +28,21 @@ typedef NS_ENUM(NSUInteger, ANKAuthScope) {
 };
 
 
-@class ANKPaginationSettings;
+@class ANKPaginationSettings, ANKUser;
 
 @interface ANKClient : AFHTTPClient
 
 + (NSURL *)APIBaseURL; // defaults to @"https://alpha-api.app.net/stream/0/" -- subclass and override to change it
 + (instancetype)sharedClient;
 
+@property (readonly, strong) ANKUser *authenticatedUser; // the authenticated user object
 @property (strong) NSString *accessToken; // access token acquired by auth or persisted across launches and set directly
 @property (assign) BOOL shouldRequestAnnotations; // when yes, annotations will be fetched regardless of the object type
 @property (copy) void (^webAuthCompletionHandler)(BOOL success, NSError *error); // set as completion block for oauth authentication
 @property (strong) ANKPaginationSettings *pagination;
+
+@property (assign) BOOL shouldUseSharedUserDefaultsController; // default NO - uses [NSUserDefaults standardUserDefaults] when NO, [[NSUserDefaultsController sharedUserDefaultsController] defaults] when YES.
+@property (assign) BOOL shouldSynchronizeOnUserDefaultsWrite; // default NO - if set to YES, will call synchronize on each write to make sure that user defaults are written to disk immediately
 
 #pragma mark -
 #pragma mark Authentication
@@ -65,5 +69,15 @@ typedef NS_ENUM(NSUInteger, ANKAuthScope) {
 #pragma mark Pagination
 
 - (instancetype)clientWithPagination:(ANKPaginationSettings *)pagination;
+
+#pragma mark -
+#pragma mark User Defaults
+
+// These methods provide an easy way to store per-user preferences. Each ANKClient represents a single authenticated user, so using these methods on a particular ANKClient will read/write settings for that user. The user ID is used as the key namespace, which won't change even if the user changes their username.
+
+- (NSUserDefaults *)userDefaults;
+- (NSDictionary *)authenticatedUserDefaults;
+- (void)setObject:(id)object forKeyInAuthenticatedUserDefaults:(NSString *)key;
+- (id)objectForKeyInAuthenticatedUserDefaults:(NSString *)key;
 
 @end
