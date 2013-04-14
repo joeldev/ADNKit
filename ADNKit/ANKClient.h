@@ -74,6 +74,7 @@ typedef NS_ENUM(NSUInteger, ANKAuthScope) {
 #pragma mark -
 #pragma mark Pagination
 
+// returns a copy of the receiever with the passed pagination settings
 - (instancetype)clientWithPagination:(ANKPaginationSettings *)pagination;
 
 #pragma mark -
@@ -81,7 +82,7 @@ typedef NS_ENUM(NSUInteger, ANKAuthScope) {
 
 // These methods provide an easy way to store per-user preferences. Each ANKClient represents a single authenticated user, so using these methods on a particular ANKClient will read/write settings for that user. The user ID is used as the key namespace, which won't change even if the user changes their username.
 
-- (NSUserDefaults *)userDefaults;
+- (NSUserDefaults *)userDefaults; // will likely be [NSUserDefaults standandUserDefaults]
 - (NSDictionary *)authenticatedUserDefaults;
 - (void)setObject:(id)object forKeyInAuthenticatedUserDefaults:(NSString *)key;
 - (id)objectForKeyInAuthenticatedUserDefaults:(NSString *)key;
