@@ -17,6 +17,7 @@
 #import "ANKTokenStatus.h"
 #import "ANKResourceMap.h"
 #import "ANKUser.h"
+#import "ANKClient+ANKTokenStatus.h"
 
 
 @interface ANKClient ()
@@ -191,6 +192,20 @@
 	}
 	
 	return scopeDescriptions;
+}
+
+
+- (void)logInWithAccessToken:(NSString *)accessToken completion:(void (^)(BOOL succeeded, ANKAPIResponseMeta *meta, NSError *error))completionHandler {
+	self.accessToken = accessToken;
+	[self fetchTokenStatusForCurrentUserWithCompletion:^(ANKTokenStatus *tokenStatus, ANKAPIResponseMeta *meta, NSError *error) {
+		BOOL success = tokenStatus.user != nil;
+		if (success) {
+			self.authenticatedUser = tokenStatus.user;
+		}
+		if (completionHandler) {
+			completionHandler(success, meta, error);
+		}
+	}];
 }
 
 

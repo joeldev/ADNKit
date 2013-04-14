@@ -28,7 +28,7 @@ typedef NS_ENUM(NSUInteger, ANKAuthScope) {
 };
 
 
-@class ANKPaginationSettings, ANKUser;
+@class ANKPaginationSettings, ANKUser, ANKAPIResponseMeta;
 
 @interface ANKClient : AFHTTPClient
 
@@ -62,7 +62,13 @@ typedef NS_ENUM(NSUInteger, ANKAuthScope) {
 // this method returns full descriptions for the given scopes that can be placed in the UI
 + (NSArray *)scopeDescriptionsForScope:(ANKAuthScope)scope;
 
+// use this method to log back in when you have a stored accessToken for this user. this is asynchronous because we need to fetch the current user. this method sets the authenticatedUser property.
+- (void)logInWithAccessToken:(NSString *)accessToken completion:(void (^)(BOOL succeeded, ANKAPIResponseMeta *meta, NSError *error))completionHandler;
+
+// return YES when an authenticated user session is active, NO otherwise
 - (BOOL)isAuthenticated;
+
+// does all proper cleanup required to log this user out
 - (void)logOut;
 
 #pragma mark -
