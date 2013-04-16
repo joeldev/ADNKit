@@ -204,7 +204,7 @@ static dispatch_once_t propertiesMapOnceToken;
 			if (valueClass != property.objectType && !property.isPrimitive) {
 				if (property.isCollection && [value isKindOfClass:[NSArray class]]) {
 					// property is a collection, so unpack the collection
-					value = [property.objectType objectsFromJSONDictionaries:value];
+					value = [ANKResolve([property.objectType class]) objectsFromJSONDictionaries:value];
 				} else if (property.isModelObject && [value isKindOfClass:[NSDictionary class]]) {
 					// property is an ADNResource, unpack it
 					value = [ANKResolve([property.objectType class]) objectFromJSONDictionary:value];
