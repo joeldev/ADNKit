@@ -175,7 +175,7 @@ static dispatch_once_t propertiesMapOnceToken;
 			value = nil;
 		}
 
-		Class valueClass = [value class];
+		Class valueClass = [value classForCoder] ?: [value class];
 		NSString *valueClassString = NSStringFromClass(valueClass);
 		
 		// convert things like __NSCFString to NSString, and __NSCFDictionary to NSDictionary

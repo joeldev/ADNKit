@@ -52,21 +52,6 @@
 }
 
 
-- (NSArray *)NSArrayFrom__NSArrayI:(NSArray *)array {
-	return array;
-}
-
-
-- (NSDictionary *)NSDictionaryFrom__NSDictionaryI:(NSDictionary *)dictionary {
-	return dictionary;
-}
-
-
-- (NSDictionary *)NSDictionaryFrom__NSDictionaryM:(NSDictionary *)dictionary {
-	return dictionary;
-}
-
-
 - (id)JSONObjectFromNSURL:(NSURL *)URL {
 	return [URL absoluteString];
 }
