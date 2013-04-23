@@ -216,6 +216,19 @@
 }
 
 
+- (void)logOutAndDeauthorizeUserTokenWithCompletion:(ANKClientCompletionBlock)completionHandler {
+	[self deauthorizeCurrentUserTokenWithCompletion:^(id responseObject, ANKAPIResponseMeta *meta, NSError *error) {
+		if (!meta.isError && !error) {
+			[self logOut];
+		}
+		
+		if (completionHandler) {
+			completionHandler(responseObject, meta, error);
+		}
+	}];
+}
+
+
 #pragma mark -
 #pragma mark Pagination
 

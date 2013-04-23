@@ -28,6 +28,10 @@ typedef NS_ENUM(NSUInteger, ANKAuthScope) {
 };
 
 
+@class ANKAPIResponseMeta;
+typedef void (^ANKClientCompletionBlock)(id responseObject, ANKAPIResponseMeta *meta, NSError *error);
+
+
 @class ANKPaginationSettings, ANKUser, ANKAPIResponseMeta;
 
 @interface ANKClient : AFHTTPClient
@@ -68,8 +72,11 @@ typedef NS_ENUM(NSUInteger, ANKAuthScope) {
 // return YES when an authenticated user session is active, NO otherwise
 - (BOOL)isAuthenticated;
 
-// does all proper cleanup required to log this user out
+// does all proper cleanup required to log this user out. does not invalidate the auth token, simply "forgets" it.
 - (void)logOut;
+
+// does everything the above method does and also invalidates the auth token
+- (void)logOutAndDeauthorizeUserTokenWithCompletion:(ANKClientCompletionBlock)completionHandler;
 
 #pragma mark -
 #pragma mark Pagination
