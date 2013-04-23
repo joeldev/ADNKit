@@ -40,4 +40,12 @@
 }
 
 
+- (void)deauthorizeCurrentUserTokenWithCompletion:(ANKClientCompletionBlock)completionHandler {
+	[self deletePath:@"token"
+		  parameters:nil
+			 success:[self successHandlerForResourceClass:[ANKTokenStatus class] clientHandler:completionHandler]
+			 failure:[self failureHandlerForClientHandler:completionHandler]];
+}
+
+
 @end
