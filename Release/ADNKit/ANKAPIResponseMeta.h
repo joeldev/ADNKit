@@ -23,6 +23,21 @@ typedef NS_ENUM(NSUInteger, ANKErrorType) {
 };
 
 
+typedef NS_ENUM(NSUInteger, ANKHTTPStatus) {
+	ANKHTTPStatusOK = 200,
+	ANKHTTPStatusNoContent = 204,
+	ANKHTTPStatusFound = 302,
+	ANKHTTPStatusBadRequest = 400,
+	ANKHTTPStatusUnauthorized = 401,
+	ANKHTTPStatusForbidden = 403,
+	ANKHTTPStatusNotFound = 404,
+	ANKHTTPStatusMethodNotAllowed = 405,
+	ANKHTTPStatusTooManyRequests = 429,
+	ANKHTTPStatusInternalServerError = 500,
+	ANKHTTPStatusInsufficientStorage = 507
+};
+
+
 static NSString *const kANKErrorDomain = @"ANKErrorDomain";
 static NSString *const kANKErrorTypeKey = @"ANKErrorType";
 static NSString *const kANKErrorIDKey = @"ANKErrorID";

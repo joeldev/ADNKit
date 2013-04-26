@@ -18,5 +18,6 @@
 - (void)fetchTokenStatusForCurrentUserWithCompletion:(ANKClientCompletionBlock)completionHandler;
 - (void)fetchTokenStatusesForAuthorizedUsersWithCompletion:(ANKClientCompletionBlock)completionHandler;
 - (void)fetchAuthorizedUserIDsWithCompletion:(ANKClientCompletionBlock)completionHandler;
+- (void)deauthorizeCurrentUserTokenWithCompletion:(ANKClientCompletionBlock)completionHandler;
 
 @end
