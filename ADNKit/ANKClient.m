@@ -210,6 +210,11 @@
 }
 
 
+- (BOOL)isLoggedIn {
+	return self.isAuthenticated && self.authenticatedUser != nil;
+}
+
+
 - (void)logOut {
 	self.accessToken = nil;
 	self.authenticatedUser = nil;
