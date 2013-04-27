@@ -72,6 +72,9 @@ typedef void (^ANKClientCompletionBlock)(id responseObject, ANKAPIResponseMeta *
 // return YES when an authenticated user session is active, NO otherwise
 - (BOOL)isAuthenticated;
 
+// returns YES when there is an access token set and an authenticated user object (set via logInWithAccessToken:completion:)
+- (BOOL)isLoggedIn;
+
 // does all proper cleanup required to log this user out. does not invalidate the auth token, simply "forgets" it.
 - (void)logOut;
 
