@@ -174,7 +174,7 @@ static dispatch_once_t propertiesMapOnceToken;
 		if (value == [NSNull null]) {
 			value = nil;
 		}
-
+		
 		Class valueClass = [value classForCoder] ?: [value class];
 		NSString *valueClassString = NSStringFromClass(valueClass);
 		
@@ -208,7 +208,8 @@ static dispatch_once_t propertiesMapOnceToken;
 				} else if (property.isModelObject && [value isKindOfClass:[NSDictionary class]]) {
 					// property is an ADNResource, unpack it
 					value = [ANKResolve([property.objectType class]) objectFromJSONDictionary:value];
-				} else {
+				} else if (![valueClass isSubclassOfClass:property.objectType]) {
+					// if the value class is a subclass of the main class, then just let it slide. otherwise...
 					// see if there's an existing transformation that we can run
 					SEL transformSelector = NSSelectorFromString([NSString stringWithFormat:@"%@From%@:", property.objectType, valueClass]);
 					if ([[ANKValueTransformations transformations] respondsToSelector:transformSelector]) {
@@ -301,7 +302,7 @@ static dispatch_once_t propertiesMapOnceToken;
 	if (propertiesMap[NSStringFromClass(superclass)]) {
 		[properties addEntriesFromDictionary:[self resourcePropertiesForClass:superclass]];
 	}
-
+	
 	[properties addEntriesFromDictionary:propertiesMap[NSStringFromClass(class)]];
 	
 	return properties;
