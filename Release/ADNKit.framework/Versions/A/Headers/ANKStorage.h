@@ -15,7 +15,7 @@
 
 @interface ANKStorage : ANKResource
 
-@property (assign) size_t available;
-@property (assign) size_t used;
+@property (assign) UInt64 available;
+@property (assign) UInt64 used;
 
 @end
