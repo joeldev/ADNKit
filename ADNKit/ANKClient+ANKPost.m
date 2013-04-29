@@ -60,7 +60,7 @@
 
 
 - (void)fetchPostsStarredByUserWithID:(NSString *)userID completion:(ANKClientCompletionBlock)completionHandler {
-	[self getPath:[NSString stringWithFormat:@"posts/%@/stars", userID]
+	[self getPath:[NSString stringWithFormat:@"users/%@/stars", userID]
 	   parameters:nil
 		  success:[self successHandlerForCollectionOfResourceClass:[ANKPost class] clientHandler:completionHandler]
 		  failure:[self failureHandlerForClientHandler:completionHandler]];
