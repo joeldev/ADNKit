@@ -30,4 +30,15 @@ static const NSUInteger ANKSurrogateUpperBound = 0xdbff;
     return isPair;
 }
 
+
+- (NSString *)ank_usernameFormat {
+    return [@"@" stringByAppendingString:self];
+}
+
+
+- (NSString *)ank_hashtagFormat {
+    return [@"#" stringByAppendingString:self];
+}
+
+
 @end
