@@ -30,7 +30,7 @@
 @implementation ANKEntities
 
 + (NSSet *)localKeysExcludedFromJSONOutput {
-	return [[super localKeysExcludedFromJSONOutput] setByAddingObjectsFromArray:@[@"text"]];
+	return [[super localKeysExcludedFromJSONOutput] setByAddingObjectsFromArray:@[@"text", @"mentionMap"]];
 }
 
 
