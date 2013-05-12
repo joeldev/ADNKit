@@ -134,7 +134,7 @@ static dispatch_once_t propertiesMapOnceToken;
 
 
 + (NSSet *)localKeysExcludedFromJSONOutput {
-	return nil;
+	return [[NSSet alloc] init];
 }
 
 

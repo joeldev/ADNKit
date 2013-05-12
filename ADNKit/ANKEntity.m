@@ -21,6 +21,11 @@
 }
 
 
++ (NSSet *)localKeysExcludedFromJSONOutput {
+	return [[super localKeysExcludedFromJSONOutput] setByAddingObjectsFromArray:@[@"parentEntities"]];
+}
+
+
 - (NSRange)range {
 	return [self.parentEntities rangeForEntity:self];
 }
