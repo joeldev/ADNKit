@@ -105,11 +105,6 @@ There are many articles worth reading and documentation [on the wiki](https://gi
 ADNKit uses the following dependencies:
 * [AFNetworking](https://github.com/AFNetworking/AFNetworking)
 
-The following built-in frameworks are used:
-* CoreLocation.framework
-* SystemConfiguration.framework
-* MobileCoreServices.framework (iOS only)
-
 # License
 BSD 3-Clause License:
 > Copyright (c) 2013, Joel Levin. All rights reserved.
