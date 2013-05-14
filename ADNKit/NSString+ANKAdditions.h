@@ -16,5 +16,7 @@
 @interface NSString (ANKAdditions)
 
 - (BOOL)isSurrogatePair;
+- (NSString *)ank_usernameFormat;
+- (NSString *)ank_hashtagFormat;
 
 @end
