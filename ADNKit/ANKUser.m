@@ -25,7 +25,8 @@
 			@"follows_you": @"followsCurrentUser",
 			@"you_follow": @"currentUserFollows",
 			@"you_muted": @"currentUserMuted",
-			@"you_can_subscribe": @"currentUserCanSubscribe"}];
+			@"you_can_subscribe": @"currentUserCanSubscribe",
+			@"verified_domain": @"verifiedDomain"}];
 }
 
 
