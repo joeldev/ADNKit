@@ -25,6 +25,7 @@
 #import <ADNKit/ANKClient+ANKExploreStream.h>
 #import <ADNKit/ANKClient+ANKFilter.h>
 #import <ADNKit/ANKClient+ANKTokenStatus.h>
+#import <ADNKit/ANKClient+ANKStreamMarker.h>
 
 #import <ADNKit/ANKResource.h>
 #import <ADNKit/ANKAnnotatableResource.h>

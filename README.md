@@ -11,9 +11,10 @@ Note: the basic core structure of this framework is based off of [Matt Rubin](ht
 
 ### Apps using ADNKit
 
-* [Climber] (https://alpha.app.net/climber) by [@rrbrambley] (https://alpha.app.net/rrbrambley)
-* [Soapbox] (https://alpha.app.net/soapbox) by [@joeldev] (https://alpha.app.net/joeldev)
-* [Orbit] (https://alpha.app.net/orbit) by [@joeldev] (https://alpha.app.net/joeldev) and [@lavoy] (https://alpha.app.net/lavoy)
+* [Passport by App.net] (http://blog.app.net/2013/05/08/app-net-passport-for-ios-is-now-available/) (first-party application).
+* [Climber] (http://climbr.co) by [@rrbrambley] (https://alpha.app.net/rrbrambley)
+* [Sprinter] (http://sprintr.co) by [@rrbrambley] (https://alpha.app.net/rrbrambley)
+* [Orbit] (http://orbitapp.net) by [@joeldev] (https://alpha.app.net/joeldev) and [@lavoy] (https://alpha.app.net/lavoy)
 * *Multiple unannounced projects*
 
 *Please file an issue to get your app added if you'd like to be on the list!*
@@ -103,11 +104,6 @@ There are many articles worth reading and documentation [on the wiki](https://gi
 # Dependencies
 ADNKit uses the following dependencies:
 * [AFNetworking](https://github.com/AFNetworking/AFNetworking)
-
-The following built-in frameworks are used:
-* CoreLocation.framework
-* SystemConfiguration.framework
-* MobileCoreServices.framework (iOS only)
 
 # License
 BSD 3-Clause License:
