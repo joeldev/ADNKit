@@ -79,6 +79,7 @@
 		24DA122A1741FC2E00CAA8C5 /* AFXMLRequestOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC3725616E3AE1500190862 /* AFXMLRequestOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		24DA122B1741FC2E00CAA8C5 /* UIImageView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC3725816E3AE1500190862 /* UIImageView+AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		24DA122C1741FC2E00CAA8C5 /* AFNetworkActivityIndicatorManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC3724F16E3AE1500190862 /* AFNetworkActivityIndicatorManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24FC43931745F685004B5D5B /* ANKClient+ANKStreamMarker.h in Headers */ = {isa = PBXBuildFile; fileRef = 252E632317421632003143D6 /* ANKClient+ANKStreamMarker.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		252A2C4516E5624700DAE393 /* ANKClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A2C4316E5624700DAE393 /* ANKClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		252A2C4616E5624700DAE393 /* ANKClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C4416E5624700DAE393 /* ANKClient.m */; };
 		252A2C4716E5624700DAE393 /* ANKClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A2C4416E5624700DAE393 /* ANKClient.m */; };
@@ -1031,6 +1032,7 @@
 				24DA122B1741FC2E00CAA8C5 /* UIImageView+AFNetworking.h in Headers */,
 				24DA122C1741FC2E00CAA8C5 /* AFNetworkActivityIndicatorManager.h in Headers */,
 				252AD7151745C76600E12492 /* ANKClient+ANKRequestsAPI.h in Headers */,
+				24FC43931745F685004B5D5B /* ANKClient+ANKStreamMarker.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
