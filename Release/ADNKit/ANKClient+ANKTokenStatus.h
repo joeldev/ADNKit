@@ -15,9 +15,9 @@
 
 @interface ANKClient (ANKTokenStatus)
 
-- (void)fetchTokenStatusForCurrentUserWithCompletion:(ANKClientCompletionBlock)completionHandler;
-- (void)fetchTokenStatusesForAuthorizedUsersWithCompletion:(ANKClientCompletionBlock)completionHandler;
-- (void)fetchAuthorizedUserIDsWithCompletion:(ANKClientCompletionBlock)completionHandler;
-- (void)deauthorizeCurrentUserTokenWithCompletion:(ANKClientCompletionBlock)completionHandler;
+- (ANKJSONRequestOperation *)fetchTokenStatusForCurrentUserWithCompletion:(ANKClientCompletionBlock)completionHandler;
+- (ANKJSONRequestOperation *)fetchTokenStatusesForAuthorizedUsersWithCompletion:(ANKClientCompletionBlock)completionHandler;
+- (ANKJSONRequestOperation *)fetchAuthorizedUserIDsWithCompletion:(ANKClientCompletionBlock)completionHandler;
+- (ANKJSONRequestOperation *)deauthorizeCurrentUserTokenWithCompletion:(ANKClientCompletionBlock)completionHandler;
 
 @end

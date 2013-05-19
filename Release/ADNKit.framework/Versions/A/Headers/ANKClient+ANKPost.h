@@ -17,33 +17,33 @@
 
 @interface ANKClient (ANKPost)
 
-- (void)fetchPostWithID:(NSString *)postID completion:(ANKClientCompletionBlock)completionHandler;
-- (void)fetchPostsWithIDs:(NSArray *)postIDs completion:(ANKClientCompletionBlock)completionHandler;
+- (ANKJSONRequestOperation *)fetchPostWithID:(NSString *)postID completion:(ANKClientCompletionBlock)completionHandler;
+- (ANKJSONRequestOperation *)fetchPostsWithIDs:(NSArray *)postIDs completion:(ANKClientCompletionBlock)completionHandler;
 
-- (void)fetchRepliesToPost:(ANKPost *)post completion:(ANKClientCompletionBlock)completionHandler;
-- (void)fetchRepliesToPostWithID:(NSString *)postID completion:(ANKClientCompletionBlock)completionHandler;
+- (ANKJSONRequestOperation *)fetchRepliesToPost:(ANKPost *)post completion:(ANKClientCompletionBlock)completionHandler;
+- (ANKJSONRequestOperation *)fetchRepliesToPostWithID:(NSString *)postID completion:(ANKClientCompletionBlock)completionHandler;
 
-- (void)fetchPostsStarredByUser:(ANKUser *)user completion:(ANKClientCompletionBlock)completionHandler;
-- (void)fetchPostsStarredByUserWithID:(NSString *)userID completion:(ANKClientCompletionBlock)completionHandler;
+- (ANKJSONRequestOperation *)fetchPostsStarredByUser:(ANKUser *)user completion:(ANKClientCompletionBlock)completionHandler;
+- (ANKJSONRequestOperation *)fetchPostsStarredByUserWithID:(NSString *)userID completion:(ANKClientCompletionBlock)completionHandler;
 
-- (void)createPost:(ANKPost *)post completion:(ANKClientCompletionBlock)completionHandler;
-- (void)createPostWithText:(NSString *)text completion:(ANKClientCompletionBlock)completionHandler;
-- (void)createPostWithText:(NSString *)text inReplyToPost:(ANKPost *)post completion:(ANKClientCompletionBlock)completionHandler;
-- (void)createPostWithText:(NSString *)text inReplyToPostWithID:(NSString *)postID completion:(ANKClientCompletionBlock)completionHandler;
-- (void)deletePost:(ANKPost *)post completion:(ANKClientCompletionBlock)completionHandler;
-- (void)deletePostWithID:(NSString *)postID completion:(ANKClientCompletionBlock)completionHandler;
+- (ANKJSONRequestOperation *)createPost:(ANKPost *)post completion:(ANKClientCompletionBlock)completionHandler;
+- (ANKJSONRequestOperation *)createPostWithText:(NSString *)text completion:(ANKClientCompletionBlock)completionHandler;
+- (ANKJSONRequestOperation *)createPostWithText:(NSString *)text inReplyToPost:(ANKPost *)post completion:(ANKClientCompletionBlock)completionHandler;
+- (ANKJSONRequestOperation *)createPostWithText:(NSString *)text inReplyToPostWithID:(NSString *)postID completion:(ANKClientCompletionBlock)completionHandler;
+- (ANKJSONRequestOperation *)deletePost:(ANKPost *)post completion:(ANKClientCompletionBlock)completionHandler;
+- (ANKJSONRequestOperation *)deletePostWithID:(NSString *)postID completion:(ANKClientCompletionBlock)completionHandler;
 
-- (void)repostPost:(ANKPost *)post completion:(ANKClientCompletionBlock)completionHandler;
-- (void)repostPostWithID:(NSString *)postID completion:(ANKClientCompletionBlock)completionHandler;
-- (void)unrepostPost:(ANKPost *)post completion:(ANKClientCompletionBlock)completionHandler;
-- (void)unrepostPostWithID:(NSString *)postID completion:(ANKClientCompletionBlock)completionHandler;
+- (ANKJSONRequestOperation *)repostPost:(ANKPost *)post completion:(ANKClientCompletionBlock)completionHandler;
+- (ANKJSONRequestOperation *)repostPostWithID:(NSString *)postID completion:(ANKClientCompletionBlock)completionHandler;
+- (ANKJSONRequestOperation *)unrepostPost:(ANKPost *)post completion:(ANKClientCompletionBlock)completionHandler;
+- (ANKJSONRequestOperation *)unrepostPostWithID:(NSString *)postID completion:(ANKClientCompletionBlock)completionHandler;
 
-- (void)starPost:(ANKPost *)post completion:(ANKClientCompletionBlock)completionHandler;
-- (void)starPostWithID:(NSString *)postID completion:(ANKClientCompletionBlock)completionHandler;
-- (void)unstarPost:(ANKPost *)post completion:(ANKClientCompletionBlock)completionHandler;
-- (void)unstarPostWithID:(NSString *)postID completion:(ANKClientCompletionBlock)completionHandler;
+- (ANKJSONRequestOperation *)starPost:(ANKPost *)post completion:(ANKClientCompletionBlock)completionHandler;
+- (ANKJSONRequestOperation *)starPostWithID:(NSString *)postID completion:(ANKClientCompletionBlock)completionHandler;
+- (ANKJSONRequestOperation *)unstarPost:(ANKPost *)post completion:(ANKClientCompletionBlock)completionHandler;
+- (ANKJSONRequestOperation *)unstarPostWithID:(NSString *)postID completion:(ANKClientCompletionBlock)completionHandler;
 
-- (void)reportPostAsSpam:(ANKPost *)post completion:(ANKClientCompletionBlock)completionHandler;
-- (void)reportPostWithIDAsSpam:(NSString *)postID completion:(ANKClientCompletionBlock)completionHandler;
+- (ANKJSONRequestOperation *)reportPostAsSpam:(ANKPost *)post completion:(ANKClientCompletionBlock)completionHandler;
+- (ANKJSONRequestOperation *)reportPostWithIDAsSpam:(NSString *)postID completion:(ANKClientCompletionBlock)completionHandler;
 
 @end

@@ -15,6 +15,6 @@
 
 @interface ANKClient (ANKInteraction)
 
-- (void)fetchInteractionsForCurrentUserWithCompletion:(ANKClientCompletionBlock)completionHandler;
+- (ANKJSONRequestOperation *)fetchInteractionsForCurrentUserWithCompletion:(ANKClientCompletionBlock)completionHandler;
 
 @end

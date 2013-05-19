@@ -11,6 +11,7 @@
  */
 
 #import "AFNetworking.h"
+#import "ANKJSONRequestOperation.h"
 
 
 typedef NS_ENUM(NSUInteger, ANKAuthScope) {
