@@ -23,6 +23,7 @@
 	#import "ANKAnnotationReplacement.h"
 	#import "ANKClient.h"
 	#import "ANKClient+ANKHandlerBlocks.h"
+	#import "ANKClient+ANKRequestsAPI.h"
 	#import "NSArray+ANKAdditions.h"
 	#import "NSDictionary+ANKAdditions.h"
 #endif

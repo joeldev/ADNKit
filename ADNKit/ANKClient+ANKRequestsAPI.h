@@ -10,31 +10,24 @@
  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "ANKClient+ANKPlace.h"
-#import "ANKPlace.h"
+#import "ANKClient.h"
+#import "ANKClient+ANKHandlerBlocks.h"
 
 
-@implementation ANKClient (ANKPlace)
+@class ANKJSONRequestOperation;
 
-// http://developers.app.net/docs/resources/place/#retrieve-a-place
+@interface ANKClient (ANKRequestsAPI)
 
-- (ANKJSONRequestOperation *)fetchPlaceWithFactualID:(NSString *)factualID completion:(ANKClientCompletionBlock)completionHandler {
-	return [self enqueueGETPath:[NSString stringWithFormat:@"places/%@", factualID]
-					 parameters:nil
-						success:[self successHandlerForResourceClass:[ANKPlace class] clientHandler:completionHandler]
-						failure:[self failureHandlerForClientHandler:completionHandler]];
-}
+// These exist to return the request that is enqueued, which allows for cancellation. AFNetworking is too stubborn to add this to their existing convenience methods, and too stubborn to write news ones to do this.
 
+- (ANKJSONRequestOperation *)enqueueRequestWithMethod:(NSString *)method path:(NSString *)path parameters:(NSDictionary *)parameters success:(AFNetworkingSuccessBlock)successBlock failure:(AFNetworkingFailureBlock)failureBlock;
 
-// parameters contains keys located in ANKPlace.h
-// http://developers.app.net/docs/resources/place/#search-for-a-place
+- (ANKJSONRequestOperation *)enqueueGETPath:(NSString *)path parameters:(NSDictionary *)parameters success:(AFNetworkingSuccessBlock)successBlock failure:(AFNetworkingFailureBlock)failureBlock;
 
-- (ANKJSONRequestOperation *)searchForPlacesWithParameters:(NSDictionary *)params completion:(ANKClientCompletionBlock)completionHandler {
-	return [self enqueueGETPath:@"places/search"
-					 parameters:params
-						success:[self successHandlerForCollectionOfResourceClass:[ANKPlace class] clientHandler:completionHandler]
-						failure:[self failureHandlerForClientHandler:completionHandler]];
-}
+- (ANKJSONRequestOperation *)enqueuePOSTPath:(NSString *)path parameters:(NSDictionary *)parameters success:(AFNetworkingSuccessBlock)successBlock failure:(AFNetworkingFailureBlock)failureBlock;
 
+- (ANKJSONRequestOperation *)enqueuePUTPath:(NSString *)path parameters:(NSDictionary *)parameters success:(AFNetworkingSuccessBlock)successBlock failure:(AFNetworkingFailureBlock)failureBlock;
+
+- (ANKJSONRequestOperation *)enqueueDELETEPath:(NSString *)path parameters:(NSDictionary *)parameters success:(AFNetworkingSuccessBlock)successBlock failure:(AFNetworkingFailureBlock)failureBlock;
 
 @end

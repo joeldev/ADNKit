@@ -18,21 +18,21 @@
 
 // http://developers.app.net/docs/resources/explore/#retrieve-all-explore-streams
 
-- (void)fetchExploreStreamsWithCompletion:(ANKClientCompletionBlock)completionHandler {
-	[self getPath:@"posts/stream/explore"
-	   parameters:nil
-		  success:[self successHandlerForCollectionOfResourceClass:[ANKExploreStream class] clientHandler:completionHandler]
-		  failure:[self failureHandlerForClientHandler:completionHandler]];
+- (ANKJSONRequestOperation *)fetchExploreStreamsWithCompletion:(ANKClientCompletionBlock)completionHandler {
+	return [self enqueueGETPath:@"posts/stream/explore"
+					 parameters:nil
+						success:[self successHandlerForCollectionOfResourceClass:[ANKExploreStream class] clientHandler:completionHandler]
+						failure:[self failureHandlerForClientHandler:completionHandler]];
 }
 
 
 // http://developers.app.net/docs/resources/explore/#retrieve-an-explore-stream
 
-- (void)fetchExploreStreamWithSlug:(NSString *)slug completion:(ANKClientCompletionBlock)completionHandler {
-	[self getPath:[NSString stringWithFormat:@"posts/stream/explore/%@", slug]
-	   parameters:nil
-		  success:[self successHandlerForResourceClass:[ANKExploreStream class] clientHandler:completionHandler]
-		  failure:[self failureHandlerForClientHandler:completionHandler]];
+- (ANKJSONRequestOperation *)fetchExploreStreamWithSlug:(NSString *)slug completion:(ANKClientCompletionBlock)completionHandler {
+	return [self enqueueGETPath:[NSString stringWithFormat:@"posts/stream/explore/%@", slug]
+					 parameters:nil
+						success:[self successHandlerForResourceClass:[ANKExploreStream class] clientHandler:completionHandler]
+						failure:[self failureHandlerForClientHandler:completionHandler]];
 }
 
 
