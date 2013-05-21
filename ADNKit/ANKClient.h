@@ -33,7 +33,7 @@ typedef NS_ENUM(NSUInteger, ANKAuthScope) {
 typedef void (^ANKClientCompletionBlock)(id responseObject, ANKAPIResponseMeta *meta, NSError *error);
 
 
-@class ANKPaginationSettings, ANKUser, ANKAPIResponseMeta;
+@class ANKPaginationSettings, ANKGeneralParameters, ANKUser, ANKAPIResponseMeta;
 
 @interface ANKClient : AFHTTPClient
 
@@ -42,10 +42,11 @@ typedef void (^ANKClientCompletionBlock)(id responseObject, ANKAPIResponseMeta *
 
 @property (readonly, strong) ANKUser *authenticatedUser; // the authenticated user object
 @property (strong) NSString *accessToken; // access token acquired by auth or persisted across launches and set directly
-@property (assign) BOOL shouldRequestAnnotations; // when yes, annotations will be fetched regardless of the object type
 @property (copy) void (^webAuthCompletionHandler)(BOOL success, NSError *error); // set as completion block for oauth authentication
 @property (strong) ANKPaginationSettings *pagination;
+@property (strong) ANKGeneralParameters *generalParameters;
 
+@property (assign) BOOL shouldRequestAnnotations; // when yes, annotations will be fetched regardless of the object type
 @property (assign) BOOL shouldUseSharedUserDefaultsController; // default NO - uses [NSUserDefaults standardUserDefaults] when NO, [[NSUserDefaultsController sharedUserDefaultsController] defaults] when YES.
 @property (assign) BOOL shouldSynchronizeOnUserDefaultsWrite; // default NO - if set to YES, will call synchronize on each write to make sure that user defaults are written to disk immediately
 

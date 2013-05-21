@@ -352,6 +352,12 @@
 		5D2CFEE71703E8F200086FBD /* ANKTokenLimits.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2CFEE51703E8F200086FBD /* ANKTokenLimits.m */; };
 		5D2CFEE81703E8F200086FBD /* ANKTokenLimits.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2CFEE51703E8F200086FBD /* ANKTokenLimits.m */; };
 		5D2CFEE91703E8F200086FBD /* ANKTokenLimits.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2CFEE51703E8F200086FBD /* ANKTokenLimits.m */; };
+		5D955BE6174BD10B0077E387 /* ANKGeneralParameters.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D955BE4174BD10B0077E387 /* ANKGeneralParameters.h */; };
+		5D955BE7174BD10B0077E387 /* ANKGeneralParameters.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D955BE4174BD10B0077E387 /* ANKGeneralParameters.h */; };
+		5D955BE8174BD10B0077E387 /* ANKGeneralParameters.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D955BE4174BD10B0077E387 /* ANKGeneralParameters.h */; };
+		5D955BE9174BD10B0077E387 /* ANKGeneralParameters.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D955BE5174BD10B0077E387 /* ANKGeneralParameters.m */; };
+		5D955BEA174BD10B0077E387 /* ANKGeneralParameters.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D955BE5174BD10B0077E387 /* ANKGeneralParameters.m */; };
+		5D955BEB174BD10B0077E387 /* ANKGeneralParameters.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D955BE5174BD10B0077E387 /* ANKGeneralParameters.m */; };
 		5DA357D416EBC29600FA21F8 /* ADNKit-OSX.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DA357CC16EBC18B00FA21F8 /* ADNKit-OSX.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DC370DD16E0805E00190862 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DC370DC16E0805E00190862 /* Foundation.framework */; };
 		5DC3710916E0808C00190862 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DC370F016E0807000190862 /* Cocoa.framework */; };
@@ -542,6 +548,8 @@
 		25C0AA44171867B8006E47B7 /* CustomPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomPost.m; sourceTree = "<group>"; };
 		5D2CFEE41703E8F200086FBD /* ANKTokenLimits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKTokenLimits.h; sourceTree = "<group>"; };
 		5D2CFEE51703E8F200086FBD /* ANKTokenLimits.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANKTokenLimits.m; sourceTree = "<group>"; };
+		5D955BE4174BD10B0077E387 /* ANKGeneralParameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKGeneralParameters.h; sourceTree = "<group>"; };
+		5D955BE5174BD10B0077E387 /* ANKGeneralParameters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANKGeneralParameters.m; sourceTree = "<group>"; };
 		5DA357CB16EBC18B00FA21F8 /* ADNKit-iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "ADNKit-iOS.h"; path = "ADNKit/ADNKit-iOS.h"; sourceTree = "<group>"; };
 		5DA357CC16EBC18B00FA21F8 /* ADNKit-OSX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "ADNKit-OSX.h"; path = "ADNKit/ADNKit-OSX.h"; sourceTree = "<group>"; };
 		5DC370D916E0805E00190862 /* libADNKit-iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libADNKit-iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -696,6 +704,8 @@
 				252A88AD16F8CDC0001F3E8F /* ANKFilter.m */,
 				252A88AE16F8CDC1001F3E8F /* ANKFilterClause.h */,
 				252A88AF16F8CDC2001F3E8F /* ANKFilterClause.m */,
+				5D955BE4174BD10B0077E387 /* ANKGeneralParameters.h */,
+				5D955BE5174BD10B0077E387 /* ANKGeneralParameters.m */,
 				252A88B016F8CDC2001F3E8F /* ANKGeolocation.h */,
 				252A88B116F8CDC3001F3E8F /* ANKGeolocation.m */,
 				252A88B216F8CDC3001F3E8F /* ANKHashtagEntity.h */,
@@ -1033,6 +1043,7 @@
 				24DA122C1741FC2E00CAA8C5 /* AFNetworkActivityIndicatorManager.h in Headers */,
 				252AD7151745C76600E12492 /* ANKClient+ANKRequestsAPI.h in Headers */,
 				24FC43931745F685004B5D5B /* ANKClient+ANKStreamMarker.h in Headers */,
+				5D955BE7174BD10B0077E387 /* ANKGeneralParameters.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1040,6 +1051,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D955BE6174BD10B0077E387 /* ANKGeneralParameters.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1116,6 +1128,7 @@
 				2567682717153E3200C57D47 /* ANKResourceMap.h in Headers */,
 				252E632517421632003143D6 /* ANKClient+ANKStreamMarker.h in Headers */,
 				252AD7161745C76600E12492 /* ANKClient+ANKRequestsAPI.h in Headers */,
+				5D955BE8174BD10B0077E387 /* ANKGeneralParameters.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1343,6 +1356,7 @@
 				2567682917153E3200C57D47 /* ANKResourceMap.m in Sources */,
 				252E632717421632003143D6 /* ANKClient+ANKStreamMarker.m in Sources */,
 				252AD7181745C76600E12492 /* ANKClient+ANKRequestsAPI.m in Sources */,
+				5D955BEA174BD10B0077E387 /* ANKGeneralParameters.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1411,6 +1425,7 @@
 				2567682817153E3200C57D47 /* ANKResourceMap.m in Sources */,
 				252E632617421632003143D6 /* ANKClient+ANKStreamMarker.m in Sources */,
 				252AD7171745C76600E12492 /* ANKClient+ANKRequestsAPI.m in Sources */,
+				5D955BE9174BD10B0077E387 /* ANKGeneralParameters.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1485,6 +1500,7 @@
 				2567682A17153E3200C57D47 /* ANKResourceMap.m in Sources */,
 				252E632817421632003143D6 /* ANKClient+ANKStreamMarker.m in Sources */,
 				252AD7191745C76600E12492 /* ANKClient+ANKRequestsAPI.m in Sources */,
+				5D955BEB174BD10B0077E387 /* ANKGeneralParameters.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

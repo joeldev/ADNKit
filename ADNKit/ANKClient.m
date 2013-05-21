@@ -13,6 +13,7 @@
 #import "ANKClient.h"
 #import "ANKJSONRequestOperation.h"
 #import "ANKPaginationSettings.h"
+#import "ANKGeneralParameters.h"
 #import "ANKAPIResponseMeta.h"
 #import "ANKTokenStatus.h"
 #import "ANKResourceMap.h"
@@ -55,10 +56,13 @@
     if ((self = [super initWithBaseURL:[[self class] APIBaseURL]])) {
 		self.parameterEncoding = AFJSONParameterEncoding;
 		self.pagination = [[ANKPaginationSettings alloc] init];
+		self.generalParameters = [[ANKGeneralParameters alloc] init];
+		self.generalParameters.includeHTML = NO;
 		[self setDefaultHeader:@"Accept" value:@"application/json"];
 		[self registerHTTPOperationClass:[ANKJSONRequestOperation class]];
 		
 		[self addObserver:self forKeyPath:@"accessToken" options:NSKeyValueObservingOptionNew context:nil];
+		[self addObserver:self forKeyPath:@"shouldRequestAnnotations" options:NSKeyValueObservingOptionNew context:nil];
 	}
     
     return self;
@@ -67,6 +71,7 @@
 
 - (void)dealloc {
 	[self removeObserver:self forKeyPath:@"accessToken"];
+	[self removeObserver:self forKeyPath:@"shouldRequestAnnotations"];
 }
 
 
@@ -74,6 +79,8 @@
 	ANKClient *copy = [[ANKClient alloc] init];
 	copy.accessToken = self.accessToken;
 	copy.shouldRequestAnnotations = self.shouldRequestAnnotations;
+	copy.generalParameters = self.generalParameters;
+	copy.pagination = self.pagination;
 	return copy;
 }
 
@@ -81,14 +88,16 @@
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
 	if ([keyPath isEqualToString:@"accessToken"]) {
 		[self setDefaultHeader:@"Authorization" value:self.accessToken ? [@"Bearer " stringByAppendingString:self.accessToken] : nil];
+	} else if ([keyPath isEqualToString:@"shouldRequestAnnotations"]) {
+		self.generalParameters.includeAnnotations = self.shouldRequestAnnotations;
 	}
 }
 
 
 - (NSMutableURLRequest *)requestWithMethod:(NSString *)method path:(NSString *)path parameters:(NSDictionary *)parameters {
 	NSMutableDictionary *mutableParameters = parameters ? [parameters mutableCopy] : [NSMutableDictionary dictionary];
-	if (self.shouldRequestAnnotations) {
-		mutableParameters[@"include_annotations"] = @(1);
+	if (self.generalParameters) {
+		[mutableParameters addEntriesFromDictionary:[self.generalParameters JSONDictionary]];
 	}
 	if (self.pagination) {
 		[mutableParameters addEntriesFromDictionary:[self.pagination JSONDictionary]];
