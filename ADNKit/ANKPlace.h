@@ -24,6 +24,7 @@ static NSString *const kANKPlaceSearchParamCount = @"count";
 static NSString *const kANKPlaceSearchParamAltitude = @"altitude";
 static NSString *const kANKPlaceSearchParamHorizontalAccuracy = @"horizontal_accuracy";
 static NSString *const kANKPlaceSearchParamVerticalAccuracy = @"vertical_accuracy";
+static NSString *const kANKPlaceSearchParamRemoveClosed = @"remove_closed";
 
 
 @interface ANKPlace : ANKResource <ANKAnnotationReplacement>
