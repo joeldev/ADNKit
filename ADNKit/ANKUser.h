@@ -17,6 +17,11 @@
 // http://developers.app.net/docs/resources/user/#user-fields
 
 
+static NSString *const kANKUserAccountTypeHuman = @"human";
+static NSString *const kANKUserAccountTypeFeed = @"feed";
+static NSString *const kANKUserAccountTypeBot = @"bot";
+
+
 @class ANKUserCounts, ANKUserDescription, ANKImage;
 
 @interface ANKUser : ANKAnnotatableResource
