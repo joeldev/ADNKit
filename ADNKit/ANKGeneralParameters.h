@@ -20,6 +20,11 @@
 @property (assign) BOOL includeAnnotations;
 @property (assign) BOOL includePostAnnotations;
 @property (assign) BOOL includeUserAnnotations;
+@property (assign) BOOL includeMessageAnnotations;
 @property (assign) BOOL includeHTML;
+@property (assign) BOOL includeMarker;
+@property (assign) BOOL includeRead;
+@property (assign) BOOL includeRecentMessage;
+@property (strong) NSString *channelTypes;
 
 @end

@@ -22,7 +22,11 @@
 			@"include_annotations": @"includeAnnotations",
 			@"include_post_annotations": @"includePostAnnotations",
 			@"include_user_annotations": @"includeUserAnnotations",
-			@"include_html": @"includeHTML"}];
+			@"include_html": @"includeHTML",
+			@"include_marker": @"includeMarker",
+			@"include_read": @"includeRead",
+			@"include_recent_message": @"includeRecentMessage",
+			@"channel_types": @"channelTypes"}];
 }
 
 @end
