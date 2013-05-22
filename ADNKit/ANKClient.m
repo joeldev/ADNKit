@@ -77,16 +77,14 @@
 
 - (id)copyWithZone:(NSZone *)zone {
 	ANKClient *copy = [[ANKClient alloc] init];
-	copy.accessToken = self.accessToken;
-	copy.authenticatedUser = self.authenticatedUser;
-	copy.generalParameters = self.generalParameters;
-	copy.pagination = self.pagination;
+	
+	copy.accessToken = [self.accessToken copyWithZone:zone];
+	copy.authenticatedUser = [self.authenticatedUser copyWithZone:zone];
+	copy.generalParameters = [self.generalParameters copyWithZone:zone];
+	copy.pagination = [self.pagination copyWithZone:zone];
 	copy.shouldUseSharedUserDefaultsController = self.shouldUseSharedUserDefaultsController;
 	copy.shouldSynchronizeOnUserDefaultsWrite = self.shouldSynchronizeOnUserDefaultsWrite;
 	
-	copy.webAuthCompletionHandler = self.webAuthCompletionHandler;
-	copy.authHTTPClient = self.authHTTPClient;
-	copy.webAuthRedirectURI = self.webAuthRedirectURI;
 	return copy;
 }
 
