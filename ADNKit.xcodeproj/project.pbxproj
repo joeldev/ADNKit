@@ -352,8 +352,8 @@
 		5D2CFEE71703E8F200086FBD /* ANKTokenLimits.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2CFEE51703E8F200086FBD /* ANKTokenLimits.m */; };
 		5D2CFEE81703E8F200086FBD /* ANKTokenLimits.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2CFEE51703E8F200086FBD /* ANKTokenLimits.m */; };
 		5D2CFEE91703E8F200086FBD /* ANKTokenLimits.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2CFEE51703E8F200086FBD /* ANKTokenLimits.m */; };
-		5D955BE6174BD10B0077E387 /* ANKGeneralParameters.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D955BE4174BD10B0077E387 /* ANKGeneralParameters.h */; };
-		5D955BE7174BD10B0077E387 /* ANKGeneralParameters.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D955BE4174BD10B0077E387 /* ANKGeneralParameters.h */; };
+		5D955BE6174BD10B0077E387 /* ANKGeneralParameters.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D955BE4174BD10B0077E387 /* ANKGeneralParameters.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5D955BE7174BD10B0077E387 /* ANKGeneralParameters.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D955BE4174BD10B0077E387 /* ANKGeneralParameters.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5D955BE8174BD10B0077E387 /* ANKGeneralParameters.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D955BE4174BD10B0077E387 /* ANKGeneralParameters.h */; };
 		5D955BE9174BD10B0077E387 /* ANKGeneralParameters.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D955BE5174BD10B0077E387 /* ANKGeneralParameters.m */; };
 		5D955BEA174BD10B0077E387 /* ANKGeneralParameters.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D955BE5174BD10B0077E387 /* ANKGeneralParameters.m */; };
