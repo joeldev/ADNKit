@@ -22,11 +22,23 @@
 			@"include_annotations": @"includeAnnotations",
 			@"include_post_annotations": @"includePostAnnotations",
 			@"include_user_annotations": @"includeUserAnnotations",
+			@"include_message_annotations": @"includeMessageAnnotations",
 			@"include_html": @"includeHTML",
 			@"include_marker": @"includeMarker",
 			@"include_read": @"includeRead",
 			@"include_recent_message": @"includeRecentMessage",
 			@"channel_types": @"channelTypes"}];
+}
+
+- (id)init {
+	if ((self = [super init])) {
+		self.includeDeleted = YES;
+		self.includeDirectedPosts = YES;
+		self.includeHTML = YES;
+		self.includeRead = YES;
+	}
+
+	return self;
 }
 
 @end

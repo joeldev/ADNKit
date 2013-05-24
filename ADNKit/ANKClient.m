@@ -76,7 +76,7 @@
 
 
 - (id)copyWithZone:(NSZone *)zone {
-	ANKClient *copy = [[ANKClient alloc] init];
+	ANKClient *copy = [[[self class] alloc] init];
 	
 	copy.accessToken = [self.accessToken copyWithZone:zone];
 	copy.authenticatedUser = [self.authenticatedUser copyWithZone:zone];
@@ -106,7 +106,7 @@
 	if (self.pagination) {
 		[mutableParameters addEntriesFromDictionary:[self.pagination JSONDictionary]];
 	}
-	return [super requestWithMethod:method path:path parameters:mutableParameters];
+	return [super requestWithMethod:method path:path parameters:mutableParameters.count ? mutableParameters : nil];
 }
 
 
