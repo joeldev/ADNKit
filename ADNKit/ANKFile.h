@@ -37,6 +37,7 @@ static NSString *const kANKFileKIndOther = @"other";
 @property (strong) NSURL *URL;
 @property (strong) NSDate *URLExpireDate;
 @property (strong) NSURL *permanentURL;
+@property (strong) NSURL *shortURL;
 @property (strong) NSString *fileToken;
 @property (strong) NSString *readOnlyFileToken;
 @property (strong) NSString *type;
