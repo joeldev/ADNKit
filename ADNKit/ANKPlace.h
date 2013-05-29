@@ -39,8 +39,8 @@ static NSString *const kANKPlaceSearchParamVerticalAccuracy = @"vertical_accurac
 @property (strong) NSString *poBox;
 @property (strong) NSString *postcode;
 @property (strong) NSString *countryCode;
-@property (assign) CGFloat latitude;
-@property (assign) CGFloat longitude;
+@property (assign) CLLocationDegrees latitude;
+@property (assign) CLLocationDegrees longitude;
 @property (assign) BOOL isOpen;
 @property (strong) NSString *telephone;
 @property (strong) NSString *fax;
