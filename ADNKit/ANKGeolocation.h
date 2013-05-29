@@ -16,11 +16,11 @@
 
 @interface ANKGeolocation : ANKResource
 
-@property (assign) CGFloat latitude;
-@property (assign) CGFloat longitude;
-@property (assign) NSInteger altitude;
-@property (assign) NSUInteger horizontalAccuracy;
-@property (assign) NSUInteger verticalAccuracy;
+@property (assign) CLLocationDegrees latitude;
+@property (assign) CLLocationDegrees longitude;
+@property (assign) CLLocationDistance altitude;
+@property (assign) CLLocationAccuracy horizontalAccuracy;
+@property (assign) CLLocationAccuracy verticalAccuracy;
 
 - (CLLocationCoordinate2D)location;
 
