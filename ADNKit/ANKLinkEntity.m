@@ -20,6 +20,11 @@
 }
 
 
++ (NSSet *)localKeysExcludedFromJSONOutput {
+	return [[super localKeysExcludedFromJSONOutput] setByAddingObject:@"amendedLength"];
+}
+
+
 - (NSRange)amendedRange {
 	return NSMakeRange(self.position, self.amendedLength);
 }

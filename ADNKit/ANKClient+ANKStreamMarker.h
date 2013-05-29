@@ -17,6 +17,6 @@
 
 @interface ANKClient (ANKStreamMarker)
 
-- (void)updateStreamMarker:(ANKStreamMarker *)streamMarker completion:(ANKClientCompletionBlock)completionHandler;
+- (ANKJSONRequestOperation *)updateStreamMarker:(ANKStreamMarker *)streamMarker completion:(ANKClientCompletionBlock)completionHandler;
 
 @end

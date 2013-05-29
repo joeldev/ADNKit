@@ -17,16 +17,16 @@
 
 @interface ANKClient (ANKPostStreams)
 
-- (void)fetchGlobalStreamWithCompletion:(ANKClientCompletionBlock)completionHandler;
-- (void)fetchPostsWithHashtag:(NSString *)hashtag completion:(ANKClientCompletionBlock)completionHandler;
+- (ANKJSONRequestOperation *)fetchGlobalStreamWithCompletion:(ANKClientCompletionBlock)completionHandler;
+- (ANKJSONRequestOperation *)fetchPostsWithHashtag:(NSString *)hashtag completion:(ANKClientCompletionBlock)completionHandler;
 
-- (void)fetchPostsCreatedByUser:(ANKUser *)user completion:(ANKClientCompletionBlock)completionHandler;
-- (void)fetchPostsCreatedByUserWithID:(NSString *)userID completion:(ANKClientCompletionBlock)completionHandler;
+- (ANKJSONRequestOperation *)fetchPostsCreatedByUser:(ANKUser *)user completion:(ANKClientCompletionBlock)completionHandler;
+- (ANKJSONRequestOperation *)fetchPostsCreatedByUserWithID:(NSString *)userID completion:(ANKClientCompletionBlock)completionHandler;
 
-- (void)fetchPostsMentioningUser:(ANKUser *)user completion:(ANKClientCompletionBlock)completionHandler;
-- (void)fetchPostsMentioningUserWithID:(NSString *)userID completion:(ANKClientCompletionBlock)completionHandler;
+- (ANKJSONRequestOperation *)fetchPostsMentioningUser:(ANKUser *)user completion:(ANKClientCompletionBlock)completionHandler;
+- (ANKJSONRequestOperation *)fetchPostsMentioningUserWithID:(NSString *)userID completion:(ANKClientCompletionBlock)completionHandler;
 
-- (void)fetchStreamForCurrentUserWithCompletion:(ANKClientCompletionBlock)completionHandler;
-- (void)fetchUnifiedStreamForCurrentUserWithCompletion:(ANKClientCompletionBlock)completionHandler;
+- (ANKJSONRequestOperation *)fetchStreamForCurrentUserWithCompletion:(ANKClientCompletionBlock)completionHandler;
+- (ANKJSONRequestOperation *)fetchUnifiedStreamForCurrentUserWithCompletion:(ANKClientCompletionBlock)completionHandler;
 
 @end

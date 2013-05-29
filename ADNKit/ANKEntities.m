@@ -69,7 +69,7 @@
 - (NSRange)rangeForEntity:(ANKEntity *)entity {
 	__block NSRange range = NSMakeRange(entity.position, entity.length);
 	
-    [self.text enumerateSubstringsInRange:NSMakeRange(0, entity.length) options:NSStringEnumerationByComposedCharacterSequences usingBlock:^(NSString *substring, NSRange substringRange, NSRange enclosingRange, BOOL *stop) {
+    [self.text enumerateSubstringsInRange:NSMakeRange(0, self.text.length) options:NSStringEnumerationByComposedCharacterSequences usingBlock:^(NSString *substring, NSRange substringRange, NSRange enclosingRange, BOOL *stop) {
         if (substringRange.location >= range.location + range.length) {
             *stop = YES;
         } else if ([substring isSurrogatePair]) {

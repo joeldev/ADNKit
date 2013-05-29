@@ -36,5 +36,6 @@
 @property (assign) BOOL currentUserFollows;
 @property (assign) BOOL currentUserMuted;
 @property (assign) BOOL currentUserCanSubscribe;
+@property (strong) NSString *verifiedDomain;
 
 @end

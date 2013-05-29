@@ -37,6 +37,7 @@
 			@"url": @"URL",
 			@"url_expires": @"URLExpireDate",
 			@"url_permanent": @"permanentURL",
+			@"url_short": @"shortURL",
 			@"file_token": @"fileToken",
 			@"file_token_read": @"readOnlyFileToken",
 			@"image_info": @"imageInfo"}];

@@ -16,35 +16,35 @@
 
 @implementation ANKClient (ANKTokenStatus)
 
-- (void)fetchTokenStatusForCurrentUserWithCompletion:(ANKClientCompletionBlock)completionHandler {
-	[self getPath:@"token"
-	   parameters:nil
-		  success:[self successHandlerForResourceClass:[ANKTokenStatus class] clientHandler:completionHandler]
-		  failure:[self failureHandlerForClientHandler:completionHandler]];
+- (ANKJSONRequestOperation *)fetchTokenStatusForCurrentUserWithCompletion:(ANKClientCompletionBlock)completionHandler {
+	return [self enqueueGETPath:@"token"
+					 parameters:nil
+						success:[self successHandlerForResourceClass:[ANKTokenStatus class] clientHandler:completionHandler]
+						failure:[self failureHandlerForClientHandler:completionHandler]];
 }
 
 
-- (void)fetchTokenStatusesForAuthorizedUsersWithCompletion:(ANKClientCompletionBlock)completionHandler {
-	[self getPath:@"apps/me/tokens"
-	   parameters:nil
-		  success:[self successHandlerForCollectionOfResourceClass:[ANKTokenStatus class] clientHandler:completionHandler]
-		  failure:[self failureHandlerForClientHandler:completionHandler]];
+- (ANKJSONRequestOperation *)fetchTokenStatusesForAuthorizedUsersWithCompletion:(ANKClientCompletionBlock)completionHandler {
+	return [self enqueueGETPath:@"apps/me/tokens"
+					 parameters:nil
+						success:[self successHandlerForCollectionOfResourceClass:[ANKTokenStatus class] clientHandler:completionHandler]
+						failure:[self failureHandlerForClientHandler:completionHandler]];
 }
 
 
-- (void)fetchAuthorizedUserIDsWithCompletion:(ANKClientCompletionBlock)completionHandler {
-	[self getPath:@"apps/me/tokens/user_ids"
-	   parameters:nil
-		  success:[self successHandlerForPrimitiveResponseWithClientHandler:completionHandler]
-		  failure:[self failureHandlerForClientHandler:completionHandler]];
+- (ANKJSONRequestOperation *)fetchAuthorizedUserIDsWithCompletion:(ANKClientCompletionBlock)completionHandler {
+	return [self enqueueGETPath:@"apps/me/tokens/user_ids"
+					 parameters:nil
+						success:[self successHandlerForPrimitiveResponseWithClientHandler:completionHandler]
+						failure:[self failureHandlerForClientHandler:completionHandler]];
 }
 
 
-- (void)deauthorizeCurrentUserTokenWithCompletion:(ANKClientCompletionBlock)completionHandler {
-	[self deletePath:@"token"
-		  parameters:nil
-			 success:[self successHandlerForResourceClass:[ANKTokenStatus class] clientHandler:completionHandler]
-			 failure:[self failureHandlerForClientHandler:completionHandler]];
+- (ANKJSONRequestOperation *)deauthorizeCurrentUserTokenWithCompletion:(ANKClientCompletionBlock)completionHandler {
+	return [self enqueueDELETEPath:@"token"
+						parameters:nil
+						   success:[self successHandlerForResourceClass:[ANKTokenStatus class] clientHandler:completionHandler]
+						   failure:[self failureHandlerForClientHandler:completionHandler]];
 }
 
 
