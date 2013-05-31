@@ -40,6 +40,7 @@ static NSString *const kANKPlaceSearchParamRemoveClosed = @"remove_closed";
 @property (strong) NSString *poBox;
 @property (strong) NSString *postcode;
 @property (strong) NSString *countryCode;
+@property (assign) CLLocationDistance distance;
 @property (assign) CLLocationDegrees latitude;
 @property (assign) CLLocationDegrees longitude;
 @property (assign) BOOL isOpen;
