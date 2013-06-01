@@ -28,7 +28,7 @@
 
 
 + (NSSet *)localKeysExcludedFromJSONOutput {
-	return [[super localKeysExcludedFromJSONOutput] setByAddingObject:@"amendedLength"];
+	return [[super localKeysExcludedFromJSONOutput] setByAddingObjectsFromArray:@[@"amendedLength", @"templatizedURLValue"]];
 }
 
 
