@@ -277,7 +277,11 @@ static dispatch_once_t propertiesMapOnceToken;
 			}];
 		} else {
 			// otherwise, see if it needs to be transformed in order to be JSON compatible
-			SEL transformSelector = NSSelectorFromString([NSString stringWithFormat:@"JSONObjectFrom%@:", NSStringFromClass([value class])]);
+            NSString *valueClassString = NSStringFromClass([value class]);
+            if ([valueClassString hasPrefix:@"__"]) {
+                valueClassString = [valueClassString substringFromIndex:[@"__" length]];
+            }
+			SEL transformSelector = NSSelectorFromString([NSString stringWithFormat:@"JSONObjectFrom%@:", valueClassString]);
 			if ([[ANKValueTransformations transformations] respondsToSelector:transformSelector]) {
 				#pragma clang diagnostic push
 				#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
