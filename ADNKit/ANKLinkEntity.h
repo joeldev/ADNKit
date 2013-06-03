@@ -13,11 +13,19 @@
 #import "ANKEntity.h"
 
 
+static NSString *const kANKLinkEntityMessageIDTemplate = @"{message_id}";
+static NSString *const kANKLinkEntityPostIDTemplate = @"{post_id}";
+
+
 @interface ANKLinkEntity : ANKEntity
 
 @property (strong) NSString *text;
 @property (strong) NSURL *URL;
 @property (assign) NSUInteger amendedLength;
+
++ (ANKLinkEntity *)photoLinkEntityForPost;
++ (ANKLinkEntity *)photoLinkEntityForMessage;
++ (ANKLinkEntity *)photoLinkEntityWithTemplate:(NSString *)resourceTemplate photoIndex:(NSUInteger)index; // photos.app.net/<resourceTemplate>/<index>
 
 - (NSRange)amendedRange;
 

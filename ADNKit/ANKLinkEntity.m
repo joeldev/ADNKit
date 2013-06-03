@@ -13,6 +13,13 @@
 #import "ANKLinkEntity.h"
 
 
+@interface ANKLinkEntity ()
+
+@property (nonatomic, strong) NSString *templatizedURLValue;
+
+@end
+
+
 @implementation ANKLinkEntity
 
 + (NSDictionary *)JSONToLocalKeyMapping {
@@ -21,12 +28,40 @@
 
 
 + (NSSet *)localKeysExcludedFromJSONOutput {
-	return [[super localKeysExcludedFromJSONOutput] setByAddingObject:@"amendedLength"];
+	return [[super localKeysExcludedFromJSONOutput] setByAddingObjectsFromArray:@[@"amendedLength", @"templatizedURLValue"]];
+}
+
+
++ (ANKLinkEntity *)photoLinkEntityForPost {
+	return [[self class] photoLinkEntityWithTemplate:kANKLinkEntityPostIDTemplate photoIndex:1];
+}
+
+
++ (ANKLinkEntity *)photoLinkEntityForMessage {
+	return [[self class] photoLinkEntityWithTemplate:kANKLinkEntityMessageIDTemplate photoIndex:1];
+}
+
+
++ (ANKLinkEntity *)photoLinkEntityWithTemplate:(NSString *)resourceTemplate photoIndex:(NSUInteger)index {
+	ANKLinkEntity *entity = [[ANKLinkEntity alloc] init];
+	entity.templatizedURLValue = [NSString stringWithFormat:@"https://photos.app.net/%@/%@", resourceTemplate, [@(index) stringValue]];
+	return entity;
 }
 
 
 - (NSRange)amendedRange {
 	return NSMakeRange(self.position, self.amendedLength);
+}
+
+
+- (NSDictionary *)JSONDictionary {
+	NSMutableDictionary *dictionary = [[super JSONDictionary] mutableCopy];
+	
+	if (self.templatizedURLValue) {
+		dictionary[[[self class] JSONKeyForLocalKey:@"URL"]] = self.templatizedURLValue;
+	}
+	
+	return dictionary;
 }
 
 
