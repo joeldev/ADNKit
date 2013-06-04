@@ -52,6 +52,16 @@
 }
 
 
+- (NSURL *)NSURLFromNSMutableString:(NSMutableString *)string {
+    return [self NSURLFromNSString:string];
+}
+
+
+- (NSDate *)NSDateFromNSMutableString:(NSMutableString *)string {
+    return [self NSDateFromNSString:string];
+}
+
+
 - (id)JSONObjectFromNSURL:(NSURL *)URL {
 	return [URL absoluteString];
 }
