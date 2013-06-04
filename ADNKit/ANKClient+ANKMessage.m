@@ -94,5 +94,14 @@
 	return [self createMessage:message inChannelWithID:channelID completion:completionHandler];
 }
 
+-(ANKJSONRequestOperation *)deleteMessageWithID:(NSString *)messageID inChannelWithID:(NSString *)channelID completion:(ANKClientCompletionBlock)completionHandler {
+    return [self enqueueDELETEPath:[NSString stringWithFormat:@"channels/%@/messages/%@",channelID,messageID]
+                        parameters:nil
+                           success:[self successHandlerForResourceClass:[ANKMessage class] clientHandler:completionHandler]
+                           failure:[self failureHandlerForClientHandler:completionHandler]];
+}
 
+-(ANKJSONRequestOperation *)deleteMessage:(ANKMessage *)message completion:(ANKClientCompletionBlock)completionHandler {
+    return [self deleteMessageWithID:message.messageID inChannelWithID:message.channelID completion:completionHandler];
+}
 @end
