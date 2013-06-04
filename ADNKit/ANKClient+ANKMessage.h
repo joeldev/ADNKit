@@ -28,6 +28,8 @@
 - (ANKJSONRequestOperation *)createMessage:(ANKMessage *)message inChannelWithID:(NSString *)channelID completion:(ANKClientCompletionBlock)completionHandler;
 - (ANKJSONRequestOperation *)createMessageWithText:(NSString *)messageText inReplyToMessageWithID:(NSString *)messageID inChannel:(ANKChannel *)channel completion:(ANKClientCompletionBlock)completionHandler;
 - (ANKJSONRequestOperation *)createMessageWithText:(NSString *)messageText inReplyToMessageWithID:(NSString *)messageID inChannelWithID:(NSString *)channelID completion:(ANKClientCompletionBlock)completionHandler;
--(ANKJSONRequestOperation *)deleteMessageWithID:(NSString *)messageID inChannelWithID:(NSString *)channelID completion:(ANKClientCompletionBlock)completionHandler;
--(ANKJSONRequestOperation *)deleteMessage:(ANKMessage *)message completion:(ANKClientCompletionBlock)completionHandler;
+
+- (ANKJSONRequestOperation *)deleteMessageWithID:(NSString *)messageID inChannelWithID:(NSString *)channelID completion:(ANKClientCompletionBlock)completionHandler;
+- (ANKJSONRequestOperation *)deleteMessage:(ANKMessage *)message completion:(ANKClientCompletionBlock)completionHandler;
+
 @end
