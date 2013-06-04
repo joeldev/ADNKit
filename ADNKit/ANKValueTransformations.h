@@ -22,6 +22,9 @@
 - (NSURL *)NSURLFromNSString:(NSString *)string;
 - (NSDate *)NSDateFromNSString:(NSString *)string;
 
+- (NSURL *)NSURLFromNSMutableString:(NSMutableString *)string;
+- (NSDate *)NSDateFromNSMutableString:(NSMutableString *)string;
+
 // reverse transformations
 - (id)JSONObjectFromNSURL:(NSURL *)URL;
 - (id)JSONObjectFromNSDate:(NSDate *)date;
