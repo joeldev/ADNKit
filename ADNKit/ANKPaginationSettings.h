@@ -19,7 +19,7 @@
 
 @property (strong) NSString *sinceID;
 @property (strong) NSString *beforeID;
-@property (assign) NSUInteger count;
+@property (assign) NSInteger count;
 
 // stream marker
 @property (strong) NSString *lastReadID;
@@ -29,8 +29,8 @@
 
 + (instancetype)defaultSettings;
 + (instancetype)settingsWithCount:(NSUInteger)count;
-+ (instancetype)settingsWithSinceID:(NSString *)sinceID beforeID:(NSString *)beforeID count:(NSUInteger)count;
-+ (instancetype)settingsWithLastReadID:(NSString *)lastReadID markerID:(NSString *)markerID count:(NSUInteger)count;
-+ (instancetype)settingsWithLastReadIDInclusive:(NSString *)lastReadIDInclusive markerIDInclusive:(NSString *)markerIDInclusive count:(NSUInteger)count;
++ (instancetype)settingsWithSinceID:(NSString *)sinceID beforeID:(NSString *)beforeID count:(NSInteger)count;
++ (instancetype)settingsWithLastReadID:(NSString *)lastReadID markerID:(NSString *)markerID count:(NSInteger)count;
++ (instancetype)settingsWithLastReadIDInclusive:(NSString *)lastReadIDInclusive markerIDInclusive:(NSString *)markerIDInclusive count:(NSInteger)count;
 
 @end
