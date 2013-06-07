@@ -31,12 +31,12 @@
 }
 
 
-+ (instancetype)settingsWithCount:(NSUInteger)count {
++ (instancetype)settingsWithCount:(NSInteger)count {
 	return [[self class] settingsWithSinceID:nil beforeID:nil count:count];
 }
 
 
-+ (instancetype)settingsWithSinceID:(NSString *)sinceID beforeID:(NSString *)beforeID count:(NSUInteger)count {
++ (instancetype)settingsWithSinceID:(NSString *)sinceID beforeID:(NSString *)beforeID count:(NSInteger)count {
 	ANKPaginationSettings *settings = [[[self class] alloc] init];
 	settings.sinceID = sinceID;
 	settings.beforeID = beforeID;
@@ -45,7 +45,7 @@
 }
 
 
-+ (instancetype)settingsWithLastReadID:(NSString *)lastReadID markerID:(NSString *)markerID count:(NSUInteger)count {
++ (instancetype)settingsWithLastReadID:(NSString *)lastReadID markerID:(NSString *)markerID count:(NSInteger)count {
 	ANKPaginationSettings *settings = [[[self class] alloc] init];
 	settings.lastReadID = lastReadID;
 	settings.markerID = markerID;
@@ -54,7 +54,7 @@
 }
 
 
-+ (instancetype)settingsWithLastReadIDInclusive:(NSString *)lastReadIDInclusive markerIDInclusive:(NSString *)markerIDInclusive count:(NSUInteger)count {
++ (instancetype)settingsWithLastReadIDInclusive:(NSString *)lastReadIDInclusive markerIDInclusive:(NSString *)markerIDInclusive count:(NSInteger)count {
 	ANKPaginationSettings *settings = [[[self class] alloc] init];
 	settings.lastReadIDInclusive = lastReadIDInclusive;
 	settings.markerIDInclusive = markerIDInclusive;
