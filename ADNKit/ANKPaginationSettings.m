@@ -31,7 +31,7 @@
 }
 
 
-+ (instancetype)settingsWithCount:(NSInteger)count {
++ (instancetype)settingsWithCount:(NSUInteger)count {
 	return [[self class] settingsWithSinceID:nil beforeID:nil count:count];
 }
 

@@ -99,14 +99,25 @@
 
 
 - (NSMutableURLRequest *)requestWithMethod:(NSString *)method path:(NSString *)path parameters:(NSDictionary *)parameters {
-	NSMutableDictionary *mutableParameters = parameters ? [parameters mutableCopy] : [NSMutableDictionary dictionary];
+	NSMutableURLRequest *request = [super requestWithMethod:method path:path parameters:parameters];
+
+	NSMutableDictionary *commonParameters = [NSMutableDictionary dictionary];
+
 	if (self.generalParameters) {
-		[mutableParameters addEntriesFromDictionary:[self.generalParameters JSONDictionary]];
+		[commonParameters addEntriesFromDictionary:[self.generalParameters JSONDictionary]];
 	}
+
 	if (self.pagination) {
-		[mutableParameters addEntriesFromDictionary:[self.pagination JSONDictionary]];
+		[commonParameters addEntriesFromDictionary:[self.pagination JSONDictionary]];
 	}
-	return [super requestWithMethod:method path:path parameters:mutableParameters.count ? mutableParameters : nil];
+
+	if (commonParameters.count) {
+		NSString *encodedParameters = AFQueryStringFromParametersWithEncoding(commonParameters, self.stringEncoding);
+		NSString *URLString = [request.URL absoluteString];
+		request.URL = [NSURL URLWithString:[URLString stringByAppendingFormat:[URLString rangeOfString:@"?"].location == NSNotFound ? @"?%@" : @"&%@", encodedParameters]];
+	}
+
+	return request;
 }
 
 
