@@ -24,7 +24,8 @@ Pod::Spec.new do |s|
   s.ios.source_files = 'ADNKit/*.{h,m}'
   s.osx.deployment_target = '10.7'
   s.osx.frameworks = 'CoreLocation', 'SystemConfiguration'
-  s.osx.source_files = FileList['ADNKit/*.{h,m}'].exclude(/ANKOAuthViewController/, /ANKTextFieldCell/, /ANKUsernamePasswordAuthViewController/)
+  s.osx.source_files = 'ADNKit/*.{h,m}'
+  s.osx.exclude_files = ['ADNKit/ANKOAuthViewController.{h,m}', 'ADNKit/ANKTextFieldCell.{h,m}', 'ADNKit/ANKUsernamePasswordAuthViewController.{h,m}']
 
   s.prefix_header_file = 'ADNKit/ADNKit-Prefix.pch'
 
@@ -32,5 +33,5 @@ Pod::Spec.new do |s|
 
   s.requires_arc = true
 
-  s.dependency 'AFNetworking', '~> 1.2.0'
+  s.dependency 'AFNetworking', '~> 1.3.0'
 end

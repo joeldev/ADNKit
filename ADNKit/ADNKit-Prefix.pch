@@ -13,12 +13,16 @@
 #ifdef __OBJC__
 	#import <Foundation/Foundation.h>
 
+	#define _AFNETWORKING_PIN_SSL_CERTIFICATES_
+
 	#if __IPHONE_OS_VERSION_MIN_REQUIRED
 		#import <MobileCoreServices/MobileCoreServices.h>
 	#endif
 
 	#import <SystemConfiguration/SystemConfiguration.h>
+	#import <Security/Security.h>
 	#import "AFNetworking.h"
+
 	#import "ANKResource.h"
 	#import "ANKAnnotationReplacement.h"
 	#import "ANKClient.h"
