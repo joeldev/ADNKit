@@ -29,6 +29,12 @@ typedef NS_ENUM(NSUInteger, ANKAuthScope) {
 };
 
 
+typedef NS_ENUM(NSUInteger, ANKResponseDecodingType) {
+	ANKResponseDecodingTypeModel = 0, // default - decodes server responses as model objects
+	ANKResponseDecodingTypeNone // don't decode server response
+};
+
+
 @class ANKAPIResponseMeta;
 typedef void (^ANKClientCompletionBlock)(id responseObject, ANKAPIResponseMeta *meta, NSError *error);
 
@@ -44,6 +50,7 @@ typedef void (^ANKClientCompletionBlock)(id responseObject, ANKAPIResponseMeta *
 @property (strong) NSString *accessToken; // access token acquired by auth or persisted across launches and set directly
 @property (strong) ANKPaginationSettings *pagination;
 @property (strong) ANKGeneralParameters *generalParameters;
+@property (assign) ANKResponseDecodingType responseDecodingType;
 
 @property (assign) BOOL shouldRequestAnnotations; // when yes, annotations will be fetched regardless of the object type
 @property (assign) BOOL shouldUseSharedUserDefaultsController; // default NO - uses [NSUserDefaults standardUserDefaults] when NO, [[NSUserDefaultsController sharedUserDefaultsController] defaults] when YES.

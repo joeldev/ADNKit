@@ -84,6 +84,7 @@
 	copy.pagination = [self.pagination copyWithZone:zone];
 	copy.shouldUseSharedUserDefaultsController = self.shouldUseSharedUserDefaultsController;
 	copy.shouldSynchronizeOnUserDefaultsWrite = self.shouldSynchronizeOnUserDefaultsWrite;
+	copy.responseDecodingType = self.responseDecodingType;
 	
 	return copy;
 }

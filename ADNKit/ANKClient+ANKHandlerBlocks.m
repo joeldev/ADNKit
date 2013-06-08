@@ -32,7 +32,7 @@
 		id finalObject = responseWrapper.data;
 		NSError *error = nil;
 		
-		if (unboxBlock) {
+		if (unboxBlock && self.responseDecodingType != ANKResponseDecodingTypeNone) {
 			finalObject = unboxBlock(responseWrapper, &error);
 		}
 		
