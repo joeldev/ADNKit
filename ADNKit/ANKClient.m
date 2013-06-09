@@ -21,11 +21,13 @@
 #import "ANKClient+ANKTokenStatus.h"
 #import <SocketShuttle/KATSocketShuttle.h>
 
+
 @interface ANKClient ()
 
 @property (strong) AFHTTPClient *authHTTPClient;
 @property (strong) NSString *webAuthRedirectURI;
 @property (readwrite, strong) ANKUser *authenticatedUser;
+@property (nonatomic, strong) NSMutableDictionary *sockets;
 
 - (void)initializeHTTPAuthClient;
 - (void)HTTPAuthDidCompleteSuccessfully:(BOOL)wasSuccessful error:(NSError *)error handler:(void (^)(BOOL successful, NSError *error))handler;

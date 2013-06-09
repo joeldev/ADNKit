@@ -350,6 +350,8 @@
 		25C0AA45171867B8006E47B7 /* CustomPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C0AA44171867B8006E47B7 /* CustomPost.m */; };
 		25D01E141764104A000D365D /* libSocketShuttle.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 25D01E0B17640FF1000D365D /* libSocketShuttle.a */; };
 		335AC10C17641B1800AEFCFE /* libSocketShuttle.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 25D01E0B17640FF1000D365D /* libSocketShuttle.a */; };
+		335AC111176427C300AEFCFE /* ANKStreamContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 335AC10F176427C300AEFCFE /* ANKStreamContext.h */; };
+		335AC112176427C300AEFCFE /* ANKStreamContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 335AC110176427C300AEFCFE /* ANKStreamContext.m */; };
 		5D2CFEE61703E8F200086FBD /* ANKTokenLimits.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D2CFEE41703E8F200086FBD /* ANKTokenLimits.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5D2CFEE71703E8F200086FBD /* ANKTokenLimits.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2CFEE51703E8F200086FBD /* ANKTokenLimits.m */; };
 		5D2CFEE81703E8F200086FBD /* ANKTokenLimits.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2CFEE51703E8F200086FBD /* ANKTokenLimits.m */; };
@@ -577,6 +579,8 @@
 		25C0AA43171867B8006E47B7 /* CustomPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomPost.h; sourceTree = "<group>"; };
 		25C0AA44171867B8006E47B7 /* CustomPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomPost.m; sourceTree = "<group>"; };
 		25D01E0517640FF1000D365D /* SocketShuttle.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SocketShuttle.xcodeproj; path = External/SocketShuttle/SocketShuttle.xcodeproj; sourceTree = "<group>"; };
+		335AC10F176427C300AEFCFE /* ANKStreamContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKStreamContext.h; sourceTree = "<group>"; };
+		335AC110176427C300AEFCFE /* ANKStreamContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANKStreamContext.m; sourceTree = "<group>"; };
 		5D2CFEE41703E8F200086FBD /* ANKTokenLimits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKTokenLimits.h; sourceTree = "<group>"; };
 		5D2CFEE51703E8F200086FBD /* ANKTokenLimits.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANKTokenLimits.m; sourceTree = "<group>"; };
 		5D955BE4174BD10B0077E387 /* ANKGeneralParameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKGeneralParameters.h; sourceTree = "<group>"; };
@@ -676,13 +680,15 @@
 		2592B70516F8D120004573FF /* ANKClient */ = {
 			isa = PBXGroup;
 			children = (
-				252A2C4316E5624700DAE393 /* ANKClient.h */,
-				252A2C4416E5624700DAE393 /* ANKClient.m */,
-				2592B70916F8D1CC004573FF /* App.net API */,
 				252A889216F8CDB8001F3E8F /* ANKClient+ANKHandlerBlocks.h */,
 				252A889316F8CDB8001F3E8F /* ANKClient+ANKHandlerBlocks.m */,
 				252AD7121745C76600E12492 /* ANKClient+ANKRequestsAPI.h */,
 				252AD7131745C76600E12492 /* ANKClient+ANKRequestsAPI.m */,
+				252A2C4316E5624700DAE393 /* ANKClient.h */,
+				252A2C4416E5624700DAE393 /* ANKClient.m */,
+				335AC10F176427C300AEFCFE /* ANKStreamContext.h */,
+				335AC110176427C300AEFCFE /* ANKStreamContext.m */,
+				2592B70916F8D1CC004573FF /* App.net API */,
 			);
 			name = ANKClient;
 			sourceTree = "<group>";
@@ -1102,6 +1108,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D955BE6174BD10B0077E387 /* ANKGeneralParameters.h in Headers */,
+				335AC111176427C300AEFCFE /* ANKStreamContext.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1495,6 +1502,7 @@
 				252E632617421632003143D6 /* ANKClient+ANKStreamMarker.m in Sources */,
 				252AD7171745C76600E12492 /* ANKClient+ANKRequestsAPI.m in Sources */,
 				5D955BE9174BD10B0077E387 /* ANKGeneralParameters.m in Sources */,
+				335AC112176427C300AEFCFE /* ANKStreamContext.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
