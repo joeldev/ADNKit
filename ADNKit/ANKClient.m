@@ -19,6 +19,7 @@
 #import "ANKResourceMap.h"
 #import "ANKUser.h"
 #import "ANKClient+ANKTokenStatus.h"
+#import <SocketShuttle/KATSocketShuttle.h>
 
 
 @interface ANKClient ()
