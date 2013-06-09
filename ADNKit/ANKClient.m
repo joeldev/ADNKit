@@ -21,7 +21,6 @@
 #import "ANKClient+ANKTokenStatus.h"
 #import <SocketShuttle/KATSocketShuttle.h>
 
-
 @interface ANKClient ()
 
 @property (strong) AFHTTPClient *authHTTPClient;
