@@ -30,7 +30,10 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
 @property (strong) AFHTTPClient *authHTTPClient;
 @property (strong) NSString *webAuthRedirectURI;
 @property (readwrite, strong) ANKUser *authenticatedUser;
+
 @property (nonatomic, strong) NSMutableDictionary *sockets;
+@property (nonatomic, weak) id<ANKStreamingDelegate> queuedDelegate;
+@property (nonatomic, copy) dispatch_semaphore_t streamingTokenSemaphore;
 
 - (void)initializeHTTPAuthClient;
 - (void)HTTPAuthDidCompleteSuccessfully:(BOOL)wasSuccessful error:(NSError *)error handler:(void (^)(BOOL successful, NSError *error))handler;
@@ -63,6 +66,8 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
 		self.pagination = [[ANKPaginationSettings alloc] init];
 		self.generalParameters = [[ANKGeneralParameters alloc] init];
 		self.generalParameters.includeHTML = NO;
+        self.streamingTokenSemaphore = dispatch_semaphore_create(0);
+
 		[self setDefaultHeader:@"Accept" value:@"application/json"];
 		[self registerHTTPOperationClass:[ANKJSONRequestOperation class]];
 		
@@ -316,11 +321,10 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
 
 
 #pragma mark -
-#pragma mark 
+#pragma mark Streams
 
-- (void)requestStreamingUpdatesWithDelegate:(id<ANKStreamingDelegate>)delegate
-{
-    
+- (void)requestStreamingUpdatesWithDelegate:(id<ANKStreamingDelegate>)delegate {
+    self.queuedDelegate = delegate;
 }
 
 
