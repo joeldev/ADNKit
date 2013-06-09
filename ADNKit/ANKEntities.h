@@ -24,6 +24,8 @@
 
 - (ANKMentionEntity *)mentionForUsername:(NSString *)username;
 - (BOOL)containsMentionForUsername:(NSString *)username;
+- (BOOL)containsHashtag:(NSString *)hashtag;
+
 - (NSRange)rangeForEntity:(ANKEntity *)entity;
 
 - (NSAttributedString *)attributedStringWithDefaultAttributes:(NSDictionary *)defaultAttributes mentionAttributes:(NSDictionary *)mentionAttributes hashtagAttributes:(NSDictionary *)hashtagAttributes linkAttributes:(NSDictionary *)linkAttributes attributeEncodeBlock:(void (^)(NSMutableDictionary *attributes, ANKEntity *entity))encodeBlock;
