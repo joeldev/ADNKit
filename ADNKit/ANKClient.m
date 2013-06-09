@@ -316,6 +316,15 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
 
 
 #pragma mark -
+#pragma mark 
+
+- (void)requestStreamingUpdatesWithDelegate:(id<ANKStreamingDelegate>)delegate
+{
+    
+}
+
+
+#pragma mark -
 #pragma mark Internal API
 
 - (void)initializeHTTPAuthClient {
