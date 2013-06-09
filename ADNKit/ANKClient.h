@@ -35,7 +35,26 @@ typedef NS_ENUM(NSUInteger, ANKResponseDecodingType) {
 };
 
 
-@class ANKAPIResponseMeta;
+@class ANKClient, ANKAPIResponseMeta;
+
+#pragma mark -
+#pragma mark - Protocols
+
+@protocol ANKStreamingDelegate <NSObject>
+
+@optional
+
+- (void)clientSocketDidConnect:(ANKClient *)client;
+- (void)clientSocketDidDisconnect:(ANKClient *)client;
+
+- (void)client:(ANKClient *)client didDisconnectOnSocketError:(NSError *)error;
+
+@required
+
+- (void)client:(ANKClient *)client didReceiveObject:(id)responseObject withMeta:(ANKAPIResponseMeta *)meta;
+
+@end
+
 typedef void (^ANKClientCompletionBlock)(id responseObject, ANKAPIResponseMeta *meta, NSError *error);
 
 
@@ -106,5 +125,10 @@ typedef void (^ANKClientCompletionBlock)(id responseObject, ANKAPIResponseMeta *
 - (NSDictionary *)authenticatedUserDefaults;
 - (void)setObject:(id)object forKeyInAuthenticatedUserDefaults:(NSString *)key;
 - (id)objectForKeyInAuthenticatedUserDefaults:(NSString *)key;
+
+#pragma mark -
+#pragma mark - Streams
+
+- (void)beginGeneratingStreamingNotificationsWithDelegate:(id<ANKStreamingDelegate>)delegate;
 
 @end

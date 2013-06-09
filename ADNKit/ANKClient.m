@@ -22,6 +22,9 @@
 #import <SocketShuttle/KATSocketShuttle.h>
 
 
+static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.net/stream/user";
+
+
 @interface ANKClient ()
 
 @property (strong) AFHTTPClient *authHTTPClient;
