@@ -66,6 +66,20 @@
 }
 
 
+- (BOOL)containsHashtag:(NSString *)hashtag {
+	BOOL containsHashtag = NO;
+	
+	for (ANKHashtagEntity *hashtagEntity in self.hashtags) {
+		if ([hashtagEntity.hashtag isEqualToString:hashtag]) {
+			containsHashtag = YES;
+			break;
+		}
+	}
+	
+	return containsHashtag;
+}
+
+
 - (NSRange)rangeForEntity:(ANKEntity *)entity {
 	__block NSRange range = NSMakeRange(entity.position, entity.length);
 	
