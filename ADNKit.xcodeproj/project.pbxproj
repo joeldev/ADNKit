@@ -348,8 +348,8 @@
 		2592B81B16FF84A4004573FF /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3725016E3AE1500190862 /* AFNetworkActivityIndicatorManager.m */; };
 		259A5EC616F2E1EF00AF9F35 /* ADNKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC370E116E0805E00190862 /* ADNKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		25C0AA45171867B8006E47B7 /* CustomPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C0AA44171867B8006E47B7 /* CustomPost.m */; };
-		25D01E1117641043000D365D /* libSocketShuttle.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 25D01E0B17640FF1000D365D /* libSocketShuttle.a */; };
 		25D01E141764104A000D365D /* libSocketShuttle.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 25D01E0B17640FF1000D365D /* libSocketShuttle.a */; };
+		335AC10C17641B1800AEFCFE /* libSocketShuttle.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 25D01E0B17640FF1000D365D /* libSocketShuttle.a */; };
 		5D2CFEE61703E8F200086FBD /* ANKTokenLimits.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D2CFEE41703E8F200086FBD /* ANKTokenLimits.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5D2CFEE71703E8F200086FBD /* ANKTokenLimits.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2CFEE51703E8F200086FBD /* ANKTokenLimits.m */; };
 		5D2CFEE81703E8F200086FBD /* ANKTokenLimits.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2CFEE51703E8F200086FBD /* ANKTokenLimits.m */; };
@@ -395,13 +395,6 @@
 			remoteGlobalIDString = 4DE9EB65170D870A005B295E;
 			remoteInfo = SocketShuttle;
 		};
-		25D01E0D1764101D000D365D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 25D01E0517640FF1000D365D /* SocketShuttle.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 4DE9EB64170D870A005B295E;
-			remoteInfo = SocketShuttle;
-		};
 		25D01E0F17641021000D365D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 25D01E0517640FF1000D365D /* SocketShuttle.xcodeproj */;
@@ -410,6 +403,13 @@
 			remoteInfo = SocketShuttle;
 		};
 		25D01E1217641047000D365D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 25D01E0517640FF1000D365D /* SocketShuttle.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 4DE9EB64170D870A005B295E;
+			remoteInfo = SocketShuttle;
+		};
+		335AC10A17641B1300AEFCFE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 25D01E0517640FF1000D365D /* SocketShuttle.xcodeproj */;
 			proxyType = 1;
@@ -649,7 +649,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				25D01E1117641043000D365D /* libSocketShuttle.a in Frameworks */,
+				335AC10C17641B1800AEFCFE /* libSocketShuttle.a in Frameworks */,
 				5DC3727E16E3AF6900190862 /* UIKit.framework in Frameworks */,
 				5DC3727B16E3AF4400190862 /* MobileCoreServices.framework in Frameworks */,
 				5DC3727916E3AF4000190862 /* SystemConfiguration.framework in Frameworks */,
@@ -1235,7 +1235,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				25D01E0E1764101D000D365D /* PBXTargetDependency */,
+				335AC10B17641B1300AEFCFE /* PBXTargetDependency */,
 			);
 			name = "ADNKit-iOS";
 			productName = ADNKit;
@@ -1581,11 +1581,6 @@
 			target = 5DC3710716E0808C00190862 /* ADNKit-OSX */;
 			targetProxy = 2592B7B616FCED92004573FF /* PBXContainerItemProxy */;
 		};
-		25D01E0E1764101D000D365D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = SocketShuttle;
-			targetProxy = 25D01E0D1764101D000D365D /* PBXContainerItemProxy */;
-		};
 		25D01E1017641021000D365D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SocketShuttle;
@@ -1595,6 +1590,11 @@
 			isa = PBXTargetDependency;
 			name = SocketShuttle;
 			targetProxy = 25D01E1217641047000D365D /* PBXContainerItemProxy */;
+		};
+		335AC10B17641B1300AEFCFE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SocketShuttle;
+			targetProxy = 335AC10A17641B1300AEFCFE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
