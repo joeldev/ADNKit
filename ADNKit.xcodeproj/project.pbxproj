@@ -579,9 +579,6 @@
 		25C0AA43171867B8006E47B7 /* CustomPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomPost.h; sourceTree = "<group>"; };
 		25C0AA44171867B8006E47B7 /* CustomPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomPost.m; sourceTree = "<group>"; };
 		25D01E0517640FF1000D365D /* SocketShuttle.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SocketShuttle.xcodeproj; path = External/SocketShuttle/SocketShuttle.xcodeproj; sourceTree = "<group>"; };
-		330BDCB21765980E009BD559 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
-		330BDCB31765980E009BD559 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
-		330BDCB41765980E009BD559 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		335AC10F176427C300AEFCFE /* ANKStreamContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKStreamContext.h; sourceTree = "<group>"; };
 		335AC110176427C300AEFCFE /* ANKStreamContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANKStreamContext.m; sourceTree = "<group>"; };
 		5D2CFEE41703E8F200086FBD /* ANKTokenLimits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKTokenLimits.h; sourceTree = "<group>"; };
@@ -881,9 +878,6 @@
 		5DC370D016E0805E00190862 = {
 			isa = PBXGroup;
 			children = (
-				330BDCB21765980E009BD559 /* CFNetwork.framework */,
-				330BDCB31765980E009BD559 /* libicucore.dylib */,
-				330BDCB41765980E009BD559 /* Security.framework */,
 				5DC370E116E0805E00190862 /* ADNKit.h */,
 				5DA357CB16EBC18B00FA21F8 /* ADNKit-iOS.h */,
 				5DA357CC16EBC18B00FA21F8 /* ADNKit-OSX.h */,
