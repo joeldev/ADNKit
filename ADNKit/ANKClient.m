@@ -390,8 +390,12 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
 
     KATSocketShuttle *shuttle = [[KATSocketShuttle alloc] initWithRequest:request delegate:self];
 
+    __weak typeof(self.queuedDelegate) weakQueuedDelegate = self.queuedDelegate;
+    __weak typeof(self) weakSelf = self;
+
+#warning This should be switched from referencing the block to using the delegate, so we can sort out what to do and message directly in the KATSocketShuttleDelegate method.
     ANKStreamContext *context = [[ANKStreamContext alloc] initWithIdentifier:nil socketShuttle:shuttle updateBlock:^(id responseObject, ANKAPIResponseMeta *meta, NSError *error) {
-        NSLog(@"%@ %@ %@", responseObject, meta, error);
+        [weakQueuedDelegate client:weakSelf didReceiveObject:responseObject withMeta:meta];
     }];
 
     [self.sockets addObject:context];
@@ -402,10 +406,20 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
 #pragma mark KATSocketShuttleDelegate
 
 - (void)socket:(KATSocketShuttle *)socket didReceiveMessage:(id)message {
-    NSDictionary *JSON = message;
-    BOOL isConnectionIDMessage = JSON[@"meta"][@"connection_id"] != nil;
+    NSError *error = nil;
+    NSDictionary *JSON = [NSJSONSerialization JSONObjectWithData:[message dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:&error];
 
-    ANKStreamContext *context = [self.sockets filteredSetUsingPredicate:[NSPredicate predicateWithFormat:@"socket == %@", socket]].anyObject;
+    if (error) {
+        NSLog(@"Critical error getting JSON. %@", error);
+        return;
+    }
+
+    NSDictionary *metaDict = JSON[@"meta"];
+    NSString *connectionID = metaDict[@"connection_id"];
+    
+    BOOL isConnectionIDMessage = connectionID != nil;
+
+    ANKStreamContext *context = [self.sockets filteredSetUsingPredicate:[NSPredicate predicateWithFormat:@"socketShuttle == %@", socket]].anyObject;
 
     if (!context) {
         NSLog(@"Critical error: there was no stream context found.");
@@ -413,9 +427,12 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
     }
 
     if (isConnectionIDMessage) {
+        [socket disconnect];
 
+        context.identifier = connectionID;
+        context.socketShuttle = nil;
     } else {
-        
+        context.updateBlock(message, nil, nil);
     }
 
     NSLog(@"Message: %@", message);
