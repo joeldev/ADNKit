@@ -67,15 +67,17 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
 		self.pagination = [[ANKPaginationSettings alloc] init];
 		self.generalParameters = [[ANKGeneralParameters alloc] init];
 		self.generalParameters.includeHTML = NO;
-        self.streamingTokenSemaphore = dispatch_semaphore_create(0);
 
 		[self setDefaultHeader:@"Accept" value:@"application/json"];
 		[self registerHTTPOperationClass:[ANKJSONRequestOperation class]];
 		
 		[self addObserver:self forKeyPath:@"accessToken" options:NSKeyValueObservingOptionNew context:nil];
 		[self addObserver:self forKeyPath:@"shouldRequestAnnotations" options:NSKeyValueObservingOptionNew context:nil];
+
+        self.streamingTokenSemaphore = dispatch_semaphore_create(0);
+        self.sockets = [[NSMutableDictionary alloc] init];
 	}
-    
+
     return self;
 }
 
@@ -382,7 +384,9 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
 
 - (void)spawnUserStreamConnectionIDRequest {
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:(NSString *)ADNAPIUserStreamEndpointURL]];
-    [request setValue:self.accessToken ? [@"Bearer " stringByAppendingString:self.accessToken] : nil forHTTPHeaderField:@"Authorization"];
+
+    NSString *authorizationKey = @"Authorization";
+    [request setValue:[self defaultValueForHeader:authorizationKey] forHTTPHeaderField:authorizationKey];
 
     KATSocketShuttle *shuttle = [[KATSocketShuttle alloc] initWithRequest:request delegate:self];
 
@@ -390,8 +394,7 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
         NSLog(@"%@ %@ %@", responseObject, meta, error);
     }];
 
-    [self.sockets setObject:context forKey:@"socket"];
-
+    [self.sockets setObject:context forKey:[NSString stringWithFormat:@"Socket_%i", self.sockets.count]];
 }
 
 
@@ -399,7 +402,8 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
 #pragma mark KATSocketShuttleDelegate
 
 - (void)socket:(KATSocketShuttle *)socket didReceiveMessage:(id)message {
-    NSLog(@"%@", message);
+    
+    NSLog(@"Message: %@", message);
 }
 
 
