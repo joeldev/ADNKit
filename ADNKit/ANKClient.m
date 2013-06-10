@@ -32,7 +32,7 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
 @property (strong) NSString *webAuthRedirectURI;
 @property (readwrite, strong) ANKUser *authenticatedUser;
 
-@property (nonatomic, strong) NSMutableDictionary *sockets;
+@property (nonatomic, strong) NSMutableSet *sockets;
 @property (nonatomic, weak) id<ANKStreamingDelegate> queuedDelegate;
 @property (nonatomic) dispatch_semaphore_t streamingTokenSemaphore;
 
@@ -75,7 +75,7 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
 		[self addObserver:self forKeyPath:@"shouldRequestAnnotations" options:NSKeyValueObservingOptionNew context:nil];
 
         self.streamingTokenSemaphore = dispatch_semaphore_create(0);
-        self.sockets = [[NSMutableDictionary alloc] init];
+        self.sockets = [[NSMutableSet alloc] init];
 	}
 
     return self;
@@ -394,7 +394,7 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
         NSLog(@"%@ %@ %@", responseObject, meta, error);
     }];
 
-    [self.sockets setObject:context forKey:[NSString stringWithFormat:@"Socket_%i", self.sockets.count]];
+    [self.sockets addObject:context];
 }
 
 
@@ -402,7 +402,22 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
 #pragma mark KATSocketShuttleDelegate
 
 - (void)socket:(KATSocketShuttle *)socket didReceiveMessage:(id)message {
-    
+    NSDictionary *JSON = message;
+    BOOL isConnectionIDMessage = JSON[@"meta"][@"connection_id"] != nil;
+
+    ANKStreamContext *context = [self.sockets filteredSetUsingPredicate:[NSPredicate predicateWithFormat:@"socket == %@", socket]].anyObject;
+
+    if (!context) {
+        NSLog(@"Critical error: there was no stream context found.");
+        return;
+    }
+
+    if (isConnectionIDMessage) {
+
+    } else {
+        
+    }
+
     NSLog(@"Message: %@", message);
 }
 
