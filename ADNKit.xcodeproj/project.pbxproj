@@ -349,7 +349,7 @@
 		259A5EC616F2E1EF00AF9F35 /* ADNKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC370E116E0805E00190862 /* ADNKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		25C0AA45171867B8006E47B7 /* CustomPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C0AA44171867B8006E47B7 /* CustomPost.m */; };
 		25D01E141764104A000D365D /* libSocketShuttle.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 25D01E0B17640FF1000D365D /* libSocketShuttle.a */; };
-		335AC10C17641B1800AEFCFE /* libSocketShuttle.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 25D01E0B17640FF1000D365D /* libSocketShuttle.a */; };
+		330BDCAA17659465009BD559 /* libSocketShuttle.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 25D01E0B17640FF1000D365D /* libSocketShuttle.a */; };
 		335AC111176427C300AEFCFE /* ANKStreamContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 335AC10F176427C300AEFCFE /* ANKStreamContext.h */; };
 		335AC112176427C300AEFCFE /* ANKStreamContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 335AC110176427C300AEFCFE /* ANKStreamContext.m */; };
 		5D2CFEE61703E8F200086FBD /* ANKTokenLimits.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D2CFEE41703E8F200086FBD /* ANKTokenLimits.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -411,7 +411,7 @@
 			remoteGlobalIDString = 4DE9EB64170D870A005B295E;
 			remoteInfo = SocketShuttle;
 		};
-		335AC10A17641B1300AEFCFE /* PBXContainerItemProxy */ = {
+		330BDCA81765945F009BD559 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 25D01E0517640FF1000D365D /* SocketShuttle.xcodeproj */;
 			proxyType = 1;
@@ -579,6 +579,9 @@
 		25C0AA43171867B8006E47B7 /* CustomPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomPost.h; sourceTree = "<group>"; };
 		25C0AA44171867B8006E47B7 /* CustomPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomPost.m; sourceTree = "<group>"; };
 		25D01E0517640FF1000D365D /* SocketShuttle.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SocketShuttle.xcodeproj; path = External/SocketShuttle/SocketShuttle.xcodeproj; sourceTree = "<group>"; };
+		330BDCB21765980E009BD559 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		330BDCB31765980E009BD559 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		330BDCB41765980E009BD559 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		335AC10F176427C300AEFCFE /* ANKStreamContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKStreamContext.h; sourceTree = "<group>"; };
 		335AC110176427C300AEFCFE /* ANKStreamContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANKStreamContext.m; sourceTree = "<group>"; };
 		5D2CFEE41703E8F200086FBD /* ANKTokenLimits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKTokenLimits.h; sourceTree = "<group>"; };
@@ -653,7 +656,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				335AC10C17641B1800AEFCFE /* libSocketShuttle.a in Frameworks */,
+				330BDCAA17659465009BD559 /* libSocketShuttle.a in Frameworks */,
 				5DC3727E16E3AF6900190862 /* UIKit.framework in Frameworks */,
 				5DC3727B16E3AF4400190862 /* MobileCoreServices.framework in Frameworks */,
 				5DC3727916E3AF4000190862 /* SystemConfiguration.framework in Frameworks */,
@@ -878,6 +881,9 @@
 		5DC370D016E0805E00190862 = {
 			isa = PBXGroup;
 			children = (
+				330BDCB21765980E009BD559 /* CFNetwork.framework */,
+				330BDCB31765980E009BD559 /* libicucore.dylib */,
+				330BDCB41765980E009BD559 /* Security.framework */,
 				5DC370E116E0805E00190862 /* ADNKit.h */,
 				5DA357CB16EBC18B00FA21F8 /* ADNKit-iOS.h */,
 				5DA357CC16EBC18B00FA21F8 /* ADNKit-OSX.h */,
@@ -1242,7 +1248,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				335AC10B17641B1300AEFCFE /* PBXTargetDependency */,
+				330BDCA91765945F009BD559 /* PBXTargetDependency */,
 			);
 			name = "ADNKit-iOS";
 			productName = ADNKit;
@@ -1599,10 +1605,10 @@
 			name = SocketShuttle;
 			targetProxy = 25D01E1217641047000D365D /* PBXContainerItemProxy */;
 		};
-		335AC10B17641B1300AEFCFE /* PBXTargetDependency */ = {
+		330BDCA91765945F009BD559 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SocketShuttle;
-			targetProxy = 335AC10A17641B1300AEFCFE /* PBXContainerItemProxy */;
+			targetProxy = 330BDCA81765945F009BD559 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
