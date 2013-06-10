@@ -20,12 +20,13 @@
 #import "ANKUser.h"
 #import "ANKClient+ANKTokenStatus.h"
 #import <SocketShuttle/KATSocketShuttle.h>
+#import "ANKStreamContext.h"
 
 
 static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.net/stream/user";
 
 
-@interface ANKClient ()
+@interface ANKClient () <KATSocketShuttleDelegate>
 
 @property (strong) AFHTTPClient *authHTTPClient;
 @property (strong) NSString *webAuthRedirectURI;
@@ -33,7 +34,7 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
 
 @property (nonatomic, strong) NSMutableDictionary *sockets;
 @property (nonatomic, weak) id<ANKStreamingDelegate> queuedDelegate;
-@property (nonatomic, copy) dispatch_semaphore_t streamingTokenSemaphore;
+@property (nonatomic) dispatch_semaphore_t streamingTokenSemaphore;
 
 - (void)initializeHTTPAuthClient;
 - (void)HTTPAuthDidCompleteSuccessfully:(BOOL)wasSuccessful error:(NSError *)error handler:(void (^)(BOOL successful, NSError *error))handler;
@@ -325,6 +326,8 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
 
 - (void)requestStreamingUpdatesWithDelegate:(id<ANKStreamingDelegate>)delegate {
     self.queuedDelegate = delegate;
+
+    [self spawnUserStreamConnectionIDRequest];
 }
 
 
@@ -374,6 +377,29 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
 	self.authHTTPClient = nil;
 	self.webAuthCompletionHandler = nil;
 	self.webAuthRedirectURI = nil;
+}
+
+
+- (void)spawnUserStreamConnectionIDRequest {
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:(NSString *)ADNAPIUserStreamEndpointURL]];
+    [request setValue:self.accessToken ? [@"Bearer " stringByAppendingString:self.accessToken] : nil forHTTPHeaderField:@"Authorization"];
+
+    KATSocketShuttle *shuttle = [[KATSocketShuttle alloc] initWithRequest:request delegate:self];
+
+    ANKStreamContext *context = [[ANKStreamContext alloc] initWithIdentifier:nil socketShuttle:shuttle updateBlock:^(id responseObject, ANKAPIResponseMeta *meta, NSError *error) {
+        NSLog(@"%@ %@ %@", responseObject, meta, error);
+    }];
+
+    [self.sockets setObject:context forKey:@"socket"];
+
+}
+
+
+#pragma mark -
+#pragma mark KATSocketShuttleDelegate
+
+- (void)socket:(KATSocketShuttle *)socket didReceiveMessage:(id)message {
+    NSLog(@"%@", message);
 }
 
 
