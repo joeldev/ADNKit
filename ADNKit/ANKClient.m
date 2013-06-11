@@ -33,7 +33,6 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
 @property (readwrite, strong) ANKUser *authenticatedUser;
 
 @property (nonatomic, strong) NSMutableSet *sockets;
-@property (nonatomic, weak) id<ANKStreamingDelegate> queuedDelegate;
 @property (nonatomic) dispatch_semaphore_t streamingTokenSemaphore;
 
 - (void)initializeHTTPAuthClient;
@@ -327,9 +326,7 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
 #pragma mark Streams
 
 - (void)requestStreamingUpdatesWithDelegate:(id<ANKStreamingDelegate>)delegate {
-    self.queuedDelegate = delegate;
-
-    [self spawnUserStreamConnectionIDRequest];
+    [self spawnUserStreamConnectionIDRequestWithDelegate:delegate];
 }
 
 
@@ -382,7 +379,7 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
 }
 
 
-- (void)spawnUserStreamConnectionIDRequest {
+- (void)spawnUserStreamConnectionIDRequestWithDelegate:(id<ANKStreamingDelegate>)streamingDelegate {
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:(NSString *)ADNAPIUserStreamEndpointURL]];
 
     NSString *authorizationKey = @"Authorization";
@@ -390,12 +387,11 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
 
     KATSocketShuttle *shuttle = [[KATSocketShuttle alloc] initWithRequest:request delegate:self];
 
-    __weak typeof(self.queuedDelegate) weakQueuedDelegate = self.queuedDelegate;
     __weak typeof(self) weakSelf = self;
 
 #warning This should be switched from referencing the block to using the delegate, so we can sort out what to do and message directly in the KATSocketShuttleDelegate method.
     ANKStreamContext *context = [[ANKStreamContext alloc] initWithIdentifier:nil socketShuttle:shuttle updateBlock:^(id responseObject, ANKAPIResponseMeta *meta, NSError *error) {
-        [weakQueuedDelegate client:weakSelf didReceiveObject:responseObject withMeta:meta];
+        [streamingDelegate client:weakSelf didReceiveObject:responseObject withMeta:meta];
     }];
 
     [self.sockets addObject:context];
