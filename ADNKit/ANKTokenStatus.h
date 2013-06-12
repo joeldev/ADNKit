@@ -23,5 +23,6 @@
 @property (strong) ANKUser *user;
 @property (strong) ANKStorage *storage;
 @property (strong) ANKTokenLimits *limits;
+@property (strong) NSURL *inviteLink;
 
 @end
