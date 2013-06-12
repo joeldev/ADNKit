@@ -12,12 +12,12 @@
 
 #pragma mark - Designated Initializer
 
-- (id)initWithIdentifier:(NSString *)identifier socketShuttle:(KATSocketShuttle *)socketShuttle updateBlock:(ANKClientCompletionBlock)updateBlock;
+- (id)initWithIdentifier:(NSString *)identifier socketShuttle:(KATSocketShuttle *)socketShuttle streamingDelegate:(id<ANKStreamingDelegate>)streamingDelegate;
 
 #pragma mark - Internal
 
 @property (nonatomic, strong) KATSocketShuttle *socketShuttle;
-@property (nonatomic, copy) ANKClientCompletionBlock updateBlock;
+@property (nonatomic, weak) id<ANKStreamingDelegate> streamingDelegate;
 
 #pragma mark - API Level
 

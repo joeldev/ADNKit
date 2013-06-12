@@ -12,11 +12,11 @@
 
 #pragma mark - Designated Initializer
 
-- (id)initWithIdentifier:(NSString *)identifier socketShuttle:(KATSocketShuttle *)socketShuttle updateBlock:(ANKClientCompletionBlock)updateBlock {
+- (id)initWithIdentifier:(NSString *)identifier socketShuttle:(KATSocketShuttle *)socketShuttle streamingDelegate:(id<ANKStreamingDelegate>)streamingDelegate
     if ((self = [super init])) {
         self.identifier = identifier;
         self.socketShuttle = socketShuttle;
-        self.updateBlock = updateBlock;
+        self.streamingDelegate = streamingDelegate;
     }
 
     return self;

@@ -387,13 +387,7 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
 
     KATSocketShuttle *shuttle = [[KATSocketShuttle alloc] initWithRequest:request delegate:self];
 
-    __weak typeof(self) weakSelf = self;
-
-#warning This should be switched from referencing the block to using the delegate, so we can sort out what to do and message directly in the KATSocketShuttleDelegate method.
-    ANKStreamContext *context = [[ANKStreamContext alloc] initWithIdentifier:nil socketShuttle:shuttle updateBlock:^(id responseObject, ANKAPIResponseMeta *meta, NSError *error) {
-        [streamingDelegate client:weakSelf didReceiveObject:responseObject withMeta:meta];
-    }];
-
+    ANKStreamContext *context = [[ANKStreamContext alloc] initWithIdentifier:nil socketShuttle:shuttle streamingDelegate:streamingDelegate];
     [self.sockets addObject:context];
 }
 
