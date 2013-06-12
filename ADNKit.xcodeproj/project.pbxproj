@@ -348,6 +348,7 @@
 		2592B81B16FF84A4004573FF /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3725016E3AE1500190862 /* AFNetworkActivityIndicatorManager.m */; };
 		259A5EC616F2E1EF00AF9F35 /* ADNKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC370E116E0805E00190862 /* ADNKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		25C0AA45171867B8006E47B7 /* CustomPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C0AA44171867B8006E47B7 /* CustomPost.m */; };
+		4DBE5A24176918A20027BE89 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DBE5A23176918A20027BE89 /* Security.framework */; };
 		5D2CFEE61703E8F200086FBD /* ANKTokenLimits.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D2CFEE41703E8F200086FBD /* ANKTokenLimits.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5D2CFEE71703E8F200086FBD /* ANKTokenLimits.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2CFEE51703E8F200086FBD /* ANKTokenLimits.m */; };
 		5D2CFEE81703E8F200086FBD /* ANKTokenLimits.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2CFEE51703E8F200086FBD /* ANKTokenLimits.m */; };
@@ -546,6 +547,7 @@
 		2592B80916FF8410004573FF /* libADNKit-AFNetworking-iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libADNKit-AFNetworking-iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		25C0AA43171867B8006E47B7 /* CustomPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomPost.h; sourceTree = "<group>"; };
 		25C0AA44171867B8006E47B7 /* CustomPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomPost.m; sourceTree = "<group>"; };
+		4DBE5A23176918A20027BE89 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
 		5D2CFEE41703E8F200086FBD /* ANKTokenLimits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKTokenLimits.h; sourceTree = "<group>"; };
 		5D2CFEE51703E8F200086FBD /* ANKTokenLimits.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANKTokenLimits.m; sourceTree = "<group>"; };
 		5D955BE4174BD10B0077E387 /* ANKGeneralParameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKGeneralParameters.h; sourceTree = "<group>"; };
@@ -630,6 +632,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DBE5A24176918A20027BE89 /* Security.framework in Frameworks */,
 				252A87D416F79A09001F3E8F /* CoreServices.framework in Frameworks */,
 				5DC3728316E3AF8E00190862 /* SystemConfiguration.framework in Frameworks */,
 				5DC3728116E3AF8900190862 /* CoreLocation.framework in Frameworks */,
@@ -822,6 +825,7 @@
 		5DC370D016E0805E00190862 = {
 			isa = PBXGroup;
 			children = (
+				4DBE5A23176918A20027BE89 /* Security.framework */,
 				5DC370E116E0805E00190862 /* ADNKit.h */,
 				5DA357CB16EBC18B00FA21F8 /* ADNKit-iOS.h */,
 				5DA357CC16EBC18B00FA21F8 /* ADNKit-OSX.h */,
