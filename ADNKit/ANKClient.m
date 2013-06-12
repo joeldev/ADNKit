@@ -405,8 +405,11 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
     }
 
     NSDictionary *metaDict = JSON[@"meta"];
+    ANKAPIResponseMeta *responseMeta = metaDict ? [ANKAPIResponseMeta objectFromJSONDictionary:metaDict] : nil;
+
     NSString *connectionID = metaDict[@"connection_id"];
-    
+    NSDictionary *dataDict = JSON[@"data"];
+
     BOOL isConnectionIDMessage = connectionID != nil;
 
     ANKStreamContext *context = [self.sockets filteredSetUsingPredicate:[NSPredicate predicateWithFormat:@"socketShuttle == %@", socket]].anyObject;
@@ -422,11 +425,11 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
         context.identifier = connectionID;
         context.socketShuttle = nil;
     } else {
-        context.updateBlock(message, nil, nil);
+#warning No parsing is completed. Not really sure how to map this into ADNKit's existing parsing model, so...
+        [context.streamingDelegate client:self didReceiveObject:dataDict withMeta:responseMeta];
     }
 
     NSLog(@"Message: %@", message);
 }
-
 
 @end
