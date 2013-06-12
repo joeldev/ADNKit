@@ -129,6 +129,6 @@ typedef void (^ANKClientCompletionBlock)(id responseObject, ANKAPIResponseMeta *
 #pragma mark -
 #pragma mark - Streams
 
-- (void)requestStreamingUpdatesWithDelegate:(id<ANKStreamingDelegate>)delegate;
+- (void)requestStreamingUpdatesForOperation:(ANKJSONRequestOperation *)operation withDelegate:(id<ANKStreamingDelegate>)delegate;
 
 @end
