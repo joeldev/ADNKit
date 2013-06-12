@@ -10,10 +10,12 @@
 
 @implementation ANKStreamContext
 
-#pragma mark - Designated Initializer
+#pragma mark -
+#pragma mark Designated Initializer
 
-- (id)initWithIdentifier:(NSString *)identifier socketShuttle:(KATSocketShuttle *)socketShuttle streamingDelegate:(id<ANKStreamingDelegate>)streamingDelegate
+- (id)initWithBaseOperation:(ANKJSONRequestOperation *)operation identifier:(NSString *)identifier socketShuttle:(KATSocketShuttle *)socketShuttle streamingDelegate:(id<ANKStreamingDelegate>)streamingDelegate {
     if ((self = [super init])) {
+        self.baseOperation = operation;
         self.identifier = identifier;
         self.socketShuttle = socketShuttle;
         self.streamingDelegate = streamingDelegate;
@@ -21,5 +23,17 @@
 
     return self;
 }
+
+#pragma mark -
+#pragma mark Convenience
+
+- (NSURLRequest *)streamingOperationRequest
+{
+    NSMutableURLRequest *request = self.baseOperation.request.mutableCopy;
+    request.URL = [NSURL URLWithString:[request.URL.absoluteString stringByAppendingFormat:@"&connection_id=%@", self.identifier]];
+
+    return request;
+}
+
 
 @end

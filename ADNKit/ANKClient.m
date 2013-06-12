@@ -328,8 +328,14 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
 #pragma mark -
 #pragma mark Streams
 
-- (void)requestStreamingUpdatesWithDelegate:(id<ANKStreamingDelegate>)delegate {
-    [self spawnUserStreamConnectionIDRequestWithDelegate:delegate];
+- (void)requestStreamingUpdatesForOperation:(ANKJSONRequestOperation *)operation withDelegate:(id<ANKStreamingDelegate>)delegate {
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:(NSString *)ADNAPIUserStreamEndpointURL]];
+
+    NSString *authorizationKey = @"Authorization";
+    [request setValue:[self defaultValueForHeader:authorizationKey] forHTTPHeaderField:authorizationKey];
+
+    ANKStreamContext *context = [[ANKStreamContext alloc] initWithBaseOperation:operation identifier:nil socketShuttle:[[KATSocketShuttle alloc] initWithRequest:request delegate:self] streamingDelegate:delegate];
+    [self.sockets addObject:context];
 }
 
 
@@ -382,21 +388,6 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
 }
 
 
-- (void)spawnUserStreamConnectionIDRequestWithDelegate:(id<ANKStreamingDelegate>)streamingDelegate {
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:(NSString *)ADNAPIUserStreamEndpointURL]];
-
-    NSString *authorizationKey = @"Authorization";
-    [request setValue:[self defaultValueForHeader:authorizationKey] forHTTPHeaderField:authorizationKey];
-
-    KATSocketShuttle *shuttle = [[KATSocketShuttle alloc] initWithRequest:request delegate:self];
-
-    ANKStreamContext *context = [[ANKStreamContext alloc] initWithIdentifier:nil socketShuttle:shuttle streamingDelegate:streamingDelegate];
-    [self.sockets addObject:context];
-
-    [self.operationQueue setSuspended:YES];
-}
-
-
 #pragma mark -
 #pragma mark KATSocketShuttleDelegate
 
@@ -429,10 +420,8 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
 
         context.identifier = connectionID;
         context.socketShuttle = nil;
-        
-        dispatch_semaphore_signal(self.streamingTokenSemaphore);
 
-        [self.operationQueue setSuspended:[self.sockets filteredSetUsingPredicate:[NSPredicate predicateWithFormat:@"identifier == nil"]].count > 0];
+#warning This is where we should connect to the now-provided URL request from the context.
     } else {
 #warning No parsing is completed. Not really sure how to map this into ADNKit's existing parsing model, so...
         [context.streamingDelegate client:self didReceiveObject:dataDict withMeta:responseMeta];
