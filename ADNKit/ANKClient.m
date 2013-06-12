@@ -34,6 +34,7 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
 
 @property (nonatomic, strong) NSMutableSet *sockets;
 @property (nonatomic) dispatch_semaphore_t streamingTokenSemaphore;
+@property (nonatomic) dispatch_queue_t streamingWaitQueue;
 
 - (void)initializeHTTPAuthClient;
 - (void)HTTPAuthDidCompleteSuccessfully:(BOOL)wasSuccessful error:(NSError *)error handler:(void (^)(BOOL successful, NSError *error))handler;
@@ -74,6 +75,8 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
 		[self addObserver:self forKeyPath:@"shouldRequestAnnotations" options:NSKeyValueObservingOptionNew context:nil];
 
         self.streamingTokenSemaphore = dispatch_semaphore_create(0);
+        self.streamingWaitQueue = dispatch_queue_create("com.adnkit.adnkit.streaming", DISPATCH_QUEUE_SERIAL);
+
         self.sockets = [[NSMutableSet alloc] init];
 	}
 
@@ -389,6 +392,8 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
 
     ANKStreamContext *context = [[ANKStreamContext alloc] initWithIdentifier:nil socketShuttle:shuttle streamingDelegate:streamingDelegate];
     [self.sockets addObject:context];
+
+    [self.operationQueue setSuspended:YES];
 }
 
 
@@ -424,6 +429,10 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
 
         context.identifier = connectionID;
         context.socketShuttle = nil;
+        
+        dispatch_semaphore_signal(self.streamingTokenSemaphore);
+
+        [self.operationQueue setSuspended:[self.sockets filteredSetUsingPredicate:[NSPredicate predicateWithFormat:@"identifier == nil"]].count > 0];
     } else {
 #warning No parsing is completed. Not really sure how to map this into ADNKit's existing parsing model, so...
         [context.streamingDelegate client:self didReceiveObject:dataDict withMeta:responseMeta];
