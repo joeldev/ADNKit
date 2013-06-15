@@ -417,7 +417,7 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
     NSDictionary *JSON = [NSJSONSerialization JSONObjectWithData:[message dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:&error];
 
     if (error) {
-        NSLog(@"Critical error getting JSON. %@", error);
+        NSLog(@"JSON couldn't be parsed. %@", error);
         return;
     }
 
@@ -432,16 +432,17 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
 
     if (isConnectionIDMessage) {
         self.streamingConnectionID = connectionID;
-        for (ANKStreamContext *streamContext in self.socketContexts) {
-            streamContext.baseOperation = [self reconfigureOperationForStreaming:streamContext.baseOperation];
-        }
-    } else {
-                #warning No parsing is completed. Not really sure how to map this into ADNKit's existing parsing model, so...
-        ANKStreamContext *context = [self.socketContexts filteredSetUsingPredicate:[NSPredicate predicateWithFormat:@"identifier == %@", subscriptionID]].anyObject;
-        [context.streamingDelegate client:self didReceiveObject:dataDict withMeta:responseMeta];
-    }
 
-    NSLog(@"Message: %@", message);
+        for (ANKStreamContext *streamContext in self.socketContexts)
+            streamContext.baseOperation = [self reconfigureOperationForStreaming:streamContext.baseOperation];
+
+    } else {
+
+        for (ANKStreamContext *streamContext in [self.socketContexts filteredSetUsingPredicate:[NSPredicate predicateWithFormat:@"identifier == %@", subscriptionID]]) {
+                    #warning No parsing is completed. Not really sure how to map this into ADNKit's existing parsing model, so...
+            [streamContext.streamingDelegate client:self didReceiveObject:dataDict withMeta:responseMeta];
+        }
+    }
 }
 
 @end
