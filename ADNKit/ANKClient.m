@@ -440,7 +440,7 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
 
         for (ANKStreamContext *streamContext in [self.socketContexts filteredSetUsingPredicate:[NSPredicate predicateWithFormat:@"identifier == %@", subscriptionID]]) {
                     #warning No parsing is completed. Not really sure how to map this into ADNKit's existing parsing model, so...
-            [streamContext.streamingDelegate client:self didReceiveObject:dataDict withMeta:responseMeta];
+            [streamContext.streamingDelegate client:self didReceiveObject:JSON withMeta:responseMeta];
         }
     }
 }
