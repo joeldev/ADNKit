@@ -27,13 +27,13 @@
 #pragma mark -
 #pragma mark Convenience
 
-- (NSURLRequest *)streamingOperationRequest
-{
-    NSMutableURLRequest *request = self.baseOperation.request.mutableCopy;
-    request.URL = [NSURL URLWithString:[request.URL.absoluteString stringByAppendingFormat:@"&connection_id=%@", self.identifier]];
-
-    return request;
-}
-
+//- (NSURLRequest *)streamingOperationRequest
+//{
+//    NSMutableURLRequest *request = self.baseOperation.request.mutableCopy;
+//    request.URL = [NSURL URLWithString:[[[[request.URL.absoluteString stringByAppendingFormat:@"&connection_id=%@", self.identifier] stringByReplacingOccurrencesOfString:request.URL.scheme withString:@"wss"] stringByReplacingOccurrencesOfString:request.URL.host withString:@"stream-channel.app.net"]]];
+//
+//    return request;
+//}
+//
 
 @end

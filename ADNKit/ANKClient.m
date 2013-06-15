@@ -32,7 +32,9 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
 @property (strong) NSString *webAuthRedirectURI;
 @property (readwrite, strong) ANKUser *authenticatedUser;
 
-@property (nonatomic, strong) NSMutableSet *sockets;
+@property (nonatomic, strong) KATSocketShuttle *socketShuttle;
+@property (nonatomic, copy) NSString *streamingConnectionID;
+@property (nonatomic, strong) NSMutableSet *socketContexts;
 
 - (void)initializeHTTPAuthClient;
 - (void)HTTPAuthDidCompleteSuccessfully:(BOOL)wasSuccessful error:(NSError *)error handler:(void (^)(BOOL successful, NSError *error))handler;
@@ -68,11 +70,11 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
 
 		[self setDefaultHeader:@"Accept" value:@"application/json"];
 		[self registerHTTPOperationClass:[ANKJSONRequestOperation class]];
-		
+
 		[self addObserver:self forKeyPath:@"accessToken" options:NSKeyValueObservingOptionNew context:nil];
 		[self addObserver:self forKeyPath:@"shouldRequestAnnotations" options:NSKeyValueObservingOptionNew context:nil];
 
-        self.sockets = [[NSMutableSet alloc] init];
+        self.socketContexts = [[NSMutableSet alloc] init];
 	}
 
     return self;
@@ -324,13 +326,37 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
 #pragma mark Streams
 
 - (void)requestStreamingUpdatesForOperation:(ANKJSONRequestOperation *)operation withDelegate:(id<ANKStreamingDelegate>)delegate {
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:(NSString *)ADNAPIUserStreamEndpointURL]];
+    [operation pause];
 
-    NSString *authorizationKey = @"Authorization";
-    [request setValue:[self defaultValueForHeader:authorizationKey] forHTTPHeaderField:authorizationKey];
+    ANKJSONRequestOperation *finalizedOperation = operation;
 
-    ANKStreamContext *context = [[ANKStreamContext alloc] initWithBaseOperation:operation identifier:nil socketShuttle:[[KATSocketShuttle alloc] initWithRequest:request delegate:self] streamingDelegate:delegate];
-    [self.sockets addObject:context];
+    if (!self.streamingConnectionID) {
+
+        NSMutableURLRequest *streamingRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"wss://stream-channel.app.net/stream/user"]];
+        [streamingRequest setValue:[self defaultValueForHeader:@"Authorization"] forHTTPHeaderField:@"Authorization"];
+        self.socketShuttle = [[KATSocketShuttle alloc] initWithRequest:streamingRequest delegate:self];
+    } else {
+        finalizedOperation = [self reconfigureOperationForStreaming:operation];
+    }
+
+    ANKStreamContext *context = [[ANKStreamContext alloc] initWithBaseOperation:finalizedOperation identifier:[[NSProcessInfo processInfo] globallyUniqueString] socketShuttle:nil streamingDelegate:delegate];
+    [self.socketContexts addObject:context];
+}
+
+
+- (ANKJSONRequestOperation *)reconfigureOperationForStreaming:(ANKJSONRequestOperation *)operation
+{
+    NSURL *modifiedURL = [NSURL URLWithString:[operation.request.URL.absoluteString stringByAppendingFormat:@"&connection_id=%@", self.streamingConnectionID]];
+    NSMutableURLRequest *request = [operation.request mutableCopy];
+    request.URL = modifiedURL;
+
+    [operation cancel];
+
+
+    ANKJSONRequestOperation *newOperation = [[ANKJSONRequestOperation alloc] initWithRequest:request];
+    [self enqueueHTTPRequestOperation:newOperation];
+
+    return newOperation;
 }
 
 
@@ -399,26 +425,19 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
     ANKAPIResponseMeta *responseMeta = metaDict ? [ANKAPIResponseMeta objectFromJSONDictionary:metaDict] : nil;
 
     NSString *connectionID = metaDict[@"connection_id"];
+    NSString *subscriptionID = metaDict[@"subscription_id"];
     NSDictionary *dataDict = JSON[@"data"];
 
     BOOL isConnectionIDMessage = connectionID != nil;
 
-    ANKStreamContext *context = [self.sockets filteredSetUsingPredicate:[NSPredicate predicateWithFormat:@"socketShuttle == %@", socket]].anyObject;
-
-    if (!context) {
-        NSLog(@"Critical error: there was no stream context found.");
-        return;
-    }
-
     if (isConnectionIDMessage) {
-        [socket disconnect];
-
-        context.identifier = connectionID;
-        context.socketShuttle = nil;
-
-#warning This is where we should connect to the now-provided URL request from the context.
+        self.streamingConnectionID = connectionID;
+        for (ANKStreamContext *streamContext in self.socketContexts) {
+            streamContext.baseOperation = [self reconfigureOperationForStreaming:streamContext.baseOperation];
+        }
     } else {
-#warning No parsing is completed. Not really sure how to map this into ADNKit's existing parsing model, so...
+                #warning No parsing is completed. Not really sure how to map this into ADNKit's existing parsing model, so...
+        ANKStreamContext *context = [self.socketContexts filteredSetUsingPredicate:[NSPredicate predicateWithFormat:@"identifier == %@", subscriptionID]].anyObject;
         [context.streamingDelegate client:self didReceiveObject:dataDict withMeta:responseMeta];
     }
 
