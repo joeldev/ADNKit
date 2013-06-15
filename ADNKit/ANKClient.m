@@ -329,6 +329,7 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
     [operation pause];
 
     ANKJSONRequestOperation *finalizedOperation = operation;
+    NSString *subscriptionID = nil;
 
     if (!self.streamingConnectionID) {
 
@@ -336,17 +337,21 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
         [streamingRequest setValue:[self defaultValueForHeader:@"Authorization"] forHTTPHeaderField:@"Authorization"];
         self.socketShuttle = [[KATSocketShuttle alloc] initWithRequest:streamingRequest delegate:self];
     } else {
-        finalizedOperation = [self reconfigureOperationForStreaming:operation];
+
+        finalizedOperation = [self reconfigureOperationForStreaming:operation subscriptionID:&subscriptionID];
     }
 
-    ANKStreamContext *context = [[ANKStreamContext alloc] initWithBaseOperation:finalizedOperation identifier:[[NSProcessInfo processInfo] globallyUniqueString] socketShuttle:nil streamingDelegate:delegate];
+    ANKStreamContext *context = [[ANKStreamContext alloc] initWithBaseOperation:finalizedOperation identifier:subscriptionID socketShuttle:nil streamingDelegate:delegate];
     [self.socketContexts addObject:context];
 }
 
 
-- (ANKJSONRequestOperation *)reconfigureOperationForStreaming:(ANKJSONRequestOperation *)operation
+- (ANKJSONRequestOperation *)reconfigureOperationForStreaming:(ANKJSONRequestOperation *)operation subscriptionID:(NSString **)subscriptionID
 {
-    NSURL *modifiedURL = [NSURL URLWithString:[operation.request.URL.absoluteString stringByAppendingFormat:@"&connection_id=%@", self.streamingConnectionID]];
+    NSString *uniqueString = [[NSProcessInfo processInfo] globallyUniqueString];
+    *subscriptionID = uniqueString;
+    
+    NSURL *modifiedURL = [NSURL URLWithString:[operation.request.URL.absoluteString stringByAppendingFormat:@"&connection_id=%@&subscription_id=%@", self.streamingConnectionID, uniqueString]];
     NSMutableURLRequest *request = [operation.request mutableCopy];
     request.URL = modifiedURL;
 
@@ -425,22 +430,24 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
     ANKAPIResponseMeta *responseMeta = metaDict ? [ANKAPIResponseMeta objectFromJSONDictionary:metaDict] : nil;
 
     NSString *connectionID = metaDict[@"connection_id"];
-    NSString *subscriptionID = metaDict[@"subscription_id"];
+    NSArray *subscriptionIDs = metaDict[@"subscription_ids"];
     NSDictionary *dataDict = JSON[@"data"];
 
-    BOOL isConnectionIDMessage = connectionID != nil;
-
-    if (isConnectionIDMessage) {
+    if (!self.streamingConnectionID) {
         self.streamingConnectionID = connectionID;
 
-        for (ANKStreamContext *streamContext in self.socketContexts)
-            streamContext.baseOperation = [self reconfigureOperationForStreaming:streamContext.baseOperation];
+        for (ANKStreamContext *streamContext in self.socketContexts) {
+            NSString *newID = nil;
+            streamContext.baseOperation = [self reconfigureOperationForStreaming:streamContext.baseOperation subscriptionID:&newID];
+            streamContext.identifier = newID;
+        }
 
     } else {
-
-        for (ANKStreamContext *streamContext in [self.socketContexts filteredSetUsingPredicate:[NSPredicate predicateWithFormat:@"identifier == %@", subscriptionID]]) {
-                    #warning No parsing is completed. Not really sure how to map this into ADNKit's existing parsing model, so...
-            [streamContext.streamingDelegate client:self didReceiveObject:JSON withMeta:responseMeta];
+        for (NSString *subscriptionID in subscriptionIDs) {
+            for (ANKStreamContext *streamContext in [self.socketContexts filteredSetUsingPredicate:[NSPredicate predicateWithFormat:@"identifier == %@", subscriptionID]]) {
+#warning No parsing is completed. Not really sure how to map this into ADNKit's existing parsing model, so...
+                [streamContext.streamingDelegate client:self didReceiveObject:JSON withMeta:responseMeta];
+            }
         }
     }
 }
