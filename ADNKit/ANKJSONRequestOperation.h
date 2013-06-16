@@ -13,4 +13,6 @@
 
 @interface ANKJSONRequestOperation : AFJSONRequestOperation
 
+@property (nonatomic) Class resourceClass;
+
 @end

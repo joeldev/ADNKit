@@ -15,6 +15,7 @@
 #import "ANKPaginationSettings.h"
 #import "ANKGeneralParameters.h"
 #import "ANKAPIResponseMeta.h"
+#import "ANKAPIResponse.h"
 #import "ANKTokenStatus.h"
 #import "ANKResourceMap.h"
 #import "ANKUser.h"
@@ -357,7 +358,6 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
 
     [operation cancel];
 
-
     ANKJSONRequestOperation *newOperation = [[ANKJSONRequestOperation alloc] initWithRequest:request];
     [self enqueueHTTPRequestOperation:newOperation];
 
@@ -427,11 +427,10 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
     }
 
     NSDictionary *metaDict = JSON[@"meta"];
-    ANKAPIResponseMeta *responseMeta = metaDict ? [ANKAPIResponseMeta objectFromJSONDictionary:metaDict] : nil;
-
     NSString *connectionID = metaDict[@"connection_id"];
     NSArray *subscriptionIDs = metaDict[@"subscription_ids"];
-    NSDictionary *dataDict = JSON[@"data"];
+
+    ANKAPIResponse *response = [[ANKAPIResponse alloc] initWithResponseObject:JSON];
 
     if (!self.streamingConnectionID) {
         self.streamingConnectionID = connectionID;
@@ -446,7 +445,7 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
         for (NSString *subscriptionID in subscriptionIDs) {
             for (ANKStreamContext *streamContext in [self.socketContexts filteredSetUsingPredicate:[NSPredicate predicateWithFormat:@"identifier == %@", subscriptionID]]) {
 #warning No parsing is completed. Not really sure how to map this into ADNKit's existing parsing model, so...
-                [streamContext.streamingDelegate client:self didReceiveObject:JSON withMeta:responseMeta];
+                [streamContext.streamingDelegate client:self didReceiveObject:JSON withMeta:response.meta];
             }
         }
     }
