@@ -339,7 +339,7 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
         self.socketShuttle = [[KATSocketShuttle alloc] initWithRequest:streamingRequest delegate:self];
     } else {
 
-        finalizedOperation = [self reconfigureOperationForStreaming:operation subscriptionID:&subscriptionID];
+        finalizedOperation = [self reconfigureOperationForStreaming:operation subscriptionID:&subscriptionID streamingDelegate:delegate];
     }
 
     ANKStreamContext *context = [[ANKStreamContext alloc] initWithBaseOperation:finalizedOperation identifier:subscriptionID socketShuttle:nil streamingDelegate:delegate];
@@ -347,7 +347,7 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
 }
 
 
-- (ANKJSONRequestOperation *)reconfigureOperationForStreaming:(ANKJSONRequestOperation *)operation subscriptionID:(NSString **)subscriptionID
+- (ANKJSONRequestOperation *)reconfigureOperationForStreaming:(ANKJSONRequestOperation *)operation subscriptionID:(NSString **)subscriptionID streamingDelegate:(id<ANKStreamingDelegate>)streamingDelegate
 {
     NSString *uniqueString = [[NSProcessInfo processInfo] globallyUniqueString];
     *subscriptionID = uniqueString;
@@ -362,6 +362,15 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
     [self enqueueHTTPRequestOperation:newOperation];
 
     return newOperation;
+}
+
+
+- (id)parsedObjectFromJSON:(NSDictionary *)JSON
+{
+    NSDictionary *dataDictionary = JSON[@"data"];
+
+
+    return JSON;
 }
 
 
@@ -437,18 +446,19 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
 
         for (ANKStreamContext *streamContext in self.socketContexts) {
             NSString *newID = nil;
-            streamContext.baseOperation = [self reconfigureOperationForStreaming:streamContext.baseOperation subscriptionID:&newID];
+            streamContext.baseOperation = [self reconfigureOperationForStreaming:streamContext.baseOperation subscriptionID:&newID streamingDelegate:streamContext.streamingDelegate];
             streamContext.identifier = newID;
         }
 
     } else {
         for (NSString *subscriptionID in subscriptionIDs) {
             for (ANKStreamContext *streamContext in [self.socketContexts filteredSetUsingPredicate:[NSPredicate predicateWithFormat:@"identifier == %@", subscriptionID]]) {
-#warning No parsing is completed. Not really sure how to map this into ADNKit's existing parsing model, so...
-                [streamContext.streamingDelegate client:self didReceiveObject:JSON withMeta:response.meta];
+                [streamContext.streamingDelegate client:self didReceiveObject:[self parsedObjectFromJSON:JSON] withMeta:response.meta];
             }
         }
     }
+
+    NSLog(@"%@", JSON);
 }
 
 @end
