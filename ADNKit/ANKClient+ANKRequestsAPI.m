@@ -20,6 +20,9 @@
 	NSURLRequest *request = [self requestWithMethod:method path:path parameters:parameters];
     ANKJSONRequestOperation *operation = (ANKJSONRequestOperation *)[self HTTPRequestOperationWithRequest:request success:successBlock failure:failureBlock];
     [self enqueueHTTPRequestOperation:operation];
+    operation.successCallbackQueue = self.successCallbackQueue;
+    operation.failureCallbackQueue = self.failureCallbackQueue;
+
 	return operation;
 }
 

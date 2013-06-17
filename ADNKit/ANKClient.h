@@ -56,6 +56,9 @@ typedef void (^ANKClientCompletionBlock)(id responseObject, ANKAPIResponseMeta *
 @property (assign) BOOL shouldUseSharedUserDefaultsController; // default NO - uses [NSUserDefaults standardUserDefaults] when NO, [[NSUserDefaultsController sharedUserDefaultsController] defaults] when YES.
 @property (assign) BOOL shouldSynchronizeOnUserDefaultsWrite; // default NO - if set to YES, will call synchronize on each write to make sure that user defaults are written to disk immediately
 
+@property (strong) dispatch_queue_t successCallbackQueue;
+@property (strong) dispatch_queue_t failureCallbackQueue;
+
 @property (copy) void (^webAuthCompletionHandler)(BOOL success, NSError *error); // set as completion block for oauth authentication
 
 #pragma mark -
@@ -106,5 +109,11 @@ typedef void (^ANKClientCompletionBlock)(id responseObject, ANKAPIResponseMeta *
 - (NSDictionary *)authenticatedUserDefaults;
 - (void)setObject:(id)object forKeyInAuthenticatedUserDefaults:(NSString *)key;
 - (id)objectForKeyInAuthenticatedUserDefaults:(NSString *)key;
+
+
+#pragma mark -
+#pragma mark Operation Queues
+
+- (void)setSuccessCallbackQueue:(dispatch_queue_t)successCallbackQueue failureCallbackQueue:(dispatch_queue_t)failureCallbackQueue;
 
 @end

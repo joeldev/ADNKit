@@ -310,6 +310,16 @@
 }
 
 
+#pragma mark - 
+#pragma mark Setters
+
+- (void)setSuccessCallbackQueue:(dispatch_queue_t)successCallbackQueue failureCallbackQueue:(dispatch_queue_t)failureCallbackQueue
+{
+    self.successCallbackQueue = successCallbackQueue;
+    self.failureCallbackQueue = failureCallbackQueue;
+}
+
+
 #pragma mark -
 #pragma mark Internal API
 
