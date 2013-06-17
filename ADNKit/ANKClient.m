@@ -488,8 +488,6 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
             }
         }
     }
-    
-    NSLog(@"%@", JSON);
 }
 
 @end
