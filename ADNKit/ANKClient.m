@@ -1,9 +1,9 @@
 /*
  Copyright (c) 2013, Joel Levin
  All rights reserved.
- 
+
  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
- 
+
  Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
  Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
  Neither the name of ADNKit nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
@@ -19,6 +19,9 @@
 #import "ANKTokenStatus.h"
 #import "ANKResourceMap.h"
 #import "ANKUser.h"
+#import "ANKMessage.h"
+#import "ANKFile.h"
+#import "ANKPost.h"
 #import "ANKClient+ANKTokenStatus.h"
 #import <SocketShuttle/KATSocketShuttle.h>
 #import "ANKStreamContext.h"
@@ -52,7 +55,7 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
     dispatch_once(&onceToken, ^{
         sharedANKClient = [[ANKClient alloc] init];
     });
-    
+
     return sharedANKClient;
 }
 
@@ -90,7 +93,7 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
 
 - (id)copyWithZone:(NSZone *)zone {
 	ANKClient *copy = [[[self class] alloc] init];
-	
+
 	copy.accessToken = [self.accessToken copyWithZone:zone];
 	copy.authenticatedUser = [self.authenticatedUser copyWithZone:zone];
 	copy.generalParameters = [self.generalParameters copyWithZone:zone];
@@ -98,7 +101,7 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
 	copy.shouldUseSharedUserDefaultsController = self.shouldUseSharedUserDefaultsController;
 	copy.shouldSynchronizeOnUserDefaultsWrite = self.shouldSynchronizeOnUserDefaultsWrite;
 	copy.responseDecodingType = self.responseDecodingType;
-	
+
 	return copy;
 }
 
@@ -140,7 +143,7 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
 
 - (void)authenticateUsername:(NSString *)username password:(NSString *)password clientID:(NSString *)clientID passwordGrantSecret:(NSString *)passwordGrantSecret authScopes:(ANKAuthScope)authScopes completionHandler:(void (^)(BOOL success, NSError *error))completionHander {
 	// http://developers.app.net/docs/authentication/flows/password/
-	
+
 	NSDictionary *parameters = @{@"client_id": clientID, @"password_grant_secret": passwordGrantSecret, @"grant_type": @"password", @"username": username, @"password": password, @"scope": [[self class] scopeStringForAuthScopes:authScopes]};
 	[self authenticateWithParameters:parameters handler:completionHander];
 }
@@ -150,23 +153,23 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
 	// http://developers.app.net/docs/authentication/flows/web/
 	self.webAuthRedirectURI = redirectURI;
 	NSMutableString *URLString = [NSMutableString stringWithFormat:@"https://account.app.net/oauth/authenticate?client_id=%@&response_type=code", clientID];
-	
+
 	if (authScopes) {
 		[URLString appendFormat:@"&scope=%@", [[self class] scopeStringForAuthScopes:authScopes]];
 	}
-	
+
 	if (redirectURI) {
 		[URLString appendFormat:@"&redirect_uri=%@", redirectURI];
 	}
-	
+
 	if (shouldBeAppStoreCompliant) {
 		[URLString appendString:@"&adnview=appstore"];
 	}
-	
+
 	if (state) {
 		[URLString appendFormat:@"&state=%@", state];
 	}
-	
+
 	NSURL *URL = [NSURL URLWithString:URLString];
 	return [NSURLRequest requestWithURL:URL cachePolicy:NSURLCacheStorageNotAllowed timeoutInterval:60];
 }
@@ -181,9 +184,9 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
 
 + (NSString *)scopeStringForAuthScopes:(ANKAuthScope)scopes {
 	if (scopes == ANKAuthScopeNone) return nil;
-    
+
     NSMutableArray *scopeValues = [NSMutableArray array];
-    
+
     if ((scopes & ANKAuthScopeBasic) == ANKAuthScopeBasic)						[scopeValues addObject:@"basic"];
 	if ((scopes & ANKAuthScopeStream) == ANKAuthScopeStream)					[scopeValues addObject:@"stream"];
 	if ((scopes & ANKAuthScopeEmail) == ANKAuthScopeEmail)						[scopeValues addObject:@"email"];
@@ -194,14 +197,14 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
 	if ((scopes & ANKAuthScopeUpdateProfile) == ANKAuthScopeUpdateProfile)		[scopeValues addObject:@"update_profile"];
 	if ((scopes & ANKAuthScopeExport) == ANKAuthScopeExport)					[scopeValues addObject:@"export"];
 	if ((scopes & ANKAuthScopeFiles) == ANKAuthScopeFiles)						[scopeValues addObject:@"files"];
-    
+
     return [scopeValues componentsJoinedByString:@","];
 }
 
 
 + (NSArray *)scopeDescriptionsForScope:(ANKAuthScope)scope {
 	NSMutableArray *scopeDescriptions = [NSMutableArray array];
-	
+
 	static NSDictionary *scopeDescriptionMap = nil;
 	static dispatch_once_t onceToken;
 	dispatch_once(&onceToken, ^{
@@ -216,15 +219,15 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
 		mapping[@"update_profile"] = @"Update your profile information";
 		mapping[@"export"] = @"Bulk export all of your App.net data";
 		mapping[@"files"] = @"Manage your files for you";
-		
+
 		scopeDescriptionMap = mapping;
 	});
-	
+
 	NSArray *scopeKeys = [[self scopeStringForAuthScopes:scope] componentsSeparatedByString:@","];
 	for (NSString *scopeKey in scopeKeys) {
 		[scopeDescriptions addObject:scopeDescriptionMap[scopeKey]];
 	}
-	
+
 	return scopeDescriptions;
 }
 
@@ -264,7 +267,7 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
 		if (!meta.isError && !error) {
 			[self logOut];
 		}
-		
+
 		if (completionHandler) {
 			completionHandler(responseObject, meta, error);
 		}
@@ -303,13 +306,13 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
 	if (self.isAuthenticated) {
 		NSDictionary *settings = [self authenticatedUserDefaults] ?: @{};
 		NSMutableDictionary *modifiedSettings = [NSMutableDictionary dictionaryWithDictionary:settings];
-		
+
 		if (object) {
 			modifiedSettings[key] = object;
 		} else {
 			[modifiedSettings removeObjectForKey:key];
 		}
-		
+
 		[self.userDefaults setObject:modifiedSettings forKey:[NSString stringWithFormat:@"ANKUser%@", self.authenticatedUser.userID]];
 		if (self.shouldSynchronizeOnUserDefaultsWrite) {
 			[self.userDefaults synchronize];
@@ -351,7 +354,7 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
 {
     NSString *uniqueString = [[NSProcessInfo processInfo] globallyUniqueString];
     *subscriptionID = uniqueString;
-    
+
     NSURL *modifiedURL = [NSURL URLWithString:[operation.request.URL.absoluteString stringByAppendingFormat:@"&connection_id=%@&subscription_id=%@", self.streamingConnectionID, uniqueString]];
     NSMutableURLRequest *request = [operation.request mutableCopy];
     request.URL = modifiedURL;
@@ -367,8 +370,36 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
 
 - (id)parsedObjectFromJSON:(NSDictionary *)JSON
 {
-    NSDictionary *dataDictionary = JSON[@"data"];
+    if (self.responseDecodingType != ANKResponseDecodingTypeNone) {
 
+        NSSet *dataSet = [[NSSet alloc] initWithArray:JSON[@"data"]];
+        NSDictionary *sampleObject = [dataSet anyObject];
+
+        if (sampleObject) {
+            BOOL isUser = sampleObject[@"username"] && sampleObject[@"timezone"] && sampleObject[@"avatar_image"];
+            BOOL isMessage = sampleObject[@"channel_id"] && !sampleObject[@"canonical_url"] && !sampleObject[@"num_stars"];
+            BOOL isPost = sampleObject[@"num_stars"] && sampleObject[@"user"] && sampleObject[@"canonical_url"] && sampleObject[@"text"];
+            //        BOOL isChannel = sampleObject[@"has_unread"] && sampleObject[@"readers"];
+            BOOL isFile = sampleObject[@"complete"] && sampleObject[@"derived_files"];
+
+            ANKAPIResponse *response = [[ANKAPIResponse alloc] initWithResponseObject:JSON];
+            Class resourceClass = nil;
+
+            if (isUser)
+                resourceClass = [ANKUser class];
+            else if (isMessage)
+                resourceClass = [ANKMessage class];
+            else if (isPost)
+                resourceClass = [ANKPost class];
+            else if (isFile)
+                resourceClass = [ANKFile class];
+            //        else if (isChannel)
+            //            resourceClass = [ANKChannel class];
+
+            if (resourceClass)
+                return [self unboxCollectionResponse:response ofResourceClass:resourceClass];
+        }
+    }
 
     return JSON;
 }
@@ -416,7 +447,7 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
 	if (handler) {
 		handler(wasSuccessful, error);
 	}
-	
+
 	self.authHTTPClient = nil;
 	self.webAuthCompletionHandler = nil;
 	self.webAuthRedirectURI = nil;
@@ -457,7 +488,7 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
             }
         }
     }
-
+    
     NSLog(@"%@", JSON);
 }
 
