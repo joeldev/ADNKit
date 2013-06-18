@@ -404,8 +404,7 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
     return JSON;
 }
 
-- (NSArray *)streamingDelegates
-{
+- (NSArray *)streamingDelegates {
     return [self.socketContexts valueForKey:@"streamingDelegate"];
 }
 
@@ -462,8 +461,7 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
 #pragma mark -
 #pragma mark KATSocketShuttleDelegate
 
-- (void)socketDidOpen:(KATSocketShuttle *)socket
-{
+- (void)socketDidOpen:(KATSocketShuttle *)socket {
     for (id<ANKStreamingDelegate>delegate in [self.socketContexts valueForKey:@"streamingDelegate"]) {
         if ([delegate respondsToSelector:@selector(clientSocketDidConnect:)])
             [delegate clientSocketDidConnect:self];
@@ -505,13 +503,11 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
     }
 }
 
-- (void)socket:(KATSocketShuttle *)socket didFailWithError:(NSError *)error
-{
+- (void)socket:(KATSocketShuttle *)socket didFailWithError:(NSError *)error {
 
 }
 
-- (void)socket:(KATSocketShuttle *)socket didCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean
-{
+- (void)socket:(KATSocketShuttle *)socket didCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean {
 
 }
 
