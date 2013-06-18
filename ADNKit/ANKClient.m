@@ -404,12 +404,12 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
     return JSON;
 }
 
-- (NSArray *)streamingDelegates {
+- (NSSet *)streamingDelegates {
     return [self.socketContexts valueForKey:@"streamingDelegate"];
 }
 
-- (NSArray *)streamingDelegatesImplementingDelegateMethod:(SEL)delegateMethod {
-    return [[self streamingDelegates] filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(id<ANKStreamingDelegate> streamingDelegate, NSDictionary *bindings) {
+- (NSSet *)streamingDelegatesImplementingDelegateMethod:(SEL)delegateMethod {
+    return [[self streamingDelegates] filteredSetUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(id<ANKStreamingDelegate> streamingDelegate, NSDictionary *bindings) {
         return [streamingDelegate respondsToSelector:delegateMethod];
     }]];
 }
@@ -470,7 +470,7 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
 - (void)socketDidOpen:(KATSocketShuttle *)socket {
 
     __weak typeof(self) weakSelf = self;
-    [[self streamingDelegatesImplementingDelegateMethod:@selector(clientSocketDidConnect:)] enumerateObjectsWithOptions:NSEnumerationConcurrent usingBlock:^(id<ANKStreamingDelegate>streamingDelegate, NSUInteger idx, BOOL *stop) {
+    [[self streamingDelegatesImplementingDelegateMethod:@selector(clientSocketDidConnect:)] enumerateObjectsWithOptions:NSEnumerationConcurrent usingBlock:^(id<ANKStreamingDelegate> streamingDelegate, BOOL *stop) {
         [streamingDelegate clientSocketDidConnect:weakSelf];
     }];
 }
