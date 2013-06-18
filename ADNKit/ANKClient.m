@@ -404,6 +404,11 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
     return JSON;
 }
 
+- (NSArray *)streamingDelegates
+{
+    return [self.socketContexts valueForKey:@"streamingDelegate"];
+}
+
 
 #pragma mark -
 #pragma mark Internal API
