@@ -470,7 +470,7 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
 - (void)socketDidOpen:(KATSocketShuttle *)socket {
 
     __weak typeof(self) weakSelf = self;
-    [[self streamingDelegatesImplementingDelegateMethod:@selector(clientSocketDidConnect:)] enumerateObjectsWithOptions:NSEnumerationConcurrent usingBlock:^(id<ANKStreamingDelegate> streamingDelegate, BOOL *stop) {
+    [[self streamingDelegatesImplementingDelegateMethod:@selector(clientSocketDidConnect:)] enumerateObjectsUsingBlock:^(id<ANKStreamingDelegate> streamingDelegate, BOOL *stop) {
         [streamingDelegate clientSocketDidConnect:weakSelf];
     }];
 }
