@@ -408,6 +408,12 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
     return [self.socketContexts valueForKey:@"streamingDelegate"];
 }
 
+- (NSArray *)streamingDelegatesImplementingDelegateMethod:(SEL)delegateMethod {
+    return [[self streamingDelegates] filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(id<ANKStreamingDelegate> streamingDelegate, NSDictionary *bindings) {
+        return [streamingDelegate respondsToSelector:delegateMethod];
+    }]];
+}
+
 
 #pragma mark -
 #pragma mark Internal API
@@ -462,10 +468,11 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
 #pragma mark KATSocketShuttleDelegate
 
 - (void)socketDidOpen:(KATSocketShuttle *)socket {
-    for (id<ANKStreamingDelegate>delegate in [self.socketContexts valueForKey:@"streamingDelegate"]) {
-        if ([delegate respondsToSelector:@selector(clientSocketDidConnect:)])
-            [delegate clientSocketDidConnect:self];
-    }
+
+    __weak typeof(self) weakSelf = self;
+    [[self streamingDelegatesImplementingDelegateMethod:@selector(clientSocketDidConnect:)] enumerateObjectsWithOptions:NSEnumerationConcurrent usingBlock:^(id<ANKStreamingDelegate>streamingDelegate, NSUInteger idx, BOOL *stop) {
+        [streamingDelegate clientSocketDidConnect:weakSelf];
+    }];
 }
 
 - (void)socket:(KATSocketShuttle *)socket didReceiveMessage:(id)message {
