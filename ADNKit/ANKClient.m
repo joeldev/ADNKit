@@ -483,8 +483,10 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
 
     } else {
         for (NSString *subscriptionID in subscriptionIDs) {
+            id object = [self parsedObjectFromJSON:JSON];
+            
             for (ANKStreamContext *streamContext in [self.socketContexts filteredSetUsingPredicate:[NSPredicate predicateWithFormat:@"identifier == %@", subscriptionID]]) {
-                [streamContext.streamingDelegate client:self didReceiveObject:[self parsedObjectFromJSON:JSON] withMeta:response.meta];
+                [streamContext.streamingDelegate client:self didReceiveObject:object withMeta:response.meta];
             }
         }
     }
