@@ -457,6 +457,14 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
 #pragma mark -
 #pragma mark KATSocketShuttleDelegate
 
+- (void)socketDidOpen:(KATSocketShuttle *)socket
+{
+    for (id<ANKStreamingDelegate>delegate in [self.socketContexts valueForKey:@"streamingDelegate"]) {
+        if ([delegate respondsToSelector:@selector(clientSocketDidConnect:)])
+            [delegate clientSocketDidConnect:self];
+    }
+}
+
 - (void)socket:(KATSocketShuttle *)socket didReceiveMessage:(id)message {
     NSError *error = nil;
     NSDictionary *JSON = [NSJSONSerialization JSONObjectWithData:[message dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:&error];
@@ -490,6 +498,16 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
             }
         }
     }
+}
+
+- (void)socket:(KATSocketShuttle *)socket didFailWithError:(NSError *)error
+{
+
+}
+
+- (void)socket:(KATSocketShuttle *)socket didCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean
+{
+
 }
 
 @end
