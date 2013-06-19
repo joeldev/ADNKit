@@ -38,7 +38,7 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
 
 @property (nonatomic, strong) KATSocketShuttle *socketShuttle;
 @property (nonatomic, copy) NSString *streamingConnectionID;
-@property (nonatomic, strong) NSMutableSet *socketContexts;
+@property (nonatomic, strong) NSMutableSet *streamContexts;
 
 - (void)initializeHTTPAuthClient;
 - (void)HTTPAuthDidCompleteSuccessfully:(BOOL)wasSuccessful error:(NSError *)error handler:(void (^)(BOOL successful, NSError *error))handler;
@@ -78,7 +78,7 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
 		[self addObserver:self forKeyPath:@"accessToken" options:NSKeyValueObservingOptionNew context:nil];
 		[self addObserver:self forKeyPath:@"shouldRequestAnnotations" options:NSKeyValueObservingOptionNew context:nil];
 
-        self.socketContexts = [[NSMutableSet alloc] init];
+        self.streamContexts = [[NSMutableSet alloc] init];
 	}
 
     return self;
@@ -405,8 +405,9 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
 }
 
 - (NSSet *)streamingDelegates {
-    return [self.socketContexts valueForKey:@"streamingDelegate"];
+    return [self.streamContexts valueForKey:@"streamingDelegate"];
 }
+
 
 - (NSSet *)streamingDelegatesImplementingDelegateMethod:(SEL)delegateMethod {
     return [[self streamingDelegates] filteredSetUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(id<ANKStreamingDelegate> streamingDelegate, NSDictionary *bindings) {
@@ -414,6 +415,12 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
     }]];
 }
 
+
+- (void)iterateOverStreamingDelegatesImplementingDelegateMethod:(SEL)delegateMethod withBlock:(void (^)(id<ANKStreamingDelegate>streamingDelegate))iterativeBlock {
+    [[self streamingDelegatesImplementingDelegateMethod:delegateMethod] enumerateObjectsUsingBlock:^(id<ANKStreamingDelegate>streamingDelegate, BOOL *stop) {
+        iterativeBlock(streamingDelegate);
+    }];
+}
 
 #pragma mark -
 #pragma mark Internal API
@@ -468,9 +475,8 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
 #pragma mark KATSocketShuttleDelegate
 
 - (void)socketDidOpen:(KATSocketShuttle *)socket {
-
     __weak typeof(self) weakSelf = self;
-    [[self streamingDelegatesImplementingDelegateMethod:@selector(clientSocketDidConnect:)] enumerateObjectsUsingBlock:^(id<ANKStreamingDelegate> streamingDelegate, BOOL *stop) {
+    [self iterateOverStreamingDelegatesImplementingDelegateMethod:@selector(clientSocketDidConnect:) withBlock:^(id<ANKStreamingDelegate> streamingDelegate) {
         [streamingDelegate clientSocketDidConnect:weakSelf];
     }];
 }
@@ -493,7 +499,7 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
     if (!self.streamingConnectionID) {
         self.streamingConnectionID = connectionID;
 
-        for (ANKStreamContext *streamContext in self.socketContexts) {
+        for (ANKStreamContext *streamContext in self.streamContexts) {
             NSString *newID = nil;
             streamContext.baseOperation = [self reconfigureOperationForStreaming:streamContext.baseOperation subscriptionID:&newID streamingDelegate:streamContext.streamingDelegate];
             streamContext.identifier = newID;
@@ -503,7 +509,7 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
         for (NSString *subscriptionID in subscriptionIDs) {
             id object = [self parsedObjectFromJSON:JSON];
             
-            for (ANKStreamContext *streamContext in [self.socketContexts filteredSetUsingPredicate:[NSPredicate predicateWithFormat:@"identifier == %@", subscriptionID]]) {
+            for (ANKStreamContext *streamContext in [self.streamContexts filteredSetUsingPredicate:[NSPredicate predicateWithFormat:@"identifier == %@", subscriptionID]]) {
                 [streamContext.streamingDelegate client:self didReceiveObject:object withMeta:response.meta];
             }
         }
@@ -511,11 +517,17 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
 }
 
 - (void)socket:(KATSocketShuttle *)socket didFailWithError:(NSError *)error {
-
+    __weak typeof(self) weakSelf = self;
+    [self iterateOverStreamingDelegatesImplementingDelegateMethod:@selector(client:didDisconnectOnSocketError:) withBlock:^(id<ANKStreamingDelegate> streamingDelegate) {
+        [streamingDelegate client:weakSelf didDisconnectOnSocketError:error];
+    }];
 }
 
 - (void)socket:(KATSocketShuttle *)socket didCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean {
-
+    __weak typeof(self) weakSelf = self;
+    [self iterateOverStreamingDelegatesImplementingDelegateMethod:@selector(clientSocketDidDisconnect:) withBlock:^(id<ANKStreamingDelegate> streamingDelegate) {
+        [streamingDelegate clientSocketDidDisconnect:weakSelf];
+    }];
 }
 
 @end
