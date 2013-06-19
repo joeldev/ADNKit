@@ -346,7 +346,7 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
     }
 
     ANKStreamContext *context = [[ANKStreamContext alloc] initWithBaseOperation:finalizedOperation identifier:subscriptionID socketShuttle:nil streamingDelegate:delegate];
-    [self.socketContexts addObject:context];
+    [self.streamContexts addObject:context];
 }
 
 
