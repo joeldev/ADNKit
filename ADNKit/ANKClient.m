@@ -485,10 +485,8 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
     NSError *error = nil;
     NSDictionary *JSON = [NSJSONSerialization JSONObjectWithData:[message dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:&error];
 
-    if (error) {
-        NSLog(@"JSON couldn't be parsed. %@", error);
+    if (error)
         return;
-    }
 
     NSDictionary *metaDict = JSON[@"meta"];
     NSString *connectionID = metaDict[@"connection_id"];
@@ -509,9 +507,8 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
         for (NSString *subscriptionID in subscriptionIDs) {
             id object = [self parsedObjectFromJSON:JSON];
             
-            for (ANKStreamContext *streamContext in [self.streamContexts filteredSetUsingPredicate:[NSPredicate predicateWithFormat:@"identifier == %@", subscriptionID]]) {
-                [streamContext.streamingDelegate client:self didReceiveObject:object withMeta:response.meta];
-            }
+            for (id<ANKStreamingDelegate> streamingDelegate in [[self.streamContexts filteredSetUsingPredicate:[NSPredicate predicateWithFormat:@"identifier == %@", subscriptionID]] valueForKey:@"streamingDelegate"])
+                [streamingDelegate client:self didReceiveObject:object withMeta:response.meta];
         }
     }
 }
