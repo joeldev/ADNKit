@@ -362,6 +362,7 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
     [operation cancel];
 
     ANKJSONRequestOperation *newOperation = [[ANKJSONRequestOperation alloc] initWithRequest:request];
+    newOperation.completionBlock = operation.completionBlock;
     [self enqueueHTTPRequestOperation:newOperation];
 
     return newOperation;
