@@ -359,13 +359,10 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
     NSMutableURLRequest *request = [operation.request mutableCopy];
     request.URL = modifiedURL;
 
-    [operation cancel];
+    [operation setValue:request forKey:@"request"];
+    [operation resume];
 
-    ANKJSONRequestOperation *newOperation = [[ANKJSONRequestOperation alloc] initWithRequest:request];
-    newOperation.completionBlock = operation.completionBlock;
-    [self enqueueHTTPRequestOperation:newOperation];
-
-    return newOperation;
+    return operation;
 }
 
 

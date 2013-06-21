@@ -25,6 +25,9 @@
 			success(operation, response);
 		}
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        if (error.code == NSURLErrorCancelled)
+            return;
+
 		ANKAPIResponse *response = [[ANKAPIResponse alloc] initWithResponseObject:((AFJSONRequestOperation *)operation).responseJSON];
 		
 		NSMutableDictionary *modifiedUserInfo = [error.userInfo mutableCopy];
