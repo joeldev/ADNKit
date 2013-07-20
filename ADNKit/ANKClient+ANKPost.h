@@ -27,6 +27,9 @@
 - (ANKJSONRequestOperation *)fetchPostsStarredByUserWithID:(NSString *)userID completion:(ANKClientCompletionBlock)completionHandler;
 
 - (ANKJSONRequestOperation *)createPost:(ANKPost *)post completion:(ANKClientCompletionBlock)completionHandler;
+- (ANKJSONRequestOperation *)createPost:(ANKPost *)post inReplyToPost:(ANKPost *)replyToPost completion:(ANKClientCompletionBlock)completionHandler;
+- (ANKJSONRequestOperation *)createPost:(ANKPost *)post inReplyToPostWithID:(NSString *)postID completion:(ANKClientCompletionBlock)completionHandler;
+
 - (ANKJSONRequestOperation *)createPostWithText:(NSString *)text completion:(ANKClientCompletionBlock)completionHandler;
 - (ANKJSONRequestOperation *)createPostWithText:(NSString *)text inReplyToPost:(ANKPost *)post completion:(ANKClientCompletionBlock)completionHandler;
 - (ANKJSONRequestOperation *)createPostWithText:(NSString *)text inReplyToPostWithID:(NSString *)postID completion:(ANKClientCompletionBlock)completionHandler;

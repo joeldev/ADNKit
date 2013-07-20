@@ -76,6 +76,20 @@
 						 failure:[self failureHandlerForClientHandler:completionHandler]];
 }
 
+- (ANKJSONRequestOperation *)createPost:(ANKPost *)post inReplyToPost:(ANKPost *)replyToPost completion:(ANKClientCompletionBlock)completionHandler {
+    return [self createPost:post inReplyToPostWithID:replyToPost.postID completion:completionHandler];
+}
+
+- (ANKJSONRequestOperation *)createPost:(ANKPost *)post inReplyToPostWithID:(NSString *)postID completion:(ANKClientCompletionBlock)completionHandler {
+    NSMutableDictionary *parametersTemp = [[post JSONDictionary] mutableCopy];
+    if (postID)
+        parametersTemp[@"reply_to"] = postID;
+	return [self enqueuePOSTPath:@"posts"
+					  parameters:[parametersTemp copy]
+						 success:[self successHandlerForResourceClass:[ANKPost class] clientHandler:completionHandler]
+						 failure:[self failureHandlerForClientHandler:completionHandler]];
+}
+
 
 - (ANKJSONRequestOperation *)createPostWithText:(NSString *)text completion:(ANKClientCompletionBlock)completionHandler {
 	return [self createPostWithText:text inReplyToPostWithID:nil completion:completionHandler];
