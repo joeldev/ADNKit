@@ -18,6 +18,7 @@ Note: the basic core structure of this framework is based off of [Matt Rubin](ht
 * [Twentysecs] (http://twentysecs.com) by [@ctarda] (https://alpha.app.net/ctarda)
 * [Stream] (http://getstreamapp.net) by [@kolin] (https://alpha.app.net/kolin) and [@christian] (https://alpha.app.net/christian)
 * Dot by [@nerd] (https://alpha.app.net/nerd) and [@amc] (https://alpha.app.net/amc)
+* [Dayspring](http://thedunahoos.com/dayspring)  by [@nerd] (https://alpha.app.net/nerd) and [@amc] (https://alpha.app.n
 * *Multiple unannounced projects*
 
 *Please file an issue to get your app added if you'd like to be on the list!*
