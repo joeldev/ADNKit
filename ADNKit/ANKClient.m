@@ -100,7 +100,16 @@
 
 
 - (NSMutableURLRequest *)requestWithMethod:(NSString *)method path:(NSString *)path parameters:(NSDictionary *)parameters {
-	NSMutableURLRequest *request = [super requestWithMethod:method path:path parameters:parameters];
+	NSMutableDictionary *mutableParameters = parameters ? [parameters mutableCopy] : [NSMutableDictionary dictionary];
+
+	if (self.shouldRequestAnnotations) {
+        mutableParameters[@"include_annotations"] = @1;
+	}
+	if (self.shouldRequestMachineOnlyPosts) {
+        mutableParameters[@"include_machine"] = @1;
+	}
+	
+	NSMutableURLRequest *request = [super requestWithMethod:method path:path parameters:[mutableParameters copy]];
 
 	NSMutableDictionary *commonParameters = [NSMutableDictionary dictionary];
 
