@@ -16,5 +16,6 @@
 @interface ANKAnnotatableResource : ANKResource
 
 @property (strong) NSArray *annotations;
+-(NSArray *)annotationsWithType:(NSString *)type;
 
 @end
