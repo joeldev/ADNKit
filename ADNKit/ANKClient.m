@@ -62,7 +62,6 @@
 		[self registerHTTPOperationClass:[ANKJSONRequestOperation class]];
 		
 		[self addObserver:self forKeyPath:@"accessToken" options:NSKeyValueObservingOptionNew context:nil];
-		[self addObserver:self forKeyPath:@"shouldRequestAnnotations" options:NSKeyValueObservingOptionNew context:nil];
 	}
     
     return self;
@@ -71,7 +70,6 @@
 
 - (void)dealloc {
 	[self removeObserver:self forKeyPath:@"accessToken"];
-	[self removeObserver:self forKeyPath:@"shouldRequestAnnotations"];
 }
 
 
@@ -93,8 +91,6 @@
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
 	if ([keyPath isEqualToString:@"accessToken"]) {
 		[self setDefaultHeader:@"Authorization" value:self.accessToken ? [@"Bearer " stringByAppendingString:self.accessToken] : nil];
-	} else if ([keyPath isEqualToString:@"shouldRequestAnnotations"]) {
-		self.generalParameters.includeAnnotations = self.shouldRequestAnnotations;
 	}
 }
 
