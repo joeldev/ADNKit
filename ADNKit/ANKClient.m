@@ -361,6 +361,7 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
 
     [operation setValue:request forKey:@"request"];
     [operation resume];
+    [self.operationQueue setSuspended:NO];
 
     return operation;
 }
