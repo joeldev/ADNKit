@@ -6,22 +6,18 @@
 //  Copyright (c) 2013 Afterwork Studios. All rights reserved.
 //
 
-typedef enum {
-    ANKSearchQueryIndexTypeComplete
-} ANKSearchQueryIndexType;
+static NSString *const kANKSearchQueryIndexTypeComplete = @"complete";
 
-typedef enum {
-    ANKSearchQueryOrderTypeID,
-    ANKSearchQueryOrderTypeScore
-} ANKSearchQueryOrderType;
+static NSString *const kANKSearchQueryOrderTypeID = @"id";
+static NSString *const kANKSearchQueryOrderTypeScore = @"score";
 
 @interface ANKSearchQuery : ANKResource
 
 #pragma mark -
 #pragma mark General Parameters
 
-@property (nonatomic) ANKSearchQueryIndexType indexType;
-@property (nonatomic) ANKSearchQueryOrderType orderType;
+@property (nonatomic, copy) NSString *indexType;
+@property (nonatomic, copy) NSString *orderType;
 
 #pragma mark -
 #pragma mark Search Query Parameters

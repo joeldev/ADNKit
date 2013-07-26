@@ -16,7 +16,34 @@
 + (NSDictionary *)JSONToLocalKeyMapping {
 	return [[super JSONToLocalKeyMapping] ank_dictionaryByAppendingDictionary:@{
 			@"index": @"indexType",
-			@"order": @"orderType"}];
+			@"order": @"orderType",
+            @"query": @"query",
+            @"text": @"text",
+            @"hashtags": @"hashtags",
+            @"links": @"links",
+            @"link_domains" : @"linkDomains",
+            @"mentions": @"mentions",
+            @"leading_mentions": @"leadingMentions",
+            @"annotation_types": @"annotationTypes",
+            @"attachment_types": @"attachmentTypes",
+            @"crosspost_url": @"crosspostURL",
+            @"crosspost_domain": @"crosspostDomain",
+            @"place_id": @"placeID",
+            @"is_reply": @"isReply",
+            @"is_directed": @"isDirected",
+            @"has_location": @"hasLocation",
+            @"has_checkin": @"hasCheckin",
+            @"is_crosspost": @"isCrosspost",
+            @"has_attachment": @"hasAttachment",
+            @"has_oembed_photo": @"hasOEmbedPhoto",
+            @"has_oembed_video": @"hasOEmbedVideo",
+            @"has_oembed_html5video": @"hasOEmbedHTML5Video",
+            @"has_oembed_rich": @"hasOEmbedRich",
+            @"language": @"language",
+            @"client_id": @"clientID",
+            @"creator_id": @"creatorID",
+            @"reply_to": @"replyTo",
+            @"thread_id": @"threadID"}];
 }
 
 #pragma mark -
