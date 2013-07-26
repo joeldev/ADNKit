@@ -15,12 +15,6 @@ typedef enum {
     ANKSearchQueryOrderTypeScore
 } ANKSearchQueryOrderType;
 
-typedef enum {
-    ANKSearchQueryInclusionTypeYes,
-    ANKSearchQueryInclusionTypeNo,
-    ANKSearchQueryInclusionTypeUnspecified
-} ANKSearchQueryInclusionType;
-
 @interface ANKSearchQuery : ANKResource
 
 #pragma mark -
@@ -48,16 +42,16 @@ typedef enum {
 @property (nonatomic, copy) NSURL *crosspostURL;
 @property (nonatomic, copy) NSURL *crosspostDomain;
 @property (nonatomic, copy) NSString *placeID;
-@property (nonatomic) ANKSearchQueryInclusionType isReply;
-@property (nonatomic) ANKSearchQueryInclusionType isDirected;
-@property (nonatomic) ANKSearchQueryInclusionType hasLocation;
-@property (nonatomic) ANKSearchQueryInclusionType hasCheckin;
-@property (nonatomic) ANKSearchQueryInclusionType isCrosspost;
-@property (nonatomic) ANKSearchQueryInclusionType hasAttachment;
-@property (nonatomic) ANKSearchQueryInclusionType hasOEmbedPhoto;
-@property (nonatomic) ANKSearchQueryInclusionType hasOEmbedVideo;
-@property (nonatomic) ANKSearchQueryInclusionType hasOEmbedHTML5Video;
-@property (nonatomic) ANKSearchQueryInclusionType hasOEmbedRich;
+@property (nonatomic) BOOL isReply;
+@property (nonatomic) BOOL isDirected;
+@property (nonatomic) BOOL hasLocation;
+@property (nonatomic) BOOL hasCheckin;
+@property (nonatomic) BOOL isCrosspost;
+@property (nonatomic) BOOL hasAttachment;
+@property (nonatomic) BOOL hasOEmbedPhoto;
+@property (nonatomic) BOOL hasOEmbedVideo;
+@property (nonatomic) BOOL hasOEmbedHTML5Video;
+@property (nonatomic) BOOL hasOEmbedRich;
 @property (nonatomic, copy) NSString *language; // This could potentially be an NSLocale, but I'm not sure if people would want that.
 @property (nonatomic, copy) NSString *clientID;
 @property (nonatomic, copy) NSString *creatorID;
