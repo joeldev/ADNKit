@@ -11,7 +11,20 @@ static NSString *const kANKSearchQueryIndexTypeComplete = @"complete";
 static NSString *const kANKSearchQueryOrderTypeID = @"id";
 static NSString *const kANKSearchQueryOrderTypeScore = @"score";
 
+static NSString *const kANKSearchQueryMediaTypePhoto = @"photo";
+static NSString *const kANKSearchQueryMediaTypeVideo = @"video";
+static NSString *const kANKSearchQueryMediaTypeHTML5Video = @"HTML5Video";
+static NSString *const kANKSearchQueryMediaTypeRich = @"rich";
+
 @interface ANKSearchQuery : ANKResource
+
+#pragma mark -
+#pragma mark Initialization
+
++ (instancetype)searchQueryWithQuery:(NSString *)query;
++ (instancetype)searchQueryForEmbeddedMediaOfTypes:(NSArray *)mediaTypes;
++ (instancetype)searchQueryForThread:(NSString *)threadID;
++ (instancetype)searchQueryForClient:(NSString *)clientID;
 
 #pragma mark -
 #pragma mark General Parameters

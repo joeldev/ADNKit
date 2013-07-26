@@ -53,10 +53,53 @@
 - (id)init
 {
     if ((self = [super init])) {
- 
+        self.indexType = kANKSearchQueryIndexTypeComplete;
+        self.orderType = kANKSearchQueryOrderTypeScore;
     }
 
     return self;
 }
+
+
++ (instancetype)searchQueryWithQuery:(NSString *)query {
+    ANKSearchQuery *searchQuery = [[[self class] alloc] init];
+    searchQuery.query = query;
+
+    return searchQuery;
+}
+
+
++ (instancetype)searchQueryForEmbeddedMediaOfTypes:(NSArray *)mediaTypes {
+    ANKSearchQuery *searchQuery = [[[self class] alloc] init];
+    for (NSString *type in mediaTypes) {
+        if ([type isEqualToString:kANKSearchQueryMediaTypeHTML5Video]) {
+            searchQuery.hasOEmbedHTML5Video = YES;
+        } else if ([type isEqualToString:kANKSearchQueryMediaTypePhoto]) {
+            searchQuery.hasOEmbedPhoto = YES;
+        } else if ([type isEqualToString:kANKSearchQueryMediaTypeRich]) {
+            searchQuery.hasOEmbedRich = YES;
+        } else if ([type isEqualToString:kANKSearchQueryMediaTypeVideo]) {
+            searchQuery.hasOEmbedVideo = YES;
+        }
+    }
+
+    return searchQuery;
+}
+
+
++ (instancetype)searchQueryForThread:(NSString *)threadID {
+    ANKSearchQuery *searchQuery = [[[self class] alloc] init];
+    searchQuery.threadID = threadID;
+
+    return searchQuery;
+}
+
+
++ (instancetype)searchQueryForClient:(NSString *)clientID {
+    ANKSearchQuery *searchQuery = [[[self class] alloc] init];
+
+    return searchQuery;
+}
+
 
 @end
