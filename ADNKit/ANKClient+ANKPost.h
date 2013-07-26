@@ -46,6 +46,6 @@
 - (ANKJSONRequestOperation *)reportPostAsSpam:(ANKPost *)post completion:(ANKClientCompletionBlock)completionHandler;
 - (ANKJSONRequestOperation *)reportPostWithIDAsSpam:(NSString *)postID completion:(ANKClientCompletionBlock)completionHandler;
 
-- (ANKJSONRequestOperation *)searchForPostsWithQuery:(ANKSearchQuery *)query;
+- (ANKJSONRequestOperation *)searchForPostsWithQuery:(ANKSearchQuery *)query completion:(ANKClientCompletionBlock)completionHandler;
 
 @end

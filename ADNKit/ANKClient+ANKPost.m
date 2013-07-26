@@ -13,6 +13,7 @@
 #import "ANKClient+ANKPost.h"
 #import "ANKPost.h"
 #import "ANKUser.h"
+#import "ANKSearchQuery.h"
 
 
 @implementation ANKClient (ANKPost)
@@ -187,8 +188,11 @@
 
 // http://developers.app.net/docs/resources/post/search/
 
-- (ANKJSONRequestOperation *)searchForPostsWithQuery:(ANKSearchQuery *)query {
-    return nil;
+- (ANKJSONRequestOperation *)searchForPostsWithQuery:(ANKSearchQuery *)query completion:(ANKClientCompletionBlock)completionHandler {
+    return [self enqueueGETPath:@"posts/search"
+                     parameters:[query JSONDictionary]
+                        success:[self successHandlerForResourceClass:[ANKPost class] clientHandler:completionHandler]
+                        failure:[self failureHandlerForClientHandler:completionHandler]];
 }
 
 
