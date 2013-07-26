@@ -21,7 +21,7 @@ typedef enum {
     ANKSearchQueryInclusionTypeUnspecified
 } ANKSearchQueryInclusionType;
 
-@interface ANKSearchQuery : NSObject
+@interface ANKSearchQuery : ANKResource
 
 #pragma mark -
 #pragma mark General Parameters
