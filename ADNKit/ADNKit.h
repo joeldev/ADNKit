@@ -75,6 +75,7 @@
 #import <ADNKit/ANKJSONRequestOperation.h>
 #import <ADNKit/ANKPaginationSettings.h>
 #import <ADNKit/ANKGeneralParameters.h>
+#import <ADNKit/ANKSearchQuery.h>
 
 #import <ADNKit/ANKUsernameFormatter.h>
 
