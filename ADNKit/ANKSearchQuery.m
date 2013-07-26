@@ -125,4 +125,13 @@
 }
 
 
+#pragma mark -
+#pragma mark Convenience Methods
+
+
+- (void)setCrosspostDomainFromURL:(NSURL *)crosspostURL {
+    self.crosspostDomain = crosspostURL.host;
+}
+
+
 @end

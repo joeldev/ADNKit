@@ -30,6 +30,11 @@ static NSString *const kANKSearchQueryMediaTypeRich = @"rich";
 + (instancetype)searchQueryForThread:(NSString *)threadID;
 
 #pragma mark -
+#pragma mark Convenience Methods
+
+- (void)setCrosspostDomainFromURL:(NSURL *)crosspostURL;
+
+#pragma mark -
 #pragma mark General Parameters
 
 @property (nonatomic, copy) NSString *indexType;
