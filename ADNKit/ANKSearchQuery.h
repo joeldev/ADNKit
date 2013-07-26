@@ -22,9 +22,12 @@ static NSString *const kANKSearchQueryMediaTypeRich = @"rich";
 #pragma mark Initialization
 
 + (instancetype)searchQueryWithQuery:(NSString *)query;
++ (instancetype)searchQueryWithLinks:(NSArray *)links;
 + (instancetype)searchQueryForEmbeddedMediaOfTypes:(NSArray *)mediaTypes;
-+ (instancetype)searchQueryForThread:(NSString *)threadID;
++ (instancetype)searchQueryForCreatorWithID:(NSString *)creatorID;
 + (instancetype)searchQueryForClient:(NSString *)clientID;
++ (instancetype)searchQueryForPostsInReplyTo:(NSString *)replyToID;
++ (instancetype)searchQueryForThread:(NSString *)threadID;
 
 #pragma mark -
 #pragma mark General Parameters
@@ -49,7 +52,7 @@ static NSString *const kANKSearchQueryMediaTypeRich = @"rich";
 @property (nonatomic, copy) NSArray *annotationTypes;
 @property (nonatomic, copy) NSArray *attachmentTypes;
 @property (nonatomic, copy) NSURL *crosspostURL;
-@property (nonatomic, copy) NSURL *crosspostDomain;
+@property (nonatomic, copy) NSString *crosspostDomain;
 @property (nonatomic, copy) NSString *placeID;
 @property (nonatomic) BOOL isReply;
 @property (nonatomic) BOOL isDirected;
@@ -61,7 +64,7 @@ static NSString *const kANKSearchQueryMediaTypeRich = @"rich";
 @property (nonatomic) BOOL hasOEmbedVideo;
 @property (nonatomic) BOOL hasOEmbedHTML5Video;
 @property (nonatomic) BOOL hasOEmbedRich;
-@property (nonatomic, copy) NSString *language; // This could potentially be an NSLocale, but I'm not sure if people would want that.
+@property (nonatomic, copy) NSString *language;
 @property (nonatomic, copy) NSString *clientID;
 @property (nonatomic, copy) NSString *creatorID;
 @property (nonatomic, copy) NSString *replyTo;

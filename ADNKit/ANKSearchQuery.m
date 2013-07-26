@@ -69,6 +69,14 @@
 }
 
 
++ (instancetype)searchQueryWithLinks:(NSArray *)links {
+    ANKSearchQuery *searchQuery = [[[self class] alloc] init];
+    searchQuery.links = links;
+
+    return searchQuery;
+}
+
+
 + (instancetype)searchQueryForEmbeddedMediaOfTypes:(NSArray *)mediaTypes {
     ANKSearchQuery *searchQuery = [[[self class] alloc] init];
     for (NSString *type in mediaTypes) {
@@ -87,9 +95,9 @@
 }
 
 
-+ (instancetype)searchQueryForThread:(NSString *)threadID {
++ (instancetype)searchQueryForCreatorWithID:(NSString *)creatorID {
     ANKSearchQuery *searchQuery = [[[self class] alloc] init];
-    searchQuery.threadID = threadID;
+    searchQuery.creatorID = creatorID;
 
     return searchQuery;
 }
@@ -97,6 +105,21 @@
 
 + (instancetype)searchQueryForClient:(NSString *)clientID {
     ANKSearchQuery *searchQuery = [[[self class] alloc] init];
+
+    return searchQuery;
+}
+
++ (instancetype)searchQueryForPostsInReplyTo:(NSString *)replyToID {
+    ANKSearchQuery *searchQuery = [[[self class] alloc] init];
+    searchQuery.replyTo = replyToID;
+
+    return searchQuery;
+}
+
+
++ (instancetype)searchQueryForThread:(NSString *)threadID {
+    ANKSearchQuery *searchQuery = [[[self class] alloc] init];
+    searchQuery.threadID = threadID;
 
     return searchQuery;
 }
