@@ -13,7 +13,7 @@
 #import "ANKClient+ANKHandlerBlocks.h"
 
 
-@class ANKPost, ANKUser;
+@class ANKPost, ANKSearchQuery, ANKUser;
 
 @interface ANKClient (ANKPost)
 
@@ -45,5 +45,7 @@
 
 - (ANKJSONRequestOperation *)reportPostAsSpam:(ANKPost *)post completion:(ANKClientCompletionBlock)completionHandler;
 - (ANKJSONRequestOperation *)reportPostWithIDAsSpam:(NSString *)postID completion:(ANKClientCompletionBlock)completionHandler;
+
+- (ANKJSONRequestOperation *)searchForPostsWithQuery:(ANKSearchQuery *)query;
 
 @end

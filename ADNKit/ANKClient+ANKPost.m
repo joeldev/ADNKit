@@ -185,4 +185,11 @@
 }
 
 
+// http://developers.app.net/docs/resources/post/search/
+
+- (ANKJSONRequestOperation *)searchForPostsWithQuery:(ANKSearchQuery *)query {
+    return nil;
+}
+
+
 @end

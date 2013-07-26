@@ -348,6 +348,10 @@
 		2592B81B16FF84A4004573FF /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3725016E3AE1500190862 /* AFNetworkActivityIndicatorManager.m */; };
 		259A5EC616F2E1EF00AF9F35 /* ADNKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC370E116E0805E00190862 /* ADNKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		25C0AA45171867B8006E47B7 /* CustomPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C0AA44171867B8006E47B7 /* CustomPost.m */; };
+		331B250F17A247DF000E553E /* ANKSearchQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 331B250D17A247DF000E553E /* ANKSearchQuery.h */; };
+		331B251017A247DF000E553E /* ANKSearchQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 331B250D17A247DF000E553E /* ANKSearchQuery.h */; };
+		331B251117A247DF000E553E /* ANKSearchQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 331B250E17A247DF000E553E /* ANKSearchQuery.m */; };
+		331B251217A247DF000E553E /* ANKSearchQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 331B250E17A247DF000E553E /* ANKSearchQuery.m */; };
 		5D2CFEE61703E8F200086FBD /* ANKTokenLimits.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D2CFEE41703E8F200086FBD /* ANKTokenLimits.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5D2CFEE71703E8F200086FBD /* ANKTokenLimits.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2CFEE51703E8F200086FBD /* ANKTokenLimits.m */; };
 		5D2CFEE81703E8F200086FBD /* ANKTokenLimits.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2CFEE51703E8F200086FBD /* ANKTokenLimits.m */; };
@@ -547,6 +551,8 @@
 		2592B80916FF8410004573FF /* libADNKit-AFNetworking-iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libADNKit-AFNetworking-iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		25C0AA43171867B8006E47B7 /* CustomPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomPost.h; sourceTree = "<group>"; };
 		25C0AA44171867B8006E47B7 /* CustomPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomPost.m; sourceTree = "<group>"; };
+		331B250D17A247DF000E553E /* ANKSearchQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKSearchQuery.h; sourceTree = "<group>"; };
+		331B250E17A247DF000E553E /* ANKSearchQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANKSearchQuery.m; sourceTree = "<group>"; };
 		5D2CFEE41703E8F200086FBD /* ANKTokenLimits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKTokenLimits.h; sourceTree = "<group>"; };
 		5D2CFEE51703E8F200086FBD /* ANKTokenLimits.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANKTokenLimits.m; sourceTree = "<group>"; };
 		5D955BE4174BD10B0077E387 /* ANKGeneralParameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKGeneralParameters.h; sourceTree = "<group>"; };
@@ -653,6 +659,8 @@
 				252A889316F8CDB8001F3E8F /* ANKClient+ANKHandlerBlocks.m */,
 				252AD7121745C76600E12492 /* ANKClient+ANKRequestsAPI.h */,
 				252AD7131745C76600E12492 /* ANKClient+ANKRequestsAPI.m */,
+				331B250D17A247DF000E553E /* ANKSearchQuery.h */,
+				331B250E17A247DF000E553E /* ANKSearchQuery.m */,
 			);
 			name = ANKClient;
 			sourceTree = "<group>";
@@ -1055,6 +1063,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				331B250F17A247DF000E553E /* ANKSearchQuery.h in Headers */,
 				5D955BE6174BD10B0077E387 /* ANKGeneralParameters.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1130,6 +1139,7 @@
 				252A898A16F8CDF3001F3E8F /* NSArray+ANKAdditions.h in Headers */,
 				252A898D16F8CDF3001F3E8F /* NSDictionary+ANKAdditions.h in Headers */,
 				5D2CFEE61703E8F200086FBD /* ANKTokenLimits.h in Headers */,
+				331B251017A247DF000E553E /* ANKSearchQuery.h in Headers */,
 				2567680F1711539D00C57D47 /* NSString+ANKAdditions.h in Headers */,
 				2567682717153E3200C57D47 /* ANKResourceMap.h in Headers */,
 				252AD7161745C76600E12492 /* ANKClient+ANKRequestsAPI.h in Headers */,
@@ -1394,6 +1404,7 @@
 				252A892E16F8CDF2001F3E8F /* ANKExploreStream.m in Sources */,
 				252A893116F8CDF2001F3E8F /* ANKFile.m in Sources */,
 				252A893416F8CDF2001F3E8F /* ANKFilter.m in Sources */,
+				331B251117A247DF000E553E /* ANKSearchQuery.m in Sources */,
 				252A893716F8CDF2001F3E8F /* ANKFilterClause.m in Sources */,
 				252A893A16F8CDF2001F3E8F /* ANKGeolocation.m in Sources */,
 				252A893D16F8CDF2001F3E8F /* ANKHashtagEntity.m in Sources */,
@@ -1478,6 +1489,7 @@
 				252A895F16F8CDF3001F3E8F /* ANKPlace.m in Sources */,
 				252A896216F8CDF3001F3E8F /* ANKPlaceCategory.m in Sources */,
 				252A896516F8CDF3001F3E8F /* ANKPost.m in Sources */,
+				331B251217A247DF000E553E /* ANKSearchQuery.m in Sources */,
 				252A896816F8CDF3001F3E8F /* ANKResource.m in Sources */,
 				252A896B16F8CDF3001F3E8F /* ANKStorage.m in Sources */,
 				252A896E16F8CDF3001F3E8F /* ANKStream.m in Sources */,
