@@ -11,7 +11,16 @@
 @implementation ANKSearchQuery
 
 #pragma mark -
-#pragma mark - Initialization
+#pragma mark ANKResource
+
++ (NSDictionary *)JSONToLocalKeyMapping {
+	return [[super JSONToLocalKeyMapping] ank_dictionaryByAppendingDictionary:@{
+			@"index": @"indexType",
+			@"order": @"orderType"}];
+}
+
+#pragma mark -
+#pragma mark Initialization
 
 
 - (id)init
