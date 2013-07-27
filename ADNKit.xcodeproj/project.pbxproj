@@ -349,6 +349,8 @@
 		259A5EC616F2E1EF00AF9F35 /* ADNKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC370E116E0805E00190862 /* ADNKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		25C0AA45171867B8006E47B7 /* CustomPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C0AA44171867B8006E47B7 /* CustomPost.m */; };
 		25D01E141764104A000D365D /* libSocketShuttle.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 25D01E0B17640FF1000D365D /* libSocketShuttle.a */; };
+		33041CE917A3760A00C4B25A /* ANKStreamContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 335AC10F176427C300AEFCFE /* ANKStreamContext.h */; };
+		33041CEA17A3760D00C4B25A /* ANKStreamContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 335AC110176427C300AEFCFE /* ANKStreamContext.m */; };
 		330BDCAA17659465009BD559 /* libSocketShuttle.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 25D01E0B17640FF1000D365D /* libSocketShuttle.a */; };
 		335AC111176427C300AEFCFE /* ANKStreamContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 335AC10F176427C300AEFCFE /* ANKStreamContext.h */; };
 		335AC112176427C300AEFCFE /* ANKStreamContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 335AC110176427C300AEFCFE /* ANKStreamContext.m */; };
@@ -1100,6 +1102,7 @@
 				252AD7151745C76600E12492 /* ANKClient+ANKRequestsAPI.h in Headers */,
 				24FC43931745F685004B5D5B /* ANKClient+ANKStreamMarker.h in Headers */,
 				5D955BE7174BD10B0077E387 /* ANKGeneralParameters.h in Headers */,
+				33041CE917A3760A00C4B25A /* ANKStreamContext.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1426,6 +1429,7 @@
 				2592B80F16FF8440004573FF /* AFURLConnectionOperation.m in Sources */,
 				2592B81016FF8440004573FF /* AFXMLRequestOperation.m in Sources */,
 				2592B81116FF8440004573FF /* AFNetworkActivityIndicatorManager.m in Sources */,
+				33041CEA17A3760D00C4B25A /* ANKStreamContext.m in Sources */,
 				2592B81216FF847F004573FF /* UIImageView+AFNetworking.m in Sources */,
 				5D2CFEE81703E8F200086FBD /* ANKTokenLimits.m in Sources */,
 				256768111711539D00C57D47 /* NSString+ANKAdditions.m in Sources */,
