@@ -12,18 +12,16 @@
 
 #pragma mark - Designated Initializer
 
-- (id)initWithBaseOperation:(ANKJSONRequestOperation *)operation identifier:(NSString *)identifier socketShuttle:(KATSocketShuttle *)socketShuttle streamingDelegate:(id<ANKStreamingDelegate>)streamingDelegate;
++ (instancetype)streamContextWithOperation:(ANKJSONRequestOperation *)operation identifier:(NSString *)identifier delegate:(id<ANKStreamingDelegate>)delegate;
+- (instancetype)initWithOperation:(ANKJSONRequestOperation *)operation identifier:(NSString *)identifier delegate:(id<ANKStreamingDelegate>)delegate;
 
 #pragma mark - Internal
 
-@property (nonatomic, strong) KATSocketShuttle *socketShuttle;
-@property (nonatomic, weak) id<ANKStreamingDelegate> streamingDelegate;
-@property (nonatomic, strong) ANKJSONRequestOperation *baseOperation;
+@property (nonatomic, weak, readonly) id<ANKStreamingDelegate> delegate;
+@property (nonatomic, strong, readonly) ANKJSONRequestOperation *operation;
 
 #pragma mark - API Level
 
 @property (nonatomic, copy) NSString *identifier;
-
-- (NSURLRequest *)streamingOperationRequest;
 
 @end

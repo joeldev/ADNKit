@@ -137,7 +137,7 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
 - (void)enqueueHTTPRequestOperation:(AFHTTPRequestOperation *)operation {
     [super enqueueHTTPRequestOperation:operation];
 
-    if (!operation.isExecuting) {
+    if (!operation.isExecuting && operation.isReady) {
         [operation start];
 
         NSLog(@"ADNKit -- Operation had to be started manually as it wasn't executing when added to the queue.");
@@ -345,6 +345,55 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
 
 
 #pragma mark -
+#pragma mark Internal API
+
+- (void)initializeHTTPAuthClient {
+	self.authHTTPClient = [AFHTTPClient clientWithBaseURL:[NSURL URLWithString:@"https://account.app.net/oauth"]];
+	self.authHTTPClient.parameterEncoding = AFFormURLParameterEncoding;
+	[self.authHTTPClient registerHTTPOperationClass:[AFJSONRequestOperation class]];
+}
+
+
+- (void)authenticateWithParameters:(NSDictionary *)params handler:(void (^)(BOOL successful, NSError *error))handler {
+	[self initializeHTTPAuthClient];
+	[self.authHTTPClient postPath:@"access_token" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+		NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
+		if (responseDictionary[@"access_token"]) {
+			if (responseDictionary[@"token"]) {
+				ANKTokenStatus *token = [ANKResolve(ANKTokenStatus) objectFromJSONDictionary:responseDictionary[@"token"]];
+				self.authenticatedUser = token.user;
+			}
+			self.accessToken = responseDictionary[@"access_token"];
+			[self HTTPAuthDidCompleteSuccessfully:YES error:nil handler:handler];
+		} else {
+			NSError *error = [NSError errorWithDomain:kANKErrorDomain code:-1 userInfo:@{NSLocalizedDescriptionKey: @"Could not find key access_token in response", NSLocalizedFailureReasonErrorKey: responseDictionary}];
+			[self HTTPAuthDidCompleteSuccessfully:NO error:error handler:handler];
+		}
+	} failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+		[self HTTPAuthDidCompleteSuccessfully:NO error:error handler:handler];
+	}];
+}
+
+
+- (void)HTTPAuthDidCompleteSuccessfully:(BOOL)wasSuccessful error:(NSError *)error handler:(void (^)(BOOL successful, NSError *error))handler {
+	if (error.localizedRecoverySuggestion) {
+		NSDictionary *errorDictionary = [NSJSONSerialization JSONObjectWithData:[error.localizedRecoverySuggestion dataUsingEncoding:NSUTF8StringEncoding] options:0 error:nil];
+		if (errorDictionary) {
+			NSError *modifiedError = [NSError errorWithDomain:kANKErrorDomain code:0 userInfo:@{NSLocalizedDescriptionKey: errorDictionary[@"error"]}];
+			error = modifiedError;
+		}
+	}
+	if (handler) {
+		handler(wasSuccessful, error);
+	}
+
+	self.authHTTPClient = nil;
+	self.webAuthCompletionHandler = nil;
+	self.webAuthRedirectURI = nil;
+}
+
+
+#pragma mark -
 #pragma mark Streams
 
 - (NSURLRequest *)streamingRequest {
@@ -354,8 +403,8 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
     return streamingRequest;
 }
 
-- (void)requestStreamingUpdatesForOperation:(ANKJSONRequestOperation *)operation withDelegate:(id<ANKStreamingDelegate>)delegate {
 
+- (void)requestStreamingUpdatesForOperation:(ANKJSONRequestOperation *)operation withDelegate:(id<ANKStreamingDelegate>)delegate {
     NSString *subscriptionID = nil;
 
     if (!self.streamingConnectionID) {
@@ -368,8 +417,7 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
         [self reconfigureOperationForStreaming:operation subscriptionID:&subscriptionID];
     }
 
-    ANKStreamContext *context = [[ANKStreamContext alloc] initWithBaseOperation:operation identifier:subscriptionID socketShuttle:nil streamingDelegate:delegate];
-    [self.streamContexts addObject:context];
+    [self.streamContexts addObject:[ANKStreamContext streamContextWithOperation:operation identifier:subscriptionID delegate:delegate]];
 }
 
 
@@ -423,6 +471,7 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
     return JSON;
 }
 
+
 - (NSSet *)streamingDelegates {
     return [self.streamContexts valueForKey:@"streamingDelegate"];
 }
@@ -441,54 +490,6 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
     }];
 }
 
-#pragma mark -
-#pragma mark Internal API
-
-- (void)initializeHTTPAuthClient {
-	self.authHTTPClient = [AFHTTPClient clientWithBaseURL:[NSURL URLWithString:@"https://account.app.net/oauth"]];
-	self.authHTTPClient.parameterEncoding = AFFormURLParameterEncoding;
-	[self.authHTTPClient registerHTTPOperationClass:[AFJSONRequestOperation class]];
-}
-
-
-- (void)authenticateWithParameters:(NSDictionary *)params handler:(void (^)(BOOL successful, NSError *error))handler {
-	[self initializeHTTPAuthClient];
-	[self.authHTTPClient postPath:@"access_token" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-		NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
-		if (responseDictionary[@"access_token"]) {
-			if (responseDictionary[@"token"]) {
-				ANKTokenStatus *token = [ANKResolve(ANKTokenStatus) objectFromJSONDictionary:responseDictionary[@"token"]];
-				self.authenticatedUser = token.user;
-			}
-			self.accessToken = responseDictionary[@"access_token"];
-			[self HTTPAuthDidCompleteSuccessfully:YES error:nil handler:handler];
-		} else {
-			NSError *error = [NSError errorWithDomain:kANKErrorDomain code:-1 userInfo:@{NSLocalizedDescriptionKey: @"Could not find key access_token in response", NSLocalizedFailureReasonErrorKey: responseDictionary}];
-			[self HTTPAuthDidCompleteSuccessfully:NO error:error handler:handler];
-		}
-	} failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-		[self HTTPAuthDidCompleteSuccessfully:NO error:error handler:handler];
-	}];
-}
-
-
-- (void)HTTPAuthDidCompleteSuccessfully:(BOOL)wasSuccessful error:(NSError *)error handler:(void (^)(BOOL successful, NSError *error))handler {
-	if (error.localizedRecoverySuggestion) {
-		NSDictionary *errorDictionary = [NSJSONSerialization JSONObjectWithData:[error.localizedRecoverySuggestion dataUsingEncoding:NSUTF8StringEncoding] options:0 error:nil];
-		if (errorDictionary) {
-			NSError *modifiedError = [NSError errorWithDomain:kANKErrorDomain code:0 userInfo:@{NSLocalizedDescriptionKey: errorDictionary[@"error"]}];
-			error = modifiedError;
-		}
-	}
-	if (handler) {
-		handler(wasSuccessful, error);
-	}
-
-	self.authHTTPClient = nil;
-	self.webAuthCompletionHandler = nil;
-	self.webAuthRedirectURI = nil;
-}
-
 
 #pragma mark -
 #pragma mark KATSocketShuttleDelegate
@@ -500,17 +501,17 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
     }];
 }
 
+
 - (void)socket:(KATSocketShuttle *)socket didReceiveMessage:(id)message {
     NSError *error = nil;
     NSDictionary *JSON = [NSJSONSerialization JSONObjectWithData:[message dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:&error];
-
-    if (error)
+    if (error) {
         return;
+    }
 
     NSDictionary *metaDict = JSON[@"meta"];
     NSString *connectionID = metaDict[@"connection_id"];
     NSArray *subscriptionIDs = metaDict[@"subscription_ids"];
-
     ANKAPIResponse *response = [[ANKAPIResponse alloc] initWithResponseObject:JSON];
 
     if (!self.streamingConnectionID) {
@@ -518,10 +519,9 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
 
         for (ANKStreamContext *streamContext in self.streamContexts) {
             NSString *newID = nil;
-            [self reconfigureOperationForStreaming:streamContext.baseOperation subscriptionID:&newID];
+            [self reconfigureOperationForStreaming:streamContext.operation subscriptionID:&newID];
             streamContext.identifier = newID;
         }
-
     } else {
         for (NSString *subscriptionID in subscriptionIDs) {
             id object = [self parsedObjectFromJSON:JSON];
@@ -532,6 +532,7 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
     }
 }
 
+
 - (void)socket:(KATSocketShuttle *)socket didFailWithError:(NSError *)error {
     __weak typeof(self) weakSelf = self;
     [self iterateOverStreamingDelegatesImplementingDelegateMethod:@selector(client:didDisconnectOnSocketError:) withBlock:^(id<ANKStreamingDelegate> streamingDelegate) {
@@ -539,11 +540,13 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
     }];
 }
 
+
 - (void)socket:(KATSocketShuttle *)socket didCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean {
     __weak typeof(self) weakSelf = self;
     [self iterateOverStreamingDelegatesImplementingDelegateMethod:@selector(clientSocketDidDisconnect:) withBlock:^(id<ANKStreamingDelegate> streamingDelegate) {
         [streamingDelegate clientSocketDidDisconnect:weakSelf];
     }];
 }
+
 
 @end

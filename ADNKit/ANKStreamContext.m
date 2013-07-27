@@ -8,32 +8,30 @@
 
 #import "ANKStreamContext.h"
 
+@interface ANKStreamContext ()
+
+@property (nonatomic, weak) id<ANKStreamingDelegate> delegate;
+@property (nonatomic, strong) ANKJSONRequestOperation *operation;
+
+@end
+
 @implementation ANKStreamContext
 
 #pragma mark -
 #pragma mark Designated Initializer
 
-- (id)initWithBaseOperation:(ANKJSONRequestOperation *)operation identifier:(NSString *)identifier socketShuttle:(KATSocketShuttle *)socketShuttle streamingDelegate:(id<ANKStreamingDelegate>)streamingDelegate {
++ (instancetype)streamContextWithOperation:(ANKJSONRequestOperation *)operation identifier:(NSString *)identifier delegate:(id<ANKStreamingDelegate>)delegate {
+    return [[[self class] alloc] initWithOperation:operation identifier:identifier delegate:delegate];
+}
+
+- (instancetype)initWithOperation:(ANKJSONRequestOperation *)operation identifier:(NSString *)identifier delegate:(id<ANKStreamingDelegate>)delegate {
     if ((self = [super init])) {
-        self.baseOperation = operation;
+        self.operation = operation;
         self.identifier = identifier;
-        self.socketShuttle = socketShuttle;
-        self.streamingDelegate = streamingDelegate;
+        self.delegate = delegate;
     }
 
     return self;
 }
-
-#pragma mark -
-#pragma mark Convenience
-
-//- (NSURLRequest *)streamingOperationRequest
-//{
-//    NSMutableURLRequest *request = self.baseOperation.request.mutableCopy;
-//    request.URL = [NSURL URLWithString:[[[[request.URL.absoluteString stringByAppendingFormat:@"&connection_id=%@", self.identifier] stringByReplacingOccurrencesOfString:request.URL.scheme withString:@"wss"] stringByReplacingOccurrencesOfString:request.URL.host withString:@"stream-channel.app.net"]]];
-//
-//    return request;
-//}
-//
 
 @end
