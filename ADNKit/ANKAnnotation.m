@@ -15,6 +15,7 @@
 #import "ANKPlace.h"
 #import "ANKChannel.h"
 #import "ANKGeolocation.h"
+#import "ANKOEmbed.h"
 
 
 @interface ANKAnnotation ()
