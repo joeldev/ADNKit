@@ -77,7 +77,6 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
 		[self registerHTTPOperationClass:[ANKJSONRequestOperation class]];
 
 		[self addObserver:self forKeyPath:@"accessToken" options:NSKeyValueObservingOptionNew context:nil];
-		[self addObserver:self forKeyPath:@"shouldRequestAnnotations" options:NSKeyValueObservingOptionNew context:nil];
 
         self.streamContexts = [[NSMutableSet alloc] init];
 	}
@@ -88,7 +87,6 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
 
 - (void)dealloc {
 	[self removeObserver:self forKeyPath:@"accessToken"];
-	[self removeObserver:self forKeyPath:@"shouldRequestAnnotations"];
 }
 
 
@@ -110,8 +108,6 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
 	if ([keyPath isEqualToString:@"accessToken"]) {
 		[self setDefaultHeader:@"Authorization" value:self.accessToken ? [@"Bearer " stringByAppendingString:self.accessToken] : nil];
-	} else if ([keyPath isEqualToString:@"shouldRequestAnnotations"]) {
-		self.generalParameters.includeAnnotations = self.shouldRequestAnnotations;
 	}
 }
 
@@ -335,6 +331,16 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
 
 - (id)objectForKeyInAuthenticatedUserDefaults:(NSString *)key {
 	return self.authenticatedUserDefaults[key];
+}
+
+
+#pragma mark - 
+#pragma mark Setters
+
+- (void)setSuccessCallbackQueue:(dispatch_queue_t)successCallbackQueue failureCallbackQueue:(dispatch_queue_t)failureCallbackQueue
+{
+    self.successCallbackQueue = successCallbackQueue;
+    self.failureCallbackQueue = failureCallbackQueue;
 }
 
 

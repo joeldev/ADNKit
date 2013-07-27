@@ -16,7 +16,7 @@
 @implementation ANKTokenStatus
 
 + (NSDictionary *)JSONToLocalKeyMapping {
-	return [[super JSONToLocalKeyMapping] ank_dictionaryByAppendingDictionary:@{@"client_id": @"clientID"}];
+	return [[super JSONToLocalKeyMapping] ank_dictionaryByAppendingDictionary:@{@"client_id": @"clientID", @"invite_link": @"inviteLink"}];
 }
 
 @end

@@ -355,6 +355,10 @@
 		330BDCAA17659465009BD559 /* libSocketShuttle.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 25D01E0B17640FF1000D365D /* libSocketShuttle.a */; };
 		335AC111176427C300AEFCFE /* ANKStreamContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 335AC10F176427C300AEFCFE /* ANKStreamContext.h */; };
 		335AC112176427C300AEFCFE /* ANKStreamContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 335AC110176427C300AEFCFE /* ANKStreamContext.m */; };
+		331B250F17A247DF000E553E /* ANKSearchQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 331B250D17A247DF000E553E /* ANKSearchQuery.h */; };
+		331B251017A247DF000E553E /* ANKSearchQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 331B250D17A247DF000E553E /* ANKSearchQuery.h */; };
+		331B251117A247DF000E553E /* ANKSearchQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 331B250E17A247DF000E553E /* ANKSearchQuery.m */; };
+		331B251217A247DF000E553E /* ANKSearchQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 331B250E17A247DF000E553E /* ANKSearchQuery.m */; };
 		5D2CFEE61703E8F200086FBD /* ANKTokenLimits.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D2CFEE41703E8F200086FBD /* ANKTokenLimits.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5D2CFEE71703E8F200086FBD /* ANKTokenLimits.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2CFEE51703E8F200086FBD /* ANKTokenLimits.m */; };
 		5D2CFEE81703E8F200086FBD /* ANKTokenLimits.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2CFEE51703E8F200086FBD /* ANKTokenLimits.m */; };
@@ -383,6 +387,7 @@
 		5DC3727E16E3AF6900190862 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DC3727D16E3AF6900190862 /* UIKit.framework */; };
 		5DC3728116E3AF8900190862 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DC3728016E3AF8800190862 /* CoreLocation.framework */; };
 		5DC3728316E3AF8E00190862 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DC3728216E3AF8E00190862 /* SystemConfiguration.framework */; };
+		F153F9AA1773C1DE0018BC16 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F153F9A91773C1DE0018BC16 /* Security.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -584,6 +589,8 @@
 		25D01E0517640FF1000D365D /* SocketShuttle.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SocketShuttle.xcodeproj; path = External/SocketShuttle/SocketShuttle.xcodeproj; sourceTree = "<group>"; };
 		335AC10F176427C300AEFCFE /* ANKStreamContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKStreamContext.h; sourceTree = "<group>"; };
 		335AC110176427C300AEFCFE /* ANKStreamContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANKStreamContext.m; sourceTree = "<group>"; };
+		331B250D17A247DF000E553E /* ANKSearchQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKSearchQuery.h; sourceTree = "<group>"; };
+		331B250E17A247DF000E553E /* ANKSearchQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANKSearchQuery.m; sourceTree = "<group>"; };
 		5D2CFEE41703E8F200086FBD /* ANKTokenLimits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKTokenLimits.h; sourceTree = "<group>"; };
 		5D2CFEE51703E8F200086FBD /* ANKTokenLimits.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANKTokenLimits.m; sourceTree = "<group>"; };
 		5D955BE4174BD10B0077E387 /* ANKGeneralParameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKGeneralParameters.h; sourceTree = "<group>"; };
@@ -626,6 +633,7 @@
 		5DC3727D16E3AF6900190862 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5DC3728016E3AF8800190862 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/CoreLocation.framework; sourceTree = DEVELOPER_DIR; };
 		5DC3728216E3AF8E00190862 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
+		F153F9A91773C1DE0018BC16 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -671,6 +679,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				25D01E141764104A000D365D /* libSocketShuttle.a in Frameworks */,
+				F153F9AA1773C1DE0018BC16 /* Security.framework in Frameworks */,
 				252A87D416F79A09001F3E8F /* CoreServices.framework in Frameworks */,
 				5DC3728316E3AF8E00190862 /* SystemConfiguration.framework in Frameworks */,
 				5DC3728116E3AF8900190862 /* CoreLocation.framework in Frameworks */,
@@ -777,16 +786,18 @@
 				252A88CD16F8CDD6001F3E8F /* ANKPost.m */,
 				252A88CE16F8CDD7001F3E8F /* ANKResource.h */,
 				252A88CF16F8CDD7001F3E8F /* ANKResource.m */,
+				331B250D17A247DF000E553E /* ANKSearchQuery.h */,
+				331B250E17A247DF000E553E /* ANKSearchQuery.m */,
 				252A88D016F8CDD8001F3E8F /* ANKStorage.h */,
 				252A88D116F8CDD9001F3E8F /* ANKStorage.m */,
 				252A88D216F8CDDA001F3E8F /* ANKStream.h */,
 				252A88D316F8CDDB001F3E8F /* ANKStream.m */,
 				252A88D416F8CDDC001F3E8F /* ANKStreamMarker.h */,
 				252A88D516F8CDDC001F3E8F /* ANKStreamMarker.m */,
-				252A88D816F8CDDF001F3E8F /* ANKTokenStatus.h */,
-				252A88D916F8CDE0001F3E8F /* ANKTokenStatus.m */,
 				5D2CFEE41703E8F200086FBD /* ANKTokenLimits.h */,
 				5D2CFEE51703E8F200086FBD /* ANKTokenLimits.m */,
+				252A88D816F8CDDF001F3E8F /* ANKTokenStatus.h */,
+				252A88D916F8CDE0001F3E8F /* ANKTokenStatus.m */,
 				252A88DA16F8CDE2001F3E8F /* ANKUser.h */,
 				252A88DB16F8CDE3001F3E8F /* ANKUser.m */,
 				252A88DC16F8CDE4001F3E8F /* ANKUserCounts.h */,
@@ -1015,6 +1026,7 @@
 				5DC370F316E0807000190862 /* AppKit.framework */,
 				5DC370F416E0807000190862 /* CoreData.framework */,
 				5DC370F516E0807000190862 /* Foundation.framework */,
+				F153F9A91773C1DE0018BC16 /* Security.framework */,
 				252A87D316F79A09001F3E8F /* CoreServices.framework */,
 				5DC3728216E3AF8E00190862 /* SystemConfiguration.framework */,
 				5DC3728016E3AF8800190862 /* CoreLocation.framework */,
@@ -1112,6 +1124,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				331B250F17A247DF000E553E /* ANKSearchQuery.h in Headers */,
 				5D955BE6174BD10B0077E387 /* ANKGeneralParameters.h in Headers */,
 				335AC111176427C300AEFCFE /* ANKStreamContext.h in Headers */,
 			);
@@ -1188,6 +1201,7 @@
 				252A898A16F8CDF3001F3E8F /* NSArray+ANKAdditions.h in Headers */,
 				252A898D16F8CDF3001F3E8F /* NSDictionary+ANKAdditions.h in Headers */,
 				5D2CFEE61703E8F200086FBD /* ANKTokenLimits.h in Headers */,
+				331B251017A247DF000E553E /* ANKSearchQuery.h in Headers */,
 				2567680F1711539D00C57D47 /* NSString+ANKAdditions.h in Headers */,
 				2567682717153E3200C57D47 /* ANKResourceMap.h in Headers */,
 				252AD7161745C76600E12492 /* ANKClient+ANKRequestsAPI.h in Headers */,
@@ -1472,6 +1486,7 @@
 				252A892E16F8CDF2001F3E8F /* ANKExploreStream.m in Sources */,
 				252A893116F8CDF2001F3E8F /* ANKFile.m in Sources */,
 				252A893416F8CDF2001F3E8F /* ANKFilter.m in Sources */,
+				331B251117A247DF000E553E /* ANKSearchQuery.m in Sources */,
 				252A893716F8CDF2001F3E8F /* ANKFilterClause.m in Sources */,
 				252A893A16F8CDF2001F3E8F /* ANKGeolocation.m in Sources */,
 				252A893D16F8CDF2001F3E8F /* ANKHashtagEntity.m in Sources */,
@@ -1557,6 +1572,7 @@
 				252A895F16F8CDF3001F3E8F /* ANKPlace.m in Sources */,
 				252A896216F8CDF3001F3E8F /* ANKPlaceCategory.m in Sources */,
 				252A896516F8CDF3001F3E8F /* ANKPost.m in Sources */,
+				331B251217A247DF000E553E /* ANKSearchQuery.m in Sources */,
 				252A896816F8CDF3001F3E8F /* ANKResource.m in Sources */,
 				252A896B16F8CDF3001F3E8F /* ANKStorage.m in Sources */,
 				252A896E16F8CDF3001F3E8F /* ANKStream.m in Sources */,

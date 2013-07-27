@@ -55,7 +55,16 @@
 
 
 - (AFHTTPRequestOperation *)fetchContentsOfFileWithID:(NSString *)fileID completion:(ANKClientCompletionBlock)completionHandler {
-	NSURLRequest *request = [self requestWithMethod:@"GET" path:[NSString stringWithFormat:@"files/%@/content", fileID] parameters:nil];
+	return [self fetchContentsOfFileWithID:fileID withReadToken:nil completion:completionHandler];
+}
+
+- (AFHTTPRequestOperation *)fetchContentsOfFileWithID:(NSString *)fileID withReadToken:(NSString *)readToken completion:(ANKClientCompletionBlock)completionHandler {
+	NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+	if (readToken) {
+		parameters[@"file_token"] = readToken;
+	}
+
+	NSURLRequest *request = [self requestWithMethod:@"GET" path:[NSString stringWithFormat:@"files/%@/content", fileID] parameters:[parameters copy]];
 	AFHTTPRequestOperation *requestOperation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
 	[requestOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
 		if (completionHandler) {
