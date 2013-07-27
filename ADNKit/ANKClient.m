@@ -22,9 +22,10 @@
 #import "ANKMessage.h"
 #import "ANKFile.h"
 #import "ANKPost.h"
+#import "ANKChannel.h"
 #import "ANKClient+ANKTokenStatus.h"
-#import <SocketShuttle/KATSocketShuttle.h>
 #import "ANKStreamContext.h"
+#import <SocketShuttle/KATSocketShuttle.h>
 
 
 static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.net/stream/user";
@@ -135,6 +136,17 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
 	}
 
 	return request;
+}
+
+- (void)enqueueHTTPRequestOperation:(AFHTTPRequestOperation *)operation {
+    [super enqueueHTTPRequestOperation:operation];
+
+    if (!operation.isExecuting) {
+        [operation start];
+
+        NSLog(@"ADNKit -- Operation had to be started manually as it wasn't executing when added to the queue.");
+#warning I'm not sure why this happens, but this fixes it. Sometimes the queue will just freeze and not start any of the operations going into it. It's not good.
+    }
 }
 
 
@@ -329,29 +341,33 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
 #pragma mark -
 #pragma mark Streams
 
-- (void)requestStreamingUpdatesForOperation:(ANKJSONRequestOperation *)operation withDelegate:(id<ANKStreamingDelegate>)delegate {
-    [operation pause];
+- (NSURLRequest *)streamingRequest {
+    NSMutableURLRequest *streamingRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"wss://stream-channel.app.net/stream/user"]];
+    [streamingRequest setValue:[self defaultValueForHeader:@"Authorization"] forHTTPHeaderField:@"Authorization"];
 
-    ANKJSONRequestOperation *finalizedOperation = operation;
+    return streamingRequest;
+}
+
+- (void)requestStreamingUpdatesForOperation:(ANKJSONRequestOperation *)operation withDelegate:(id<ANKStreamingDelegate>)delegate {
+
     NSString *subscriptionID = nil;
 
     if (!self.streamingConnectionID) {
+        if (operation.isExecuting) {
+            [operation pause];
+        }
 
-        NSMutableURLRequest *streamingRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"wss://stream-channel.app.net/stream/user"]];
-        [streamingRequest setValue:[self defaultValueForHeader:@"Authorization"] forHTTPHeaderField:@"Authorization"];
-        self.socketShuttle = [[KATSocketShuttle alloc] initWithRequest:streamingRequest delegate:self];
+        self.socketShuttle = [[KATSocketShuttle alloc] initWithRequest:[self streamingRequest] delegate:self];
     } else {
-
-        finalizedOperation = [self reconfigureOperationForStreaming:operation subscriptionID:&subscriptionID streamingDelegate:delegate];
+        [self reconfigureOperationForStreaming:operation subscriptionID:&subscriptionID];
     }
 
-    ANKStreamContext *context = [[ANKStreamContext alloc] initWithBaseOperation:finalizedOperation identifier:subscriptionID socketShuttle:nil streamingDelegate:delegate];
+    ANKStreamContext *context = [[ANKStreamContext alloc] initWithBaseOperation:operation identifier:subscriptionID socketShuttle:nil streamingDelegate:delegate];
     [self.streamContexts addObject:context];
 }
 
 
-- (ANKJSONRequestOperation *)reconfigureOperationForStreaming:(ANKJSONRequestOperation *)operation subscriptionID:(NSString **)subscriptionID streamingDelegate:(id<ANKStreamingDelegate>)streamingDelegate
-{
+- (void)reconfigureOperationForStreaming:(ANKJSONRequestOperation *)operation subscriptionID:(NSString **)subscriptionID {
     NSString *uniqueString = [[NSProcessInfo processInfo] globallyUniqueString];
     *subscriptionID = uniqueString;
 
@@ -360,17 +376,15 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
     request.URL = modifiedURL;
 
     [operation setValue:request forKey:@"request"];
-    [operation resume];
-    [self.operationQueue setSuspended:NO];
 
-    return operation;
+    if (operation.isPaused) {
+        [operation resume];
+    }
 }
 
 
-- (id)parsedObjectFromJSON:(NSDictionary *)JSON
-{
+- (id)parsedObjectFromJSON:(NSDictionary *)JSON {
     if (self.responseDecodingType != ANKResponseDecodingTypeNone) {
-
         NSSet *dataSet = [[NSSet alloc] initWithArray:JSON[@"data"]];
         NSDictionary *sampleObject = [dataSet anyObject];
 
@@ -378,7 +392,7 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
             BOOL isUser = sampleObject[@"username"] && sampleObject[@"timezone"] && sampleObject[@"avatar_image"];
             BOOL isMessage = sampleObject[@"channel_id"] && !sampleObject[@"canonical_url"] && !sampleObject[@"num_stars"];
             BOOL isPost = sampleObject[@"num_stars"] && sampleObject[@"user"] && sampleObject[@"canonical_url"] && sampleObject[@"text"];
-            //        BOOL isChannel = sampleObject[@"has_unread"] && sampleObject[@"readers"];
+            BOOL isChannel = sampleObject[@"has_unread"] && sampleObject[@"readers"];
             BOOL isFile = sampleObject[@"complete"] && sampleObject[@"derived_files"];
 
             ANKAPIResponse *response = [[ANKAPIResponse alloc] initWithResponseObject:JSON];
@@ -392,8 +406,8 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
                 resourceClass = [ANKPost class];
             else if (isFile)
                 resourceClass = [ANKFile class];
-            //        else if (isChannel)
-            //            resourceClass = [ANKChannel class];
+            else if (isChannel)
+                resourceClass = [ANKChannel class];
 
             if (resourceClass)
                 return [self unboxCollectionResponse:response ofResourceClass:resourceClass];
@@ -498,7 +512,7 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
 
         for (ANKStreamContext *streamContext in self.streamContexts) {
             NSString *newID = nil;
-            streamContext.baseOperation = [self reconfigureOperationForStreaming:streamContext.baseOperation subscriptionID:&newID streamingDelegate:streamContext.streamingDelegate];
+            [self reconfigureOperationForStreaming:streamContext.baseOperation subscriptionID:&newID];
             streamContext.identifier = newID;
         }
 
