@@ -526,7 +526,7 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
         for (NSString *subscriptionID in subscriptionIDs) {
             id object = [self parsedObjectFromJSON:JSON];
             
-            for (id<ANKStreamingDelegate> streamingDelegate in [[self.streamContexts filteredSetUsingPredicate:[NSPredicate predicateWithFormat:@"identifier == %@", subscriptionID]] valueForKey:@"streamingDelegate"])
+            for (id<ANKStreamingDelegate> streamingDelegate in [[self.streamContexts filteredSetUsingPredicate:[NSPredicate predicateWithFormat:@"identifier == %@", subscriptionID]] valueForKey:@"delegate"])
                 [streamingDelegate client:self didReceiveObject:object withMeta:response.meta];
         }
     }
