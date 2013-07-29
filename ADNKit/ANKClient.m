@@ -28,7 +28,7 @@
 #import <SocketShuttle/KATSocketShuttle.h>
 
 
-static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.net/stream/user";
+static const NSString *kANKUserStreamEndpointURL = @"wss://stream-channel.app.net/stream/user";
 
 
 @interface ANKClient () <KATSocketShuttleDelegate>
@@ -397,7 +397,7 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
 #pragma mark Streams
 
 - (NSURLRequest *)streamingRequest {
-    NSMutableURLRequest *streamingRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"wss://stream-channel.app.net/stream/user"]];
+    NSMutableURLRequest *streamingRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:(NSString *)kANKUserStreamEndpointURL]];
     [streamingRequest setValue:[self defaultValueForHeader:@"Authorization"] forHTTPHeaderField:@"Authorization"];
 
     return streamingRequest;
