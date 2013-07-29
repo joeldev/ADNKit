@@ -473,7 +473,7 @@ static const NSString *ADNAPIUserStreamEndpointURL = @"wss://stream-channel.app.
 
 
 - (NSSet *)streamingDelegates {
-    return [self.streamContexts valueForKey:@"streamingDelegate"];
+    return [self.streamContexts valueForKey:@"delegate"];
 }
 
 
