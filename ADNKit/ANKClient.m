@@ -410,9 +410,7 @@ static const NSString *kANKUserStreamEndpointURL = @"wss://stream-channel.app.ne
     NSString *subscriptionID = nil;
 
     if (!self.streamingConnectionID) {
-        if (operation.isExecuting) {
-            [operation pause];
-        }
+        [operation pause];
 
         self.socketShuttle = [[KATSocketShuttle alloc] initWithRequest:[self streamingRequest] delegate:self];
     } else {
