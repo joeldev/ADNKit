@@ -1757,7 +1757,11 @@
 				DSTROOT = /tmp/ADNKit.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ADNKit/ADNKit-Prefix.pch";
-				HEADER_SEARCH_PATHS = "";
+				HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/External/SocketShuttle\"",
+					"\"$(SRCROOT)/External/SocketShuttle/Third-Party/SocketRocket\"",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "ADNKit-AFNetworking-iOS";
 				PUBLIC_HEADERS_FOLDER_PATH = ADNKit;
@@ -1771,7 +1775,11 @@
 				DSTROOT = /tmp/ADNKit.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ADNKit/ADNKit-Prefix.pch";
-				HEADER_SEARCH_PATHS = "";
+				HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/External/SocketShuttle\"",
+					"\"$(SRCROOT)/External/SocketShuttle/Third-Party/SocketRocket\"",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "ADNKit-AFNetworking-iOS";
 				PUBLIC_HEADERS_FOLDER_PATH = ADNKit;
@@ -1846,7 +1854,12 @@
 				DSTROOT = /tmp/ADNKit.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ADNKit/ADNKit-Prefix.pch";
-				HEADER_SEARCH_PATHS = "";
+				HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/External/SocketShuttle\"",
+					"\"$(SRCROOT)/External/SocketShuttle/Third-Party/SocketRocket\"",
+				);
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "ADNKit-AFNetworking-iOS";
 				PUBLIC_HEADERS_FOLDER_PATH = ADNKit;
