@@ -135,18 +135,11 @@ static const NSString *kANKUserStreamEndpointURL = @"wss://stream-channel.app.ne
 	return request;
 }
 
-//- (void)enqueueHTTPRequestOperation:(AFHTTPRequestOperation *)operation {
-//    [super enqueueHTTPRequestOperation:operation];
-//
-//    dispatch_async(dispatch_get_main_queue(), ^{
-//        if (!operation.isExecuting && operation.isReady) {
-////            [operation start];
-//
-//            NSLog(@"ADNKit -- Operation had to be started manually as it wasn't executing when added to the queue.");
-//    #warning I'm not sure why this happens, but this fixes it. Sometimes the queue will just freeze and not start any of the operations going into it. It's not good.
-//        }
-//    });
-//}
+- (void)enqueueHTTPRequestOperation:(AFHTTPRequestOperation *)operation {
+    [super enqueueHTTPRequestOperation:operation];
+
+    [self.operationQueue setSuspended:NO];
+}
 
 
 #pragma mark -
