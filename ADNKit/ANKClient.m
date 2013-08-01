@@ -80,6 +80,7 @@ static const NSString *kANKUserStreamEndpointURL = @"wss://stream-channel.app.ne
 		[self addObserver:self forKeyPath:@"accessToken" options:NSKeyValueObservingOptionNew context:nil];
 
         self.streamContexts = [[NSMutableSet alloc] init];
+        self.streamingAvailbility = ANKStreamingAvailabilityWiFi;
 	}
 
     return self;
@@ -410,7 +411,7 @@ static const NSString *kANKUserStreamEndpointURL = @"wss://stream-channel.app.ne
     if (!self.streamingConnectionID) {
         [operation pause];
 
-        self.socketShuttle = [[KATSocketShuttle alloc] initWithRequest:[self streamingRequest] delegate:self];
+        self.socketShuttle = [[KATSocketShuttle alloc] initWithRequest:[self streamingRequest] delegate:self connectConditions:self.streamingAvailbility == ANKStreamingAvailabilityWiFi ? KATSocketConnectConditionWLAN : KATSocketConnectConditionAlways];
     } else if (self.socketShuttle.socketState == KATSocketStateConnected) {
         [self reconfigureOperationForStreaming:operation subscriptionID:&subscriptionID];
     }
@@ -492,7 +493,7 @@ static const NSString *kANKUserStreamEndpointURL = @"wss://stream-channel.app.ne
 
 
 - (void)socketShuttleDisconnectCommon {
-    self.socketShuttle = [[KATSocketShuttle alloc] initWithRequest:[self streamingRequest] delegate:self];
+    self.socketShuttle = [[KATSocketShuttle alloc] initWithRequest:[self streamingRequest] delegate:self connectConditions:self.streamingAvailbility == ANKStreamingAvailabilityWiFi ? KATSocketConnectConditionWLAN : KATSocketConnectConditionAlways];
 }
 
 

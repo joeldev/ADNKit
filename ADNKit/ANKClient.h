@@ -34,6 +34,11 @@ typedef NS_ENUM(NSUInteger, ANKResponseDecodingType) {
 	ANKResponseDecodingTypeNone // don't decode server response
 };
 
+typedef NS_ENUM(NSUInteger, ANKStreamingAvailability) {
+    ANKStreamingAvailabilityAllConnections,
+    ANKStreamingAvailabilityWiFi
+};
+
 
 @class ANKClient, ANKAPIResponseMeta;
 
@@ -76,6 +81,8 @@ typedef void (^ANKClientCompletionBlock)(id responseObject, ANKAPIResponseMeta *
 
 @property (assign) dispatch_queue_t successCallbackQueue;
 @property (assign) dispatch_queue_t failureCallbackQueue;
+
+@property (assign) ANKStreamingAvailability streamingAvailbility;
 
 @property (copy) void (^webAuthCompletionHandler)(BOOL success, NSError *error); // set as completion block for oauth authentication
 
