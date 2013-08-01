@@ -39,6 +39,7 @@ static const NSString *kANKUserStreamEndpointURL = @"wss://stream-channel.app.ne
 
 @property (nonatomic, strong) KATSocketShuttle *socketShuttle;
 @property (nonatomic, copy) NSString *streamingConnectionID;
+@property (nonatomic, copy) NSString *lastSuccessfulStreamingConnectionID;
 @property (nonatomic, strong) NSMutableSet *streamContexts;
 
 - (void)initializeHTTPAuthClient;
@@ -399,7 +400,11 @@ static const NSString *kANKUserStreamEndpointURL = @"wss://stream-channel.app.ne
 #pragma mark Streams
 
 - (NSURLRequest *)streamingRequest {
-    NSMutableURLRequest *streamingRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:(NSString *)kANKUserStreamEndpointURL]];
+    if (!self.streamingConnectionID) {
+        self.streamingConnectionID = [[NSProcessInfo processInfo] globallyUniqueString];
+    }
+
+    NSMutableURLRequest *streamingRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[(NSString *)kANKUserStreamEndpointURL stringByAppendingFormat:@"?connection_id=%@", self.streamingConnectionID]]];
     [streamingRequest setValue:[self defaultValueForHeader:@"Authorization"] forHTTPHeaderField:@"Authorization"];
 
     return streamingRequest;
@@ -413,7 +418,7 @@ static const NSString *kANKUserStreamEndpointURL = @"wss://stream-channel.app.ne
         [operation pause];
 
         self.socketShuttle = [[KATSocketShuttle alloc] initWithRequest:[self streamingRequest] delegate:self];
-    } else {
+    } else if (self.socketShuttle.socketState == KATSocketStateConnected) {
         [self reconfigureOperationForStreaming:operation subscriptionID:&subscriptionID];
     }
 
@@ -433,6 +438,8 @@ static const NSString *kANKUserStreamEndpointURL = @"wss://stream-channel.app.ne
 
     if (operation.isPaused) {
         [operation resume];
+    } else if (operation.isFinished) {
+        [operation start];
     }
 }
 
@@ -491,6 +498,11 @@ static const NSString *kANKUserStreamEndpointURL = @"wss://stream-channel.app.ne
 }
 
 
+- (void)socketShuttleDisconnectCommon {
+    self.socketShuttle = [[KATSocketShuttle alloc] initWithRequest:[self streamingRequest] delegate:self];
+}
+
+
 #pragma mark -
 #pragma mark KATSocketShuttleDelegate
 
@@ -512,28 +524,40 @@ static const NSString *kANKUserStreamEndpointURL = @"wss://stream-channel.app.ne
     NSDictionary *metaDict = JSON[@"meta"];
     NSString *connectionID = metaDict[@"connection_id"];
     NSArray *subscriptionIDs = metaDict[@"subscription_ids"];
+    BOOL isInitialConnectionResponse = (JSON.count == 1 && connectionID);
     ANKAPIResponse *response = [[ANKAPIResponse alloc] initWithResponseObject:JSON];
 
-    if (!self.streamingConnectionID) {
+    if (isInitialConnectionResponse) {
+        BOOL connectionWasRevived = [self.streamingConnectionID isEqualToString:self.lastSuccessfulStreamingConnectionID];
         self.streamingConnectionID = connectionID;
+        self.lastSuccessfulStreamingConnectionID = self.streamingConnectionID;
 
-        for (ANKStreamContext *streamContext in self.streamContexts) {
-            NSString *newID = nil;
-            [self reconfigureOperationForStreaming:streamContext.operation subscriptionID:&newID];
-            streamContext.identifier = newID;
+        if (!connectionWasRevived) {
+            for (ANKStreamContext *streamContext in self.streamContexts) {
+                NSString *newID = nil;
+                [self reconfigureOperationForStreaming:streamContext.operation subscriptionID:&newID];
+                streamContext.identifier = newID;
+            }
         }
     } else {
         for (NSString *subscriptionID in subscriptionIDs) {
             id object = [self parsedObjectFromJSON:JSON];
-            
-            for (id<ANKStreamingDelegate> streamingDelegate in [[self.streamContexts filteredSetUsingPredicate:[NSPredicate predicateWithFormat:@"identifier == %@", subscriptionID]] valueForKey:@"delegate"])
+
+            NSLog(@"Received object: %@ for subscription ID: %@", object, subscriptionID);
+
+            for (id<ANKStreamingDelegate> streamingDelegate in [[self.streamContexts filteredSetUsingPredicate:[NSPredicate predicateWithFormat:@"identifier == %@", subscriptionID]] valueForKey:@"delegate"]) {
+                NSLog(@"Messaging delegate %@", streamingDelegate);
+                
                 [streamingDelegate client:self didReceiveObject:object withMeta:response.meta];
+            }
         }
     }
 }
 
 
 - (void)socket:(KATSocketShuttle *)socket didFailWithError:(NSError *)error {
+    [self socketShuttleDisconnectCommon];
+
     __weak typeof(self) weakSelf = self;
     [self iterateOverStreamingDelegatesImplementingDelegateMethod:@selector(client:didDisconnectOnSocketError:) withBlock:^(id<ANKStreamingDelegate> streamingDelegate) {
         [streamingDelegate client:weakSelf didDisconnectOnSocketError:error];
@@ -542,6 +566,8 @@ static const NSString *kANKUserStreamEndpointURL = @"wss://stream-channel.app.ne
 
 
 - (void)socket:(KATSocketShuttle *)socket didCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean {
+    [self socketShuttleDisconnectCommon];
+
     __weak typeof(self) weakSelf = self;
     [self iterateOverStreamingDelegatesImplementingDelegateMethod:@selector(clientSocketDidDisconnect:) withBlock:^(id<ANKStreamingDelegate> streamingDelegate) {
         [streamingDelegate clientSocketDidDisconnect:weakSelf];
