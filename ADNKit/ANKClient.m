@@ -414,8 +414,14 @@ static const NSString *kANKUserStreamEndpointURL = @"wss://stream-channel.app.ne
         self.socketShuttle = [[KATSocketShuttle alloc] initWithRequest:[self streamingRequest] delegate:self connectConditions:self.streamingAvailbility == ANKStreamingAvailabilityWiFi ? KATSocketConnectConditionWLAN : KATSocketConnectConditionAlways];
     }
 
-    if (self.socketShuttle.socketState != KATSocketStateConnecting) {
+    if (self.socketShuttle.socketState == KATSocketStateConnected) {
         [self reconfigureOperationForStreaming:operation subscriptionID:&subscriptionID];
+    } else if (self.socketShuttle.socketState == KATSocketStateDisconnected || self.socketShuttle.socketState == KATSocketStateOffline) {
+        if (operation.isPaused) {
+            [operation resume];
+        } else if (operation.isReady) {
+            [operation start];
+        }
     }
 
     [self.streamContexts addObject:[ANKStreamContext streamContextWithOperation:operation identifier:subscriptionID delegate:delegate]];
