@@ -4,4 +4,4 @@
 	ignore = dirty
 [submodule "SocketShuttle"]
 	path = External/SocketShuttle
-	url = git@github.com:joeldev/SocketShuttle.git
+	url=https://github.com/joeldev/SocketShuttle.git
