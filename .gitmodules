@@ -2,4 +2,6 @@
 	path = External/AFNetworking
 	url = https://github.com/AFNetworking/AFNetworking
 	ignore = dirty
-
+[submodule "SocketShuttle"]
+	path = External/SocketShuttle
+	url=https://github.com/joeldev/SocketShuttle.git

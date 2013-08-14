@@ -1,9 +1,9 @@
 /*
  Copyright (c) 2013, Joel Levin
  All rights reserved.
- 
+
  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
- 
+
  Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
  Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
  Neither the name of ADNKit nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
@@ -15,17 +15,32 @@
 #import "ANKPaginationSettings.h"
 #import "ANKGeneralParameters.h"
 #import "ANKAPIResponseMeta.h"
+#import "ANKAPIResponse.h"
 #import "ANKTokenStatus.h"
 #import "ANKResourceMap.h"
 #import "ANKUser.h"
+#import "ANKMessage.h"
+#import "ANKFile.h"
+#import "ANKPost.h"
+#import "ANKChannel.h"
 #import "ANKClient+ANKTokenStatus.h"
+#import "ANKStreamContext.h"
+#import <SocketShuttle/KATSocketShuttle.h>
 
 
-@interface ANKClient ()
+static const NSString *kANKUserStreamEndpointURL = @"wss://stream-channel.app.net/stream/user";
+
+
+@interface ANKClient () <KATSocketShuttleDelegate>
 
 @property (strong) AFHTTPClient *authHTTPClient;
 @property (strong) NSString *webAuthRedirectURI;
 @property (readwrite, strong) ANKUser *authenticatedUser;
+
+@property (nonatomic, strong) KATSocketShuttle *socketShuttle;
+@property (nonatomic, copy) NSString *streamingConnectionID;
+@property (nonatomic, copy) NSString *lastSuccessfulStreamingConnectionID;
+@property (nonatomic, strong) NSMutableSet *streamContexts;
 
 - (void)initializeHTTPAuthClient;
 - (void)HTTPAuthDidCompleteSuccessfully:(BOOL)wasSuccessful error:(NSError *)error handler:(void (^)(BOOL successful, NSError *error))handler;
@@ -42,7 +57,7 @@
     dispatch_once(&onceToken, ^{
         sharedANKClient = [[ANKClient alloc] init];
     });
-    
+
     return sharedANKClient;
 }
 
@@ -58,12 +73,16 @@
 		self.pagination = [[ANKPaginationSettings alloc] init];
 		self.generalParameters = [[ANKGeneralParameters alloc] init];
 		self.generalParameters.includeHTML = NO;
+
 		[self setDefaultHeader:@"Accept" value:@"application/json"];
 		[self registerHTTPOperationClass:[ANKJSONRequestOperation class]];
-		
+
 		[self addObserver:self forKeyPath:@"accessToken" options:NSKeyValueObservingOptionNew context:nil];
+
+        self.streamContexts = [[NSMutableSet alloc] init];
+        self.streamingAvailbility = ANKStreamingAvailabilityWiFi;
 	}
-    
+
     return self;
 }
 
@@ -75,7 +94,7 @@
 
 - (id)copyWithZone:(NSZone *)zone {
 	ANKClient *copy = [[[self class] alloc] init];
-	
+
 	copy.accessToken = [self.accessToken copyWithZone:zone];
 	copy.authenticatedUser = [self.authenticatedUser copyWithZone:zone];
 	copy.generalParameters = [self.generalParameters copyWithZone:zone];
@@ -83,7 +102,7 @@
 	copy.shouldUseSharedUserDefaultsController = self.shouldUseSharedUserDefaultsController;
 	copy.shouldSynchronizeOnUserDefaultsWrite = self.shouldSynchronizeOnUserDefaultsWrite;
 	copy.responseDecodingType = self.responseDecodingType;
-	
+
 	return copy;
 }
 
@@ -117,13 +136,19 @@
 	return request;
 }
 
+- (void)enqueueHTTPRequestOperation:(AFHTTPRequestOperation *)operation {
+    [super enqueueHTTPRequestOperation:operation];
+
+    [self.operationQueue setSuspended:NO];
+}
+
 
 #pragma mark -
 #pragma mark Authentication
 
 - (void)authenticateUsername:(NSString *)username password:(NSString *)password clientID:(NSString *)clientID passwordGrantSecret:(NSString *)passwordGrantSecret authScopes:(ANKAuthScope)authScopes completionHandler:(void (^)(BOOL success, NSError *error))completionHander {
 	// http://developers.app.net/docs/authentication/flows/password/
-	
+
 	NSDictionary *parameters = @{@"client_id": clientID, @"password_grant_secret": passwordGrantSecret, @"grant_type": @"password", @"username": username, @"password": password, @"scope": [[self class] scopeStringForAuthScopes:authScopes]};
 	[self authenticateWithParameters:parameters handler:completionHander];
 }
@@ -133,23 +158,23 @@
 	// http://developers.app.net/docs/authentication/flows/web/
 	self.webAuthRedirectURI = redirectURI;
 	NSMutableString *URLString = [NSMutableString stringWithFormat:@"https://account.app.net/oauth/authenticate?client_id=%@&response_type=code", clientID];
-	
+
 	if (authScopes) {
 		[URLString appendFormat:@"&scope=%@", [[self class] scopeStringForAuthScopes:authScopes]];
 	}
-	
+
 	if (redirectURI) {
 		[URLString appendFormat:@"&redirect_uri=%@", redirectURI];
 	}
-	
+
 	if (shouldBeAppStoreCompliant) {
 		[URLString appendString:@"&adnview=appstore"];
 	}
-	
+
 	if (state) {
 		[URLString appendFormat:@"&state=%@", state];
 	}
-	
+
 	NSURL *URL = [NSURL URLWithString:URLString];
 	return [NSURLRequest requestWithURL:URL cachePolicy:NSURLCacheStorageNotAllowed timeoutInterval:60];
 }
@@ -164,9 +189,9 @@
 
 + (NSString *)scopeStringForAuthScopes:(ANKAuthScope)scopes {
 	if (scopes == ANKAuthScopeNone) return nil;
-    
+
     NSMutableArray *scopeValues = [NSMutableArray array];
-    
+
     if ((scopes & ANKAuthScopeBasic) == ANKAuthScopeBasic)						[scopeValues addObject:@"basic"];
 	if ((scopes & ANKAuthScopeStream) == ANKAuthScopeStream)					[scopeValues addObject:@"stream"];
 	if ((scopes & ANKAuthScopeEmail) == ANKAuthScopeEmail)						[scopeValues addObject:@"email"];
@@ -177,14 +202,14 @@
 	if ((scopes & ANKAuthScopeUpdateProfile) == ANKAuthScopeUpdateProfile)		[scopeValues addObject:@"update_profile"];
 	if ((scopes & ANKAuthScopeExport) == ANKAuthScopeExport)					[scopeValues addObject:@"export"];
 	if ((scopes & ANKAuthScopeFiles) == ANKAuthScopeFiles)						[scopeValues addObject:@"files"];
-    
+
     return [scopeValues componentsJoinedByString:@","];
 }
 
 
 + (NSArray *)scopeDescriptionsForScope:(ANKAuthScope)scope {
 	NSMutableArray *scopeDescriptions = [NSMutableArray array];
-	
+
 	static NSDictionary *scopeDescriptionMap = nil;
 	static dispatch_once_t onceToken;
 	dispatch_once(&onceToken, ^{
@@ -199,15 +224,15 @@
 		mapping[@"update_profile"] = @"Update your profile information";
 		mapping[@"export"] = @"Bulk export all of your App.net data";
 		mapping[@"files"] = @"Manage your files for you";
-		
+
 		scopeDescriptionMap = mapping;
 	});
-	
+
 	NSArray *scopeKeys = [[self scopeStringForAuthScopes:scope] componentsSeparatedByString:@","];
 	for (NSString *scopeKey in scopeKeys) {
 		[scopeDescriptions addObject:scopeDescriptionMap[scopeKey]];
 	}
-	
+
 	return scopeDescriptions;
 }
 
@@ -247,7 +272,7 @@
 		if (!meta.isError && !error) {
 			[self logOut];
 		}
-		
+
 		if (completionHandler) {
 			completionHandler(responseObject, meta, error);
 		}
@@ -286,13 +311,13 @@
 	if (self.isAuthenticated) {
 		NSDictionary *settings = [self authenticatedUserDefaults] ?: @{};
 		NSMutableDictionary *modifiedSettings = [NSMutableDictionary dictionaryWithDictionary:settings];
-		
+
 		if (object) {
 			modifiedSettings[key] = object;
 		} else {
 			[modifiedSettings removeObjectForKey:key];
 		}
-		
+
 		[self.userDefaults setObject:modifiedSettings forKey:[NSString stringWithFormat:@"ANKUser%@", self.authenticatedUser.userID]];
 		if (self.shouldSynchronizeOnUserDefaultsWrite) {
 			[self.userDefaults synchronize];
@@ -358,10 +383,197 @@
 	if (handler) {
 		handler(wasSuccessful, error);
 	}
-	
+
 	self.authHTTPClient = nil;
 	self.webAuthCompletionHandler = nil;
 	self.webAuthRedirectURI = nil;
+}
+
+
+#pragma mark -
+#pragma mark Streams
+
+- (NSURLRequest *)streamingRequest {
+    if (!self.streamingConnectionID) {
+        self.streamingConnectionID = [[NSProcessInfo processInfo] globallyUniqueString];
+    }
+
+    NSMutableURLRequest *streamingRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[(NSString *)kANKUserStreamEndpointURL stringByAppendingFormat:@"?connection_id=%@", self.streamingConnectionID]]];
+    [streamingRequest setValue:[self defaultValueForHeader:@"Authorization"] forHTTPHeaderField:@"Authorization"];
+
+    return streamingRequest;
+}
+
+
+- (void)requestStreamingUpdatesForOperation:(ANKJSONRequestOperation *)operation withDelegate:(id<ANKStreamingDelegate>)delegate {
+    NSString *subscriptionID = nil;
+
+    if (!self.streamingConnectionID) {
+        [operation pause];
+
+        self.socketShuttle = [[KATSocketShuttle alloc] initWithRequest:[self streamingRequest] delegate:self connectConditions:self.streamingAvailbility == ANKStreamingAvailabilityWiFi ? KATSocketConnectConditionWLAN : KATSocketConnectConditionAlways];
+    }
+
+    if (self.socketShuttle.socketState == KATSocketStateConnected) {
+        [self reconfigureOperationForStreaming:operation subscriptionID:&subscriptionID];
+    } else if (self.socketShuttle.socketState == KATSocketStateDisconnected || self.socketShuttle.socketState == KATSocketStateOffline) {
+        if (operation.isPaused) {
+            [operation resume];
+        } else if (operation.isReady) {
+            [operation start];
+        }
+    }
+
+    [self.streamContexts addObject:[ANKStreamContext streamContextWithOperation:operation identifier:subscriptionID delegate:delegate]];
+}
+
+
+- (void)reconfigureOperationForStreaming:(ANKJSONRequestOperation *)operation subscriptionID:(NSString **)subscriptionID {
+    NSString *uniqueString = [[NSProcessInfo processInfo] globallyUniqueString];
+    *subscriptionID = uniqueString;
+
+    NSURL *modifiedURL = [NSURL URLWithString:[operation.request.URL.absoluteString stringByAppendingFormat:@"&connection_id=%@&subscription_id=%@", self.streamingConnectionID, uniqueString]];
+    NSMutableURLRequest *request = [operation.request mutableCopy];
+    request.URL = modifiedURL;
+
+    [operation setValue:request forKey:@"request"];
+
+    if (operation.isPaused) {
+        [operation resume];
+    } else if (operation.isFinished) {
+        [operation start];
+    }
+}
+
+
+- (id)parsedObjectFromJSON:(NSDictionary *)JSON {
+    if (self.responseDecodingType != ANKResponseDecodingTypeNone) {
+        NSSet *dataSet = [[NSSet alloc] initWithArray:JSON[@"data"]];
+        NSDictionary *sampleObject = [dataSet anyObject];
+
+        if (sampleObject) {
+            BOOL isUser = sampleObject[@"username"] && sampleObject[@"timezone"] && sampleObject[@"avatar_image"];
+            BOOL isMessage = sampleObject[@"channel_id"] && !sampleObject[@"canonical_url"] && !sampleObject[@"num_stars"];
+            BOOL isPost = sampleObject[@"num_stars"] && sampleObject[@"user"] && sampleObject[@"canonical_url"] && sampleObject[@"text"];
+            BOOL isChannel = sampleObject[@"has_unread"] && sampleObject[@"readers"];
+            BOOL isFile = sampleObject[@"complete"] && sampleObject[@"derived_files"];
+
+            ANKAPIResponse *response = [[ANKAPIResponse alloc] initWithResponseObject:JSON];
+            Class resourceClass = nil;
+
+            if (isUser)
+                resourceClass = [ANKUser class];
+            else if (isMessage)
+                resourceClass = [ANKMessage class];
+            else if (isPost)
+                resourceClass = [ANKPost class];
+            else if (isFile)
+                resourceClass = [ANKFile class];
+            else if (isChannel)
+                resourceClass = [ANKChannel class];
+
+            if (resourceClass)
+                return [self unboxCollectionResponse:response ofResourceClass:resourceClass];
+        }
+    }
+
+    return JSON;
+}
+
+
+- (NSSet *)streamingDelegates {
+    return [self.streamContexts valueForKey:@"delegate"];
+}
+
+
+- (NSSet *)streamingDelegatesImplementingDelegateMethod:(SEL)delegateMethod {
+    return [[self streamingDelegates] filteredSetUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(id<ANKStreamingDelegate> streamingDelegate, NSDictionary *bindings) {
+        return [streamingDelegate respondsToSelector:delegateMethod];
+    }]];
+}
+
+
+- (void)iterateOverStreamingDelegatesImplementingDelegateMethod:(SEL)delegateMethod withBlock:(void (^)(id<ANKStreamingDelegate>streamingDelegate))iterativeBlock {
+    [[self streamingDelegatesImplementingDelegateMethod:delegateMethod] enumerateObjectsUsingBlock:^(id<ANKStreamingDelegate>streamingDelegate, BOOL *stop) {
+        iterativeBlock(streamingDelegate);
+    }];
+}
+
+
+- (void)socketShuttleDisconnectCommon {
+    self.socketShuttle = [[KATSocketShuttle alloc] initWithRequest:[self streamingRequest] delegate:self connectConditions:self.streamingAvailbility == ANKStreamingAvailabilityWiFi ? KATSocketConnectConditionWLAN : KATSocketConnectConditionAlways];
+}
+
+
+#pragma mark -
+#pragma mark KATSocketShuttleDelegate
+
+- (void)socketDidOpen:(KATSocketShuttle *)socket {
+    __weak typeof(self) weakSelf = self;
+    [self iterateOverStreamingDelegatesImplementingDelegateMethod:@selector(clientSocketDidConnect:) withBlock:^(id<ANKStreamingDelegate> streamingDelegate) {
+        [streamingDelegate clientSocketDidConnect:weakSelf];
+    }];
+}
+
+
+- (void)socket:(KATSocketShuttle *)socket didReceiveMessage:(id)message {
+    NSError *error = nil;
+    NSDictionary *JSON = [NSJSONSerialization JSONObjectWithData:[message dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:&error];
+    if (error) {
+        return;
+    }
+
+    NSDictionary *metaDict = JSON[@"meta"];
+    NSString *connectionID = metaDict[@"connection_id"];
+    NSArray *subscriptionIDs = metaDict[@"subscription_ids"];
+    BOOL isInitialConnectionResponse = (JSON.count == 1 && connectionID);
+    ANKAPIResponse *response = [[ANKAPIResponse alloc] initWithResponseObject:JSON];
+
+    if (isInitialConnectionResponse) {
+        BOOL connectionWasRevived = [self.streamingConnectionID isEqualToString:self.lastSuccessfulStreamingConnectionID];
+        self.streamingConnectionID = connectionID;
+        self.lastSuccessfulStreamingConnectionID = self.streamingConnectionID;
+
+        if (!connectionWasRevived) {
+            for (ANKStreamContext *streamContext in self.streamContexts) {
+                NSString *newID = nil;
+                [self reconfigureOperationForStreaming:streamContext.operation subscriptionID:&newID];
+                streamContext.identifier = newID;
+            }
+        }
+    } else {
+        for (NSString *subscriptionID in subscriptionIDs) {
+            id object = [self parsedObjectFromJSON:JSON];
+
+            NSLog(@"Received object: %@ for subscription ID: %@", object, subscriptionID);
+
+            for (id<ANKStreamingDelegate> streamingDelegate in [[self.streamContexts filteredSetUsingPredicate:[NSPredicate predicateWithFormat:@"identifier == %@", subscriptionID]] valueForKey:@"delegate"]) {
+                NSLog(@"Messaging delegate %@", streamingDelegate);
+                
+                [streamingDelegate client:self didReceiveObject:object withMeta:response.meta];
+            }
+        }
+    }
+}
+
+
+- (void)socket:(KATSocketShuttle *)socket didFailWithError:(NSError *)error {
+    [self socketShuttleDisconnectCommon];
+
+    __weak typeof(self) weakSelf = self;
+    [self iterateOverStreamingDelegatesImplementingDelegateMethod:@selector(client:didDisconnectOnSocketError:) withBlock:^(id<ANKStreamingDelegate> streamingDelegate) {
+        [streamingDelegate client:weakSelf didDisconnectOnSocketError:error];
+    }];
+}
+
+
+- (void)socket:(KATSocketShuttle *)socket didCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean {
+    [self socketShuttleDisconnectCommon];
+
+    __weak typeof(self) weakSelf = self;
+    [self iterateOverStreamingDelegatesImplementingDelegateMethod:@selector(clientSocketDidDisconnect:) withBlock:^(id<ANKStreamingDelegate> streamingDelegate) {
+        [streamingDelegate clientSocketDidDisconnect:weakSelf];
+    }];
 }
 
 

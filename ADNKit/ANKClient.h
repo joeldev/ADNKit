@@ -34,8 +34,32 @@ typedef NS_ENUM(NSUInteger, ANKResponseDecodingType) {
 	ANKResponseDecodingTypeNone // don't decode server response
 };
 
+typedef NS_ENUM(NSUInteger, ANKStreamingAvailability) {
+    ANKStreamingAvailabilityAllConnections,
+    ANKStreamingAvailabilityWiFi
+};
 
-@class ANKAPIResponseMeta;
+
+@class ANKClient, ANKAPIResponseMeta;
+
+#pragma mark -
+#pragma mark - Protocols
+
+@protocol ANKStreamingDelegate <NSObject>
+
+@optional
+
+- (void)clientSocketDidConnect:(ANKClient *)client;
+- (void)clientSocketDidDisconnect:(ANKClient *)client;
+
+- (void)client:(ANKClient *)client didDisconnectOnSocketError:(NSError *)error;
+
+@required
+
+- (void)client:(ANKClient *)client didReceiveObject:(id)responseObject withMeta:(ANKAPIResponseMeta *)meta;
+
+@end
+
 typedef void (^ANKClientCompletionBlock)(id responseObject, ANKAPIResponseMeta *meta, NSError *error);
 
 
@@ -57,6 +81,8 @@ typedef void (^ANKClientCompletionBlock)(id responseObject, ANKAPIResponseMeta *
 
 @property (assign) dispatch_queue_t successCallbackQueue;
 @property (assign) dispatch_queue_t failureCallbackQueue;
+
+@property (assign) ANKStreamingAvailability streamingAvailbility;
 
 @property (copy) void (^webAuthCompletionHandler)(BOOL success, NSError *error); // set as completion block for oauth authentication
 
@@ -109,6 +135,10 @@ typedef void (^ANKClientCompletionBlock)(id responseObject, ANKAPIResponseMeta *
 - (void)setObject:(id)object forKeyInAuthenticatedUserDefaults:(NSString *)key;
 - (id)objectForKeyInAuthenticatedUserDefaults:(NSString *)key;
 
+#pragma mark -
+#pragma mark - Streams
+
+- (void)requestStreamingUpdatesForOperation:(ANKJSONRequestOperation *)operation withDelegate:(id<ANKStreamingDelegate>)delegate;
 
 #pragma mark -
 #pragma mark Operation Queues

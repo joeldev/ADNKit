@@ -244,8 +244,8 @@
 		252A898D16F8CDF3001F3E8F /* NSDictionary+ANKAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A88E816F8CDF1001F3E8F /* NSDictionary+ANKAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		252A898E16F8CDF3001F3E8F /* NSDictionary+ANKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A88E916F8CDF2001F3E8F /* NSDictionary+ANKAdditions.m */; };
 		252A898F16F8CDF3001F3E8F /* NSDictionary+ANKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A88E916F8CDF2001F3E8F /* NSDictionary+ANKAdditions.m */; };
-		252AD7151745C76600E12492 /* ANKClient+ANKRequestsAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = 252AD7121745C76600E12492 /* ANKClient+ANKRequestsAPI.h */; };
-		252AD7161745C76600E12492 /* ANKClient+ANKRequestsAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = 252AD7121745C76600E12492 /* ANKClient+ANKRequestsAPI.h */; };
+		252AD7151745C76600E12492 /* ANKClient+ANKRequestsAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = 252AD7121745C76600E12492 /* ANKClient+ANKRequestsAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		252AD7161745C76600E12492 /* ANKClient+ANKRequestsAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = 252AD7121745C76600E12492 /* ANKClient+ANKRequestsAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		252AD7171745C76600E12492 /* ANKClient+ANKRequestsAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 252AD7131745C76600E12492 /* ANKClient+ANKRequestsAPI.m */; };
 		252AD7181745C76600E12492 /* ANKClient+ANKRequestsAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 252AD7131745C76600E12492 /* ANKClient+ANKRequestsAPI.m */; };
 		252AD7191745C76600E12492 /* ANKClient+ANKRequestsAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 252AD7131745C76600E12492 /* ANKClient+ANKRequestsAPI.m */; };
@@ -348,10 +348,49 @@
 		2592B81B16FF84A4004573FF /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3725016E3AE1500190862 /* AFNetworkActivityIndicatorManager.m */; };
 		259A5EC616F2E1EF00AF9F35 /* ADNKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC370E116E0805E00190862 /* ADNKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		25C0AA45171867B8006E47B7 /* CustomPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C0AA44171867B8006E47B7 /* CustomPost.m */; };
-		331B250F17A247DF000E553E /* ANKSearchQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 331B250D17A247DF000E553E /* ANKSearchQuery.h */; };
-		331B251017A247DF000E553E /* ANKSearchQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 331B250D17A247DF000E553E /* ANKSearchQuery.h */; };
+		33041CE917A3760A00C4B25A /* ANKStreamContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 335AC10F176427C300AEFCFE /* ANKStreamContext.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		33041CEA17A3760D00C4B25A /* ANKStreamContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 335AC110176427C300AEFCFE /* ANKStreamContext.m */; };
+		33041CF017A38A0F00C4B25A /* libSocketShuttle.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 25D01E0B17640FF1000D365D /* libSocketShuttle.a */; };
+		330BDCAA17659465009BD559 /* libSocketShuttle.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 25D01E0B17640FF1000D365D /* libSocketShuttle.a */; };
+		331B250F17A247DF000E553E /* ANKSearchQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 331B250D17A247DF000E553E /* ANKSearchQuery.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		331B251017A247DF000E553E /* ANKSearchQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 331B250D17A247DF000E553E /* ANKSearchQuery.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		331B251117A247DF000E553E /* ANKSearchQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 331B250E17A247DF000E553E /* ANKSearchQuery.m */; };
 		331B251217A247DF000E553E /* ANKSearchQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 331B250E17A247DF000E553E /* ANKSearchQuery.m */; };
+		3326109617A3B75B00665C05 /* ANKSearchQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 331B250D17A247DF000E553E /* ANKSearchQuery.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3326109717A3B77000665C05 /* ANKSearchQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 331B250E17A247DF000E553E /* ANKSearchQuery.m */; };
+		3326109817A3B7E500665C05 /* ADNKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC370E116E0805E00190862 /* ADNKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3326109917A3B7E500665C05 /* ADNKit-iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DA357CB16EBC18B00FA21F8 /* ADNKit-iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3326109A17A3B7E500665C05 /* ADNKit-OSX.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DA357CC16EBC18B00FA21F8 /* ADNKit-OSX.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3326109B17A3B7E500665C05 /* ANKClient+ANKHandlerBlocks.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A889216F8CDB8001F3E8F /* ANKClient+ANKHandlerBlocks.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3326109C17A3B7E500665C05 /* ANKClient+ANKRequestsAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = 252AD7121745C76600E12492 /* ANKClient+ANKRequestsAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3326109D17A3B7E500665C05 /* ANKClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A2C4316E5624700DAE393 /* ANKClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3326109E17A3B7E500665C05 /* ANKClient+ANKChannel.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A888A16F8CDB7001F3E8F /* ANKClient+ANKChannel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3326109F17A3B7E500665C05 /* ANKClient+ANKExploreStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A888C16F8CDB7001F3E8F /* ANKClient+ANKExploreStream.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		332610A017A3B7E500665C05 /* ANKClient+ANKFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A888E16F8CDB7001F3E8F /* ANKClient+ANKFile.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		332610A117A3B7E500665C05 /* ANKClient+ANKFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A889016F8CDB8001F3E8F /* ANKClient+ANKFilter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		332610A217A3B7E500665C05 /* ANKClient+ANKInteraction.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A889416F8CDB8001F3E8F /* ANKClient+ANKInteraction.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		332610A317A3B7E500665C05 /* ANKClient+ANKMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A889616F8CDB9001F3E8F /* ANKClient+ANKMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		332610A417A3B7E500665C05 /* ANKClient+ANKPlace.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A889816F8CDB9001F3E8F /* ANKClient+ANKPlace.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		332610A517A3B7E500665C05 /* ANKClient+ANKPost.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A889A16F8CDBA001F3E8F /* ANKClient+ANKPost.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		332610A617A3B7E500665C05 /* ANKClient+ANKPostStreams.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A889C16F8CDBA001F3E8F /* ANKClient+ANKPostStreams.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		332610A717A3B7E500665C05 /* ANKClient+ANKStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A889E16F8CDBB001F3E8F /* ANKClient+ANKStream.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		332610A817A3B7E500665C05 /* ANKClient+ANKTokenStatus.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A88A016F8CDBB001F3E8F /* ANKClient+ANKTokenStatus.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		332610A917A3B7E500665C05 /* ANKClient+ANKUser.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A88A216F8CDBC001F3E8F /* ANKClient+ANKUser.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		332610AA17A3B7E500665C05 /* ANKClient+ANKStreamMarker.h in Headers */ = {isa = PBXBuildFile; fileRef = 252E632317421632003143D6 /* ANKClient+ANKStreamMarker.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		332610AB17A3B7E500665C05 /* ANKOAuthViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A88C016F8CDCC001F3E8F /* ANKOAuthViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		332610AC17A3B7E500665C05 /* ANKTextFieldCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A88D616F8CDDD001F3E8F /* ANKTextFieldCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		332610AD17A3B7E500665C05 /* ANKUsernamePasswordAuthViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A88E216F8CDEA001F3E8F /* ANKUsernamePasswordAuthViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		332610AE17A3B7E500665C05 /* ANKValueTransformations.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A88E416F8CDED001F3E8F /* ANKValueTransformations.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		332610AF17A3B7E500665C05 /* ANKUsernameFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A88E016F8CDE8001F3E8F /* ANKUsernameFormatter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		332610B017A3B7E500665C05 /* ANKResourceMap.h in Headers */ = {isa = PBXBuildFile; fileRef = 2567682517153E3100C57D47 /* ANKResourceMap.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		332610B117A3B7E500665C05 /* ANKAPIResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A888216F8CDB6001F3E8F /* ANKAPIResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		332610B217A3B7E500665C05 /* ANKAPIResponseMeta.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A888416F8CDB6001F3E8F /* ANKAPIResponseMeta.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		332610B317A3B7E500665C05 /* ANKJSONRequestOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A88B816F8CDC7001F3E8F /* ANKJSONRequestOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		332610B417A3B7E500665C05 /* NSArray+ANKAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A88E616F8CDEF001F3E8F /* NSArray+ANKAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		332610B517A3B7E500665C05 /* NSDictionary+ANKAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 252A88E816F8CDF1001F3E8F /* NSDictionary+ANKAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		332610B617A3B7E500665C05 /* NSString+ANKAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 2567680D1711539D00C57D47 /* NSString+ANKAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		335AC111176427C300AEFCFE /* ANKStreamContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 335AC10F176427C300AEFCFE /* ANKStreamContext.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		335AC112176427C300AEFCFE /* ANKStreamContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 335AC110176427C300AEFCFE /* ANKStreamContext.m */; };
 		5D2CFEE61703E8F200086FBD /* ANKTokenLimits.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D2CFEE41703E8F200086FBD /* ANKTokenLimits.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5D2CFEE71703E8F200086FBD /* ANKTokenLimits.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2CFEE51703E8F200086FBD /* ANKTokenLimits.m */; };
 		5D2CFEE81703E8F200086FBD /* ANKTokenLimits.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2CFEE51703E8F200086FBD /* ANKTokenLimits.m */; };
@@ -380,6 +419,9 @@
 		5DC3727E16E3AF6900190862 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DC3727D16E3AF6900190862 /* UIKit.framework */; };
 		5DC3728116E3AF8900190862 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DC3728016E3AF8800190862 /* CoreLocation.framework */; };
 		5DC3728316E3AF8E00190862 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DC3728216E3AF8E00190862 /* SystemConfiguration.framework */; };
+		905AF9D817BB41B1002FDE4E /* SocketShuttle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 905AF9D717BB41AD002FDE4E /* SocketShuttle.framework */; };
+		905AF9DA17BB41CC002FDE4E /* SocketShuttle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 905AF9D717BB41AD002FDE4E /* SocketShuttle.framework */; };
+		905AF9DB17BB41E3002FDE4E /* ANKStreamContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 335AC110176427C300AEFCFE /* ANKStreamContext.m */; };
 		F153F9AA1773C1DE0018BC16 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F153F9A91773C1DE0018BC16 /* Security.framework */; };
 /* End PBXBuildFile section */
 
@@ -390,6 +432,41 @@
 			proxyType = 1;
 			remoteGlobalIDString = 5DC3710716E0808C00190862;
 			remoteInfo = "ADNKit-OSX";
+		};
+		25D01E0A17640FF1000D365D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 25D01E0517640FF1000D365D /* SocketShuttle.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4DE9EB65170D870A005B295E;
+			remoteInfo = SocketShuttle;
+		};
+		25D01E0F17641021000D365D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 25D01E0517640FF1000D365D /* SocketShuttle.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 4DE9EB64170D870A005B295E;
+			remoteInfo = SocketShuttle;
+		};
+		25D01E1217641047000D365D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 25D01E0517640FF1000D365D /* SocketShuttle.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 4DE9EB64170D870A005B295E;
+			remoteInfo = SocketShuttle;
+		};
+		330BDCA81765945F009BD559 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 25D01E0517640FF1000D365D /* SocketShuttle.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 4DE9EB64170D870A005B295E;
+			remoteInfo = SocketShuttle;
+		};
+		905AF9D617BB41AD002FDE4E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 25D01E0517640FF1000D365D /* SocketShuttle.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 905AF99F17BB3F40002FDE4E;
+			remoteInfo = SocketShuttleOSX;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -409,6 +486,16 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		905AF9D917BB41C3002FDE4E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				905AF9DA17BB41CC002FDE4E /* SocketShuttle.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -551,8 +638,11 @@
 		2592B80916FF8410004573FF /* libADNKit-AFNetworking-iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libADNKit-AFNetworking-iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		25C0AA43171867B8006E47B7 /* CustomPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomPost.h; sourceTree = "<group>"; };
 		25C0AA44171867B8006E47B7 /* CustomPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomPost.m; sourceTree = "<group>"; };
+		25D01E0517640FF1000D365D /* SocketShuttle.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SocketShuttle.xcodeproj; path = External/SocketShuttle/SocketShuttle.xcodeproj; sourceTree = "<group>"; };
 		331B250D17A247DF000E553E /* ANKSearchQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKSearchQuery.h; sourceTree = "<group>"; };
 		331B250E17A247DF000E553E /* ANKSearchQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANKSearchQuery.m; sourceTree = "<group>"; };
+		335AC10F176427C300AEFCFE /* ANKStreamContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKStreamContext.h; sourceTree = "<group>"; };
+		335AC110176427C300AEFCFE /* ANKStreamContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANKStreamContext.m; sourceTree = "<group>"; };
 		5D2CFEE41703E8F200086FBD /* ANKTokenLimits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKTokenLimits.h; sourceTree = "<group>"; };
 		5D2CFEE51703E8F200086FBD /* ANKTokenLimits.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANKTokenLimits.m; sourceTree = "<group>"; };
 		5D955BE4174BD10B0077E387 /* ANKGeneralParameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKGeneralParameters.h; sourceTree = "<group>"; };
@@ -614,6 +704,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33041CF017A38A0F00C4B25A /* libSocketShuttle.a in Frameworks */,
 				2592B7FF16FF8410004573FF /* UIKit.framework in Frameworks */,
 				2592B80016FF8410004573FF /* MobileCoreServices.framework in Frameworks */,
 				2592B80116FF8410004573FF /* SystemConfiguration.framework in Frameworks */,
@@ -626,6 +717,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				330BDCAA17659465009BD559 /* libSocketShuttle.a in Frameworks */,
 				5DC3727E16E3AF6900190862 /* UIKit.framework in Frameworks */,
 				5DC3727B16E3AF4400190862 /* MobileCoreServices.framework in Frameworks */,
 				5DC3727916E3AF4000190862 /* SystemConfiguration.framework in Frameworks */,
@@ -638,6 +730,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				905AF9D817BB41B1002FDE4E /* SocketShuttle.framework in Frameworks */,
 				F153F9AA1773C1DE0018BC16 /* Security.framework in Frameworks */,
 				252A87D416F79A09001F3E8F /* CoreServices.framework in Frameworks */,
 				5DC3728316E3AF8E00190862 /* SystemConfiguration.framework in Frameworks */,
@@ -652,13 +745,15 @@
 		2592B70516F8D120004573FF /* ANKClient */ = {
 			isa = PBXGroup;
 			children = (
-				252A2C4316E5624700DAE393 /* ANKClient.h */,
-				252A2C4416E5624700DAE393 /* ANKClient.m */,
-				2592B70916F8D1CC004573FF /* App.net API */,
 				252A889216F8CDB8001F3E8F /* ANKClient+ANKHandlerBlocks.h */,
 				252A889316F8CDB8001F3E8F /* ANKClient+ANKHandlerBlocks.m */,
 				252AD7121745C76600E12492 /* ANKClient+ANKRequestsAPI.h */,
 				252AD7131745C76600E12492 /* ANKClient+ANKRequestsAPI.m */,
+				252A2C4316E5624700DAE393 /* ANKClient.h */,
+				252A2C4416E5624700DAE393 /* ANKClient.m */,
+				335AC10F176427C300AEFCFE /* ANKStreamContext.h */,
+				335AC110176427C300AEFCFE /* ANKStreamContext.m */,
+				2592B70916F8D1CC004573FF /* App.net API */,
 			);
 			name = ANKClient;
 			sourceTree = "<group>";
@@ -830,6 +925,24 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		25D01E0617640FF1000D365D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				25D01E0B17640FF1000D365D /* libSocketShuttle.a */,
+				905AF9D717BB41AD002FDE4E /* SocketShuttle.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		25D01E0C17640FFA000D365D /* External */ = {
+			isa = PBXGroup;
+			children = (
+				5DC3724616E3AE1500190862 /* AFNetworking */,
+				25D01E0517640FF1000D365D /* SocketShuttle.xcodeproj */,
+			);
+			name = External;
+			sourceTree = "<group>";
+		};
 		5DC370D016E0805E00190862 = {
 			isa = PBXGroup;
 			children = (
@@ -839,7 +952,7 @@
 				5DC370DE16E0805E00190862 /* ADNKit */,
 				5DC370DF16E0805E00190862 /* Supporting Files */,
 				5DC3710A16E0808C00190862 /* ADNKit-OSX */,
-				5DC3724616E3AE1500190862 /* AFNetworking */,
+				25D01E0C17640FFA000D365D /* External */,
 				2592B7A916FCED64004573FF /* ADNKitTests */,
 				5DC370DB16E0805E00190862 /* Frameworks */,
 				5DC370DA16E0805E00190862 /* Products */,
@@ -1053,8 +1166,10 @@
 				24DA122A1741FC2E00CAA8C5 /* AFXMLRequestOperation.h in Headers */,
 				24DA122B1741FC2E00CAA8C5 /* UIImageView+AFNetworking.h in Headers */,
 				24DA122C1741FC2E00CAA8C5 /* AFNetworkActivityIndicatorManager.h in Headers */,
-				252AD7151745C76600E12492 /* ANKClient+ANKRequestsAPI.h in Headers */,
 				24FC43931745F685004B5D5B /* ANKClient+ANKStreamMarker.h in Headers */,
+				252AD7151745C76600E12492 /* ANKClient+ANKRequestsAPI.h in Headers */,
+				33041CE917A3760A00C4B25A /* ANKStreamContext.h in Headers */,
+				3326109617A3B75B00665C05 /* ANKSearchQuery.h in Headers */,
 				5D955BE7174BD10B0077E387 /* ANKGeneralParameters.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1065,6 +1180,38 @@
 			files = (
 				331B250F17A247DF000E553E /* ANKSearchQuery.h in Headers */,
 				5D955BE6174BD10B0077E387 /* ANKGeneralParameters.h in Headers */,
+				335AC111176427C300AEFCFE /* ANKStreamContext.h in Headers */,
+				3326109817A3B7E500665C05 /* ADNKit.h in Headers */,
+				3326109917A3B7E500665C05 /* ADNKit-iOS.h in Headers */,
+				3326109A17A3B7E500665C05 /* ADNKit-OSX.h in Headers */,
+				3326109B17A3B7E500665C05 /* ANKClient+ANKHandlerBlocks.h in Headers */,
+				3326109C17A3B7E500665C05 /* ANKClient+ANKRequestsAPI.h in Headers */,
+				3326109D17A3B7E500665C05 /* ANKClient.h in Headers */,
+				3326109E17A3B7E500665C05 /* ANKClient+ANKChannel.h in Headers */,
+				3326109F17A3B7E500665C05 /* ANKClient+ANKExploreStream.h in Headers */,
+				332610A017A3B7E500665C05 /* ANKClient+ANKFile.h in Headers */,
+				332610A117A3B7E500665C05 /* ANKClient+ANKFilter.h in Headers */,
+				332610A217A3B7E500665C05 /* ANKClient+ANKInteraction.h in Headers */,
+				332610A317A3B7E500665C05 /* ANKClient+ANKMessage.h in Headers */,
+				332610A417A3B7E500665C05 /* ANKClient+ANKPlace.h in Headers */,
+				332610A517A3B7E500665C05 /* ANKClient+ANKPost.h in Headers */,
+				332610A617A3B7E500665C05 /* ANKClient+ANKPostStreams.h in Headers */,
+				332610A717A3B7E500665C05 /* ANKClient+ANKStream.h in Headers */,
+				332610A817A3B7E500665C05 /* ANKClient+ANKTokenStatus.h in Headers */,
+				332610A917A3B7E500665C05 /* ANKClient+ANKUser.h in Headers */,
+				332610AA17A3B7E500665C05 /* ANKClient+ANKStreamMarker.h in Headers */,
+				332610AB17A3B7E500665C05 /* ANKOAuthViewController.h in Headers */,
+				332610AC17A3B7E500665C05 /* ANKTextFieldCell.h in Headers */,
+				332610AD17A3B7E500665C05 /* ANKUsernamePasswordAuthViewController.h in Headers */,
+				332610AE17A3B7E500665C05 /* ANKValueTransformations.h in Headers */,
+				332610AF17A3B7E500665C05 /* ANKUsernameFormatter.h in Headers */,
+				332610B017A3B7E500665C05 /* ANKResourceMap.h in Headers */,
+				332610B117A3B7E500665C05 /* ANKAPIResponse.h in Headers */,
+				332610B217A3B7E500665C05 /* ANKAPIResponseMeta.h in Headers */,
+				332610B317A3B7E500665C05 /* ANKJSONRequestOperation.h in Headers */,
+				332610B417A3B7E500665C05 /* NSArray+ANKAdditions.h in Headers */,
+				332610B517A3B7E500665C05 /* NSDictionary+ANKAdditions.h in Headers */,
+				332610B617A3B7E500665C05 /* NSString+ANKAdditions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1139,10 +1286,10 @@
 				252A898A16F8CDF3001F3E8F /* NSArray+ANKAdditions.h in Headers */,
 				252A898D16F8CDF3001F3E8F /* NSDictionary+ANKAdditions.h in Headers */,
 				5D2CFEE61703E8F200086FBD /* ANKTokenLimits.h in Headers */,
-				331B251017A247DF000E553E /* ANKSearchQuery.h in Headers */,
-				2567680F1711539D00C57D47 /* NSString+ANKAdditions.h in Headers */,
 				2567682717153E3200C57D47 /* ANKResourceMap.h in Headers */,
+				331B251017A247DF000E553E /* ANKSearchQuery.h in Headers */,
 				252AD7161745C76600E12492 /* ANKClient+ANKRequestsAPI.h in Headers */,
+				2567680F1711539D00C57D47 /* NSString+ANKAdditions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1180,6 +1327,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				25D01E1017641021000D365D /* PBXTargetDependency */,
 			);
 			name = "ADNKit-AFNetworking-iOS";
 			productName = ADNKit;
@@ -1198,6 +1346,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				330BDCA91765945F009BD559 /* PBXTargetDependency */,
 			);
 			name = "ADNKit-iOS";
 			productName = ADNKit;
@@ -1212,10 +1361,12 @@
 				5DC3710416E0808C00190862 /* Frameworks */,
 				5DC3710516E0808C00190862 /* Headers */,
 				5DC3710616E0808C00190862 /* Resources */,
+				905AF9D917BB41C3002FDE4E /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				25D01E1317641047000D365D /* PBXTargetDependency */,
 			);
 			name = "ADNKit-OSX";
 			productName = "ADNKit-OSX";
@@ -1241,6 +1392,12 @@
 			mainGroup = 5DC370D016E0805E00190862;
 			productRefGroup = 5DC370DA16E0805E00190862 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 25D01E0617640FF1000D365D /* Products */;
+					ProjectRef = 25D01E0517640FF1000D365D /* SocketShuttle.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				5DC370D816E0805E00190862 /* ADNKit-iOS */,
@@ -1250,6 +1407,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		25D01E0B17640FF1000D365D /* libSocketShuttle.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libSocketShuttle.a;
+			remoteRef = 25D01E0A17640FF1000D365D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		905AF9D717BB41AD002FDE4E /* SocketShuttle.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SocketShuttle.framework;
+			remoteRef = 905AF9D617BB41AD002FDE4E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		2592B79D16FCED64004573FF /* Resources */ = {
@@ -1300,6 +1474,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3326109717A3B77000665C05 /* ANKSearchQuery.m in Sources */,
 				2592B7C616FF8410004573FF /* ANKClient.m in Sources */,
 				2592B7C716FF8410004573FF /* ANKACL.m in Sources */,
 				2592B7C816FF8410004573FF /* ANKAnnotatableResource.m in Sources */,
@@ -1364,6 +1539,7 @@
 				2592B80F16FF8440004573FF /* AFURLConnectionOperation.m in Sources */,
 				2592B81016FF8440004573FF /* AFXMLRequestOperation.m in Sources */,
 				2592B81116FF8440004573FF /* AFNetworkActivityIndicatorManager.m in Sources */,
+				33041CEA17A3760D00C4B25A /* ANKStreamContext.m in Sources */,
 				2592B81216FF847F004573FF /* UIImageView+AFNetworking.m in Sources */,
 				5D2CFEE81703E8F200086FBD /* ANKTokenLimits.m in Sources */,
 				256768111711539D00C57D47 /* NSString+ANKAdditions.m in Sources */,
@@ -1441,6 +1617,7 @@
 				252E632617421632003143D6 /* ANKClient+ANKStreamMarker.m in Sources */,
 				252AD7171745C76600E12492 /* ANKClient+ANKRequestsAPI.m in Sources */,
 				5D955BE9174BD10B0077E387 /* ANKGeneralParameters.m in Sources */,
+				335AC112176427C300AEFCFE /* ANKStreamContext.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1510,6 +1687,7 @@
 				2592B81816FF84A4004573FF /* AFURLConnectionOperation.m in Sources */,
 				2592B81916FF84A4004573FF /* AFXMLRequestOperation.m in Sources */,
 				2592B81A16FF84A4004573FF /* UIImageView+AFNetworking.m in Sources */,
+				905AF9DB17BB41E3002FDE4E /* ANKStreamContext.m in Sources */,
 				2592B81B16FF84A4004573FF /* AFNetworkActivityIndicatorManager.m in Sources */,
 				5D2CFEE91703E8F200086FBD /* ANKTokenLimits.m in Sources */,
 				256768121711539D00C57D47 /* NSString+ANKAdditions.m in Sources */,
@@ -1527,6 +1705,21 @@
 			isa = PBXTargetDependency;
 			target = 5DC3710716E0808C00190862 /* ADNKit-OSX */;
 			targetProxy = 2592B7B616FCED92004573FF /* PBXContainerItemProxy */;
+		};
+		25D01E1017641021000D365D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SocketShuttle;
+			targetProxy = 25D01E0F17641021000D365D /* PBXContainerItemProxy */;
+		};
+		25D01E1317641047000D365D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SocketShuttle;
+			targetProxy = 25D01E1217641047000D365D /* PBXContainerItemProxy */;
+		};
+		330BDCA91765945F009BD559 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SocketShuttle;
+			targetProxy = 330BDCA81765945F009BD559 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1593,7 +1786,11 @@
 				DSTROOT = /tmp/ADNKit.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ADNKit/ADNKit-Prefix.pch";
-				HEADER_SEARCH_PATHS = "\"$(SRCROOT)\"";
+				HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/External/SocketShuttle\"",
+					"\"$(SRCROOT)/External/SocketShuttle/Third-Party/SocketRocket\"",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "ADNKit-AFNetworking-iOS";
 				PUBLIC_HEADERS_FOLDER_PATH = ADNKit;
@@ -1607,7 +1804,11 @@
 				DSTROOT = /tmp/ADNKit.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ADNKit/ADNKit-Prefix.pch";
-				HEADER_SEARCH_PATHS = "\"$(SRCROOT)\"";
+				HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/External/SocketShuttle\"",
+					"\"$(SRCROOT)/External/SocketShuttle/Third-Party/SocketRocket\"",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "ADNKit-AFNetworking-iOS";
 				PUBLIC_HEADERS_FOLDER_PATH = ADNKit;
@@ -1615,10 +1816,10 @@
 			};
 			name = Release;
 		};
-		5DC370E516E0805E00190862 /* Debug */ = {
+		331FA3CA1773E7FB0011DF8E /* TestFlight */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -1639,8 +1840,140 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/External/SocketShuttle\"",
+					"\"$(SRCROOT)/External/SocketShuttle/Third-Party/SocketRocket\"",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
+				SDKROOT = iphoneos;
+			};
+			name = TestFlight;
+		};
+		331FA3CB1773E7FB0011DF8E /* TestFlight */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/ADNKit.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ADNKit/ADNKit-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/External/SocketShuttle\"",
+					"\"$(SRCROOT)/External/SocketShuttle/Third-Party/SocketRocket\"",
+				);
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = ADNKit;
+				SKIP_INSTALL = YES;
+			};
+			name = TestFlight;
+		};
+		331FA3CC1773E7FB0011DF8E /* TestFlight */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/ADNKit.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ADNKit/ADNKit-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/External/SocketShuttle\"",
+					"\"$(SRCROOT)/External/SocketShuttle/Third-Party/SocketRocket\"",
+				);
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "ADNKit-AFNetworking-iOS";
+				PUBLIC_HEADERS_FOLDER_PATH = ADNKit;
+				SKIP_INSTALL = YES;
+			};
+			name = TestFlight;
+		};
+		331FA3CD1773E7FB0011DF8E /* TestFlight */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					$DEVELOPER_FRAMEWORKS_DIR_QUOTED,
+				);
+				FRAMEWORK_VERSION = A;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ADNKit/ADNKit-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				INFOPLIST_FILE = "ADNKit-OSX/ADNKit-OSX-Info.plist";
+				INSTALL_PATH = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PRODUCT_NAME = ADNKit;
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = TestFlight;
+		};
+		331FA3CE1773E7FB0011DF8E /* TestFlight */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ADNKitTests/ADNKitTests-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				INFOPLIST_FILE = "ADNKitTests/ADNKitTests-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = TestFlight;
+		};
+		5DC370E516E0805E00190862 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/External/SocketShuttle\"",
+					"\"$(SRCROOT)/External/SocketShuttle/Third-Party/SocketRocket\"",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1648,7 +1981,7 @@
 		5DC370E616E0805E00190862 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -1662,7 +1995,16 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/External/SocketShuttle\"",
+					"\"$(SRCROOT)/External/SocketShuttle/Third-Party/SocketRocket\"",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1674,8 +2016,15 @@
 				DSTROOT = /tmp/ADNKit.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ADNKit/ADNKit-Prefix.pch";
-				HEADER_SEARCH_PATHS = "\"$(SRCROOT)\"";
-				OTHER_LDFLAGS = "-ObjC";
+				HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/External/SocketShuttle\"",
+					"\"$(SRCROOT)/External/SocketShuttle/Third-Party/SocketRocket\"",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = ADNKit;
 				SKIP_INSTALL = YES;
@@ -1688,8 +2037,15 @@
 				DSTROOT = /tmp/ADNKit.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ADNKit/ADNKit-Prefix.pch";
-				HEADER_SEARCH_PATHS = "\"$(SRCROOT)\"";
-				OTHER_LDFLAGS = "-ObjC";
+				HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/External/SocketShuttle\"",
+					"\"$(SRCROOT)/External/SocketShuttle/Third-Party/SocketRocket\"",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = ADNKit;
 				SKIP_INSTALL = YES;
@@ -1754,6 +2110,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2592B7B316FCED64004573FF /* Debug */,
+				331FA3CE1773E7FB0011DF8E /* TestFlight */,
 				2592B7B416FCED64004573FF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1763,6 +2120,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2592B80716FF8410004573FF /* Debug */,
+				331FA3CC1773E7FB0011DF8E /* TestFlight */,
 				2592B80816FF8410004573FF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1772,6 +2130,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5DC370E516E0805E00190862 /* Debug */,
+				331FA3CA1773E7FB0011DF8E /* TestFlight */,
 				5DC370E616E0805E00190862 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1781,6 +2140,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5DC370E816E0805E00190862 /* Debug */,
+				331FA3CB1773E7FB0011DF8E /* TestFlight */,
 				5DC370E916E0805E00190862 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1790,6 +2150,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5DC3711516E0808C00190862 /* Debug */,
+				331FA3CD1773E7FB0011DF8E /* TestFlight */,
 				5DC3711616E0808C00190862 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
