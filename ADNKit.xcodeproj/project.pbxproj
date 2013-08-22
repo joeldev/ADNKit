@@ -245,7 +245,7 @@
 		252A898E16F8CDF3001F3E8F /* NSDictionary+ANKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A88E916F8CDF2001F3E8F /* NSDictionary+ANKAdditions.m */; };
 		252A898F16F8CDF3001F3E8F /* NSDictionary+ANKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 252A88E916F8CDF2001F3E8F /* NSDictionary+ANKAdditions.m */; };
 		252AD7151745C76600E12492 /* ANKClient+ANKRequestsAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = 252AD7121745C76600E12492 /* ANKClient+ANKRequestsAPI.h */; };
-		252AD7161745C76600E12492 /* ANKClient+ANKRequestsAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = 252AD7121745C76600E12492 /* ANKClient+ANKRequestsAPI.h */; };
+		252AD7161745C76600E12492 /* ANKClient+ANKRequestsAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = 252AD7121745C76600E12492 /* ANKClient+ANKRequestsAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		252AD7171745C76600E12492 /* ANKClient+ANKRequestsAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 252AD7131745C76600E12492 /* ANKClient+ANKRequestsAPI.m */; };
 		252AD7181745C76600E12492 /* ANKClient+ANKRequestsAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 252AD7131745C76600E12492 /* ANKClient+ANKRequestsAPI.m */; };
 		252AD7191745C76600E12492 /* ANKClient+ANKRequestsAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 252AD7131745C76600E12492 /* ANKClient+ANKRequestsAPI.m */; };
@@ -349,7 +349,7 @@
 		259A5EC616F2E1EF00AF9F35 /* ADNKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC370E116E0805E00190862 /* ADNKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		25C0AA45171867B8006E47B7 /* CustomPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C0AA44171867B8006E47B7 /* CustomPost.m */; };
 		331B250F17A247DF000E553E /* ANKSearchQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 331B250D17A247DF000E553E /* ANKSearchQuery.h */; };
-		331B251017A247DF000E553E /* ANKSearchQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 331B250D17A247DF000E553E /* ANKSearchQuery.h */; };
+		331B251017A247DF000E553E /* ANKSearchQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 331B250D17A247DF000E553E /* ANKSearchQuery.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		331B251117A247DF000E553E /* ANKSearchQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 331B250E17A247DF000E553E /* ANKSearchQuery.m */; };
 		331B251217A247DF000E553E /* ANKSearchQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 331B250E17A247DF000E553E /* ANKSearchQuery.m */; };
 		5D2CFEE61703E8F200086FBD /* ANKTokenLimits.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D2CFEE41703E8F200086FBD /* ANKTokenLimits.h */; settings = {ATTRIBUTES = (Public, ); }; };
