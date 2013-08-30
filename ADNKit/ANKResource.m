@@ -367,7 +367,9 @@ static dispatch_once_t propertiesMapOnceToken;
 	if ((self = [super init])) {
 		[self iteratePropertiesWithBlock:^(ANKResourceProperty *property) {
 			id decodedValue = [aDecoder decodeObjectForKey:property.name];
-			[self setValue:decodedValue forKey:property.name];
+			if (decodedValue) {
+				[self setValue:decodedValue forKey:property.name];
+			}
 		}];
 	}
 	return self;
