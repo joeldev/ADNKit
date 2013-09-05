@@ -26,27 +26,28 @@
 
 
 - (NSURL *)URLForSize:(CGSize)size {
-	NSURL *URL = self.URL;
-
-	if (size.width > 0 || size.height > 0) {
-		NSMutableString *s = [NSMutableString stringWithFormat:@"%@?", URL.absoluteString];
-		if (size.width > 0) {
-			[s appendFormat:@"w=%u", (unsigned int)size.width];
-
-			if (size.height > 0) {
-				[s appendFormat:@"&"];
-			}
-		}
-
-		if (size.height > 0) {
-			[s appendFormat:@"h=%u", (unsigned int)size.height];
-		}
-
-		URL = [NSURL URLWithString:s];
-	}
-
-	return URL;
+    NSURL *URL = self.URL;
+    
+    if (size.width > 0 || size.height > 0) {
+        
+        NSString *queryExtension = (URL.query && URL.query.length) ? @"&" : @"?";
+        NSMutableString *s = [NSMutableString stringWithFormat:@"%@%@", URL.absoluteString, queryExtension];
+        
+        if (size.width > 0) {
+            [s appendFormat:@"w=%u", (unsigned int)size.width];
+            if (size.height > 0) {
+                [s appendString:@"&"];
+            }
+        }
+        
+        if (size.height > 0) {
+            [s appendFormat:@"h=%u", (unsigned int)size.height];
+        }
+        
+        URL = [NSURL URLWithString:s];
+    }
+    
+    return URL;
 }
-
 
 @end

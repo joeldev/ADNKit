@@ -20,4 +20,10 @@
 	return [ANKAnnotation class];
 }
 
+-(NSArray *)annotationsWithType:(NSString *)type{
+	return [self.annotations ank_filter:^BOOL(ANKAnnotation *annotation) {
+		return [annotation.type isEqualToString:type];
+	}];
+}
+
 @end
