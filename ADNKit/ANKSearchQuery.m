@@ -54,7 +54,7 @@
 {
     if ((self = [super init])) {
         self.indexType = kANKSearchQueryIndexTypeComplete;
-        self.orderType = kANKSearchQueryOrderTypeScore;
+        self.orderType = kANKSearchQueryOrderTypeID;
     }
 
     return self;
