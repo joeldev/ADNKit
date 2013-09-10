@@ -71,5 +71,8 @@
 	return [[self dateFormatter] stringFromDate:date];
 }
 
+- (id)JSONObjectFromNSArray:(NSArray *)array {
+    return [array componentsJoinedByString:@","];
+}
 
 @end
