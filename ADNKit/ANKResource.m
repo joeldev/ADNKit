@@ -137,6 +137,9 @@ static dispatch_once_t propertiesMapOnceToken;
 	return [[NSSet alloc] init];
 }
 
++ (NSSet *)localKeysConditionallyExcludedFromJSONOutput {
+	return [[NSSet alloc] init];
+}
 
 + (instancetype)objectFromJSONDictionary:(NSDictionary *)dictionary {
 	return [[[self class] alloc] initWithJSONDictionary:dictionary];
@@ -266,8 +269,13 @@ static dispatch_once_t propertiesMapOnceToken;
 		NSString *remoteKey = property.JSONKey;
 		
 		// grab the value and transform it if necessary
-		id value = [self valueForKey:localKey];
-		
+		id value;
+		if([[[self class] localKeysConditionallyExcludedFromJSONOutput] containsObject:localKey]) {
+            value = [self valueForInclusionProperty:localKey];
+        } else {
+            value = [self valueForKey:localKey];
+        }
+        
 		// if the property is a model object, convert it to a JSON dictionary
 		if (property.isModelObject) {
 			value = [(ANKResource *)value JSONDictionary];
@@ -323,6 +331,17 @@ static dispatch_once_t propertiesMapOnceToken;
 	}
 }
 
+- (id)valueForInclusionProperty:(NSString *)propertyName {
+    id value = [self valueForKey:propertyName];
+    switch ((int)value) {
+        case ANKBOOLPropertyInclusionTypeYes:
+            return @1;
+        case ANKBOOLPropertyInclusionTypeNo:
+            return @0;
+        default:
+            return nil;
+    }
+}
 
 #pragma mark -
 #pragma mark NSCopying
