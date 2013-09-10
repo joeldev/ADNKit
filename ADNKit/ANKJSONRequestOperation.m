@@ -19,13 +19,15 @@
 
 - (void)setCompletionBlockWithSuccess:(void (^)(AFHTTPRequestOperation *, id))success failure:(void (^)(AFHTTPRequestOperation *, NSError *))failure {
 	[super setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-		ANKAPIResponse *response = [[ANKAPIResponse alloc] initWithResponseObject:responseObject];
+		NSDictionary* headers = operation.response.allHeaderFields;
+		ANKAPIResponse *response = [[ANKAPIResponse alloc] initWithResponseObject:responseObject andHeaders:headers];
 		
 		if (success) {
 			success(operation, response);
 		}
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-		ANKAPIResponse *response = [[ANKAPIResponse alloc] initWithResponseObject:((AFJSONRequestOperation *)operation).responseJSON];
+		NSDictionary* headers = operation.response.allHeaderFields;
+		ANKAPIResponse *response = [[ANKAPIResponse alloc] initWithResponseObject:((AFJSONRequestOperation *)operation).responseJSON andHeaders:headers];
 		
 		NSMutableDictionary *modifiedUserInfo = [error.userInfo mutableCopy];
 		modifiedUserInfo[kANKAPIResponseKey] = response;
