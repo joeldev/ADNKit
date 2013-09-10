@@ -59,6 +59,12 @@ static NSString *const kANKErrorIDKey = @"ANKErrorID";
 @property (strong) NSString *errorSlug;
 @property (strong) NSString *errorID;
 
+@property (strong) NSString *rateLimitRemaining;
+@property (strong) NSString *rateLimitLimit;
+@property (strong) NSString *rateLimitReset;
+@property (strong) NSString *rateLimitRetryAfter;
+
+
 - (NSError *)error;
 - (BOOL)isError;
 - (ANKErrorType)errorType;

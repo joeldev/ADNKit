@@ -23,6 +23,6 @@ static NSString *const kANKAPIResponseKey = @"ANKAPIResponse";
 @property (readonly, strong) id data;
 @property (readonly, strong) ANKAPIResponseMeta *meta;
 
-- (id)initWithResponseObject:(id)responseObject;
+- (id)initWithResponseObject:(id)responseObject andHeaders:(NSDictionary*)headers;
 
 @end

@@ -24,12 +24,20 @@
 
 @implementation ANKAPIResponse
 
-- (id)initWithResponseObject:(id)responseObject {
+- (id)initWithResponseObject:(id)responseObject andHeaders:(NSDictionary*)headers{
 	if ((self = [super init])) {
 		if ([responseObject isKindOfClass:[NSDictionary class]]) {
 			NSDictionary *responseDictionary = (NSDictionary *)responseObject;
 			self.data = responseDictionary[@"data"];
 			self.meta = [ANKAPIResponseMeta objectFromJSONDictionary:responseDictionary[@"meta"]];
+			
+			if (headers)
+			{
+				self.meta.rateLimitReset = [headers objectForKey:@"X-RateLimit-Reset"];
+				self.meta.rateLimitRemaining = [headers objectForKey:@"X-RateLimit-Remaining"];
+				self.meta.rateLimitLimit = [headers objectForKey:@"X-RateLimit-Limit"];
+				self.meta.rateLimitRetryAfter = [headers objectForKey:@"Retry-After"];
+			}
 		}
 	}
 	return self;
