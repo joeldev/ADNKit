@@ -380,6 +380,7 @@
 		5DC3727E16E3AF6900190862 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DC3727D16E3AF6900190862 /* UIKit.framework */; };
 		5DC3728116E3AF8900190862 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DC3728016E3AF8800190862 /* CoreLocation.framework */; };
 		5DC3728316E3AF8E00190862 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DC3728216E3AF8E00190862 /* SystemConfiguration.framework */; };
+		E2D5E6E017D8FBEE00EABFD9 /* ANKSearchQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 331B250E17A247DF000E553E /* ANKSearchQuery.m */; };
 		F153F9AA1773C1DE0018BC16 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F153F9A91773C1DE0018BC16 /* Security.framework */; };
 /* End PBXBuildFile section */
 
@@ -1300,6 +1301,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2D5E6E017D8FBEE00EABFD9 /* ANKSearchQuery.m in Sources */,
 				2592B7C616FF8410004573FF /* ANKClient.m in Sources */,
 				2592B7C716FF8410004573FF /* ANKACL.m in Sources */,
 				2592B7C816FF8410004573FF /* ANKAnnotatableResource.m in Sources */,

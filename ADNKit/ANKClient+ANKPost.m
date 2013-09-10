@@ -191,7 +191,7 @@
 - (ANKJSONRequestOperation *)searchForPostsWithQuery:(ANKSearchQuery *)query completion:(ANKClientCompletionBlock)completionHandler {
     return [self enqueueGETPath:@"posts/search"
                      parameters:[query JSONDictionary]
-                        success:[self successHandlerForResourceClass:[ANKPost class] clientHandler:completionHandler]
+                        success:[self successHandlerForCollectionOfResourceClass:[ANKPost class] clientHandler:completionHandler]
                         failure:[self failureHandlerForClientHandler:completionHandler]];
 }
 

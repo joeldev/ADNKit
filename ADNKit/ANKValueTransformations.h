@@ -28,6 +28,7 @@
 // reverse transformations
 - (id)JSONObjectFromNSURL:(NSURL *)URL;
 - (id)JSONObjectFromNSDate:(NSDate *)date;
+- (id)JSONObjectFromNSArray:(NSArray *)array;
 
 // misc
 - (NSDateFormatter *)dateFormatter;
