@@ -332,8 +332,8 @@ static dispatch_once_t propertiesMapOnceToken;
 }
 
 - (id)valueForInclusionProperty:(NSString *)propertyName {
-    id value = [self valueForKey:propertyName];
-    switch ((int)value) {
+    NSInteger value = [[self valueForKey:propertyName] integerValue];
+    switch (value) {
         case ANKBOOLPropertyInclusionTypeYes:
             return @1;
         case ANKBOOLPropertyInclusionTypeNo:
