@@ -27,6 +27,17 @@
 						failure:[self failureHandlerForClientHandler:completionHandler]];
 }
 
+- (ANKJSONRequestOperation *)fetchCurrentUserSubscribedChannelsWithTypes:(NSArray *)types completion:(ANKClientCompletionBlock)completionHandler {
+	if (!types) {
+		types = @[];
+	}
+	
+	return [self enqueueGETPath:@"channels"
+					 parameters:@{ @"channel_types": [types componentsJoinedByString:@","] }
+						success:[self successHandlerForCollectionOfResourceClass:[ANKChannel class] clientHandler:completionHandler]
+						failure:[self failureHandlerForClientHandler:completionHandler]];
+}
+
 
 - (ANKJSONRequestOperation *)fetchCurrentUserPrivateMessageChannelsWithCompletion:(ANKClientCompletionBlock)completionHandler {
 	return [self enqueueGETPath:@"channels" parameters:nil success:[self successHandlerForCollectionOfResourceClass:[ANKChannel class] clientHandler:completionHandler filteredWith:^BOOL(id object) {
