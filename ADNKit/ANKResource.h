@@ -15,10 +15,17 @@
 
 @interface ANKResource : NSObject <NSCopying, NSCoding>
 
+typedef NS_ENUM(NSInteger, ANKBOOLPropertyInclusionType) {
+    ANKBOOLPropertyInclusionTypeUnspecified = 0,
+    ANKBOOLPropertyInclusionTypeNo = 1,
+    ANKBOOLPropertyInclusionTypeYes = 2
+};
+
 + (NSDictionary *)JSONToLocalKeyMapping;
 + (NSString *)JSONKeyForLocalKey:(NSString *)localKey;
 + (NSString *)localKeyForJSONKey:(NSString *)JSONKey;
 + (NSSet *)localKeysExcludedFromJSONOutput;
++ (NSSet *)localKeysConditionallyExcludedFromJSONOutput;
 
 + (instancetype)objectFromJSONDictionary:(NSDictionary *)dictionary;
 + (NSArray *)objectsFromJSONDictionaries:(NSArray *)dictionaries;

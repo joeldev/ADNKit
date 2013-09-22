@@ -46,6 +46,20 @@
             @"thread_id": @"threadID"}];
 }
 
++ (NSSet *)localKeysConditionallyExcludedFromJSONOutput {
+    return [[super localKeysConditionallyExcludedFromJSONOutput] setByAddingObjectsFromArray:
+            @[@"isReply",
+            @"isDirected",
+            @"hasLocation",
+            @"hasCheckin",
+            @"isCrosspost",
+            @"hasAttachment",
+            @"hasOEmbedPhoto",
+            @"hasOEmbedVideo",
+            @"hasOEmbedHTML5Video",
+            @"hasOEmbedRich"]];
+}
+
 #pragma mark -
 #pragma mark Initialization
 
@@ -81,13 +95,13 @@
     ANKSearchQuery *searchQuery = [[[self class] alloc] init];
     for (NSString *type in mediaTypes) {
         if ([type isEqualToString:kANKSearchQueryMediaTypeHTML5Video]) {
-            searchQuery.hasOEmbedHTML5Video = YES;
+            searchQuery.hasOEmbedHTML5Video = ANKBOOLPropertyInclusionTypeYes;
         } else if ([type isEqualToString:kANKSearchQueryMediaTypePhoto]) {
-            searchQuery.hasOEmbedPhoto = YES;
+            searchQuery.hasOEmbedPhoto = ANKBOOLPropertyInclusionTypeYes;
         } else if ([type isEqualToString:kANKSearchQueryMediaTypeRich]) {
-            searchQuery.hasOEmbedRich = YES;
+            searchQuery.hasOEmbedRich = ANKBOOLPropertyInclusionTypeYes;
         } else if ([type isEqualToString:kANKSearchQueryMediaTypeVideo]) {
-            searchQuery.hasOEmbedVideo = YES;
+            searchQuery.hasOEmbedVideo = ANKBOOLPropertyInclusionTypeYes;
         }
     }
 
