@@ -34,6 +34,11 @@
 }
 
 
++ (NSDictionary *)JSONToLocalKeyMapping {
+	return [[super JSONToLocalKeyMapping] ank_dictionaryByAppendingDictionary:@{@"parse_links": @"parseLinks"}];
+}
+
+
 + (Class)mentionsCollectionObjectClass {
 	return [ANKMentionEntity class];
 }
