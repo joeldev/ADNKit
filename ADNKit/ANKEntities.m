@@ -35,7 +35,9 @@
 
 
 + (NSDictionary *)JSONToLocalKeyMapping {
-	return [[super JSONToLocalKeyMapping] ank_dictionaryByAppendingDictionary:@{@"parse_links": @"parseLinks"}];
+	return [[super JSONToLocalKeyMapping] ank_dictionaryByAppendingDictionary:@{
+			@"parse_links": @"parseLinks",
+			@"parse_markdown_links": @"parseMarkdownLinks"}];
 }
 
 
