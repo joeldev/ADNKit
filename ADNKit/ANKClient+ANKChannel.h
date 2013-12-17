@@ -40,6 +40,8 @@
 - (ANKJSONRequestOperation *)updateChannel:(ANKChannel *)channel completion:(ANKClientCompletionBlock)completionHandler;
 - (ANKJSONRequestOperation *)updateChannelWithID:(NSString *)channelID readers:(ANKACL *)readersACL writers:(ANKACL *)writersACL completion:(ANKClientCompletionBlock)completionHandler;
 
+- (ANKJSONRequestOperation *)deactivateChannelWithID:(NSString *)channelID completion:(ANKClientCompletionBlock)completionHandler;
+
 - (ANKJSONRequestOperation *)subscribeToChannel:(ANKChannel *)channel completion:(ANKClientCompletionBlock)completionHandler;
 - (ANKJSONRequestOperation *)subscribeToChannelWithID:(NSString *)channelID completion:(ANKClientCompletionBlock)completionHandler;
 - (ANKJSONRequestOperation *)unsubscribeToChannel:(ANKChannel *)channel completion:(ANKClientCompletionBlock)completionHandler;
