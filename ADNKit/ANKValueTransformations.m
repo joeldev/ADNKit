@@ -76,14 +76,4 @@
     return [array componentsJoinedByString:@","];
 }
 
-
-- (id)JSONObjectFromNSArrayI:(NSArray *)array {
-    return [self JSONObjectFromNSArray:array];
-}
-
-
-- (id)JSONObjectFromNSArrayM:(NSArray *)array {
-    return [self JSONObjectFromNSArray:array];
-}
-
 @end
