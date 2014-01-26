@@ -59,6 +59,13 @@ static NSString *const kANKErrorIDKey = @"ANKErrorID";
 @property (strong) NSString *errorSlug;
 @property (strong) NSString *errorID;
 
+// user streaming properties
+@property (assign) BOOL isDeleted;
+@property (strong) NSString *deletedID;
+@property (strong) NSArray *subscriptionIDs;
+@property (strong) NSString *connectionID;
+@property (strong) NSString *type;
+
 - (NSError *)error;
 - (BOOL)isError;
 - (ANKErrorType)errorType;

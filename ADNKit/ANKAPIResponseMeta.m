@@ -23,7 +23,12 @@
 			@"more": @"moreDataAvailable",
 			@"error_message": @"errorMessage",
 			@"error_slug": @"errorSlug",
-			@"error_id": @"errorID"}];
+			@"error_id": @"errorID",
+			@"is_deleted": @"isDeleted",
+			@"deleted_id": @"deletedID",
+			@"subscription_ids": @"subscriptionIDs",
+			@"connection_id": @"connectionID",
+			@"type": @"type"}];
 }
 
 
