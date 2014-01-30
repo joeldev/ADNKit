@@ -422,6 +422,8 @@ static const NSString *kANKUserStreamEndpointURL = @"wss://stream-channel.app.ne
         } else if (operation.isReady) {
             [operation start];
         }
+    } else if (self.socketShuttle.socketState == KATSocketStateConnecting){
+        [operation pause];
     }
 
     [self.streamContexts addObject:[ANKStreamContext streamContextWithOperation:operation identifier:subscriptionID delegate:delegate]];
