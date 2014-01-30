@@ -50,4 +50,6 @@
 - (ANKJSONRequestOperation *)unmuteChannel:(ANKChannel *)channel completion:(ANKClientCompletionBlock)completionHandler;
 - (ANKJSONRequestOperation *)unmuteChannelWithID:(NSString *)channelID completion:(ANKClientCompletionBlock)completionHandler;
 
+- (ANKJSONRequestOperation *)deactivateChannel:(ANKChannel *)channel completion:(ANKClientCompletionBlock)completionHandler;
+- (ANKJSONRequestOperation *)deactivateChannelWithID:(NSString *)channelID completion:(ANKClientCompletionBlock)completionHandler;
 @end
