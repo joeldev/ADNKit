@@ -447,19 +447,19 @@
 			remoteGlobalIDString = 4DE9EB64170D870A005B295E;
 			remoteInfo = SocketShuttle;
 		};
-		25D01E1217641047000D365D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 25D01E0517640FF1000D365D /* SocketShuttle.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 4DE9EB64170D870A005B295E;
-			remoteInfo = SocketShuttle;
-		};
 		330BDCA81765945F009BD559 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 25D01E0517640FF1000D365D /* SocketShuttle.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = 4DE9EB64170D870A005B295E;
 			remoteInfo = SocketShuttle;
+		};
+		902756DC18B3076E00CB0579 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 25D01E0517640FF1000D365D /* SocketShuttle.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 905AF99E17BB3F40002FDE4E;
+			remoteInfo = SocketShuttleOSX;
 		};
 		905AF9D617BB41AD002FDE4E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -1366,7 +1366,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				25D01E1317641047000D365D /* PBXTargetDependency */,
+				902756DD18B3076E00CB0579 /* PBXTargetDependency */,
 			);
 			name = "ADNKit-OSX";
 			productName = "ADNKit-OSX";
@@ -1711,15 +1711,15 @@
 			name = SocketShuttle;
 			targetProxy = 25D01E0F17641021000D365D /* PBXContainerItemProxy */;
 		};
-		25D01E1317641047000D365D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = SocketShuttle;
-			targetProxy = 25D01E1217641047000D365D /* PBXContainerItemProxy */;
-		};
 		330BDCA91765945F009BD559 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SocketShuttle;
 			targetProxy = 330BDCA81765945F009BD559 /* PBXContainerItemProxy */;
+		};
+		902756DD18B3076E00CB0579 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SocketShuttleOSX;
+			targetProxy = 902756DC18B3076E00CB0579 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
