@@ -19,4 +19,9 @@
 	return [[super JSONToLocalKeyMapping] ank_dictionaryByAppendingDictionary:@{@"pagination_id": @"paginationID"}];
 }
 
+- (NSString *)uniqueID {
+	// must be overridden in any subclass of this object
+	return nil;
+}
+
 @end

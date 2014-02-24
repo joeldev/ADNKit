@@ -27,6 +27,11 @@
 }
 
 
+- (NSString *)uniqueID {
+	return self.channelID;
+}
+
+
 - (BOOL)isPrivateMessageChannel {
 	return [self.type isEqualToString:@"net.app.core.pm"];
 }

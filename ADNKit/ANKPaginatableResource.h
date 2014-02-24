@@ -12,5 +12,6 @@
 @interface ANKPaginatableResource : ANKResource
 
 @property (strong) NSString *paginationID;
+@property (strong, readonly) NSString *uniqueID;
 
 @end

@@ -15,6 +15,7 @@
 
 @interface ANKInteraction : ANKPaginatableResource
 
+@property (strong) NSString *interactionID;
 @property (strong) NSString *actionString;
 @property (strong) NSDate *eventDate;
 @property (strong) NSArray *objects;

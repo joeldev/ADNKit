@@ -30,6 +30,11 @@
 }
 
 
+- (NSString *)uniqueID {
+	return self.messageID;
+}
+
+
 - (void)objectDidUpdate {
 	[super objectDidUpdate];
 	self.entities.text = self.text;
