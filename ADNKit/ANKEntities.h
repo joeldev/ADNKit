@@ -22,6 +22,7 @@
 @property (strong) NSArray *hashtags;
 @property (strong) NSArray *links;
 @property (assign) BOOL parseLinks;
+@property (assign) BOOL parseMarkdownLinks;
 
 - (ANKMentionEntity *)mentionForUsername:(NSString *)username;
 - (BOOL)containsMentionForUsername:(NSString *)username;
