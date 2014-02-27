@@ -28,6 +28,7 @@
 @property (strong) ANKACL *writers;
 @property (assign) BOOL isCurrentUserSubscribed;
 @property (assign) BOOL isEditableByCurrentUser;
+@property (assign) BOOL isInactive;
 @property (assign) BOOL hasUnreadMessages;
 
 - (BOOL)isPrivateMessageChannel;
