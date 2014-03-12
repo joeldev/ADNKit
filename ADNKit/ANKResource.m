@@ -285,7 +285,7 @@ static dispatch_once_t propertiesMapOnceToken;
 			}];
 		} else {
 			// otherwise, see if it needs to be transformed in order to be JSON compatible
-            NSString *valueClassString = NSStringFromClass([value class]);
+            NSString *valueClassString = NSStringFromClass([value classForCoder] ?: [value class]);
             if ([valueClassString hasPrefix:@"__"]) {
                 valueClassString = [valueClassString substringFromIndex:[@"__" length]];
             }
