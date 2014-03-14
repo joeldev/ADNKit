@@ -29,6 +29,7 @@ static dispatch_once_t propertiesMapOnceToken;
 @property (assign) BOOL isPrimitive;
 @property (assign) BOOL isModelObject;
 @property (assign) BOOL isCollection;
+@property (assign) BOOL isReadOnly;
 
 - (id)initWithName:(NSString *)name attributesString:(NSString *)attributesString forParentClass:(Class)parentClass;
 
@@ -66,9 +67,24 @@ static dispatch_once_t propertiesMapOnceToken;
 					self.isCollection = [self.objectType isSubclassOfClass:[ANKResource class]];
 				}
 			}
+
+			// skip over trailing "
+			[scanner scanString:@"\"" intoString:NULL];
 		} else {
 			// primitive
 			self.isPrimitive = YES;
+		}
+
+		[scanner scanUpToString:@"," intoString:NULL];
+		[scanner scanString:@"," intoString:NULL];
+
+		NSString *scanString;
+		while ([scanner scanUpToString:@"," intoString:&scanString]) {
+			if ([scanString hasPrefix:@"R"]) {
+				self.isReadOnly = YES;
+			}
+
+			[scanner scanString:@"," intoString:NULL];
 		}
 	}
 	return self;
@@ -366,8 +382,12 @@ static dispatch_once_t propertiesMapOnceToken;
 - (id)initWithCoder:(NSCoder *)aDecoder {
 	if ((self = [super init])) {
 		[self iteratePropertiesWithBlock:^(ANKResourceProperty *property) {
-			id decodedValue = [aDecoder decodeObjectForKey:property.name];
-			[self setValue:decodedValue forKey:property.name];
+			if (!property.isReadOnly) {
+				id decodedValue = [aDecoder decodeObjectForKey:property.name];
+				if (decodedValue) {
+					[self setValue:decodedValue forKey:property.name];
+				}
+			}
 		}];
 	}
 	return self;
@@ -376,9 +396,11 @@ static dispatch_once_t propertiesMapOnceToken;
 
 - (void)encodeWithCoder:(NSCoder *)aCoder {
 	[self iteratePropertiesWithBlock:^(ANKResourceProperty *property) {
-		id value = [self valueForKey:property.name];
-		if (value) {
-			[aCoder encodeObject:value forKey:property.name];
+		if (!property.isReadOnly) {
+			id value = [self valueForKey:property.name];
+			if (value) {
+				[aCoder encodeObject:value forKey:property.name];
+			}
 		}
 	}];
 }
