@@ -245,6 +245,10 @@ static dispatch_once_t propertiesMapOnceToken;
 			if (!value && property.isPrimitive) {
 				continue;
 			}
+
+			if (property.isReadOnly) {
+				continue;
+			}
 			
 			[self setValue:value forKey:localKey];
 		}
@@ -366,9 +370,11 @@ static dispatch_once_t propertiesMapOnceToken;
 	ANKResource *copy = [[[self class] alloc] init];
 	
 	[self iteratePropertiesWithBlock:^(ANKResourceProperty *property) {
-		id value = [self valueForKey:property.name];
-		if (value) {
-			[copy setValue:value forKey:property.name];
+		if (!property.isReadOnly) {
+			id value = [self valueForKey:property.name];
+			if (value) {
+				[copy setValue:value forKey:property.name];
+			}
 		}
 	}];
 	
