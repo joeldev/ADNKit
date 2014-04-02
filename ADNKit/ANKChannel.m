@@ -23,7 +23,8 @@
 			@"you_can_edit": @"isEditableByCurrentUser",
 			@"has_unread": @"hasUnreadMessages",
 			@"recent_message_id": @"latestMessageID",
-			@"recent_message": @"latestMessage"}];
+			@"recent_message": @"latestMessage",
+            @"is_inactive" : @"isInactive"}];
 }
 
 

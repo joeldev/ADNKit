@@ -18,6 +18,7 @@
 @property (assign) BOOL includeMuted;
 @property (assign) BOOL includeDeleted;
 @property (assign) BOOL includeDirectedPosts;
+@property (assign) BOOL includeInactive;
 @property (assign) BOOL includeMachine;
 @property (assign) BOOL includeStarredBy;
 @property (assign) BOOL includeReposters;

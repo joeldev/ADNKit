@@ -19,6 +19,7 @@
 	return [[super JSONToLocalKeyMapping] ank_dictionaryByAppendingDictionary:@{
 			@"include_muted": @"includeMuted",
 			@"include_deleted": @"includeDeleted",
+            @"include_inactive": @"includeInactive",
 			@"include_directed_posts": @"includeDirectedPosts",
 			@"include_machine": @"includeMachine",
 			@"include_starred_by": @"includeStarredBy",
