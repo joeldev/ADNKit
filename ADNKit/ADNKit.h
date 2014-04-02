@@ -13,6 +13,7 @@
 #import <ADNKit/ANKResourceMap.h>
 
 #import <ADNKit/ANKClient.h>
+#import <ADNKit/ANKClient+ANKConfiguration.h>
 #import <ADNKit/ANKClient+ANKUser.h>
 #import <ADNKit/ANKClient+ANKPost.h>
 #import <ADNKit/ANKClient+ANKPostStreams.h>
@@ -38,6 +39,11 @@
 #import <ADNKit/ANKChannel.h>
 #import <ADNKit/ANKChannelCounts.h>
 #import <ADNKit/ANKACL.h>
+
+#import <ADNKit/ANKConfiguration.h>
+#import <ADNKit/ANKResourceConfiguration.h>
+#import <ADNKit/ANKTextConfiguration.h>
+#import <ADNKit/ANKURITemplateLength.h>
 
 #import <ADNKit/ANKPlace.h>
 #import <ADNKit/ANKPlaceCategory.h>
