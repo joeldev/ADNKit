@@ -188,6 +188,16 @@
 }
 
 
+// http://developers.app.net/docs/resources/channel/lifecycle/#deactivate-a-channel
+
+- (ANKJSONRequestOperation *)deactivateChannelWithID:(NSString *)channelID completion:(ANKClientCompletionBlock)completionHandler
+{
+	return [self enqueueDELETEPath:[NSString stringWithFormat:@"channels/%@", channelID]
+						parameters:nil
+						   success:[self successHandlerForResourceClass:[ANKChannel class] clientHandler:completionHandler]
+						   failure:[self failureHandlerForClientHandler:completionHandler]];
+}
+
 // http://developers.app.net/docs/resources/channel/subscriptions/#subscribe-to-a-channel
 
 - (ANKJSONRequestOperation *)subscribeToChannel:(ANKChannel *)channel completion:(ANKClientCompletionBlock)completionHandler {
