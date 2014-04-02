@@ -26,4 +26,9 @@
 }
 
 
+- (NSString *)uniqueID {
+	return self.interactionID;
+}
+
+
 @end

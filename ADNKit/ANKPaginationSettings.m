@@ -12,6 +12,7 @@
 
 #import "ANKPaginationSettings.h"
 
+static const NSInteger kANKPaginationSettingsUndefinedCount = NSIntegerMax;
 
 @implementation ANKPaginationSettings
 
@@ -62,11 +63,18 @@
 	return settings;
 }
 
+- (instancetype)init {
+    if ((self = [super init])) {
+        self.count = kANKPaginationSettingsUndefinedCount;
+    }
+
+    return self;
+}
 
 - (NSDictionary *)JSONDictionary {
 	NSDictionary *dictionary = [super JSONDictionary];
 	
-	if ([dictionary[@"count"] integerValue] == 0) {
+	if ([dictionary[@"count"] integerValue] == kANKPaginationSettingsUndefinedCount) {
 		NSMutableDictionary *modifiedDictionary = [dictionary mutableCopy];
 		[modifiedDictionary removeObjectForKey:@"count"];
 		dictionary = modifiedDictionary;

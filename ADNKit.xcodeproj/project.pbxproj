@@ -380,6 +380,12 @@
 		5DC3727E16E3AF6900190862 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DC3727D16E3AF6900190862 /* UIKit.framework */; };
 		5DC3728116E3AF8900190862 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DC3728016E3AF8800190862 /* CoreLocation.framework */; };
 		5DC3728316E3AF8E00190862 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DC3728216E3AF8E00190862 /* SystemConfiguration.framework */; };
+		65EE7857181B1D7900076898 /* ANKPaginatableResource.h in Headers */ = {isa = PBXBuildFile; fileRef = 65EE7855181B1D7900076898 /* ANKPaginatableResource.h */; };
+		65EE7858181B1D7900076898 /* ANKPaginatableResource.h in Headers */ = {isa = PBXBuildFile; fileRef = 65EE7855181B1D7900076898 /* ANKPaginatableResource.h */; };
+		65EE7859181B1D7900076898 /* ANKPaginatableResource.h in Headers */ = {isa = PBXBuildFile; fileRef = 65EE7855181B1D7900076898 /* ANKPaginatableResource.h */; };
+		65EE785A181B1D7900076898 /* ANKPaginatableResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 65EE7856181B1D7900076898 /* ANKPaginatableResource.m */; };
+		65EE785B181B1D7900076898 /* ANKPaginatableResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 65EE7856181B1D7900076898 /* ANKPaginatableResource.m */; };
+		65EE785C181B1D7900076898 /* ANKPaginatableResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 65EE7856181B1D7900076898 /* ANKPaginatableResource.m */; };
 		E2685AD818ECCE8E009FB9BF /* ANKConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = E2685AD718ECCE8E009FB9BF /* ANKConfiguration.h */; };
 		E2685AD918ECCE8E009FB9BF /* ANKConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = E2685AD718ECCE8E009FB9BF /* ANKConfiguration.h */; };
 		E2685ADA18ECCE8E009FB9BF /* ANKConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = E2685AD718ECCE8E009FB9BF /* ANKConfiguration.h */; };
@@ -626,6 +632,8 @@
 		5DC3727D16E3AF6900190862 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5DC3728016E3AF8800190862 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/CoreLocation.framework; sourceTree = DEVELOPER_DIR; };
 		5DC3728216E3AF8E00190862 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
+		65EE7855181B1D7900076898 /* ANKPaginatableResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKPaginatableResource.h; sourceTree = "<group>"; };
+		65EE7856181B1D7900076898 /* ANKPaginatableResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANKPaginatableResource.m; sourceTree = "<group>"; };
 		E2685AD718ECCE8E009FB9BF /* ANKConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKConfiguration.h; sourceTree = "<group>"; };
 		E2685ADB18ECCF24009FB9BF /* ANKConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANKConfiguration.m; sourceTree = "<group>"; };
 		E2685ADC18ECCF24009FB9BF /* ANKResourceConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKResourceConfiguration.h; sourceTree = "<group>"; };
@@ -733,6 +741,8 @@
 			children = (
 				252A887B16F8CDB6001F3E8F /* ANKACL.h */,
 				252A887C16F8CDB6001F3E8F /* ANKACL.m */,
+				65EE7855181B1D7900076898 /* ANKPaginatableResource.h */,
+				65EE7856181B1D7900076898 /* ANKPaginatableResource.m */,
 				252A887D16F8CDB6001F3E8F /* ANKAnnotatableResource.h */,
 				252A887E16F8CDB6001F3E8F /* ANKAnnotatableResource.m */,
 				252A887F16F8CDB6001F3E8F /* ANKAnnotation.h */,
@@ -1092,6 +1102,7 @@
 				24DA121A1741FBD000CAA8C5 /* ANKAPIResponseMeta.h in Headers */,
 				24DA121B1741FBD000CAA8C5 /* ANKJSONRequestOperation.h in Headers */,
 				24DA121C1741FBD000CAA8C5 /* NSArray+ANKAdditions.h in Headers */,
+				65EE7858181B1D7900076898 /* ANKPaginatableResource.h in Headers */,
 				24DA121D1741FBD000CAA8C5 /* NSDictionary+ANKAdditions.h in Headers */,
 				24DA121E1741FBD000CAA8C5 /* NSString+ANKAdditions.h in Headers */,
 				24DA121F1741FBD800CAA8C5 /* ANKValueTransformations.h in Headers */,
@@ -1126,6 +1137,7 @@
 				E2685AE518ECCF24009FB9BF /* ANKResourceConfiguration.h in Headers */,
 				E2685AEB18ECCF24009FB9BF /* ANKTextConfiguration.h in Headers */,
 				5D955BE6174BD10B0077E387 /* ANKGeneralParameters.h in Headers */,
+				65EE7857181B1D7900076898 /* ANKPaginatableResource.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1141,6 +1153,7 @@
 				5DC3726A16E3AE1500190862 /* AFPropertyListRequestOperation.h in Headers */,
 				5DC3726D16E3AE1500190862 /* AFURLConnectionOperation.h in Headers */,
 				5DC3727016E3AE1500190862 /* AFXMLRequestOperation.h in Headers */,
+				65EE7859181B1D7900076898 /* ANKPaginatableResource.h in Headers */,
 				252A2C4516E5624700DAE393 /* ANKClient.h in Headers */,
 				5DA357D416EBC29600FA21F8 /* ADNKit-OSX.h in Headers */,
 				259A5EC616F2E1EF00AF9F35 /* ADNKit.h in Headers */,
@@ -1440,6 +1453,7 @@
 				5D2CFEE81703E8F200086FBD /* ANKTokenLimits.m in Sources */,
 				256768111711539D00C57D47 /* NSString+ANKAdditions.m in Sources */,
 				2567682917153E3200C57D47 /* ANKResourceMap.m in Sources */,
+				65EE785B181B1D7900076898 /* ANKPaginatableResource.m in Sources */,
 				252E632717421632003143D6 /* ANKClient+ANKStreamMarker.m in Sources */,
 				252AD7181745C76600E12492 /* ANKClient+ANKRequestsAPI.m in Sources */,
 				5D955BEA174BD10B0077E387 /* ANKGeneralParameters.m in Sources */,
@@ -1498,6 +1512,7 @@
 				252A896416F8CDF3001F3E8F /* ANKPost.m in Sources */,
 				252A896716F8CDF3001F3E8F /* ANKResource.m in Sources */,
 				252A896A16F8CDF3001F3E8F /* ANKStorage.m in Sources */,
+				65EE785A181B1D7900076898 /* ANKPaginatableResource.m in Sources */,
 				252A896D16F8CDF3001F3E8F /* ANKStream.m in Sources */,
 				252A897016F8CDF3001F3E8F /* ANKStreamMarker.m in Sources */,
 				252A897316F8CDF3001F3E8F /* ANKTextFieldCell.m in Sources */,
@@ -1561,6 +1576,7 @@
 				252A894416F8CDF3001F3E8F /* ANKInteraction.m in Sources */,
 				252A894716F8CDF3001F3E8F /* ANKJSONRequestOperation.m in Sources */,
 				252A894A16F8CDF3001F3E8F /* ANKLinkEntity.m in Sources */,
+				65EE785C181B1D7900076898 /* ANKPaginatableResource.m in Sources */,
 				252A894D16F8CDF3001F3E8F /* ANKMentionEntity.m in Sources */,
 				252A895016F8CDF3001F3E8F /* ANKMessage.m in Sources */,
 				252A895616F8CDF3001F3E8F /* ANKObjectSource.m in Sources */,

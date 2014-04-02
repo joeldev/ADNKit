@@ -84,6 +84,11 @@
 }
 
 
+- (NSString *)uniqueID {
+	return self.fileID;
+}
+
+
 - (void)updateObjectFromJSONDictionary:(NSDictionary *)JSONDictionary {
 	NSMutableDictionary *mutableJSONDictionary = [NSMutableDictionary dictionaryWithDictionary:JSONDictionary];
 	NSString *derivedFilesKey = [[self class] JSONKeyForLocalKey:@"derivedFiles"];

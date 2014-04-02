@@ -11,9 +11,10 @@
  */
 
 #import "ANKResource.h"
+#import "ANKPaginatableResource.h"
 
 
-@interface ANKAnnotatableResource : ANKResource
+@interface ANKAnnotatableResource : ANKPaginatableResource
 
 @property (strong) NSArray *annotations;
 -(NSArray *)annotationsWithType:(NSString *)type;

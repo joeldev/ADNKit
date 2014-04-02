@@ -11,6 +11,7 @@
  */
 
 #import "ANKAPIResponse.h"
+#import "ANKResourceMap.h"
 #import "ANKAPIResponseMeta.h"
 
 
@@ -29,7 +30,7 @@
 		if ([responseObject isKindOfClass:[NSDictionary class]]) {
 			NSDictionary *responseDictionary = (NSDictionary *)responseObject;
 			self.data = responseDictionary[@"data"];
-			self.meta = [ANKAPIResponseMeta objectFromJSONDictionary:responseDictionary[@"meta"]];
+			self.meta = [ANKResolve(ANKAPIResponseMeta) objectFromJSONDictionary:responseDictionary[@"meta"]];
 			
 			if (headers)
 			{
