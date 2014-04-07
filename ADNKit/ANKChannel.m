@@ -24,7 +24,8 @@
 			@"has_unread": @"hasUnreadMessages",
 			@"recent_message_id": @"latestMessageID",
 			@"recent_message": @"latestMessage",
-            @"is_inactive" : @"isInactive"}];
+            @"is_inactive" : @"isInactive",
+            @"you_muted" : @"youMuted"}];
 }
 
 
