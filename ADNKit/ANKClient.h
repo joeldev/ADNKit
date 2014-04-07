@@ -68,6 +68,10 @@ typedef void (^ANKClientCompletionBlock)(id responseObject, ANKAPIResponseMeta *
 
 // web-style authentication. call this method first, and then load the resulting URLRequest is a webview
 - (NSURLRequest *)webAuthRequestForClientID:(NSString *)clientID redirectURI:(NSString *)redirectURI authScopes:(ANKAuthScope)authScopes state:(NSString *)state appStoreCompliant:(BOOL)shouldBeAppStoreCompliant;
+
+// web-style authentication, with a configurable responseType. Set this to @"code" for default behaviour, and @"token" for the implicit grant flow.
+- (NSURLRequest *)webAuthRequestForClientID:(NSString *)clientID redirectURI:(NSString *)redirectURI authScopes:(ANKAuthScope)authScopes state:(NSString *)state responseType:(NSString *) responseType appStoreCompliant:(BOOL)shouldBeAppStoreCompliant;
+
 // once you have an access code, call this method to finish web auth
 - (void)authenticateWebAuthAccessCode:(NSString *)accessCode forClientID:(NSString *)clientID clientSecret:(NSString *)clientSecret;
 
