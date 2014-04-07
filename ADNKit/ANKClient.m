@@ -458,7 +458,7 @@ static const NSString *kANKUserStreamEndpointURL = @"wss://stream-channel.app.ne
             BOOL isMessage = sampleObject[@"channel_id"] && !sampleObject[@"canonical_url"] && !sampleObject[@"num_stars"];
             BOOL isPost = sampleObject[@"num_stars"] && sampleObject[@"user"] && sampleObject[@"canonical_url"] && sampleObject[@"text"];
             BOOL isChannel = sampleObject[@"has_unread"] && sampleObject[@"readers"];
-            BOOL isFile = sampleObject[@"complete"] && sampleObject[@"derived_files"];
+            BOOL isFile = sampleObject[@"complete"] && sampleObject[@"file_token"];
 
             ANKAPIResponse *response = [[ANKAPIResponse alloc] initWithResponseObject:JSON];
             Class resourceClass = nil;
