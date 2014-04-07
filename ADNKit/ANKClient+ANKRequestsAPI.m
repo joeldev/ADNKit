@@ -23,7 +23,7 @@
     NSURL *URL = [manager.baseURL URLByAppendingPathComponent:path];
 
     NSError *requestError;
-    NSURLRequest *request = [serializer requestWithMethod:method URLString:[URL absoluteString] parameters:nil error:&requestError];
+    NSURLRequest *request = [serializer requestWithMethod:method URLString:[URL absoluteString] parameters:parameters error:&requestError];
 
     if (requestError && failureBlock) {
         failureBlock(nil, requestError);
