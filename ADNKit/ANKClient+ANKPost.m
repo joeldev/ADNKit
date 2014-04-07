@@ -20,7 +20,7 @@
 
 // http://developers.app.net/docs/resources/post/lookup/#retrieve-a-post
 
-- (ANKJSONRequestOperation *)fetchPostWithID:(NSString *)postID completion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)fetchPostWithID:(NSString *)postID completion:(ANKClientCompletionBlock)completionHandler {
 	return [self enqueueGETPath:[NSString stringWithFormat:@"posts/%@", postID]
 					 parameters:nil
 						success:[self successHandlerForResourceClass:[ANKPost class] clientHandler:completionHandler]
@@ -30,7 +30,7 @@
 
 // http://developers.app.net/docs/resources/post/lookup/#retrieve-multiple-posts
 
-- (ANKJSONRequestOperation *)fetchPostsWithIDs:(NSArray *)postIDs completion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)fetchPostsWithIDs:(NSArray *)postIDs completion:(ANKClientCompletionBlock)completionHandler {
 	return [self enqueueGETPath:[NSString stringWithFormat:@"posts"]
 					 parameters:@{@"ids": [postIDs componentsJoinedByString:@","]}
 						success:[self successHandlerForCollectionOfResourceClass:[ANKPost class] clientHandler:completionHandler]
@@ -40,12 +40,12 @@
 
 // http://developers.app.net/docs/resources/post/replies/#retrieve-the-replies-to-a-post
 
-- (ANKJSONRequestOperation *)fetchRepliesToPost:(ANKPost *)post completion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)fetchRepliesToPost:(ANKPost *)post completion:(ANKClientCompletionBlock)completionHandler {
 	return [self fetchRepliesToPostWithID:post.postID completion:completionHandler];
 }
 
 
-- (ANKJSONRequestOperation *)fetchRepliesToPostWithID:(NSString *)postID completion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)fetchRepliesToPostWithID:(NSString *)postID completion:(ANKClientCompletionBlock)completionHandler {
 	return [self enqueueGETPath:[NSString stringWithFormat:@"posts/%@/replies", postID]
 					 parameters:nil
 						success:[self successHandlerForCollectionOfResourceClass:[ANKPost class] clientHandler:completionHandler]
@@ -55,12 +55,12 @@
 
 // http://developers.app.net/docs/resources/post/stars/#retrieve-posts-starred-by-a-user
 
-- (ANKJSONRequestOperation *)fetchPostsStarredByUser:(ANKUser *)user completion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)fetchPostsStarredByUser:(ANKUser *)user completion:(ANKClientCompletionBlock)completionHandler {
 	return [self fetchPostsStarredByUserWithID:user.userID completion:completionHandler];
 }
 
 
-- (ANKJSONRequestOperation *)fetchPostsStarredByUserWithID:(NSString *)userID completion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)fetchPostsStarredByUserWithID:(NSString *)userID completion:(ANKClientCompletionBlock)completionHandler {
 	return [self enqueueGETPath:[NSString stringWithFormat:@"users/%@/stars", userID]
 					 parameters:nil
 						success:[self successHandlerForCollectionOfResourceClass:[ANKPost class] clientHandler:completionHandler]
@@ -70,7 +70,7 @@
 
 // http://developers.app.net/docs/resources/post/lifecycle/#create-a-post
 
-- (ANKJSONRequestOperation *)createPost:(ANKPost *)post completion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)createPost:(ANKPost *)post completion:(ANKClientCompletionBlock)completionHandler {
 	return [self enqueuePOSTPath:@"posts"
 					  parameters:[post JSONDictionary]
 						 success:[self successHandlerForResourceClass:[ANKPost class] clientHandler:completionHandler]
@@ -78,17 +78,17 @@
 }
 
 
-- (ANKJSONRequestOperation *)createPostWithText:(NSString *)text completion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)createPostWithText:(NSString *)text completion:(ANKClientCompletionBlock)completionHandler {
 	return [self createPostWithText:text inReplyToPostWithID:nil completion:completionHandler];
 }
 
 
-- (ANKJSONRequestOperation *)createPostWithText:(NSString *)text inReplyToPost:(ANKPost *)post completion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)createPostWithText:(NSString *)text inReplyToPost:(ANKPost *)post completion:(ANKClientCompletionBlock)completionHandler {
 	return [self createPostWithText:text inReplyToPostWithID:post.postID completion:completionHandler];
 }
 
 
-- (ANKJSONRequestOperation *)createPostWithText:(NSString *)text inReplyToPostWithID:(NSString *)postID completion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)createPostWithText:(NSString *)text inReplyToPostWithID:(NSString *)postID completion:(ANKClientCompletionBlock)completionHandler {
 	return [self enqueuePOSTPath:@"posts"
 					  parameters:(postID ? @{@"text": text, @"reply_to": postID} : @{@"text": text})
 						 success:[self successHandlerForResourceClass:[ANKPost class] clientHandler:completionHandler]
@@ -98,12 +98,12 @@
 
 // http://developers.app.net/docs/resources/post/lifecycle/#delete-a-post
 
-- (ANKJSONRequestOperation *)deletePost:(ANKPost *)post completion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)deletePost:(ANKPost *)post completion:(ANKClientCompletionBlock)completionHandler {
 	return [self deletePostWithID:post.postID completion:completionHandler];
 }
 
 
-- (ANKJSONRequestOperation *)deletePostWithID:(NSString *)postID completion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)deletePostWithID:(NSString *)postID completion:(ANKClientCompletionBlock)completionHandler {
 	return [self enqueueDELETEPath:[NSString stringWithFormat:@"posts/%@", postID]
 						parameters:nil
 						   success:[self successHandlerForResourceClass:[ANKPost class] clientHandler:completionHandler]
@@ -113,12 +113,12 @@
 
 // http://developers.app.net/docs/resources/post/reposts/#repost-a-post
 
-- (ANKJSONRequestOperation *)repostPost:(ANKPost *)post completion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)repostPost:(ANKPost *)post completion:(ANKClientCompletionBlock)completionHandler {
 	return [self repostPostWithID:post.postID completion:completionHandler];
 }
 
 
-- (ANKJSONRequestOperation *)repostPostWithID:(NSString *)postID completion:(ANKClientCompletionBlock)completionHandler {	
+- (AFHTTPRequestOperation *)repostPostWithID:(NSString *)postID completion:(ANKClientCompletionBlock)completionHandler {	
 	return [self enqueuePOSTPath:[NSString stringWithFormat:@"posts/%@/repost", postID]
 					  parameters:nil
 						 success:[self successHandlerForResourceClass:[ANKPost class] clientHandler:completionHandler]
@@ -128,12 +128,12 @@
 
 // http://developers.app.net/docs/resources/post/reposts/#unrepost-a-post
 
-- (ANKJSONRequestOperation *)unrepostPost:(ANKPost *)post completion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)unrepostPost:(ANKPost *)post completion:(ANKClientCompletionBlock)completionHandler {
 	return [self unrepostPostWithID:post.postID completion:completionHandler];
 }
 
 
-- (ANKJSONRequestOperation *)unrepostPostWithID:(NSString *)postID completion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)unrepostPostWithID:(NSString *)postID completion:(ANKClientCompletionBlock)completionHandler {
 	return [self enqueueDELETEPath:[NSString stringWithFormat:@"posts/%@/repost", postID]
 						parameters:nil
 						   success:[self successHandlerForResourceClass:[ANKPost class] clientHandler:completionHandler]
@@ -143,12 +143,12 @@
 
 // http://developers.app.net/docs/resources/post/stars/#star-a-post
 
-- (ANKJSONRequestOperation *)starPost:(ANKPost *)post completion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)starPost:(ANKPost *)post completion:(ANKClientCompletionBlock)completionHandler {
 	return [self starPostWithID:post.postID completion:completionHandler];
 }
 
 
-- (ANKJSONRequestOperation *)starPostWithID:(NSString *)postID completion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)starPostWithID:(NSString *)postID completion:(ANKClientCompletionBlock)completionHandler {
 	return [self enqueuePOSTPath:[NSString stringWithFormat:@"posts/%@/star", postID]
 					  parameters:nil
 						 success:[self successHandlerForResourceClass:[ANKPost class] clientHandler:completionHandler]
@@ -158,12 +158,12 @@
 
 // http://developers.app.net/docs/resources/post/stars/#unstar-a-post
 
-- (ANKJSONRequestOperation *)unstarPost:(ANKPost *)post completion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)unstarPost:(ANKPost *)post completion:(ANKClientCompletionBlock)completionHandler {
 	return [self unstarPostWithID:post.postID completion:completionHandler];
 }
 
 
-- (ANKJSONRequestOperation *)unstarPostWithID:(NSString *)postID completion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)unstarPostWithID:(NSString *)postID completion:(ANKClientCompletionBlock)completionHandler {
 	return [self enqueueDELETEPath:[NSString stringWithFormat:@"posts/%@/star", postID]
 						parameters:nil
 						   success:[self successHandlerForResourceClass:[ANKPost class] clientHandler:completionHandler]
@@ -173,12 +173,12 @@
 
 // http://developers.app.net/docs/resources/post/report/#report-a-post
 
-- (ANKJSONRequestOperation *)reportPostAsSpam:(ANKPost *)post completion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)reportPostAsSpam:(ANKPost *)post completion:(ANKClientCompletionBlock)completionHandler {
 	return [self reportPostWithIDAsSpam:post.postID completion:completionHandler];
 }
 
 
-- (ANKJSONRequestOperation *)reportPostWithIDAsSpam:(NSString *)postID completion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)reportPostWithIDAsSpam:(NSString *)postID completion:(ANKClientCompletionBlock)completionHandler {
 	return [self enqueuePOSTPath:[NSString stringWithFormat:@"posts/%@/report", postID]
 					  parameters:nil
 						 success:[self successHandlerForResourceClass:[ANKPost class] clientHandler:completionHandler]
@@ -188,7 +188,7 @@
 
 // http://developers.app.net/docs/resources/post/search/
 
-- (ANKJSONRequestOperation *)searchForPostsWithQuery:(ANKSearchQuery *)query completion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)searchForPostsWithQuery:(ANKSearchQuery *)query completion:(ANKClientCompletionBlock)completionHandler {
     return [self enqueueGETPath:@"posts/search"
                      parameters:[query JSONDictionary]
                         success:[self successHandlerForResourceClass:[ANKPost class] clientHandler:completionHandler]

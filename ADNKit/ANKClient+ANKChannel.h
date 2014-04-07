@@ -17,37 +17,37 @@
 
 @interface ANKClient (ANKChannel)
 
-- (ANKJSONRequestOperation *)fetchCurrentUserSubscribedChannelsWithCompletion:(ANKClientCompletionBlock)completionHandler;
-- (ANKJSONRequestOperation *)fetchCurrentUserSubscribedChannelsWithTypes:(NSArray *)types completion:(ANKClientCompletionBlock)completionHandler;
-- (ANKJSONRequestOperation *)fetchCurrentUserPrivateMessageChannelsWithCompletion:(ANKClientCompletionBlock)completionHandler;
-- (ANKJSONRequestOperation *)fetchCurrentUserCreatedChannelsWithCompletion:(ANKClientCompletionBlock)completionHandler;
-- (ANKJSONRequestOperation *)fetchUnreadPMChannelsCountWithCompletion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)fetchCurrentUserSubscribedChannelsWithCompletion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)fetchCurrentUserSubscribedChannelsWithTypes:(NSArray *)types completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)fetchCurrentUserPrivateMessageChannelsWithCompletion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)fetchCurrentUserCreatedChannelsWithCompletion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)fetchUnreadPMChannelsCountWithCompletion:(ANKClientCompletionBlock)completionHandler;
 
-- (ANKJSONRequestOperation *)fetchChannelWithID:(NSString *)channelID completion:(ANKClientCompletionBlock)completionHandler;
-- (ANKJSONRequestOperation *)fetchChannelsWithIDs:(NSArray *)channelIDs completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)fetchChannelWithID:(NSString *)channelID completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)fetchChannelsWithIDs:(NSArray *)channelIDs completion:(ANKClientCompletionBlock)completionHandler;
 
-- (ANKJSONRequestOperation *)fetchUsersSubscribedToChannel:(ANKChannel *)channel completion:(ANKClientCompletionBlock)completionHandler;
-- (ANKJSONRequestOperation *)fetchUsersSubscribedToChannelWithID:(NSString *)channelID completion:(ANKClientCompletionBlock)completionHandler;
-- (ANKJSONRequestOperation *)fetchUserIDsSubscribedToChannel:(ANKChannel *)channel completion:(ANKClientCompletionBlock)completionHandler;
-- (ANKJSONRequestOperation *)fetchUserIDsSubscribedToChannelWithID:(NSString *)channelID completion:(ANKClientCompletionBlock)completionHandler;
-- (ANKJSONRequestOperation *)fetchUserIDsSubscribedToChannelIDs:(NSArray *)channelIDs completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)fetchUsersSubscribedToChannel:(ANKChannel *)channel completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)fetchUsersSubscribedToChannelWithID:(NSString *)channelID completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)fetchUserIDsSubscribedToChannel:(ANKChannel *)channel completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)fetchUserIDsSubscribedToChannelWithID:(NSString *)channelID completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)fetchUserIDsSubscribedToChannelIDs:(NSArray *)channelIDs completion:(ANKClientCompletionBlock)completionHandler;
 
-- (ANKJSONRequestOperation *)fetchMutedChannelsForCurrentUserWithCompletion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)fetchMutedChannelsForCurrentUserWithCompletion:(ANKClientCompletionBlock)completionHandler;
 
-- (ANKJSONRequestOperation *)createChannel:(ANKChannel *)channel completion:(ANKClientCompletionBlock)completionHandler;
-- (ANKJSONRequestOperation *)createChannelWithType:(NSString *)type readers:(ANKACL *)readersACL writers:(ANKACL *)writersACL completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)createChannel:(ANKChannel *)channel completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)createChannelWithType:(NSString *)type readers:(ANKACL *)readersACL writers:(ANKACL *)writersACL completion:(ANKClientCompletionBlock)completionHandler;
 
-- (ANKJSONRequestOperation *)updateChannel:(ANKChannel *)channel completion:(ANKClientCompletionBlock)completionHandler;
-- (ANKJSONRequestOperation *)updateChannelWithID:(NSString *)channelID readers:(ANKACL *)readersACL writers:(ANKACL *)writersACL completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)updateChannel:(ANKChannel *)channel completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)updateChannelWithID:(NSString *)channelID readers:(ANKACL *)readersACL writers:(ANKACL *)writersACL completion:(ANKClientCompletionBlock)completionHandler;
 
-- (ANKJSONRequestOperation *)subscribeToChannel:(ANKChannel *)channel completion:(ANKClientCompletionBlock)completionHandler;
-- (ANKJSONRequestOperation *)subscribeToChannelWithID:(NSString *)channelID completion:(ANKClientCompletionBlock)completionHandler;
-- (ANKJSONRequestOperation *)unsubscribeToChannel:(ANKChannel *)channel completion:(ANKClientCompletionBlock)completionHandler;
-- (ANKJSONRequestOperation *)unsubscribeToChannelWithID:(NSString *)channelID completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)subscribeToChannel:(ANKChannel *)channel completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)subscribeToChannelWithID:(NSString *)channelID completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)unsubscribeToChannel:(ANKChannel *)channel completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)unsubscribeToChannelWithID:(NSString *)channelID completion:(ANKClientCompletionBlock)completionHandler;
 
-- (ANKJSONRequestOperation *)muteChannel:(ANKChannel *)channel completion:(ANKClientCompletionBlock)completionHandler;
-- (ANKJSONRequestOperation *)muteChannelWithID:(NSString *)channelID completion:(ANKClientCompletionBlock)completionHandler;
-- (ANKJSONRequestOperation *)unmuteChannel:(ANKChannel *)channel completion:(ANKClientCompletionBlock)completionHandler;
-- (ANKJSONRequestOperation *)unmuteChannelWithID:(NSString *)channelID completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)muteChannel:(ANKChannel *)channel completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)muteChannelWithID:(NSString *)channelID completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)unmuteChannel:(ANKChannel *)channel completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)unmuteChannelWithID:(NSString *)channelID completion:(ANKClientCompletionBlock)completionHandler;
 
 @end

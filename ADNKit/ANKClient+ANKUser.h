@@ -17,57 +17,57 @@
 
 @interface ANKClient (ANKUser)
 
-- (ANKJSONRequestOperation *)fetchCurrentUserWithCompletion:(ANKClientCompletionBlock)completionHandler;
-- (ANKJSONRequestOperation *)fetchUserWithID:(NSString *)userID completion:(ANKClientCompletionBlock)completionHandler;
-- (ANKJSONRequestOperation *)fetchUsersWithIDs:(NSArray *)userIDs completion:(ANKClientCompletionBlock)completionHandler;
-- (ANKJSONRequestOperation *)searchForUsersWithQuery:(NSString *)query completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)fetchCurrentUserWithCompletion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)fetchUserWithID:(NSString *)userID completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)fetchUsersWithIDs:(NSArray *)userIDs completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)searchForUsersWithQuery:(NSString *)query completion:(ANKClientCompletionBlock)completionHandler;
 
 - (AFHTTPRequestOperation *)fetchAvatarImageURLForUserWithID:(NSString *)userID completion:(ANKClientCompletionBlock)completionHandler;
 - (AFHTTPRequestOperation *)fetchCoverImageURLForUserWithID:(NSString *)userID completion:(ANKClientCompletionBlock)completionHandler;
 
-- (ANKJSONRequestOperation *)fetchUsersUserFollowing:(ANKUser *)user completion:(ANKClientCompletionBlock)completionHandler;
-- (ANKJSONRequestOperation *)fetchUsersUserWithIDFollowing:(NSString *)userID completion:(ANKClientCompletionBlock)completionHandler;
-- (ANKJSONRequestOperation *)fetchUsersFollowingUser:(ANKUser *)user completion:(ANKClientCompletionBlock)completionHandler;
-- (ANKJSONRequestOperation *)fetchUsersFollowingUserWithID:(NSString *)userID completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)fetchUsersUserFollowing:(ANKUser *)user completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)fetchUsersUserWithIDFollowing:(NSString *)userID completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)fetchUsersFollowingUser:(ANKUser *)user completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)fetchUsersFollowingUserWithID:(NSString *)userID completion:(ANKClientCompletionBlock)completionHandler;
 
-- (ANKJSONRequestOperation *)fetchUserIDsUserFollowing:(ANKUser *)user completion:(ANKClientCompletionBlock)completionHandler;
-- (ANKJSONRequestOperation *)fetchUserIDsUserWithIDFollowing:(NSString *)userID completion:(ANKClientCompletionBlock)completionHandler;
-- (ANKJSONRequestOperation *)fetchUserIDsFollowingUser:(ANKUser *)user completion:(ANKClientCompletionBlock)completionHandler;
-- (ANKJSONRequestOperation *)fetchUserIDsFollowingUserWithID:(NSString *)userID completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)fetchUserIDsUserFollowing:(ANKUser *)user completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)fetchUserIDsUserWithIDFollowing:(NSString *)userID completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)fetchUserIDsFollowingUser:(ANKUser *)user completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)fetchUserIDsFollowingUserWithID:(NSString *)userID completion:(ANKClientCompletionBlock)completionHandler;
 
-- (ANKJSONRequestOperation *)fetchMutedUsersForUser:(ANKUser *)user completion:(ANKClientCompletionBlock)completionHandler;
-- (ANKJSONRequestOperation *)fetchMutedUsersForUserWithID:(NSString *)userID completion:(ANKClientCompletionBlock)completionHandler;
-- (ANKJSONRequestOperation *)fetchMutedUserIDsForUsers:(NSArray *)users completion:(ANKClientCompletionBlock)completionHandler;
-- (ANKJSONRequestOperation *)fetchMutedUserIDsForUserIDs:(NSArray *)userIDs completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)fetchMutedUsersForUser:(ANKUser *)user completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)fetchMutedUsersForUserWithID:(NSString *)userID completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)fetchMutedUserIDsForUsers:(NSArray *)users completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)fetchMutedUserIDsForUserIDs:(NSArray *)userIDs completion:(ANKClientCompletionBlock)completionHandler;
 
-- (ANKJSONRequestOperation *)fetchBlockedUsersForUser:(ANKUser *)user completion:(ANKClientCompletionBlock)completionHandler;
-- (ANKJSONRequestOperation *)fetchBlockedUsersForUserWithID:(NSString *)userID completion:(ANKClientCompletionBlock)completionHandler;
-- (ANKJSONRequestOperation *)fetchBlockedUsersForUsers:(NSArray *)users completion:(ANKClientCompletionBlock)completionHandler;
-- (ANKJSONRequestOperation *)fetchBlockedUsersForUserIDs:(NSArray *)users completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)fetchBlockedUsersForUser:(ANKUser *)user completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)fetchBlockedUsersForUserWithID:(NSString *)userID completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)fetchBlockedUsersForUsers:(NSArray *)users completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)fetchBlockedUsersForUserIDs:(NSArray *)users completion:(ANKClientCompletionBlock)completionHandler;
 
-- (ANKJSONRequestOperation *)fetchUsersRepostedForPost:(ANKPost *)post completion:(ANKClientCompletionBlock)completionHandler;
-- (ANKJSONRequestOperation *)fetchUsersRepostedForPostWithID:(NSString *)postID completion:(ANKClientCompletionBlock)completionHandler;
-- (ANKJSONRequestOperation *)fetchUsersStarredForPost:(ANKPost *)post completion:(ANKClientCompletionBlock)completionHandler;
-- (ANKJSONRequestOperation *)fetchUsersStarredForPostWithID:(NSString *)postID completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)fetchUsersRepostedForPost:(ANKPost *)post completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)fetchUsersRepostedForPostWithID:(NSString *)postID completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)fetchUsersStarredForPost:(ANKPost *)post completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)fetchUsersStarredForPostWithID:(NSString *)postID completion:(ANKClientCompletionBlock)completionHandler;
 
-- (ANKJSONRequestOperation *)updateCurrentUser:(ANKUser *)user fullName:(NSString *)fullName descriptionText:(NSString *)descriptionText completion:(ANKClientCompletionBlock)completionHandler;
-- (ANKJSONRequestOperation *)updateCurrentUserName:(NSString *)fullName locale:(NSString *)locale timezone:(NSString *)timezone descriptionText:(NSString *)descriptionText completion:(ANKClientCompletionBlock)completionHander;
-- (ANKJSONRequestOperation *)updateCurrentUserAvatarWithImageData:(NSData *)imageData mimeType:(NSString *)mimeType completion:(ANKClientCompletionBlock)completionHandler;
-- (ANKJSONRequestOperation *)updateCurrentUserCoverImageWithImageData:(NSData *)imageData mimeType:(NSString *)mimeType completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)updateCurrentUser:(ANKUser *)user fullName:(NSString *)fullName descriptionText:(NSString *)descriptionText completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)updateCurrentUserName:(NSString *)fullName locale:(NSString *)locale timezone:(NSString *)timezone descriptionText:(NSString *)descriptionText completion:(ANKClientCompletionBlock)completionHander;
+- (AFHTTPRequestOperation *)updateCurrentUserAvatarWithImageData:(NSData *)imageData mimeType:(NSString *)mimeType completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)updateCurrentUserCoverImageWithImageData:(NSData *)imageData mimeType:(NSString *)mimeType completion:(ANKClientCompletionBlock)completionHandler;
 
-- (ANKJSONRequestOperation *)followUser:(ANKUser *)user completion:(ANKClientCompletionBlock)completionHandler;
-- (ANKJSONRequestOperation *)followUserWithID:(NSString *)userID completion:(ANKClientCompletionBlock)completionHandler;
-- (ANKJSONRequestOperation *)unfollowUser:(ANKUser *)user completion:(ANKClientCompletionBlock)completionHandler;
-- (ANKJSONRequestOperation *)unfollowUserWithID:(NSString *)userID completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)followUser:(ANKUser *)user completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)followUserWithID:(NSString *)userID completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)unfollowUser:(ANKUser *)user completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)unfollowUserWithID:(NSString *)userID completion:(ANKClientCompletionBlock)completionHandler;
 
-- (ANKJSONRequestOperation *)muteUser:(ANKUser *)user completion:(ANKClientCompletionBlock)completionHandler;
-- (ANKJSONRequestOperation *)muteUserWithID:(NSString *)userID completion:(ANKClientCompletionBlock)completionHandler;
-- (ANKJSONRequestOperation *)unmuteUser:(ANKUser *)user completion:(ANKClientCompletionBlock)completionHandler;
-- (ANKJSONRequestOperation *)unmuteUserWithID:(NSString *)userID completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)muteUser:(ANKUser *)user completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)muteUserWithID:(NSString *)userID completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)unmuteUser:(ANKUser *)user completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)unmuteUserWithID:(NSString *)userID completion:(ANKClientCompletionBlock)completionHandler;
 
-- (ANKJSONRequestOperation *)blockUser:(ANKUser *)user completion:(ANKClientCompletionBlock)completionHandler;
-- (ANKJSONRequestOperation *)blockUserWithID:(NSString *)userID completion:(ANKClientCompletionBlock)completionHandler;
-- (ANKJSONRequestOperation *)unblockUser:(ANKUser *)user completion:(ANKClientCompletionBlock)completionHandler;
-- (ANKJSONRequestOperation *)unblockUserWithID:(NSString *)userID completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)blockUser:(ANKUser *)user completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)blockUserWithID:(NSString *)userID completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)unblockUser:(ANKUser *)user completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)unblockUserWithID:(NSString *)userID completion:(ANKClientCompletionBlock)completionHandler;
 
 @end

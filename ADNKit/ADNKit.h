@@ -69,13 +69,14 @@
 #import <ADNKit/ANKOEmbed.h>
 
 #import <ADNKit/ANKValueTransformations.h>
-#import <ADNKit/ANKJSONRequestOperation.h>
 #import <ADNKit/ANKAPIResponse.h>
 #import <ADNKit/ANKAPIResponseMeta.h>
-#import <ADNKit/ANKJSONRequestOperation.h>
 #import <ADNKit/ANKPaginationSettings.h>
 #import <ADNKit/ANKGeneralParameters.h>
 #import <ADNKit/ANKSearchQuery.h>
+
+#import <ADNKit/ANKAPIRequestSerializer.h>
+#import <ADNKit/ANKAPIResponseSerializer.h>
 
 #import <ADNKit/ANKUsernameFormatter.h>
 

@@ -16,7 +16,7 @@
 
 @implementation ANKClient (ANKTokenStatus)
 
-- (ANKJSONRequestOperation *)fetchTokenStatusForCurrentUserWithCompletion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)fetchTokenStatusForCurrentUserWithCompletion:(ANKClientCompletionBlock)completionHandler {
 	return [self enqueueGETPath:@"token"
 					 parameters:nil
 						success:[self successHandlerForResourceClass:[ANKTokenStatus class] clientHandler:completionHandler]
@@ -24,7 +24,7 @@
 }
 
 
-- (ANKJSONRequestOperation *)fetchTokenStatusesForAuthorizedUsersWithCompletion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)fetchTokenStatusesForAuthorizedUsersWithCompletion:(ANKClientCompletionBlock)completionHandler {
 	return [self enqueueGETPath:@"apps/me/tokens"
 					 parameters:nil
 						success:[self successHandlerForCollectionOfResourceClass:[ANKTokenStatus class] clientHandler:completionHandler]
@@ -32,7 +32,7 @@
 }
 
 
-- (ANKJSONRequestOperation *)fetchAuthorizedUserIDsWithCompletion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)fetchAuthorizedUserIDsWithCompletion:(ANKClientCompletionBlock)completionHandler {
 	return [self enqueueGETPath:@"apps/me/tokens/user_ids"
 					 parameters:nil
 						success:[self successHandlerForPrimitiveResponseWithClientHandler:completionHandler]
@@ -40,7 +40,7 @@
 }
 
 
-- (ANKJSONRequestOperation *)deauthorizeCurrentUserTokenWithCompletion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)deauthorizeCurrentUserTokenWithCompletion:(ANKClientCompletionBlock)completionHandler {
 	return [self enqueueDELETEPath:@"token"
 						parameters:nil
 						   success:[self successHandlerForResourceClass:[ANKTokenStatus class] clientHandler:completionHandler]

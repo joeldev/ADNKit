@@ -18,7 +18,7 @@
 
 // http://developers.app.net/docs/resources/place/#retrieve-a-place
 
-- (ANKJSONRequestOperation *)fetchPlaceWithFactualID:(NSString *)factualID completion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)fetchPlaceWithFactualID:(NSString *)factualID completion:(ANKClientCompletionBlock)completionHandler {
 	return [self enqueueGETPath:[NSString stringWithFormat:@"places/%@", factualID]
 					 parameters:nil
 						success:[self successHandlerForResourceClass:[ANKPlace class] clientHandler:completionHandler]
@@ -29,7 +29,7 @@
 // parameters contains keys located in ANKPlace.h
 // http://developers.app.net/docs/resources/place/#search-for-a-place
 
-- (ANKJSONRequestOperation *)searchForPlacesWithParameters:(NSDictionary *)params completion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)searchForPlacesWithParameters:(NSDictionary *)params completion:(ANKClientCompletionBlock)completionHandler {
 	return [self enqueueGETPath:@"places/search"
 					 parameters:params
 						success:[self successHandlerForCollectionOfResourceClass:[ANKPlace class] clientHandler:completionHandler]

@@ -18,7 +18,7 @@
 
 // http://developers.app.net/docs/resources/stream-marker/#update-a-stream-marker
 
-- (ANKJSONRequestOperation *)updateStreamMarker:(ANKStreamMarker *)streamMarker completion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)updateStreamMarker:(ANKStreamMarker *)streamMarker completion:(ANKClientCompletionBlock)completionHandler {
 	return [self enqueuePOSTPath:@"posts/marker"
 					  parameters:[streamMarker JSONDictionary]
 						 success:[self successHandlerForResourceClass:[ANKStreamMarker class] clientHandler:completionHandler]

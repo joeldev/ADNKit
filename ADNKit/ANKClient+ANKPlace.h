@@ -15,9 +15,9 @@
 
 @interface ANKClient (ANKPlace)
 
-- (ANKJSONRequestOperation *)fetchPlaceWithFactualID:(NSString *)factualID completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)fetchPlaceWithFactualID:(NSString *)factualID completion:(ANKClientCompletionBlock)completionHandler;
 
 // parameters contains keys located in ANKPlace.h
-- (ANKJSONRequestOperation *)searchForPlacesWithParameters:(NSDictionary *)params completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)searchForPlacesWithParameters:(NSDictionary *)params completion:(ANKClientCompletionBlock)completionHandler;
 
 @end

@@ -20,14 +20,14 @@
 
 // http://developers.app.net/docs/resources/channel/subscriptions/#get-current-users-subscribed-channels
 
-- (ANKJSONRequestOperation *)fetchCurrentUserSubscribedChannelsWithCompletion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)fetchCurrentUserSubscribedChannelsWithCompletion:(ANKClientCompletionBlock)completionHandler {
 	return [self enqueueGETPath:@"channels"
 					 parameters:nil
 						success:[self successHandlerForCollectionOfResourceClass:[ANKChannel class] clientHandler:completionHandler]
 						failure:[self failureHandlerForClientHandler:completionHandler]];
 }
 
-- (ANKJSONRequestOperation *)fetchCurrentUserSubscribedChannelsWithTypes:(NSArray *)types completion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)fetchCurrentUserSubscribedChannelsWithTypes:(NSArray *)types completion:(ANKClientCompletionBlock)completionHandler {
 	if (!types) {
 		types = @[];
 	}
@@ -39,7 +39,7 @@
 }
 
 
-- (ANKJSONRequestOperation *)fetchCurrentUserPrivateMessageChannelsWithCompletion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)fetchCurrentUserPrivateMessageChannelsWithCompletion:(ANKClientCompletionBlock)completionHandler {
 	return [self enqueueGETPath:@"channels" parameters:nil success:[self successHandlerForCollectionOfResourceClass:[ANKChannel class] clientHandler:completionHandler filteredWith:^BOOL(id object) {
 		return [(ANKChannel *)object isPrivateMessageChannel];
 	}] failure:[self failureHandlerForClientHandler:completionHandler]];
@@ -48,7 +48,7 @@
 
 // http://developers.app.net/docs/resources/channel/lookup/#retrieve-my-channels
 
-- (ANKJSONRequestOperation *)fetchCurrentUserCreatedChannelsWithCompletion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)fetchCurrentUserCreatedChannelsWithCompletion:(ANKClientCompletionBlock)completionHandler {
 	return [self enqueueGETPath:@"users/me/channels"
 					 parameters:nil
 						success:[self successHandlerForCollectionOfResourceClass:[ANKChannel class] clientHandler:completionHandler]
@@ -58,7 +58,7 @@
 
 // http://developers.app.net/docs/resources/channel/lookup/#retrieve-number-of-unread-pm-channels
 
-- (ANKJSONRequestOperation *)fetchUnreadPMChannelsCountWithCompletion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)fetchUnreadPMChannelsCountWithCompletion:(ANKClientCompletionBlock)completionHandler {
 	return [self enqueueGETPath:@"users/me/channels/pm/num_unread"
 					 parameters:nil
 						success:[self successHandlerForPrimitiveResponseWithClientHandler:completionHandler]
@@ -68,7 +68,7 @@
 
 // http://developers.app.net/docs/resources/channel/lookup/#retrieve-a-channel
 
-- (ANKJSONRequestOperation *)fetchChannelWithID:(NSString *)channelID completion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)fetchChannelWithID:(NSString *)channelID completion:(ANKClientCompletionBlock)completionHandler {
 	return [self enqueueGETPath:[NSString stringWithFormat:@"channels/%@", channelID]
 					 parameters:nil
 						success:[self successHandlerForResourceClass:[ANKChannel class] clientHandler:completionHandler]
@@ -78,7 +78,7 @@
 
 // http://developers.app.net/docs/resources/channel/lookup/#retrieve-multiple-channels
 
-- (ANKJSONRequestOperation *)fetchChannelsWithIDs:(NSArray *)channelIDs completion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)fetchChannelsWithIDs:(NSArray *)channelIDs completion:(ANKClientCompletionBlock)completionHandler {
 	return [self enqueueGETPath:@"channels"
 					 parameters:@{@"ids": [channelIDs componentsJoinedByString:@","]}
 						success:[self successHandlerForCollectionOfResourceClass:[ANKChannel class] clientHandler:completionHandler]
@@ -88,12 +88,12 @@
 
 // http://developers.app.net/docs/resources/channel/subscriptions/#retrieve-users-subscribed-to-a-channel
 
-- (ANKJSONRequestOperation *)fetchUsersSubscribedToChannel:(ANKChannel *)channel completion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)fetchUsersSubscribedToChannel:(ANKChannel *)channel completion:(ANKClientCompletionBlock)completionHandler {
 	return [self fetchUsersSubscribedToChannelWithID:channel.channelID completion:completionHandler];
 }
 
 
-- (ANKJSONRequestOperation *)fetchUsersSubscribedToChannelWithID:(NSString *)channelID completion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)fetchUsersSubscribedToChannelWithID:(NSString *)channelID completion:(ANKClientCompletionBlock)completionHandler {
 	return [self enqueueGETPath:[NSString stringWithFormat:@"channels/%@/subscribers", channelID]
 					 parameters:nil
 						success:[self successHandlerForCollectionOfResourceClass:[ANKUser class] clientHandler:completionHandler]
@@ -103,12 +103,12 @@
 
 // http://developers.app.net/docs/resources/channel/subscriptions/#retrieve-user-ids-subscribed-to-a-channel
 
-- (ANKJSONRequestOperation *)fetchUserIDsSubscribedToChannel:(ANKChannel *)channel completion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)fetchUserIDsSubscribedToChannel:(ANKChannel *)channel completion:(ANKClientCompletionBlock)completionHandler {
 	return [self fetchUserIDsSubscribedToChannelWithID:channel.channelID completion:completionHandler];
 }
 
 
-- (ANKJSONRequestOperation *)fetchUserIDsSubscribedToChannelWithID:(NSString *)channelID completion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)fetchUserIDsSubscribedToChannelWithID:(NSString *)channelID completion:(ANKClientCompletionBlock)completionHandler {
 	return [self enqueueGETPath:[NSString stringWithFormat:@"channels/%@/subscribers/ids", channelID]
 					 parameters:nil
 						success:[self successHandlerForPrimitiveResponseWithClientHandler:completionHandler]
@@ -118,7 +118,7 @@
 
 // http://developers.app.net/docs/resources/channel/subscriptions/#retrieve-user-ids-subscribed-to-a-channel
 
-- (ANKJSONRequestOperation *)fetchUserIDsSubscribedToChannelIDs:(NSArray *)channelIDs completion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)fetchUserIDsSubscribedToChannelIDs:(NSArray *)channelIDs completion:(ANKClientCompletionBlock)completionHandler {
 	return [self enqueueGETPath:@"channels/subscribers/ids"
 					 parameters:nil
 						success:[self successHandlerForPrimitiveResponseWithClientHandler:completionHandler]
@@ -128,7 +128,7 @@
 
 // http://developers.app.net/docs/resources/channel/muting/#get-current-users-muted-channels
 
-- (ANKJSONRequestOperation *)fetchMutedChannelsForCurrentUserWithCompletion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)fetchMutedChannelsForCurrentUserWithCompletion:(ANKClientCompletionBlock)completionHandler {
 	return [self enqueueGETPath:@"users/me/channels/muted"
 					 parameters:nil
 						success:[self successHandlerForCollectionOfResourceClass:[ANKChannel class] clientHandler:completionHandler]
@@ -138,7 +138,7 @@
 
 // http://developers.app.net/docs/resources/channel/lifecycle/#create-a-channel
 
-- (ANKJSONRequestOperation *)createChannel:(ANKChannel *)channel completion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)createChannel:(ANKChannel *)channel completion:(ANKClientCompletionBlock)completionHandler {
 	return [self enqueuePOSTPath:@"channels"
 					  parameters:[channel JSONDictionary]
 						 success:[self successHandlerForResourceClass:[ANKChannel class] clientHandler:completionHandler]
@@ -146,7 +146,7 @@
 }
 
 
-- (ANKJSONRequestOperation *)createChannelWithType:(NSString *)type readers:(ANKACL *)readersACL writers:(ANKACL *)writersACL completion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)createChannelWithType:(NSString *)type readers:(ANKACL *)readersACL writers:(ANKACL *)writersACL completion:(ANKClientCompletionBlock)completionHandler {
 	NSMutableDictionary *parameters = [NSMutableDictionary dictionaryWithObject:type forKey:@"type"];
 	if (readersACL) {
 		parameters[@"readers"] = [readersACL JSONDictionary];
@@ -164,7 +164,7 @@
 
 // http://developers.app.net/docs/resources/channel/lifecycle/#update-a-channel
 
-- (ANKJSONRequestOperation *)updateChannel:(ANKChannel *)channel completion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)updateChannel:(ANKChannel *)channel completion:(ANKClientCompletionBlock)completionHandler {
 	return [self enqueuePUTPath:[NSString stringWithFormat:@"channels/%@", channel.channelID]
 					 parameters:[channel JSONDictionary]
 						success:[self successHandlerForResourceClass:[ANKChannel class] clientHandler:completionHandler]
@@ -172,7 +172,7 @@
 }
 
 
-- (ANKJSONRequestOperation *)updateChannelWithID:(NSString *)channelID readers:(ANKACL *)readersACL writers:(ANKACL *)writersACL completion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)updateChannelWithID:(NSString *)channelID readers:(ANKACL *)readersACL writers:(ANKACL *)writersACL completion:(ANKClientCompletionBlock)completionHandler {
 	NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
 	if (readersACL) {
 		parameters[@"readers"] = [readersACL JSONDictionary];
@@ -190,12 +190,12 @@
 
 // http://developers.app.net/docs/resources/channel/subscriptions/#subscribe-to-a-channel
 
-- (ANKJSONRequestOperation *)subscribeToChannel:(ANKChannel *)channel completion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)subscribeToChannel:(ANKChannel *)channel completion:(ANKClientCompletionBlock)completionHandler {
 	return [self subscribeToChannelWithID:channel.channelID completion:completionHandler];
 }
 
 
-- (ANKJSONRequestOperation *)subscribeToChannelWithID:(NSString *)channelID completion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)subscribeToChannelWithID:(NSString *)channelID completion:(ANKClientCompletionBlock)completionHandler {
 	return [self enqueuePOSTPath:[NSString stringWithFormat:@"channels/%@/subscribe", channelID]
 					  parameters:nil
 						 success:[self successHandlerForResourceClass:[ANKChannel class] clientHandler:completionHandler]
@@ -205,12 +205,12 @@
 
 // http://developers.app.net/docs/resources/channel/subscriptions/#unsubscribe-from-a-channel
 
-- (ANKJSONRequestOperation *)unsubscribeToChannel:(ANKChannel *)channel completion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)unsubscribeToChannel:(ANKChannel *)channel completion:(ANKClientCompletionBlock)completionHandler {
 	return [self unsubscribeToChannelWithID:channel.channelID completion:completionHandler];
 }
 
 
-- (ANKJSONRequestOperation *)unsubscribeToChannelWithID:(NSString *)channelID completion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)unsubscribeToChannelWithID:(NSString *)channelID completion:(ANKClientCompletionBlock)completionHandler {
 	return [self enqueueDELETEPath:[NSString stringWithFormat:@"channels/%@/subscribe", channelID]
 						parameters:nil
 						   success:[self successHandlerForResourceClass:[ANKChannel class] clientHandler:completionHandler]
@@ -220,12 +220,12 @@
 
 // http://developers.app.net/docs/resources/channel/muting/#mute-a-channel
 
-- (ANKJSONRequestOperation *)muteChannel:(ANKChannel *)channel completion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)muteChannel:(ANKChannel *)channel completion:(ANKClientCompletionBlock)completionHandler {
 	return [self muteChannelWithID:channel.channelID completion:completionHandler];
 }
 
 
-- (ANKJSONRequestOperation *)muteChannelWithID:(NSString *)channelID completion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)muteChannelWithID:(NSString *)channelID completion:(ANKClientCompletionBlock)completionHandler {
 	return [self enqueuePOSTPath:[NSString stringWithFormat:@"channels/%@/mute", channelID]
 					  parameters:nil
 						 success:[self successHandlerForResourceClass:[ANKChannel class] clientHandler:completionHandler]
@@ -235,12 +235,12 @@
 
 // http://developers.app.net/docs/resources/channel/muting/#unmute-a-channel
 
-- (ANKJSONRequestOperation *)unmuteChannel:(ANKChannel *)channel completion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)unmuteChannel:(ANKChannel *)channel completion:(ANKClientCompletionBlock)completionHandler {
 	return [self unmuteChannelWithID:channel.channelID completion:completionHandler];
 }
 
 
-- (ANKJSONRequestOperation *)unmuteChannelWithID:(NSString *)channelID completion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)unmuteChannelWithID:(NSString *)channelID completion:(ANKClientCompletionBlock)completionHandler {
 	return [self enqueueDELETEPath:[NSString stringWithFormat:@"channels/%@/mute", channelID]
 						parameters:nil
 						   success:[self successHandlerForResourceClass:[ANKChannel class] clientHandler:completionHandler]

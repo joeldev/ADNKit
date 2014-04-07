@@ -11,7 +11,7 @@
  */
 
 #import "AFNetworking.h"
-#import "ANKJSONRequestOperation.h"
+#import "AFHTTPRequestOperation.h"
 
 
 typedef NS_ENUM(NSUInteger, ANKAuthScope) {
@@ -65,16 +65,18 @@ typedef void (^ANKClientCompletionBlock)(id responseObject, ANKAPIResponseMeta *
 
 @class ANKPaginationSettings, ANKGeneralParameters, ANKUser, ANKAPIResponseMeta;
 
-@interface ANKClient : AFHTTPClient
+@interface ANKClient : NSObject
 
 + (NSURL *)APIBaseURL; // defaults to @"https://alpha-api.app.net/stream/0/" -- subclass and override to change it
 + (instancetype)sharedClient;
 
+@property (readonly, strong) AFHTTPRequestOperationManager *requestManager;
 @property (readonly, strong) ANKUser *authenticatedUser; // the authenticated user object
 @property (strong) NSString *accessToken; // access token acquired by auth or persisted across launches and set directly
 @property (strong) ANKPaginationSettings *pagination;
 @property (strong) ANKGeneralParameters *generalParameters;
 @property (assign) ANKResponseDecodingType responseDecodingType;
+@property (readonly) NSDictionary *defaultQueryParameters;
 
 @property (assign) BOOL shouldUseSharedUserDefaultsController; // default NO - uses [NSUserDefaults standardUserDefaults] when NO, [[NSUserDefaultsController sharedUserDefaultsController] defaults] when YES.
 @property (assign) BOOL shouldSynchronizeOnUserDefaultsWrite; // default NO - if set to YES, will call synchronize on each write to make sure that user defaults are written to disk immediately
@@ -138,7 +140,7 @@ typedef void (^ANKClientCompletionBlock)(id responseObject, ANKAPIResponseMeta *
 #pragma mark -
 #pragma mark - Streams
 
-- (void)requestStreamingUpdatesForOperation:(ANKJSONRequestOperation *)operation withDelegate:(id<ANKStreamingDelegate>)delegate;
+- (void)requestStreamingUpdatesForOperation:(AFHTTPRequestOperation *)operation withDelegate:(id<ANKStreamingDelegate>)delegate;
 
 #pragma mark -
 #pragma mark Operation Queues

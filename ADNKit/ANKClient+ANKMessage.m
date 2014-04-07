@@ -19,12 +19,12 @@
 
 // http://developers.app.net/docs/resources/message/lifecycle/#retrieve-the-messages-in-a-channel
 
-- (ANKJSONRequestOperation *)fetchMessagesInChannel:(ANKChannel *)channel completion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)fetchMessagesInChannel:(ANKChannel *)channel completion:(ANKClientCompletionBlock)completionHandler {
 	return [self fetchMessagesInChannelWithID:channel.channelID completion:completionHandler];
 }
 
 
-- (ANKJSONRequestOperation *)fetchMessagesInChannelWithID:(NSString *)channelID completion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)fetchMessagesInChannelWithID:(NSString *)channelID completion:(ANKClientCompletionBlock)completionHandler {
 	return [self enqueueGETPath:[NSString stringWithFormat:@"channels/%@/messages", channelID]
 					 parameters:nil
 						success:[self successHandlerForCollectionOfResourceClass:[ANKMessage class] clientHandler:completionHandler]
@@ -34,12 +34,12 @@
 
 // http://developers.app.net/docs/resources/message/lookup/#retrieve-a-message
 
-- (ANKJSONRequestOperation *)fetchMessageWithID:(NSString *)messageID inChannel:(ANKChannel *)channel completion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)fetchMessageWithID:(NSString *)messageID inChannel:(ANKChannel *)channel completion:(ANKClientCompletionBlock)completionHandler {
 	return [self fetchMessageWithID:messageID inChannelWithID:channel.channelID completion:completionHandler];
 }
 
 
-- (ANKJSONRequestOperation *)fetchMessageWithID:(NSString *)messageID inChannelWithID:(NSString *)channelID completion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)fetchMessageWithID:(NSString *)messageID inChannelWithID:(NSString *)channelID completion:(ANKClientCompletionBlock)completionHandler {
 	return [self enqueueGETPath:[NSString stringWithFormat:@"channels/%@/messages/%@", channelID, messageID]
 					 parameters:nil
 						success:[self successHandlerForResourceClass:[ANKMessage class] clientHandler:completionHandler]
@@ -49,7 +49,7 @@
 
 // http://developers.app.net/docs/resources/message/lookup/#retrieve-multiple-messages
 
-- (ANKJSONRequestOperation *)fetchMessagesWithIDs:(NSArray *)messageIDs completion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)fetchMessagesWithIDs:(NSArray *)messageIDs completion:(ANKClientCompletionBlock)completionHandler {
 	return [self enqueueGETPath:@"channels/messages"
 					 parameters:nil
 						success:[self successHandlerForCollectionOfResourceClass:[ANKMessage class] clientHandler:completionHandler]
@@ -59,7 +59,7 @@
 
 // http://developers.app.net/docs/resources/message/lookup/#retrieve-my-messages
 
-- (ANKJSONRequestOperation *)fetchMessagesCreatedByCurrentUserWithCompletion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)fetchMessagesCreatedByCurrentUserWithCompletion:(ANKClientCompletionBlock)completionHandler {
 	return [self enqueueGETPath:@"users/me/messages"
 					 parameters:nil
 						success:[self successHandlerForCollectionOfResourceClass:[ANKMessage class] clientHandler:completionHandler]
@@ -69,12 +69,12 @@
 
 // http://developers.app.net/docs/resources/message/lifecycle/#create-a-message
 
-- (ANKJSONRequestOperation *)createMessage:(ANKMessage *)message inChannel:(ANKChannel *)channel completion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)createMessage:(ANKMessage *)message inChannel:(ANKChannel *)channel completion:(ANKClientCompletionBlock)completionHandler {
 	return [self createMessage:message inChannelWithID:channel.channelID completion:completionHandler];
 }
 
 
-- (ANKJSONRequestOperation *)createMessage:(ANKMessage *)message inChannelWithID:(NSString *)channelID completion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)createMessage:(ANKMessage *)message inChannelWithID:(NSString *)channelID completion:(ANKClientCompletionBlock)completionHandler {
 	return [self enqueuePOSTPath:[NSString stringWithFormat:@"channels/%@/messages", channelID]
 					  parameters:[message JSONDictionary]
 						 success:[self successHandlerForResourceClass:[ANKMessage class] clientHandler:completionHandler]
@@ -82,12 +82,12 @@
 }
 
 
-- (ANKJSONRequestOperation *)createMessageWithText:(NSString *)messageText inReplyToMessageWithID:(NSString *)messageID inChannel:(ANKChannel *)channel completion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)createMessageWithText:(NSString *)messageText inReplyToMessageWithID:(NSString *)messageID inChannel:(ANKChannel *)channel completion:(ANKClientCompletionBlock)completionHandler {
 	return [self createMessageWithText:messageText inReplyToMessageWithID:messageID inChannelWithID:channel.channelID completion:completionHandler];
 }
 
 
-- (ANKJSONRequestOperation *)createMessageWithText:(NSString *)messageText inReplyToMessageWithID:(NSString *)messageID inChannelWithID:(NSString *)channelID completion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)createMessageWithText:(NSString *)messageText inReplyToMessageWithID:(NSString *)messageID inChannelWithID:(NSString *)channelID completion:(ANKClientCompletionBlock)completionHandler {
 	ANKMessage *message = [[ANKMessage alloc] init];
 	message.text = messageText;
 	message.inReplyToMessageID = messageID ?: nil;
@@ -95,7 +95,7 @@
 }
 
 
-- (ANKJSONRequestOperation *)deleteMessageWithID:(NSString *)messageID inChannelWithID:(NSString *)channelID completion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)deleteMessageWithID:(NSString *)messageID inChannelWithID:(NSString *)channelID completion:(ANKClientCompletionBlock)completionHandler {
     return [self enqueueDELETEPath:[NSString stringWithFormat:@"channels/%@/messages/%@",channelID,messageID]
                         parameters:nil
                            success:[self successHandlerForResourceClass:[ANKMessage class] clientHandler:completionHandler]
@@ -103,7 +103,7 @@
 }
 
 
-- (ANKJSONRequestOperation *)deleteMessage:(ANKMessage *)message completion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)deleteMessage:(ANKMessage *)message completion:(ANKClientCompletionBlock)completionHandler {
     return [self deleteMessageWithID:message.messageID inChannelWithID:message.channelID completion:completionHandler];
 }
 

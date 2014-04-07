@@ -17,7 +17,7 @@
 
 typedef void (^AFNetworkingSuccessBlock)(AFHTTPRequestOperation *operation, id responseObject);
 typedef void (^AFNetworkingFailureBlock)(AFHTTPRequestOperation *operation, NSError *error);
-typedef void (^ANKClientFileUploadProgressBlock)(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite);
+typedef void (^ANKClientFileUploadProgressBlock)(NSUInteger bytesWritten, NSInteger totalBytesWritten, NSInteger totalBytesExpectedToWrite);
 
 
 @interface ANKClient (ANKHandlerBlocks)

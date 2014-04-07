@@ -11,7 +11,7 @@
  */
 
 #import "ANKClient.h"
-#import "ANKJSONRequestOperation.h"
+#import "AFHTTPRequestOperation.h"
 #import "ANKPaginationSettings.h"
 #import "ANKGeneralParameters.h"
 #import "ANKAPIResponseMeta.h"
@@ -25,6 +25,8 @@
 #import "ANKChannel.h"
 #import "ANKClient+ANKTokenStatus.h"
 #import "ANKStreamContext.h"
+#import "ANKAPIRequestSerializer.h"
+#import "ANKAPIResponseSerializer.h"
 #import <SocketShuttle/KATSocketShuttle.h>
 
 
@@ -33,8 +35,8 @@ static const NSString *kANKUserStreamEndpointURL = @"wss://stream-channel.app.ne
 
 @interface ANKClient () <KATSocketShuttleDelegate>
 
-@property (strong) AFHTTPClient *authHTTPClient;
 @property (strong) NSString *webAuthRedirectURI;
+@property (readwrite, strong) AFHTTPRequestOperationManager *requestManager;
 @property (readwrite, strong) ANKUser *authenticatedUser;
 
 @property (nonatomic, strong) KATSocketShuttle *socketShuttle;
@@ -42,7 +44,6 @@ static const NSString *kANKUserStreamEndpointURL = @"wss://stream-channel.app.ne
 @property (nonatomic, copy) NSString *lastSuccessfulStreamingConnectionID;
 @property (nonatomic, strong) NSMutableSet *streamContexts;
 
-- (void)initializeHTTPAuthClient;
 - (void)HTTPAuthDidCompleteSuccessfully:(BOOL)wasSuccessful error:(NSError *)error handler:(void (^)(BOOL successful, NSError *error))handler;
 - (void)authenticateWithParameters:(NSDictionary *)params handler:(void (^)(BOOL successful, NSError *error))handler;
 
@@ -68,16 +69,18 @@ static const NSString *kANKUserStreamEndpointURL = @"wss://stream-channel.app.ne
 
 
 - (id)init {
-    if ((self = [super initWithBaseURL:[[self class] APIBaseURL]])) {
-		self.parameterEncoding = AFJSONParameterEncoding;
+    if ((self = [super init])) {
+        self.requestManager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:[[self class] APIBaseURL]];
+        self.requestManager.requestSerializer = [ANKAPIRequestSerializer serializer];
+        self.requestManager.responseSerializer = [ANKAPIResponseSerializer serializer];
+
 		self.pagination = [[ANKPaginationSettings alloc] init];
 		self.generalParameters = [[ANKGeneralParameters alloc] init];
 		self.generalParameters.includeHTML = NO;
 
-		[self setDefaultHeader:@"Accept" value:@"application/json"];
-		[self registerHTTPOperationClass:[ANKJSONRequestOperation class]];
-
 		[self addObserver:self forKeyPath:@"accessToken" options:NSKeyValueObservingOptionNew context:nil];
+		[self addObserver:self forKeyPath:@"generalParameters" options:NSKeyValueObservingOptionNew context:nil];
+		[self addObserver:self forKeyPath:@"pagination" options:NSKeyValueObservingOptionNew context:nil];
 
         self.streamContexts = [[NSMutableSet alloc] init];
         self.streamingAvailbility = ANKStreamingAvailabilityWiFi;
@@ -89,6 +92,8 @@ static const NSString *kANKUserStreamEndpointURL = @"wss://stream-channel.app.ne
 
 - (void)dealloc {
 	[self removeObserver:self forKeyPath:@"accessToken"];
+    [self removeObserver:self forKeyPath:@"generalParameters"];
+	[self removeObserver:self forKeyPath:@"pagination"];
 }
 
 
@@ -109,39 +114,27 @@ static const NSString *kANKUserStreamEndpointURL = @"wss://stream-channel.app.ne
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
 	if ([keyPath isEqualToString:@"accessToken"]) {
-		[self setDefaultHeader:@"Authorization" value:self.accessToken ? [@"Bearer " stringByAppendingString:self.accessToken] : nil];
+        [self.requestManager.requestSerializer clearAuthorizationHeader];
+
+        if ([self.accessToken length] > 0) {
+            [self.requestManager.requestSerializer setValue:[@"Bearer " stringByAppendingString:self.accessToken] forHTTPHeaderField:@"Authorization"];
+        }
+	} else if ([keyPath isEqualToString:@"generalParameters"] || [keyPath isEqualToString:@"pagination"]) {
+        ANKAPIRequestSerializer *requestSerializer = (ANKAPIRequestSerializer *)self.requestManager.requestSerializer;
+
+        requestSerializer.defaultParameters = [self defaultQueryParameters];
 	}
 }
 
+- (NSDictionary *)defaultQueryParameters
+{
+    NSMutableDictionary *defaultQueryParameters = [NSMutableDictionary new];
 
-- (NSMutableURLRequest *)requestWithMethod:(NSString *)method path:(NSString *)path parameters:(NSDictionary *)parameters {
-	NSMutableURLRequest *request = [super requestWithMethod:method path:path parameters:parameters];
+    [defaultQueryParameters addEntriesFromDictionary:[self.generalParameters JSONDictionary]];
+    [defaultQueryParameters addEntriesFromDictionary:[self.pagination JSONDictionary]];
 
-	NSMutableDictionary *commonParameters = [NSMutableDictionary dictionary];
-
-	if (self.generalParameters) {
-		[commonParameters addEntriesFromDictionary:[self.generalParameters JSONDictionary]];
-	}
-
-	if (self.pagination) {
-		[commonParameters addEntriesFromDictionary:[self.pagination JSONDictionary]];
-	}
-
-	if (commonParameters.count) {
-		NSString *encodedParameters = AFQueryStringFromParametersWithEncoding(commonParameters, self.stringEncoding);
-		NSString *URLString = [request.URL absoluteString];
-		request.URL = [NSURL URLWithString:[URLString stringByAppendingFormat:[URLString rangeOfString:@"?"].location == NSNotFound ? @"?%@" : @"&%@", encodedParameters]];
-	}
-
-	return request;
+    return [defaultQueryParameters copy];
 }
-
-- (void)enqueueHTTPRequestOperation:(AFHTTPRequestOperation *)operation {
-    [super enqueueHTTPRequestOperation:operation];
-
-    [self.operationQueue setSuspended:NO];
-}
-
 
 #pragma mark -
 #pragma mark Authentication
@@ -344,17 +337,10 @@ static const NSString *kANKUserStreamEndpointURL = @"wss://stream-channel.app.ne
 #pragma mark -
 #pragma mark Internal API
 
-- (void)initializeHTTPAuthClient {
-	self.authHTTPClient = [AFHTTPClient clientWithBaseURL:[NSURL URLWithString:@"https://account.app.net/oauth"]];
-	self.authHTTPClient.parameterEncoding = AFFormURLParameterEncoding;
-	[self.authHTTPClient registerHTTPOperationClass:[AFJSONRequestOperation class]];
-}
-
-
 - (void)authenticateWithParameters:(NSDictionary *)params handler:(void (^)(BOOL successful, NSError *error))handler {
-	[self initializeHTTPAuthClient];
-	[self.authHTTPClient postPath:@"access_token" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-		NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+
+    [manager POST:@"https://account.app.net/oauth/access_token" parameters:params success:^(AFHTTPRequestOperation *operation, NSDictionary * responseDictionary) {
 		if (responseDictionary[@"access_token"]) {
 			if (responseDictionary[@"token"]) {
 				ANKTokenStatus *token = [ANKResolve(ANKTokenStatus) objectFromJSONDictionary:responseDictionary[@"token"]];
@@ -366,9 +352,9 @@ static const NSString *kANKUserStreamEndpointURL = @"wss://stream-channel.app.ne
 			NSError *error = [NSError errorWithDomain:kANKErrorDomain code:-1 userInfo:@{NSLocalizedDescriptionKey: @"Could not find key access_token in response", NSLocalizedFailureReasonErrorKey: responseDictionary}];
 			[self HTTPAuthDidCompleteSuccessfully:NO error:error handler:handler];
 		}
-	} failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
 		[self HTTPAuthDidCompleteSuccessfully:NO error:error handler:handler];
-	}];
+    }];
 }
 
 
@@ -384,7 +370,6 @@ static const NSString *kANKUserStreamEndpointURL = @"wss://stream-channel.app.ne
 		handler(wasSuccessful, error);
 	}
 
-	self.authHTTPClient = nil;
 	self.webAuthCompletionHandler = nil;
 	self.webAuthRedirectURI = nil;
 }
@@ -399,13 +384,14 @@ static const NSString *kANKUserStreamEndpointURL = @"wss://stream-channel.app.ne
     }
 
     NSMutableURLRequest *streamingRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[(NSString *)kANKUserStreamEndpointURL stringByAppendingFormat:@"?connection_id=%@", self.streamingConnectionID]]];
-    [streamingRequest setValue:[self defaultValueForHeader:@"Authorization"] forHTTPHeaderField:@"Authorization"];
+
+    [streamingRequest setValue:self.requestManager.requestSerializer.HTTPRequestHeaders[@"Authorization"] forHTTPHeaderField:@"Authorization"];
 
     return streamingRequest;
 }
 
 
-- (void)requestStreamingUpdatesForOperation:(ANKJSONRequestOperation *)operation withDelegate:(id<ANKStreamingDelegate>)delegate {
+- (void)requestStreamingUpdatesForOperation:(AFHTTPRequestOperation *)operation withDelegate:(id<ANKStreamingDelegate>)delegate {
     NSString *subscriptionID = nil;
 
     if (!self.streamingConnectionID) {
@@ -430,7 +416,7 @@ static const NSString *kANKUserStreamEndpointURL = @"wss://stream-channel.app.ne
 }
 
 
-- (void)reconfigureOperationForStreaming:(ANKJSONRequestOperation *)operation subscriptionID:(NSString **)subscriptionID {
+- (void)reconfigureOperationForStreaming:(AFHTTPRequestOperation *)operation subscriptionID:(NSString **)subscriptionID {
     NSString *uniqueString = [[NSProcessInfo processInfo] globallyUniqueString];
     *subscriptionID = uniqueString;
 

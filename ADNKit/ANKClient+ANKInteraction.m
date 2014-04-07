@@ -16,7 +16,7 @@
 
 @implementation ANKClient (ANKInteraction)
 
-- (ANKJSONRequestOperation *)fetchInteractionsForCurrentUserWithCompletion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)fetchInteractionsForCurrentUserWithCompletion:(ANKClientCompletionBlock)completionHandler {
 	return [self enqueueGETPath:@"users/me/interactions"
 					 parameters:nil
 						success:[self successHandlerForCollectionOfResourceClass:[ANKInteraction class] clientHandler:completionHandler]

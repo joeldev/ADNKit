@@ -17,7 +17,7 @@
 
 @interface ANKClient (ANKExploreStream)
 
-- (ANKJSONRequestOperation *)fetchExploreStreamsWithCompletion:(ANKClientCompletionBlock)completionHandler;
-- (ANKJSONRequestOperation *)fetchExploreStreamWithSlug:(NSString *)slug completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)fetchExploreStreamsWithCompletion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)fetchExploreStreamWithSlug:(NSString *)slug completion:(ANKClientCompletionBlock)completionHandler;
 
 @end
