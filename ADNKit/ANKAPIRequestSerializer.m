@@ -12,9 +12,19 @@
                                 parameters:(id)parameters
                                      error:(NSError * __autoreleasing *)error
 {
+    NSMutableDictionary *modifiedParameters = [NSMutableDictionary new];
+
+    if ([parameters isKindOfClass:[NSDictionary class]]) {
+        [modifiedParameters addEntriesFromDictionary:parameters];
+    }
+
+    if ([self.defaultParameters count] > 0) {
+        [modifiedParameters addEntriesFromDictionary:self.defaultParameters];
+    }
+
     return [super requestWithMethod:method
                           URLString:URLString
-                         parameters:[parameters ?: @{} ank_dictionaryByAppendingDictionary:self.defaultParameters]
+                         parameters:modifiedParameters
                               error:error];
 }
 

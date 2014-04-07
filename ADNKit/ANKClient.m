@@ -84,6 +84,10 @@ static const NSString *kANKUserStreamEndpointURL = @"wss://stream-channel.app.ne
 
         self.streamContexts = [[NSMutableSet alloc] init];
         self.streamingAvailbility = ANKStreamingAvailabilityWiFi;
+
+        ANKAPIRequestSerializer *requestSerializer = (ANKAPIRequestSerializer *)self.requestManager.requestSerializer;
+
+        requestSerializer.defaultParameters = self.defaultQueryParameters;
 	}
 
     return self;
