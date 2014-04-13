@@ -31,6 +31,7 @@
 @property (assign) BOOL isInactive;
 @property (assign) BOOL hasUnreadMessages;
 @property (assign) BOOL youMuted;
+@property (assign) BOOL autoSubscribe;
 
 - (BOOL)isPrivateMessageChannel;
 
