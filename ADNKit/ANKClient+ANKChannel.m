@@ -247,5 +247,17 @@
 						   failure:[self failureHandlerForClientHandler:completionHandler]];
 }
 
+- (AFHTTPRequestOperation *)deactivateChannel:(ANKChannel *)channel completion:(ANKClientCompletionBlock)completionHandler
+{
+    return [self deactivateChannelWithID:channel.channelID completion:completionHandler];
+}
+
+- (AFHTTPRequestOperation *)deactivateChannelWithID:(NSString *)channelID completion:(ANKClientCompletionBlock)completionHandler
+{
+	return [self enqueueDELETEPath:[NSString stringWithFormat:@"channels/%@", channelID]
+						parameters:nil
+						   success:[self successHandlerForResourceClass:[ANKChannel class] clientHandler:completionHandler]
+						   failure:[self failureHandlerForClientHandler:completionHandler]];
+}
 
 @end

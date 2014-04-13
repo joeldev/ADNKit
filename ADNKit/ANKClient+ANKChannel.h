@@ -50,4 +50,7 @@
 - (AFHTTPRequestOperation *)unmuteChannel:(ANKChannel *)channel completion:(ANKClientCompletionBlock)completionHandler;
 - (AFHTTPRequestOperation *)unmuteChannelWithID:(NSString *)channelID completion:(ANKClientCompletionBlock)completionHandler;
 
+- (AFHTTPRequestOperation *)deactivateChannel:(ANKChannel *)channel completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)deactivateChannelWithID:(NSString *)channelID completion:(ANKClientCompletionBlock)completionHandler;
+
 @end
