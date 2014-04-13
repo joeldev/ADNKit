@@ -51,7 +51,7 @@
 
 - (ANKJSONRequestOperation *)fetchMessagesWithIDs:(NSArray *)messageIDs completion:(ANKClientCompletionBlock)completionHandler {
 	return [self enqueueGETPath:@"channels/messages"
-					 parameters:nil
+					 parameters:@{@"ids": [messageIDs componentsJoinedByString:@","]}
 						success:[self successHandlerForCollectionOfResourceClass:[ANKMessage class] clientHandler:completionHandler]
 						failure:[self failureHandlerForClientHandler:completionHandler]];
 }
