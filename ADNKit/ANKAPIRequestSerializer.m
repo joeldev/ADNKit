@@ -10,21 +10,22 @@
 - (NSMutableURLRequest *)requestWithMethod:(NSString *)method
                                  URLString:(NSString *)URLString
                                 parameters:(id)parameters
-                                     error:(NSError * __autoreleasing *)error
+                                     error:(NSError *__autoreleasing *)error
 {
-    NSMutableDictionary *modifiedParameters = [NSMutableDictionary new];
-
-    if ([parameters isKindOfClass:[NSDictionary class]]) {
-        [modifiedParameters addEntriesFromDictionary:parameters];
+    if ((self.defaultParameters.count > 0) && [parameters isKindOfClass:[NSDictionary class]]) {
+        parameters = [(NSDictionary *)parameters ank_dictionaryByAppendingDictionary : self.defaultParameters];
     }
 
-    if ([self.defaultParameters count] > 0) {
-        [modifiedParameters addEntriesFromDictionary:self.defaultParameters];
-    }
+    NSMutableString *modifiedURLString = [URLString mutableCopy];
+
+    [self.defaultParameters enumerateKeysAndObjectsUsingBlock:^(NSString *key, NSString *obj, BOOL *stop) {
+                                NSString *delimiter = (NSNotFound == [modifiedURLString rangeOfString:@"?"].location) ? @"?" : @"&";
+                                [modifiedURLString appendFormat:@"%@%@=%@", delimiter, key, obj];
+                            }];
 
     return [super requestWithMethod:method
-                          URLString:URLString
-                         parameters:modifiedParameters
+                          URLString:modifiedURLString
+                         parameters:parameters
                               error:error];
 }
 
