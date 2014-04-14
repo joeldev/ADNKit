@@ -140,7 +140,7 @@ typedef void (^ANKClientCompletionBlock)(id responseObject, ANKAPIResponseMeta *
 #pragma mark -
 #pragma mark - Streams
 
-- (void)requestStreamingUpdatesForOperation:(AFHTTPRequestOperation *)operation withDelegate:(id<ANKStreamingDelegate>)delegate;
+- (void)requestStreamingUpdatesForOperation:(AFHTTPRequestOperation *)operation parameters:(ANKGeneralParameters *)parameters withDelegate:(id<ANKStreamingDelegate>)delegate;
 
 #pragma mark -
 #pragma mark Operation Queues
