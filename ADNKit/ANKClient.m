@@ -387,7 +387,7 @@ static const NSString *kANKUserStreamEndpointURL = @"wss://stream-channel.app.ne
         self.streamingConnectionID = [[NSProcessInfo processInfo] globallyUniqueString];
     }
 
-    NSMutableString *endpointURLString = [[(NSString *)kANKUserStreamEndpointURL stringByAppendingFormat:@"?connection_id=%@&include_annotations=1", self.streamingConnectionID] mutableCopy];
+    NSMutableString *endpointURLString = [[(NSString *)kANKUserStreamEndpointURL stringByAppendingFormat:@"?connection_id=%@", self.streamingConnectionID] mutableCopy];
 
     NSDictionary *parameterDict = [parameters JSONDictionary];
 
