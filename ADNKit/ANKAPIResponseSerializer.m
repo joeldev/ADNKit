@@ -11,8 +11,24 @@
                            data:(NSData *)data
                           error:(NSError *__autoreleasing *)error
 {
-    id originalResponse = [super responseObjectForResponse:response data:data error:error];
-    return [[ANKAPIResponse alloc] initWithResponseObject:originalResponse];
+    NSError *responseError;
+
+    id originalResponse = [super responseObjectForResponse:response data:data error:&responseError];
+
+    NSDictionary* headers = [(NSHTTPURLResponse *)response allHeaderFields];
+    ANKAPIResponse *apiResponse = [[ANKAPIResponse alloc] initWithResponseObject:originalResponse andHeaders:headers];
+
+    if (responseError) {
+        NSMutableDictionary *modifiedUserInfo = [responseError.userInfo mutableCopy];
+        modifiedUserInfo[kANKAPIResponseKey] = apiResponse;
+        responseError = [NSError errorWithDomain:responseError.domain code:responseError.code userInfo:modifiedUserInfo];
+    }
+
+    if (error && responseError) {
+        *error = responseError;
+    }
+    
+    return apiResponse;
 }
 
 @end

@@ -458,7 +458,8 @@ static const NSString *kANKUserStreamEndpointURL = @"wss://stream-channel.app.ne
             BOOL isChannel = sampleObject[@"has_unread"] && sampleObject[@"readers"];
             BOOL isFile = sampleObject[@"complete"] && sampleObject[@"file_token"];
 
-            ANKAPIResponse *response = [[ANKAPIResponse alloc] initWithResponseObject:JSON];
+            ANKAPIResponse *response = [[ANKAPIResponse alloc] initWithResponseObject:JSON andHeaders:nil];
+
             Class resourceClass = nil;
 
             if (isUser)
@@ -527,7 +528,7 @@ static const NSString *kANKUserStreamEndpointURL = @"wss://stream-channel.app.ne
     NSString *connectionID = metaDict[@"connection_id"];
     NSArray *subscriptionIDs = metaDict[@"subscription_ids"];
     BOOL isInitialConnectionResponse = (JSON.count == 1 && connectionID);
-    ANKAPIResponse *response = [[ANKAPIResponse alloc] initWithResponseObject:JSON];
+    ANKAPIResponse *response = [[ANKAPIResponse alloc] initWithResponseObject:JSON andHeaders:nil];
 
     if (isInitialConnectionResponse) {
         BOOL connectionWasRevived = [self.streamingConnectionID isEqualToString:self.lastSuccessfulStreamingConnectionID];
