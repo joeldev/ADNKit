@@ -20,6 +20,16 @@
 #import "ANKUser.h"
 #import "ANKClient+ANKTokenStatus.h"
 
+NSString * const kANKAuthScopeBasic =           @"basic";
+NSString * const kANKAuthScopeStream =          @"stream";
+NSString * const kANKAuthScopeEmail =           @"email";
+NSString * const kANKAuthScopeWritePost =       @"write_post";
+NSString * const kANKAuthScopeFollow =          @"follow";
+NSString * const kANKAuthScopePublicMessages =  @"public_messages";
+NSString * const kANKAuthScopeMessages =        @"messages";
+NSString * const kANKAuthScopeUpdateProfile =   @"update_profile";
+NSString * const kANKAuthScopeFiles =           @"export";
+NSString * const kANKAuthScopeExport =          @"files";
 
 @interface ANKClient ()
 
@@ -121,6 +131,27 @@
 #pragma mark -
 #pragma mark Authentication
 
+- (void)authenticateUsername:(NSString *)username
+                    password:(NSString *)password
+                    clientID:(NSString *)clientID
+         passwordGrantSecret:(NSString *)passwordGrantSecret
+              authScopeArray:(NSArray  *)authScopes
+           completionHandler:(void (^)(BOOL success, NSError *error))completionHander
+{
+	// http://developers.app.net/docs/authentication/flows/password/
+
+	NSDictionary *parameters =
+  @{@"client_id"            : clientID,
+    @"password_grant_secret": passwordGrantSecret,
+    @"grant_type"           : @"password",
+    @"username"             : username,
+    @"password"             : password,
+    @"scope"                : [authScopes componentsJoinedByString:@","]};
+
+	[self authenticateWithParameters:parameters handler:completionHander];
+}
+
+
 - (void)authenticateUsername:(NSString *)username password:(NSString *)password clientID:(NSString *)clientID passwordGrantSecret:(NSString *)passwordGrantSecret authScopes:(ANKAuthScope)authScopes completionHandler:(void (^)(BOOL success, NSError *error))completionHander {
 	// http://developers.app.net/docs/authentication/flows/password/
 	
@@ -131,11 +162,28 @@
 
 - (NSURLRequest *)webAuthRequestForClientID:(NSString *)clientID redirectURI:(NSString *)redirectURI authScopes:(ANKAuthScope)authScopes state:(NSString *)state appStoreCompliant:(BOOL)shouldBeAppStoreCompliant {
 	// http://developers.app.net/docs/authentication/flows/web/
+
+
+    return [self webAuthRequestForClientID:clientID
+                               redirectURI:redirectURI
+                            authScopeArray:[[self class] scopeArrayForAuthScopes:authScopes]
+                                     state:state
+                         appStoreCompliant:shouldBeAppStoreCompliant];
+}
+
+
+- (NSURLRequest *)webAuthRequestForClientID:(NSString *)clientID
+                                redirectURI:(NSString *)redirectURI
+                             authScopeArray:(NSArray  *)authScopes
+                                      state:(NSString *)state
+                          appStoreCompliant:(BOOL)shouldBeAppStoreCompliant
+{
+
 	self.webAuthRedirectURI = redirectURI;
 	NSMutableString *URLString = [NSMutableString stringWithFormat:@"https://account.app.net/oauth/authenticate?client_id=%@&response_type=code", clientID];
-	
-	if (authScopes) {
-		[URLString appendFormat:@"&scope=%@", [[self class] scopeStringForAuthScopes:authScopes]];
+
+	if (authScopes && authScopes.count > 0) {
+		[URLString appendFormat:@"&scope=%@", [authScopes componentsJoinedByString:@","]];
 	}
 	
 	if (redirectURI) {
@@ -163,10 +211,17 @@
 
 
 + (NSString *)scopeStringForAuthScopes:(ANKAuthScope)scopes {
-	if (scopes == ANKAuthScopeNone) return nil;
-    
+    NSArray *scopeValues = [self scopeArrayForAuthScopes:scopes];
+
+    return [scopeValues componentsJoinedByString:@","];
+}
+
+
++ (NSArray *)scopeArrayForAuthScopes:(ANKAuthScope)scopes {
+    if (scopes == ANKAuthScopeNone) return @[];
+
     NSMutableArray *scopeValues = [NSMutableArray array];
-    
+
     if ((scopes & ANKAuthScopeBasic) == ANKAuthScopeBasic)						[scopeValues addObject:@"basic"];
 	if ((scopes & ANKAuthScopeStream) == ANKAuthScopeStream)					[scopeValues addObject:@"stream"];
 	if ((scopes & ANKAuthScopeEmail) == ANKAuthScopeEmail)						[scopeValues addObject:@"email"];
@@ -177,8 +232,8 @@
 	if ((scopes & ANKAuthScopeUpdateProfile) == ANKAuthScopeUpdateProfile)		[scopeValues addObject:@"update_profile"];
 	if ((scopes & ANKAuthScopeExport) == ANKAuthScopeExport)					[scopeValues addObject:@"export"];
 	if ((scopes & ANKAuthScopeFiles) == ANKAuthScopeFiles)						[scopeValues addObject:@"files"];
-    
-    return [scopeValues componentsJoinedByString:@","];
+
+    return [scopeValues copy];
 }
 
 
