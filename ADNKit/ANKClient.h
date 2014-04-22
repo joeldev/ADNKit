@@ -28,6 +28,17 @@ typedef NS_ENUM(NSUInteger, ANKAuthScope) {
     ANKAuthScopeExport          = (1 << 9), // bulk export all of this user’s App.net data
 };
 
+extern NSString * const kANKAuthScopeNone;
+extern NSString * const kANKAuthScopeBasic;
+extern NSString * const kANKAuthScopeStream;
+extern NSString * const kANKAuthScopeEmail;
+extern NSString * const kANKAuthScopeWritePost;
+extern NSString * const kANKAuthScopeFollow;
+extern NSString * const kANKAuthScopePublicMessages;
+extern NSString * const kANKAuthScopeMessages;
+extern NSString * const kANKAuthScopeUpdateProfile;
+extern NSString * const kANKAuthScopeFiles;
+extern NSString * const kANKAuthScopeExport;
 
 typedef NS_ENUM(NSUInteger, ANKResponseDecodingType) {
 	ANKResponseDecodingTypeModel = 0, // default - decodes server responses as model objects
@@ -63,8 +74,24 @@ typedef void (^ANKClientCompletionBlock)(id responseObject, ANKAPIResponseMeta *
 #pragma mark -
 #pragma mark Authentication
 
-// username/password authentication
+/** Username/password authentication */
+
+- (void)authenticateUsername:(NSString *)username
+                    password:(NSString *)password
+                    clientID:(NSString *)clientID
+         passwordGrantSecret:(NSString *)passwordGrantSecret
+              authScopeArray:(NSArray  *)authScopes
+           completionHandler:(void (^)(BOOL success, NSError *error))completionHander;
+
+/** Username/password authentication */
 - (void)authenticateUsername:(NSString *)username password:(NSString *)password clientID:(NSString *)clientID passwordGrantSecret:(NSString *)passwordGrantSecret authScopes:(ANKAuthScope)authScopes completionHandler:(void (^)(BOOL success, NSError *error))completionHander;
+
+/** Web-style authentication. Call this method first, and then load the resulting URLRequest in a WebView. */
+- (NSURLRequest *)webAuthRequestForClientID:(NSString *)clientID
+                                redirectURI:(NSString *)redirectURI
+                             authScopeArray:(NSArray  *)authScopes
+                                      state:(NSString *)state
+                          appStoreCompliant:(BOOL)shouldBeAppStoreCompliant;
 
 // web-style authentication. call this method first, and then load the resulting URLRequest is a webview
 - (NSURLRequest *)webAuthRequestForClientID:(NSString *)clientID redirectURI:(NSString *)redirectURI authScopes:(ANKAuthScope)authScopes state:(NSString *)state appStoreCompliant:(BOOL)shouldBeAppStoreCompliant;
@@ -73,6 +100,9 @@ typedef void (^ANKClientCompletionBlock)(id responseObject, ANKAPIResponseMeta *
 
 // returns the auth scope string expected by the server for the given scopes
 + (NSString *)scopeStringForAuthScopes:(ANKAuthScope)scopes;
+
+/** Returns the auth scopes expected by the server for the given scopes */
++ (NSArray *)scopeArrayForAuthScopes:(ANKAuthScope)scopes;
 
 // to conform to the requirements of username/password auth, it is required to show the user what permissions they are authorizing for you by signing in.
 // this method returns full descriptions for the given scopes that can be placed in the UI
