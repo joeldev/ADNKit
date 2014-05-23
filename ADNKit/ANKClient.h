@@ -57,6 +57,7 @@ typedef NS_ENUM(NSUInteger, ANKStreamingAvailability) {
 @required
 
 - (void)client:(ANKClient *)client didReceiveObject:(id)responseObject withMeta:(ANKAPIResponseMeta *)meta;
+- (void)client:(ANKClient *)client didDeleteObjectID:(NSString *)objectID withMeta:(ANKAPIResponseMeta *)meta;
 
 @end
 

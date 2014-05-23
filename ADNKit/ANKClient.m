@@ -544,14 +544,24 @@ static const NSString *kANKUserStreamEndpointURL = @"wss://stream-channel.app.ne
         }
     } else {
         for (NSString *subscriptionID in subscriptionIDs) {
-            id object = [self parsedObjectFromJSON:JSON];
+            if (response.meta.isDeleted) {
+                NSLog(@"Received deleted object ID: %@ subscription ID: %@", response.meta.deletedID, subscriptionID);
 
-            NSLog(@"Received object: %@ for subscription ID: %@", object, subscriptionID);
+                for (id<ANKStreamingDelegate> streamingDelegate in [[self.streamContexts filteredSetUsingPredicate:[NSPredicate predicateWithFormat:@"identifier == %@", subscriptionID]] valueForKey:@"delegate"]) {
+                    NSLog(@"Messaging delegate %@", streamingDelegate);
 
-            for (id<ANKStreamingDelegate> streamingDelegate in [[self.streamContexts filteredSetUsingPredicate:[NSPredicate predicateWithFormat:@"identifier == %@", subscriptionID]] valueForKey:@"delegate"]) {
-                NSLog(@"Messaging delegate %@", streamingDelegate);
-                
-                [streamingDelegate client:self didReceiveObject:object withMeta:response.meta];
+                    [streamingDelegate client:self didDeleteObjectID:response.meta.deletedID withMeta:response.meta];
+                }
+            } else {
+                id object = [self parsedObjectFromJSON:JSON];
+
+                NSLog(@"Received object: %@ for subscription ID: %@", object, subscriptionID);
+
+                for (id<ANKStreamingDelegate> streamingDelegate in [[self.streamContexts filteredSetUsingPredicate:[NSPredicate predicateWithFormat:@"identifier == %@", subscriptionID]] valueForKey:@"delegate"]) {
+                    NSLog(@"Messaging delegate %@", streamingDelegate);
+
+                    [streamingDelegate client:self didReceiveObject:object withMeta:response.meta];
+                }
             }
         }
     }
