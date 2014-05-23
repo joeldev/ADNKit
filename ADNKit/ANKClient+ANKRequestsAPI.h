@@ -14,20 +14,18 @@
 #import "ANKClient+ANKHandlerBlocks.h"
 
 
-@class ANKJSONRequestOperation;
-
 @interface ANKClient (ANKRequestsAPI)
 
 // These exist to return the request that is enqueued, which allows for cancellation. AFNetworking is too stubborn to add this to their existing convenience methods, and too stubborn to write news ones to do this.
 
-- (ANKJSONRequestOperation *)enqueueRequestWithMethod:(NSString *)method path:(NSString *)path parameters:(NSDictionary *)parameters success:(AFNetworkingSuccessBlock)successBlock failure:(AFNetworkingFailureBlock)failureBlock;
+- (AFHTTPRequestOperation *)enqueueRequestWithMethod:(NSString *)method path:(NSString *)path parameters:(NSDictionary *)parameters success:(AFNetworkingSuccessBlock)successBlock failure:(AFNetworkingFailureBlock)failureBlock;
 
-- (ANKJSONRequestOperation *)enqueueGETPath:(NSString *)path parameters:(NSDictionary *)parameters success:(AFNetworkingSuccessBlock)successBlock failure:(AFNetworkingFailureBlock)failureBlock;
+- (AFHTTPRequestOperation *)enqueueGETPath:(NSString *)path parameters:(NSDictionary *)parameters success:(AFNetworkingSuccessBlock)successBlock failure:(AFNetworkingFailureBlock)failureBlock;
 
-- (ANKJSONRequestOperation *)enqueuePOSTPath:(NSString *)path parameters:(NSDictionary *)parameters success:(AFNetworkingSuccessBlock)successBlock failure:(AFNetworkingFailureBlock)failureBlock;
+- (AFHTTPRequestOperation *)enqueuePOSTPath:(NSString *)path parameters:(NSDictionary *)parameters success:(AFNetworkingSuccessBlock)successBlock failure:(AFNetworkingFailureBlock)failureBlock;
 
-- (ANKJSONRequestOperation *)enqueuePUTPath:(NSString *)path parameters:(NSDictionary *)parameters success:(AFNetworkingSuccessBlock)successBlock failure:(AFNetworkingFailureBlock)failureBlock;
+- (AFHTTPRequestOperation *)enqueuePUTPath:(NSString *)path parameters:(NSDictionary *)parameters success:(AFNetworkingSuccessBlock)successBlock failure:(AFNetworkingFailureBlock)failureBlock;
 
-- (ANKJSONRequestOperation *)enqueueDELETEPath:(NSString *)path parameters:(NSDictionary *)parameters success:(AFNetworkingSuccessBlock)successBlock failure:(AFNetworkingFailureBlock)failureBlock;
+- (AFHTTPRequestOperation *)enqueueDELETEPath:(NSString *)path parameters:(NSDictionary *)parameters success:(AFNetworkingSuccessBlock)successBlock failure:(AFNetworkingFailureBlock)failureBlock;
 
 @end

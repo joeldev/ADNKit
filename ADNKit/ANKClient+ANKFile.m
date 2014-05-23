@@ -12,14 +12,14 @@
 
 #import "ANKClient+ANKFile.h"
 #import "ANKFile.h"
-#import "ANKJSONRequestOperation.h"
+#import "AFHTTPRequestOperation.h"
 
 
 @implementation ANKClient (ANKFile)
 
 // http://developers.app.net/docs/resources/file/lookup/#retrieve-a-file
 
-- (ANKJSONRequestOperation *)fetchFileWithID:(NSString *)fileID completion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)fetchFileWithID:(NSString *)fileID completion:(ANKClientCompletionBlock)completionHandler {
 	return [self enqueueGETPath:[NSString stringWithFormat:@"files/%@", fileID]
 					 parameters:nil
 						success:[self successHandlerForResourceClass:[ANKFile class] clientHandler:completionHandler]
@@ -29,7 +29,7 @@
 
 // http://developers.app.net/docs/resources/file/lookup/#retrieve-multiple-files
 
-- (ANKJSONRequestOperation *)fetchFilesWithIDs:(NSArray *)fileIDs completion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)fetchFilesWithIDs:(NSArray *)fileIDs completion:(ANKClientCompletionBlock)completionHandler {
 	return [self enqueueGETPath:[NSString stringWithFormat:@"files?ids=%@", [fileIDs componentsJoinedByString:@","]]
 												parameters:nil
 												   success:[self successHandlerForCollectionOfResourceClass:[ANKFile class] clientHandler:completionHandler]
@@ -39,7 +39,7 @@
 
 // http://developers.app.net/docs/resources/file/lookup/#retrieve-my-files
 
-- (ANKJSONRequestOperation *)fetchCurrentUserFilesWithCompletion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)fetchCurrentUserFilesWithCompletion:(ANKClientCompletionBlock)completionHandler {
 	return [self enqueueGETPath:@"users/me/files"
 					 parameters:nil
 						success:[self successHandlerForCollectionOfResourceClass:[ANKFile class] clientHandler:completionHandler]
@@ -64,26 +64,22 @@
 		parameters[@"file_token"] = readToken;
 	}
 
-	NSURLRequest *request = [self requestWithMethod:@"GET" path:[NSString stringWithFormat:@"files/%@/content", fileID] parameters:[parameters copy]];
-	AFHTTPRequestOperation *requestOperation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-	[requestOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+	return [self.requestManager GET:[NSString stringWithFormat:@"files/%@/content", fileID] parameters:[parameters copy] success:^(AFHTTPRequestOperation *operation, id responseObject) {
 		if (completionHandler) {
 			completionHandler(responseObject, nil, nil);
 		}
-	} failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
 		if (completionHandler) {
 			completionHandler(nil, nil, error);
 		}
-	}];
-	[self enqueueHTTPRequestOperation:requestOperation];
-	return requestOperation;
+    }];
 }
 
 
 // http://developers.app.net/docs/resources/file/lifecycle/#create-a-file
 
-- (ANKJSONRequestOperation *)createFile:(ANKFile *)file withData:(NSData *)fileData completion:(ANKClientCompletionBlock)completionHandler {
-	ANKJSONRequestOperation *request = nil;
+- (AFHTTPRequestOperation *)createFile:(ANKFile *)file withData:(NSData *)fileData completion:(ANKClientCompletionBlock)completionHandler {
+	AFHTTPRequestOperation *request = nil;
 	
 	if (!fileData) {
 		request = [self enqueuePOSTPath:@"files"
@@ -98,22 +94,22 @@
 }
 
 
-- (ANKJSONRequestOperation *)createFileWithData:(NSData *)fileData mimeType:(NSString *)mimeType filename:(NSString *)filename metadata:(NSDictionary *)metadata progress:(ANKClientFileUploadProgressBlock)progressHandler completion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)createFileWithData:(NSData *)fileData mimeType:(NSString *)mimeType filename:(NSString *)filename metadata:(NSDictionary *)metadata progress:(ANKClientFileUploadProgressBlock)progressHandler completion:(ANKClientCompletionBlock)completionHandler {
 	return [self createFileWithData:fileData mimeType:mimeType filename:filename fileURL:nil kind:([mimeType hasPrefix:@"image"] ? @"image" : @"other") metadata:metadata progress:progressHandler completion:completionHandler];
 }
 
 
-- (ANKJSONRequestOperation *)createFile:(ANKFile *)file withContentsOfURL:(NSURL *)fileURL progress:(ANKClientFileUploadProgressBlock)progressHandler completion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)createFile:(ANKFile *)file withContentsOfURL:(NSURL *)fileURL progress:(ANKClientFileUploadProgressBlock)progressHandler completion:(ANKClientCompletionBlock)completionHandler {
 	return [self createFileWithData:nil mimeType:nil filename:nil fileURL:fileURL kind:@"other" metadata:[file JSONDictionary] progress:progressHandler completion:completionHandler];
 }
 
 
-- (ANKJSONRequestOperation *)createFileWithContentsOfURL:(NSURL *)fileURL metadata:(NSDictionary *)metadata progress:(ANKClientFileUploadProgressBlock)progressHandler completion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)createFileWithContentsOfURL:(NSURL *)fileURL metadata:(NSDictionary *)metadata progress:(ANKClientFileUploadProgressBlock)progressHandler completion:(ANKClientCompletionBlock)completionHandler {
 	return [self createFileWithData:nil mimeType:nil filename:nil fileURL:fileURL kind:nil metadata:metadata progress:progressHandler completion:completionHandler];
 }
 
 
-- (ANKJSONRequestOperation *)createFileWithData:(NSData *)fileData
+- (AFHTTPRequestOperation *)createFileWithData:(NSData *)fileData
                   mimeType:(NSString *)mimeType
                   filename:(NSString *)filename
                    fileURL:(NSURL *)fileURL
@@ -126,43 +122,50 @@
 	if (fileKind) {
 		modifiedMetadata[@"kind"] = fileKind;
 	}
-	
-	NSMutableURLRequest *request = [self multipartFormRequestWithMethod:@"POST" path:@"files" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-		if (fileURL) {
-			[formData appendPartWithFileURL:fileURL name:@"content" error:&multipartEncodeError];
-		} else {
-			[formData appendPartWithFileData:fileData name:@"content" fileName:filename mimeType:mimeType];
-		}
-		
-		if (metadata.count > 0) {
-			[formData appendPartWithFileData:[NSJSONSerialization dataWithJSONObject:modifiedMetadata options:0 error:&multipartEncodeError] name:@"metadata" fileName:@"metadata.json" mimeType:@"application/json"];
-		}
-	}];
-	
-	if (multipartEncodeError) {
-		if (completionHandler) {
-			completionHandler(nil, nil, multipartEncodeError);
-		}
-		return nil;
-	}
-	
-	ANKJSONRequestOperation *requestOperation = (ANKJSONRequestOperation *)[self HTTPRequestOperationWithRequest:request
-																										 success:[self successHandlerForResourceClass:[ANKFile class] clientHandler:completionHandler]
-																										 failure:[self failureHandlerForClientHandler:completionHandler]];
+    AFHTTPRequestOperationManager *manager = self.requestManager;
+    AFHTTPRequestSerializer *serializer = self.requestManager.requestSerializer;
+
+    NSURL *URL = [manager.baseURL URLByAppendingPathComponent:@"files"];
+
+    NSMutableURLRequest *request = [serializer multipartFormRequestWithMethod:@"POST"
+                                                                    URLString:[URL absoluteString]
+                                                                   parameters:nil
+                                                    constructingBodyWithBlock:^(id < AFMultipartFormData > formData) {
+                                                        if (fileURL) {
+                                                            [formData appendPartWithFileURL:fileURL name:@"content" error:&multipartEncodeError];
+                                                        } else {
+                                                            [formData appendPartWithFileData:fileData name:@"content" fileName:filename mimeType:mimeType];
+                                                        }
+
+                                                        if (metadata.count > 0) {
+                                                            [formData appendPartWithFileData:[NSJSONSerialization dataWithJSONObject:modifiedMetadata options:0 error:&multipartEncodeError] name:@"metadata" fileName:@"metadata.json" mimeType:@"application/json"];
+                                                        }
+                                                    } error:&multipartEncodeError];
+
+    if (multipartEncodeError && completionHandler) {
+        completionHandler(nil, nil, multipartEncodeError);
+    }
+
+    AFHTTPRequestOperation *requestOperation = [manager HTTPRequestOperationWithRequest:request
+                                                                                success:[self successHandlerForResourceClass:[ANKFile class] clientHandler:completionHandler]
+                                                                                failure:[self failureHandlerForClientHandler:completionHandler]];
+
     [requestOperation setUploadProgressBlock:progressHandler];
-	[self enqueueHTTPRequestOperation:requestOperation];
-	return requestOperation;
+
+    [manager.operationQueue addOperation:requestOperation];
+
+    return requestOperation;
 }
 
 
 // http://developers.app.net/docs/resources/file/lifecycle/#update-a-file
 
-- (ANKJSONRequestOperation *)updateFile:(ANKFile *)file completion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)updateFile:(ANKFile *)file completion:(ANKClientCompletionBlock)completionHandler {
 	return [self updateFileWithID:file.fileID name:file.name isPublic:file.isPublic completion:completionHandler];
 }
 
 
-- (ANKJSONRequestOperation *)updateFileWithID:(NSString *)fileID name:(NSString *)updatedName isPublic:(BOOL)updatedPublicFlag completion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)updateFileWithID:(NSString *)fileID name:(NSString *)updatedName isPublic:(BOOL)updatedPublicFlag completion:(ANKClientCompletionBlock)completionHandler {
 	return [self enqueuePUTPath:[NSString stringWithFormat:@"files/%@", fileID]
 					 parameters:@{@"name": updatedName, @"public": (updatedPublicFlag ? @"true" : @"false")}
 						success:[self successHandlerForResourceClass:[ANKFile class] clientHandler:completionHandler]
@@ -172,12 +175,12 @@
 
 // http://developers.app.net/docs/resources/file/lifecycle/#delete-a-file
 
-- (ANKJSONRequestOperation *)deleteFile:(ANKFile *)file completion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)deleteFile:(ANKFile *)file completion:(ANKClientCompletionBlock)completionHandler {
 	return [self deleteFileWithID:file.fileID completion:completionHandler];
 }
 
 
-- (ANKJSONRequestOperation *)deleteFileWithID:(NSString *)fileID completion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)deleteFileWithID:(NSString *)fileID completion:(ANKClientCompletionBlock)completionHandler {
 	return [self enqueueDELETEPath:[NSString stringWithFormat:@"files/%@", fileID]
 						parameters:nil
 						   success:[self successHandlerForResourceClass:[ANKFile class] clientHandler:completionHandler]
@@ -187,21 +190,33 @@
 
 // http://developers.app.net/docs/resources/file/content/#set-file-content
 
-- (ANKJSONRequestOperation *)setContentOfFile:(ANKFile *)file fileData:(NSData *)fileData mimeType:(NSString *)mimeType completion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)setContentOfFile:(ANKFile *)file fileData:(NSData *)fileData mimeType:(NSString *)mimeType completion:(ANKClientCompletionBlock)completionHandler {
 	return [self setContentOfFileWithID:file.fileID fileData:fileData mimeType:mimeType completion:completionHandler];
 }
 
 
-- (ANKJSONRequestOperation *)setContentOfFileWithID:(NSString *)fileID fileData:(NSData *)fileData mimeType:(NSString *)mimeType completion:(ANKClientCompletionBlock)completionHandler {
-	NSMutableURLRequest *request = [self requestWithMethod:@"PUT" path:[NSString stringWithFormat:@"files/%@/content", fileID] parameters:nil];
+- (AFHTTPRequestOperation *)setContentOfFileWithID:(NSString *)fileID fileData:(NSData *)fileData mimeType:(NSString *)mimeType completion:(ANKClientCompletionBlock)completionHandler {
+    AFHTTPRequestOperationManager *manager = self.requestManager;
+    AFHTTPRequestSerializer *serializer = self.requestManager.requestSerializer;
+
+    NSURL *URL = [self.requestManager.baseURL URLByAppendingPathComponent:[NSString stringWithFormat:@"files/%@/content", fileID]];
+
+    NSError *requestError;
+    NSMutableURLRequest *request = [serializer requestWithMethod:@"POST" URLString:[URL absoluteString] parameters:nil error:&requestError];
+
 	[request setValue:mimeType forHTTPHeaderField:@"Content-Type"];
 	[request setHTTPBody:fileData];
-	
-	ANKJSONRequestOperation *requestOperation = (ANKJSONRequestOperation *)[self HTTPRequestOperationWithRequest:request
-																										 success:[self successHandlerForResourceClass:[ANKFile class] clientHandler:completionHandler]
-																										 failure:[self failureHandlerForClientHandler:completionHandler]];
-	[self enqueueHTTPRequestOperation:requestOperation];
-	return requestOperation;
+
+    if (requestError && completionHandler) {
+        completionHandler(nil, nil, requestError);
+    }
+
+    AFHTTPRequestOperation *requestOperation = [manager HTTPRequestOperationWithRequest:request
+                                                                                success:[self successHandlerForResourceClass:[ANKFile class] clientHandler:completionHandler]
+                                                                                failure:[self failureHandlerForClientHandler:completionHandler]];
+    [manager.operationQueue addOperation:requestOperation];
+    
+    return requestOperation;
 }
 
 

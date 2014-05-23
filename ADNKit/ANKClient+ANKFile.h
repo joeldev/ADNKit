@@ -17,26 +17,26 @@
 
 @interface ANKClient (ANKFile)
 
-- (ANKJSONRequestOperation *)fetchFileWithID:(NSString *)fileID completion:(ANKClientCompletionBlock)completionHandler;
-- (ANKJSONRequestOperation *)fetchFilesWithIDs:(NSArray *)fileIDs completion:(ANKClientCompletionBlock)completionHandler;
-- (ANKJSONRequestOperation *)fetchCurrentUserFilesWithCompletion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)fetchFileWithID:(NSString *)fileID completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)fetchFilesWithIDs:(NSArray *)fileIDs completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)fetchCurrentUserFilesWithCompletion:(ANKClientCompletionBlock)completionHandler;
 - (AFHTTPRequestOperation *)fetchContentsOfFile:(ANKFile *)file completion:(ANKClientCompletionBlock)completionHandler;
 - (AFHTTPRequestOperation *)fetchContentsOfFileWithID:(NSString *)fileID completion:(ANKClientCompletionBlock)completionHandler;
 - (AFHTTPRequestOperation *)fetchContentsOfFileWithID:(NSString *)fileID withReadToken:(NSString *)readToken completion:(ANKClientCompletionBlock)completionHandler;
 
-- (ANKJSONRequestOperation *)createFile:(ANKFile *)file withData:(NSData *)fileData completion:(ANKClientCompletionBlock)completionHandler;
-- (ANKJSONRequestOperation *)createFile:(ANKFile *)file withContentsOfURL:(NSURL *)fileURL progress:(ANKClientFileUploadProgressBlock)progressHandler completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)createFile:(ANKFile *)file withData:(NSData *)fileData completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)createFile:(ANKFile *)file withContentsOfURL:(NSURL *)fileURL progress:(ANKClientFileUploadProgressBlock)progressHandler completion:(ANKClientCompletionBlock)completionHandler;
 
-- (ANKJSONRequestOperation *)createFileWithData:(NSData *)fileData mimeType:(NSString *)mimeType filename:(NSString *)filename metadata:(NSDictionary *)metadata progress:(ANKClientFileUploadProgressBlock)progressHandler completion:(ANKClientCompletionBlock)completionHandler;
-- (ANKJSONRequestOperation *)createFileWithContentsOfURL:(NSURL *)fileURL metadata:(NSDictionary *)metadata progress:(ANKClientFileUploadProgressBlock)progressHandler completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)createFileWithData:(NSData *)fileData mimeType:(NSString *)mimeType filename:(NSString *)filename metadata:(NSDictionary *)metadata progress:(ANKClientFileUploadProgressBlock)progressHandler completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)createFileWithContentsOfURL:(NSURL *)fileURL metadata:(NSDictionary *)metadata progress:(ANKClientFileUploadProgressBlock)progressHandler completion:(ANKClientCompletionBlock)completionHandler;
 
-- (ANKJSONRequestOperation *)updateFile:(ANKFile *)file completion:(ANKClientCompletionBlock)completionHandler;
-- (ANKJSONRequestOperation *)updateFileWithID:(NSString *)fileID name:(NSString *)updatedName isPublic:(BOOL)updatedPublicFlag completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)updateFile:(ANKFile *)file completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)updateFileWithID:(NSString *)fileID name:(NSString *)updatedName isPublic:(BOOL)updatedPublicFlag completion:(ANKClientCompletionBlock)completionHandler;
 
-- (ANKJSONRequestOperation *)deleteFile:(ANKFile *)file completion:(ANKClientCompletionBlock)completionHandler;
-- (ANKJSONRequestOperation *)deleteFileWithID:(NSString *)fileID completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)deleteFile:(ANKFile *)file completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)deleteFileWithID:(NSString *)fileID completion:(ANKClientCompletionBlock)completionHandler;
 
-- (ANKJSONRequestOperation *)setContentOfFile:(ANKFile *)file fileData:(NSData *)fileData mimeType:(NSString *)mimeType completion:(ANKClientCompletionBlock)completionHandler;
-- (ANKJSONRequestOperation *)setContentOfFileWithID:(NSString *)fileID fileData:(NSData *)fileData mimeType:(NSString *)mimeType completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)setContentOfFile:(ANKFile *)file fileData:(NSData *)fileData mimeType:(NSString *)mimeType completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)setContentOfFileWithID:(NSString *)fileID fileData:(NSData *)fileData mimeType:(NSString *)mimeType completion:(ANKClientCompletionBlock)completionHandler;
 
 @end

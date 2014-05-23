@@ -18,7 +18,7 @@
 
 // http://developers.app.net/docs/resources/explore/#retrieve-all-explore-streams
 
-- (ANKJSONRequestOperation *)fetchExploreStreamsWithCompletion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)fetchExploreStreamsWithCompletion:(ANKClientCompletionBlock)completionHandler {
 	return [self enqueueGETPath:@"posts/stream/explore"
 					 parameters:nil
 						success:[self successHandlerForCollectionOfResourceClass:[ANKExploreStream class] clientHandler:completionHandler]
@@ -28,7 +28,7 @@
 
 // http://developers.app.net/docs/resources/explore/#retrieve-an-explore-stream
 
-- (ANKJSONRequestOperation *)fetchExploreStreamWithSlug:(NSString *)slug completion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)fetchExploreStreamWithSlug:(NSString *)slug completion:(ANKClientCompletionBlock)completionHandler {
 	return [self enqueueGETPath:[NSString stringWithFormat:@"posts/stream/explore/%@", slug]
 					 parameters:nil
 						success:[self successHandlerForResourceClass:[ANKExploreStream class] clientHandler:completionHandler]

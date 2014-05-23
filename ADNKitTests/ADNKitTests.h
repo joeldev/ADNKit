@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 Afterwork Studios. All rights reserved.
 //
 
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 
 
-@interface ADNKitTests : SenTestCase
+@interface ADNKitTests : XCTestCase
 
 @end

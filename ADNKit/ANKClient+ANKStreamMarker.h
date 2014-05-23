@@ -17,6 +17,6 @@
 
 @interface ANKClient (ANKStreamMarker)
 
-- (ANKJSONRequestOperation *)updateStreamMarker:(ANKStreamMarker *)streamMarker completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)updateStreamMarker:(ANKStreamMarker *)streamMarker completion:(ANKClientCompletionBlock)completionHandler;
 
 @end

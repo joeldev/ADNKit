@@ -11,38 +11,52 @@
  */
 
 #import "ANKClient+ANKRequestsAPI.h"
-#import "ANKJSONRequestOperation.h"
+#import "AFHTTPRequestOperation.h"
 
 
 @implementation ANKClient (ANKRequestsAPI)
 
-- (ANKJSONRequestOperation *)enqueueRequestWithMethod:(NSString *)method path:(NSString *)path parameters:(NSDictionary *)parameters success:(AFNetworkingSuccessBlock)successBlock failure:(AFNetworkingFailureBlock)failureBlock {
-	NSURLRequest *request = [self requestWithMethod:method path:path parameters:parameters];
-    ANKJSONRequestOperation *operation = (ANKJSONRequestOperation *)[self HTTPRequestOperationWithRequest:request success:successBlock failure:failureBlock];
-    [self enqueueHTTPRequestOperation:operation];
-    operation.successCallbackQueue = self.successCallbackQueue;
-    operation.failureCallbackQueue = self.failureCallbackQueue;
+- (AFHTTPRequestOperation *)enqueueRequestWithMethod:(NSString *)method path:(NSString *)path parameters:(NSDictionary *)parameters success:(AFNetworkingSuccessBlock)successBlock failure:(AFNetworkingFailureBlock)failureBlock {
+    AFHTTPRequestOperationManager *manager = self.requestManager;
+    AFHTTPRequestSerializer *serializer = self.requestManager.requestSerializer;
 
-	return operation;
+    NSURL *URL = [manager.baseURL URLByAppendingPathComponent:path];
+
+    NSError *requestError;
+    NSURLRequest *request = [serializer requestWithMethod:method URLString:[URL absoluteString] parameters:parameters error:&requestError];
+
+    if (requestError && failureBlock) {
+        failureBlock(nil, requestError);
+    }
+
+    AFHTTPRequestOperation *operation = [manager HTTPRequestOperationWithRequest:request
+                                                                         success:successBlock
+                                                                         failure:failureBlock];
+
+    operation.completionQueue = self.successCallbackQueue;
+
+    [manager.operationQueue addOperation:operation];
+
+    return operation;
 }
 
 
-- (ANKJSONRequestOperation *)enqueueGETPath:(NSString *)path parameters:(NSDictionary *)parameters success:(AFNetworkingSuccessBlock)successBlock failure:(AFNetworkingFailureBlock)failureBlock {
+- (AFHTTPRequestOperation *)enqueueGETPath:(NSString *)path parameters:(NSDictionary *)parameters success:(AFNetworkingSuccessBlock)successBlock failure:(AFNetworkingFailureBlock)failureBlock {
 	return [self enqueueRequestWithMethod:@"GET" path:path parameters:parameters success:successBlock failure:failureBlock];
 }
 
 
-- (ANKJSONRequestOperation *)enqueuePOSTPath:(NSString *)path parameters:(NSDictionary *)parameters success:(AFNetworkingSuccessBlock)successBlock failure:(AFNetworkingFailureBlock)failureBlock {
+- (AFHTTPRequestOperation *)enqueuePOSTPath:(NSString *)path parameters:(NSDictionary *)parameters success:(AFNetworkingSuccessBlock)successBlock failure:(AFNetworkingFailureBlock)failureBlock {
 	return [self enqueueRequestWithMethod:@"POST" path:path parameters:parameters success:successBlock failure:failureBlock];
 }
 
 
-- (ANKJSONRequestOperation *)enqueuePUTPath:(NSString *)path parameters:(NSDictionary *)parameters success:(AFNetworkingSuccessBlock)successBlock failure:(AFNetworkingFailureBlock)failureBlock {
+- (AFHTTPRequestOperation *)enqueuePUTPath:(NSString *)path parameters:(NSDictionary *)parameters success:(AFNetworkingSuccessBlock)successBlock failure:(AFNetworkingFailureBlock)failureBlock {
 	return [self enqueueRequestWithMethod:@"PUT" path:path parameters:parameters success:successBlock failure:failureBlock];
 }
 
 
-- (ANKJSONRequestOperation *)enqueueDELETEPath:(NSString *)path parameters:(NSDictionary *)parameters success:(AFNetworkingSuccessBlock)successBlock failure:(AFNetworkingFailureBlock)failureBlock {
+- (AFHTTPRequestOperation *)enqueueDELETEPath:(NSString *)path parameters:(NSDictionary *)parameters success:(AFNetworkingSuccessBlock)successBlock failure:(AFNetworkingFailureBlock)failureBlock {
 	return [self enqueueRequestWithMethod:@"DELETE" path:path parameters:parameters success:successBlock failure:failureBlock];
 }
 

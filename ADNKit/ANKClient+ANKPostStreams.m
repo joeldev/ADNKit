@@ -19,7 +19,7 @@
 
 // http://developers.app.net/docs/resources/post/streams/#retrieve-the-global-stream
 
-- (ANKJSONRequestOperation *)fetchGlobalStreamWithCompletion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)fetchGlobalStreamWithCompletion:(ANKClientCompletionBlock)completionHandler {
 	return [self enqueueGETPath:@"posts/stream/global"
 					 parameters:nil
 						success:[self successHandlerForCollectionOfResourceClass:[ANKPost class] clientHandler:completionHandler]
@@ -29,7 +29,7 @@
 
 // http://developers.app.net/docs/resources/post/streams/#retrieve-tagged-posts
 
-- (ANKJSONRequestOperation *)fetchPostsWithHashtag:(NSString *)hashtag completion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)fetchPostsWithHashtag:(NSString *)hashtag completion:(ANKClientCompletionBlock)completionHandler {
 	return [self enqueueGETPath:[NSString stringWithFormat:@"posts/tag/%@", hashtag]
 					 parameters:nil
 						success:[self successHandlerForCollectionOfResourceClass:[ANKPost class] clientHandler:completionHandler]
@@ -39,12 +39,12 @@
 
 // http://developers.app.net/docs/resources/post/streams/#retrieve-posts-created-by-a-user
 
-- (ANKJSONRequestOperation *)fetchPostsCreatedByUser:(ANKUser *)user completion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)fetchPostsCreatedByUser:(ANKUser *)user completion:(ANKClientCompletionBlock)completionHandler {
 	return [self fetchPostsCreatedByUserWithID:user.userID completion:completionHandler];
 }
 
 
-- (ANKJSONRequestOperation *)fetchPostsCreatedByUserWithID:(NSString *)userID completion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)fetchPostsCreatedByUserWithID:(NSString *)userID completion:(ANKClientCompletionBlock)completionHandler {
 	return [self enqueueGETPath:[NSString stringWithFormat:@"users/%@/posts", userID]
 					 parameters:nil
 						success:[self successHandlerForCollectionOfResourceClass:[ANKPost class] clientHandler:completionHandler]
@@ -54,12 +54,12 @@
 
 // http://developers.app.net/docs/resources/post/streams/#retrieve-posts-mentioning-a-user
 
-- (ANKJSONRequestOperation *)fetchPostsMentioningUser:(ANKUser *)user completion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)fetchPostsMentioningUser:(ANKUser *)user completion:(ANKClientCompletionBlock)completionHandler {
 	return [self fetchPostsMentioningUserWithID:user.userID completion:completionHandler];
 }
 
 
-- (ANKJSONRequestOperation *)fetchPostsMentioningUserWithID:(NSString *)userID completion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)fetchPostsMentioningUserWithID:(NSString *)userID completion:(ANKClientCompletionBlock)completionHandler {
 	return [self enqueueGETPath:[NSString stringWithFormat:@"users/%@/mentions", userID]
 					 parameters:nil
 						success:[self successHandlerForCollectionOfResourceClass:[ANKPost class] clientHandler:completionHandler]
@@ -69,7 +69,7 @@
 
 // http://developers.app.net/docs/resources/post/streams/#retrieve-a-users-personalized-stream
 
-- (ANKJSONRequestOperation *)fetchStreamForCurrentUserWithCompletion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)fetchStreamForCurrentUserWithCompletion:(ANKClientCompletionBlock)completionHandler {
 	return [self enqueueGETPath:@"posts/stream"
 					 parameters:nil
 						success:[self successHandlerForCollectionOfResourceClass:[ANKPost class] clientHandler:completionHandler]
@@ -79,7 +79,7 @@
 
 // http://developers.app.net/docs/resources/post/streams/#retrieve-a-users-unified-stream
 
-- (ANKJSONRequestOperation *)fetchUnifiedStreamForCurrentUserWithCompletion:(ANKClientCompletionBlock)completionHandler {
+- (AFHTTPRequestOperation *)fetchUnifiedStreamForCurrentUserWithCompletion:(ANKClientCompletionBlock)completionHandler {
 	return [self enqueueGETPath:@"posts/stream/unified"
 					 parameters:nil
 						success:[self successHandlerForCollectionOfResourceClass:[ANKPost class] clientHandler:completionHandler]

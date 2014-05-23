@@ -17,16 +17,16 @@
 
 @interface ANKClient (ANKPostStreams)
 
-- (ANKJSONRequestOperation *)fetchGlobalStreamWithCompletion:(ANKClientCompletionBlock)completionHandler;
-- (ANKJSONRequestOperation *)fetchPostsWithHashtag:(NSString *)hashtag completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)fetchGlobalStreamWithCompletion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)fetchPostsWithHashtag:(NSString *)hashtag completion:(ANKClientCompletionBlock)completionHandler;
 
-- (ANKJSONRequestOperation *)fetchPostsCreatedByUser:(ANKUser *)user completion:(ANKClientCompletionBlock)completionHandler;
-- (ANKJSONRequestOperation *)fetchPostsCreatedByUserWithID:(NSString *)userID completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)fetchPostsCreatedByUser:(ANKUser *)user completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)fetchPostsCreatedByUserWithID:(NSString *)userID completion:(ANKClientCompletionBlock)completionHandler;
 
-- (ANKJSONRequestOperation *)fetchPostsMentioningUser:(ANKUser *)user completion:(ANKClientCompletionBlock)completionHandler;
-- (ANKJSONRequestOperation *)fetchPostsMentioningUserWithID:(NSString *)userID completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)fetchPostsMentioningUser:(ANKUser *)user completion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)fetchPostsMentioningUserWithID:(NSString *)userID completion:(ANKClientCompletionBlock)completionHandler;
 
-- (ANKJSONRequestOperation *)fetchStreamForCurrentUserWithCompletion:(ANKClientCompletionBlock)completionHandler;
-- (ANKJSONRequestOperation *)fetchUnifiedStreamForCurrentUserWithCompletion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)fetchStreamForCurrentUserWithCompletion:(ANKClientCompletionBlock)completionHandler;
+- (AFHTTPRequestOperation *)fetchUnifiedStreamForCurrentUserWithCompletion:(ANKClientCompletionBlock)completionHandler;
 
 @end

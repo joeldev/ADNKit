@@ -11,7 +11,7 @@
 @interface ANKStreamContext ()
 
 @property (nonatomic, weak) id<ANKStreamingDelegate> delegate;
-@property (nonatomic, strong) ANKJSONRequestOperation *operation;
+@property (nonatomic, strong) AFHTTPRequestOperation *operation;
 
 @end
 
@@ -20,11 +20,11 @@
 #pragma mark -
 #pragma mark Designated Initializer
 
-+ (instancetype)streamContextWithOperation:(ANKJSONRequestOperation *)operation identifier:(NSString *)identifier delegate:(id<ANKStreamingDelegate>)delegate {
++ (instancetype)streamContextWithOperation:(AFHTTPRequestOperation *)operation identifier:(NSString *)identifier delegate:(id<ANKStreamingDelegate>)delegate {
     return [[[self class] alloc] initWithOperation:operation identifier:identifier delegate:delegate];
 }
 
-- (instancetype)initWithOperation:(ANKJSONRequestOperation *)operation identifier:(NSString *)identifier delegate:(id<ANKStreamingDelegate>)delegate {
+- (instancetype)initWithOperation:(AFHTTPRequestOperation *)operation identifier:(NSString *)identifier delegate:(id<ANKStreamingDelegate>)delegate {
     if ((self = [super init])) {
         self.operation = operation;
         self.identifier = identifier;

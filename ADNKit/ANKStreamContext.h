@@ -12,13 +12,13 @@
 
 #pragma mark - Designated Initializer
 
-+ (instancetype)streamContextWithOperation:(ANKJSONRequestOperation *)operation identifier:(NSString *)identifier delegate:(id<ANKStreamingDelegate>)delegate;
-- (instancetype)initWithOperation:(ANKJSONRequestOperation *)operation identifier:(NSString *)identifier delegate:(id<ANKStreamingDelegate>)delegate;
++ (instancetype)streamContextWithOperation:(AFHTTPRequestOperation *)operation identifier:(NSString *)identifier delegate:(id<ANKStreamingDelegate>)delegate;
+- (instancetype)initWithOperation:(AFHTTPRequestOperation *)operation identifier:(NSString *)identifier delegate:(id<ANKStreamingDelegate>)delegate;
 
 #pragma mark - Internal
 
 @property (nonatomic, weak, readonly) id<ANKStreamingDelegate> delegate;
-@property (nonatomic, strong, readonly) ANKJSONRequestOperation *operation;
+@property (nonatomic, strong, readonly) AFHTTPRequestOperation *operation;
 
 #pragma mark - API Level
 

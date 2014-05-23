@@ -59,6 +59,12 @@ static NSString *const kANKErrorIDKey = @"ANKErrorID";
 @property (strong) NSString *errorSlug;
 @property (strong) NSString *errorID;
 
+// rate limits
+@property (strong) NSString *rateLimitRemaining;
+@property (strong) NSString *rateLimitLimit;
+@property (strong) NSString *rateLimitReset;
+@property (strong) NSString *rateLimitRetryAfter;
+
 // user streaming properties
 @property (assign) BOOL isDeleted;
 @property (strong) NSString *deletedID;

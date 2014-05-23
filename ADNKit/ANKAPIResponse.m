@@ -1,9 +1,9 @@
 /*
  Copyright (c) 2013, Joel Levin
  All rights reserved.
- 
+
  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
- 
+
  Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
  Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
  Neither the name of ADNKit nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
@@ -11,6 +11,7 @@
  */
 
 #import "ANKAPIResponse.h"
+#import "ANKResourceMap.h"
 #import "ANKAPIResponseMeta.h"
 
 
@@ -24,12 +25,20 @@
 
 @implementation ANKAPIResponse
 
-- (id)initWithResponseObject:(id)responseObject {
+- (id)initWithResponseObject:(id)responseObject andHeaders:(NSDictionary*)headers{
 	if ((self = [super init])) {
 		if ([responseObject isKindOfClass:[NSDictionary class]]) {
 			NSDictionary *responseDictionary = (NSDictionary *)responseObject;
 			self.data = responseDictionary[@"data"];
-			self.meta = [ANKAPIResponseMeta objectFromJSONDictionary:responseDictionary[@"meta"]];
+			self.meta = [ANKResolve(ANKAPIResponseMeta) objectFromJSONDictionary:responseDictionary[@"meta"]];
+
+			if (headers)
+			{
+				self.meta.rateLimitReset = [headers objectForKey:@"X-RateLimit-Reset"];
+				self.meta.rateLimitRemaining = [headers objectForKey:@"X-RateLimit-Remaining"];
+				self.meta.rateLimitLimit = [headers objectForKey:@"X-RateLimit-Limit"];
+				self.meta.rateLimitRetryAfter = [headers objectForKey:@"Retry-After"];
+			}
 		}
 	}
 	return self;
